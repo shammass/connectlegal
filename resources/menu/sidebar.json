@@ -1,0 +1,42 @@
+{
+    "menu": [
+      {
+        "url": "admin/dashboard",
+        "name": "Dashboard",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "dashboard"
+      },
+      {
+        "url": "/admin/arbitration-area",
+        "name": "Arbitration Area",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "arbitration-area"
+      },
+      {
+        "url": "/admin/lawyers",
+        "name": "Lawyers",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "lawyers"
+      },
+      {
+        "url": "/admin/forums/0",
+        "name": "Forums",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "forums"
+      },
+      {
+        "url": "/admin/testimonials",
+        "name": "Testimonials",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "testimonials"
+      },
+      {
+        "url": "/admin/contact-us",
+        "name": "Contact Us",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "contact-us"
+      }
+      
+    ]
+  }
+  
