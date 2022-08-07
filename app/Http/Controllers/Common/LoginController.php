@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Lawyer;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,12 +30,13 @@ class LoginController extends Controller
     public function registerLawyer(Request $request) {
         // print_r($request->all());exit;
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', Rules\Password::defaults()],
-            'contact_number' => ['required', 'numeric'],
-            'position' => ['required', 'string', 'max:255'],
-            'linkedin' => ['required', 'string', 'max:255'],
+            'name'              =>          ['required', 'string', 'max:255'],
+            'email'             =>          ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password'          =>          ['required', Rules\Password::defaults()],
+            'contact_number'    =>          ['required', 'numeric'],
+            'position'          =>          ['required', 'string', 'max:255'],
+            'linkedin'          =>          ['required', 'string', 'max:255'],
+            'calendly_link'     =>          ['required', 'string', 'max:255'],
         ]);
             
         $user = User::create([
@@ -55,6 +57,7 @@ class LoginController extends Controller
             'landline_number' => $request->lawfirm_name,
             'position' => $request->position,
             'linkedin_profile' => $request->linkedin,
+            'calendly_link' => $request->calendly_link,
         ]);
 
         event(new Registered($user));
@@ -115,6 +118,11 @@ class LoginController extends Controller
     }
 
     public function logout(Request $request) {
+        if(auth()->user()->user_type == 2) {
+            // last seen
+            Lawyer::where('user_id', auth()->user()->id)->update(['last_active_at' => (new \DateTime())->format("Y-m-d H:i:s")]);
+            Cache::put('user-is-online-' . Auth::user()->id, true, $seconds=1);
+        }
         Auth::guard('web')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();

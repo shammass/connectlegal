@@ -30,6 +30,7 @@ Route::post('/forum',                   [CommonController::class, 'storeForum'])
 Route::post('/contact-us',              [CommonController::class, 'storeContactUs'])->name('store.contact-us');
 Route::post('/store-testimonial',       [CommonController::class, 'storeTestimonials'])->name('store.testimonials');
 Route::get('/testimonial',              [CommonController::class, 'testimonials'])->name('testimonials');
+Route::get('/book-a-meeting/{id}',      [CommonController::class, 'bookAMeeting'])->name('book-a-meeting');
 
 #Q&A
 Route::get('/question-&-answers',       [CommonController::class, 'questionAnswer'])->name('question-answer');

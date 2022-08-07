@@ -1,3 +1,6 @@
+@php 
+    $lawyers = App\Models\Lawyer::whereIsVerified(1)->get();
+@endphp
 <header class="side-menu menu-style-2">
     <!-- start sidebar strip -->
     <div class="sidebar-nav-action" style="background-color:#041d43;">
@@ -61,162 +64,75 @@
                             <ul class="list-style-08">
                                 <hr>
                                 <strong>Lawyers Online</strong>
-                                <hr>
-                                <li class="border-bottom border-color-black-transparent" style="padding: 0px 0;">
-                                    <a class="modal-popup" href="#modal-popup2">
-                                        <img class="rounded-circle border-all border-width-6px border-color-green box-shadow-small margin-25px-right xs-w-40px xs-margin-4px-right" src="https://via.placeholder.com/73x73" alt="" style="width: 50px;"/>
-                                    </a>
-                                    <div class="w-100 lg-w-65 xs-w-60 xs-margin-10px-right last-paragraph-no-margin avatar avatar-online">
-                                        <span class="font-weight-300 text-small text-white">Green salad</span>
-                                        <small><p>UAE, Dubai</p></small>
-                                    </div>
-                                    <div id="modal-popup2" class="col-11 col-xl-3 col-lg-6 col-md-8 col-sm-9 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
-                                        <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray">
-                                            <li class="padding-15px-bottom border-bottom border-color-medium-gray"><i class="feather  icon-feather-message-square text-large text-black margin-10px-right"></i>Post a question</li>
-                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i>Chat online</li>
-                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i>Request a callback</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i>Book a meeting</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i>Hire a lawyer</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
-                                        </ul>
-                                        <a class="btn btn-fancy btn-small btn-transparent-light-gray popup-modal-dismiss" href="#">Dismiss</a>
-                                    </div>
-                                    <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
-                                </li>
-                                <hr>
-                                <li class="border-bottom border-color-black-transparent" style="padding: 0px 0;">
-                                    <a class="modal-popup" href="#modal-popup2">
-                                        <img class="rounded-circle border-all border-width-6px border-color-green box-shadow-small margin-25px-right xs-w-40px xs-margin-4px-right" src="https://via.placeholder.com/73x73" alt="" style="width: 50px;"/>
-                                    </a>
-                                    <div class="w-100 lg-w-65 xs-w-60 xs-margin-10px-right last-paragraph-no-margin avatar avatar-online">
-                                        <span class="font-weight-300 text-small text-white">Green salad</span>
-                                        <small><p>UAE, Dubai</p></small>
-                                    </div>
-                                    <div id="modal-popup2" class="col-11 col-xl-3 col-lg-6 col-md-8 col-sm-9 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
-                                        <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray">
-                                            <li class="padding-15px-bottom border-bottom border-color-medium-gray"><i class="feather  icon-feather-message-square text-large text-black margin-10px-right"></i>Post a question</li>
-                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i>Chat online</li>
-                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i>Request a callback</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i>Book a meeting</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i>Hire a lawyer</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
-                                        </ul>
-                                        <a class="btn btn-fancy btn-small btn-transparent-light-gray popup-modal-dismiss" href="#">Dismiss</a>
-                                    </div>
-                                    <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
-                                </li>
-                                <hr>
-                                <li class="border-bottom border-color-black-transparent" style="padding: 0px 0;">
-                                    <a class="modal-popup" href="#modal-popup2">
-                                        <img class="rounded-circle border-all border-width-6px border-color-green box-shadow-small margin-25px-right xs-w-40px xs-margin-4px-right" src="https://via.placeholder.com/73x73" alt="" style="width: 50px;"/>
-                                    </a>
-                                    <div class="w-100 lg-w-65 xs-w-60 xs-margin-10px-right last-paragraph-no-margin avatar avatar-online">
-                                        <span class="font-weight-300 text-small text-white">Green salad</span>
-                                        <small><p>UAE, Dubai</p></small>
-                                    </div>
-                                    <div id="modal-popup2" class="col-11 col-xl-3 col-lg-6 col-md-8 col-sm-9 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
-                                        <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray">
-                                            <li class="padding-15px-bottom border-bottom border-color-medium-gray"><i class="feather  icon-feather-message-square text-large text-black margin-10px-right"></i>Post a question</li>
-                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i>Chat online</li>
-                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i>Request a callback</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i>Book a meeting</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i>Hire a lawyer</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
-                                        </ul>
-                                        <a class="btn btn-fancy btn-small btn-transparent-light-gray popup-modal-dismiss" href="#">Dismiss</a>
-                                    </div>
-                                    <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
-                                </li>
-                                <hr>
-                                <li class="border-bottom border-color-black-transparent" style="padding: 0px 0;">
-                                    <a class="modal-popup" href="#modal-popup2">
-                                        <img class="rounded-circle border-all border-width-6px border-color-green box-shadow-small margin-25px-right xs-w-40px xs-margin-4px-right" src="https://via.placeholder.com/73x73" alt="" style="width: 50px;"/>
-                                    </a>
-                                    <div class="w-100 lg-w-65 xs-w-60 xs-margin-10px-right last-paragraph-no-margin avatar avatar-online">
-                                        <span class="font-weight-300 text-small text-white">Green salad</span>
-                                        <small><p>UAE, Dubai</p></small>
-                                    </div>
-                                    <div id="modal-popup2" class="col-11 col-xl-3 col-lg-6 col-md-8 col-sm-9 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
-                                        <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray">
-                                            <li class="padding-15px-bottom border-bottom border-color-medium-gray"><i class="feather  icon-feather-message-square text-large text-black margin-10px-right"></i>Post a question</li>
-                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i>Chat online</li>
-                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i>Request a callback</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i>Book a meeting</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i>Hire a lawyer</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
-                                        </ul>
-                                        <a class="btn btn-fancy btn-small btn-transparent-light-gray popup-modal-dismiss" href="#">Dismiss</a>
-                                    </div>
-                                    <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
-                                </li>
-                                <hr>
-                                <li class="border-bottom border-color-black-transparent" style="padding: 0px 0;">
-                                    <a class="modal-popup" href="#modal-popup2">
-                                        <img class="rounded-circle border-all border-width-6px border-color-green box-shadow-small margin-25px-right xs-w-40px xs-margin-4px-right" src="https://via.placeholder.com/73x73" alt="" style="width: 50px;"/>
-                                    </a>
-                                    <div class="w-100 lg-w-65 xs-w-60 xs-margin-10px-right last-paragraph-no-margin avatar avatar-online">
-                                        <span class="font-weight-300 text-small text-white">Green salad</span>
-                                        <small><p>UAE, Dubai</p></small>
-                                    </div>
-                                    <div id="modal-popup2" class="col-11 col-xl-3 col-lg-6 col-md-8 col-sm-9 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
-                                        <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray">
-                                            <li class="padding-15px-bottom border-bottom border-color-medium-gray"><i class="feather  icon-feather-message-square text-large text-black margin-10px-right"></i>Post a question</li>
-                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i>Chat online</li>
-                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i>Request a callback</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i>Book a meeting</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i>Hire a lawyer</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
-                                        </ul>
-                                        <a class="btn btn-fancy btn-small btn-transparent-light-gray popup-modal-dismiss" href="#">Dismiss</a>
-                                    </div>
-                                    <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
-                                </li>
-                                <hr>
-                                <li class="border-bottom border-color-black-transparent" style="padding: 0px 0;">
-                                    <a class="modal-popup" href="#modal-popup2">
-                                        <img class="rounded-circle border-all border-width-6px border-color-green box-shadow-small margin-25px-right xs-w-40px xs-margin-4px-right" src="https://via.placeholder.com/73x73" alt="" style="width: 50px;"/>
-                                    </a>
-                                    <div class="w-100 lg-w-65 xs-w-60 xs-margin-10px-right last-paragraph-no-margin avatar avatar-online">
-                                        <span class="font-weight-300 text-small text-white">Green salad</span>
-                                        <small><p>UAE, Dubai</p></small>
-                                    </div>
-                                    <div id="modal-popup2" class="col-11 col-xl-3 col-lg-6 col-md-8 col-sm-9 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
-                                        <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray">
-                                            <li class="padding-15px-bottom border-bottom border-color-medium-gray"><i class="feather  icon-feather-message-square text-large text-black margin-10px-right"></i>Post a question</li>
-                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i>Chat online</li>
-                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i>Request a callback</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i>Book a meeting</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i>Hire a lawyer</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
-                                        </ul>
-                                        <a class="btn btn-fancy btn-small btn-transparent-light-gray popup-modal-dismiss" href="#">Dismiss</a>
-                                    </div>
-                                    <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
-                                </li>
-                                <hr>
+                                @foreach($lawyers as $k => $lawyer)
+                                    @if($lawyer->user->isOnline())
+                                        <hr>
+                                        <li class="border-bottom border-color-black-transparent" style="padding: 0px 0;">
+                                            <a class="modal-popup" href="#modal-popup{{$lawyer->id}}">
+                                                <img class="rounded-circle border-all border-width-6px border-color-green box-shadow-small margin-25px-right xs-w-40px xs-margin-4px-right" src="/logo.png" alt="" style="width: 50px;"/>
+                                            </a>
+                                            <div class="w-100 lg-w-65 xs-w-60 xs-margin-10px-right last-paragraph-no-margin avatar avatar-online">
+                                                <span class="font-weight-300 text-small text-white">{{$lawyer->user->name}}</span>
+                                                <small><p>{{$lawyer->emirates}}</p></small>
+                                            </div>
+                                            <div id="modal-popup{{$lawyer->id}}" class="col-11 col-xl-3 col-lg-6 col-md-8 col-sm-9 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
+                                                <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray">
+                                                    <li class="padding-15px-bottom border-bottom border-color-medium-gray"><i class="feather  icon-feather-message-square text-large text-black margin-10px-right"></i>Post a question</li>
+                                                    <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i>Chat online</li>
+                                                    <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i>Request a callback</li>
+                                                    <li class="padding-15px-tb"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i><a href="{{route('book-a-meeting', $lawyer->id)}}" style="color:black;">Book a meeting</a></li>
+                                                    <li class="padding-15px-tb"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i>Hire a lawyer</li>
+                                                    <li class="padding-15px-tb"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
+                                                </ul>
+                                                <a class="btn btn-fancy btn-small btn-transparent-light-gray popup-modal-dismiss" href="#">Dismiss</a>
+                                            </div>
+                                            <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
+                                        </li>
+                                        <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
+                                        
+                                        <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
+                                        <hr>
+                                    @endif
+                                @endforeach
+                                
                                 <strong>Lawyers Offline</strong>
-                                <hr>
-                                <li class="border-bottom border-color-black-transparent" style="padding: 0px 0;margin-bottom: 35px;">
-                                    <a class="modal-popup" href="#modal-popup2">
-                                        <img class="rounded-circle border-all border-width-6px border-color-green box-shadow-small margin-25px-right xs-w-40px xs-margin-4px-right" src="https://via.placeholder.com/73x73" alt="" style="width: 50px;border-color:red!important;"/>
-                                    </a>
-                                    <div class="w-100 lg-w-65 xs-w-60 xs-margin-10px-right last-paragraph-no-margin avatar avatar-online">
-                                        <span class="font-weight-300 text-small text-white">Green salad</span>
-                                        <small><p>UAE, Dubai</p></small>
-                                    </div>
-                                    <div id="modal-popup2" class="col-11 col-xl-3 col-lg-6 col-md-8 col-sm-9 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
-                                        <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray">
-                                            <li class="padding-15px-bottom border-bottom border-color-medium-gray"><i class="feather  icon-feather-message-square text-large text-black margin-10px-right"></i>Post a question</li>
-                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i>Chat online</li>
-                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i>Request a callback</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i>Book a meeting</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i>Hire a lawyer</li>
-                                            <li class="padding-15px-tb"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
-                                        </ul>
-                                        <a class="btn btn-fancy btn-small btn-transparent-light-gray popup-modal-dismiss" href="#">Dismiss</a>
-                                    </div>
-                                    <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
-                                </li>
+                                @foreach($lawyers as $k => $lawyer)
+                                    @if(!$lawyer->user->isOnline())
+                                        <hr>
+                                        <li class="border-bottom border-color-black-transparent" style="padding: 0px 0;margin-bottom: 35px;">
+                                            <a class="modal-popup" href="#modal-popup{{$lawyer->id}}">
+                                                <img class="rounded-circle border-all border-width-6px border-color-green box-shadow-small margin-25px-right xs-w-40px xs-margin-4px-right" src="/logo.png" alt="" style="width: 50px;border-color:red!important;"/>
+                                            </a>
+                                            <div class="w-100 lg-w-65 xs-w-60 xs-margin-10px-right last-paragraph-no-margin avatar avatar-online">
+                                                <span class="font-weight-300 text-small text-white">{{$lawyer->user->name}}</span>
+                                                <small><p>{{$lawyer->emirates}}</p></small>
+                                            </div>
+                                            <div id="modal-popup{{$lawyer->id}}" class="col-11 col-xl-3 col-lg-6 col-md-8 col-sm-9 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
+                                                <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray">
+                                                    <li class="padding-15px-bottom border-bottom border-color-medium-gray"><i class="feather  icon-feather-message-square text-large text-black margin-10px-right"></i>Post a question</li>
+                                                    <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i>Chat online</li>
+                                                    <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i>Request a callback</li>
+                                                    <li class="padding-15px-tb"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i><a href="#modal-popup3" class="modal-popup" onclick="bookAMeeting('{{$lawyer->id}}')" style="color:black;">Book a meeting</a></li>
+                                                    <li class="padding-15px-tb"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i>Hire a lawyer</li>
+                                                    <li class="padding-15px-tb"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
+                                                </ul>
+                                                <a class="btn btn-fancy btn-small btn-transparent-light-gray popup-modal-dismiss" href="#">Dismiss</a>
+                                            </div>
+                                            <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
+                                            <div id="modal-popup-{{$lawyer->id}}" class="col-11 col-xl-12 col-lg-12 col-md-12 col-sm-12 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
+                                                <!-- start section -->
+                                                <div class="calendly-inline-widget" style="min-width:320px;height:580px;" data-auto-load="false">
+                                                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+                                                <script>
+                                                    Calendly.initInlineWidget({
+                                                        url: '{{$lawyer->calendly_link}}'
+                                                    });
+                                                </script>
+                                            </div>
+                                        </li>
+                                        <hr>
+                                    @endif
+                                @endforeach
                             </ul>
                         </div>
                     </div>

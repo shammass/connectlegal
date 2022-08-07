@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class Lawyer extends Model
 {
@@ -11,6 +12,7 @@ class Lawyer extends Model
 
     protected $fillable = [
         'user_id',
+        'profile_pic',
         'law_firm_name',
         'law_firm_website',
         'emirates',
@@ -19,6 +21,7 @@ class Lawyer extends Model
         'landline_number',
         'position',
         'linkedin_profile',
+        'calendly_link',
         'language',
         'moj_reg_no',
         'arbitration_area_id',
@@ -39,6 +42,5 @@ class Lawyer extends Model
 
     public function arbitration() {
         return $this->belongsTo(ArbitrationArea::class);
-    }
-
+    }    
 }

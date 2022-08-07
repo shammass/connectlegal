@@ -85,6 +85,10 @@
                                 @error('linkedin')
                                     <span class="error-msg" style="color:red;">{{ $message }}</span>
                                 @enderror  
+                                <input class="input-border-bottom border-color-extra-dark-gray bg-transparent placeholder-dark medium-input text-black px-0 margin-25px-bottom border-radius-0px required" type="text" value="{{ old('calendly_link') }}" name="calendly_link" placeholder="Your Calendly Link - Ex: https://calendly.com/abcd" />
+                                @error('calendly_link')
+                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                @enderror  
                                 <input class="input-border-bottom border-color-extra-dark-gray bg-transparent placeholder-dark medium-input text-black px-0 margin-25px-bottom border-radius-0px required" type="password" name="password" placeholder="Password" />
                                 @error('password')
                                     <span class="error-msg" style="color:red;">{{ $message }}</span>

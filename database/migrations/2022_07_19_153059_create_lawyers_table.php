@@ -21,6 +21,7 @@ return new class extends Migration
 				->references('id')->on('users')
                 ->onDelete('cascade');
                 
+            $table->string('profile_pic')->nullable();
             $table->string('law_firm_name')->nullable();
             $table->string('law_firm_website')->nullable();
             $table->string('emirates')->nullable();
@@ -31,6 +32,7 @@ return new class extends Migration
             $table->string('linkedin_profile')->nullable();
             $table->string('language')->nullable();
             $table->string('moj_reg_no')->nullable();            
+            $table->string('calendly_link')->nullable();            
 
             $table->unsignedBigInteger('arbitration_area_id')->nullable();
 			$table->foreign('arbitration_area_id')

@@ -1,7 +1,6 @@
 @extends('common.layouts.app')
 @section('content')
-    @include('common.layouts.banner')
-    <!-- start section -->
+    @include('common.layouts.banner')    
     <section class="padding-eight-bottom border-bottom border-color-extra-light-gray padding-25px-top md-padding-8-rem-bottom sm-padding-50px-top">
         <div class="container">
             <div class="row justify-content-center">
@@ -426,6 +425,7 @@
 @endsection
 @section('script')
     <script>
+        url = null;
         function validateLogin(event) {
             valid = true
             var email = $("#email").val()
@@ -443,7 +443,6 @@
             }
 
             if(!valid) {
-                debugger
                 event.preventDefault()
             }
         }

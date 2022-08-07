@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ContactUs;
 use App\Models\Forum;
+use App\Models\Lawyer;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
@@ -74,5 +75,10 @@ class CommonController extends Controller
             ->get();
 
         return view('common.testimonials', compact('testimonials'));
+    }
+
+    public function bookAMeeting($id) {
+        $lawyer = Lawyer::whereId($id)->first();
+        return view('common.book-meeting',  compact('lawyer'));
     }
 }
