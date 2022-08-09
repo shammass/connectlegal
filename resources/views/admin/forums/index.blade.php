@@ -43,7 +43,7 @@
                         </div>
                         <div class="card-footer">
                             @if(!$forum->deleted_at)
-                                <button type="button" class="{{$forum->is_verified ? 'btn btn-warning' : 'btn btn-primary'}}" onclick="verifyForum('{{$forum->id}}', {{$forum->is_verified}}, {{$forum->title}})">{{$forum->is_verified ? 'Move To Pending' : 'Approve'}}</button>
+                                <button type="button" class="{{$forum->is_verified ? 'btn btn-warning' : 'btn btn-primary'}}" onclick="verifyForum('{{$forum->id}}', '{{$forum->is_verified}}', '{{$forum->title}}')">{{$forum->is_verified ? 'Move To Pending' : 'Approve'}}</button>
                                 <a href="{{route('admin.delete.forum', $forum->id)}}" type="submit" class="btn btn-danger nav-item p-2" onclick="return confirm('Are you sure?')"><i class="fa fa-trash-o">Delete It</i></a>
                             @else
                                 <button type="button" class="{{$forum->is_verified ? 'btn btn-warning' : 'btn btn-primary'}}" onclick="verifyForum('{{$forum->id}}', 1, '', 'deleted')">Move To Pending</button>
