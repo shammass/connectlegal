@@ -54,7 +54,7 @@ class LoginController extends Controller
             'emirates' => $request->emirate,
             'office_address' => $request->office_address,            
             'contact_number' => $request->contact_number,
-            'landline_number' => $request->lawfirm_name,
+            'landline_number' => $request->landline_number,
             'position' => $request->position,
             'linkedin_profile' => $request->linkedin,
             'calendly_link' => $request->calendly_link,

@@ -37,34 +37,7 @@ Route::get('/question-&-answers',       [CommonController::class, 'questionAnswe
 
 Route::get('/unauthenticated-user',           [LoginController::class, 'unauthenticated'])->name('unauthenticated');
 
-
-#################                           LAWYER                  ###################################
-
-Route::group(['middleware' => ['web']], function () {
-    Route::prefix('lawyer')->group(function () { 
-        Route::get('/register',                    [LoginController::class, 'register'])->name('lawyer.register-page');
-        Route::post('/registration',               [LoginController::class, 'registerLawyer'])->name('lawyer.register');
-        
-        Route::group(['middleware' => ['lawyerauth']], function () {
-            Route::get('/logout',                 [LoginController::class, 'logout'])->name('logout');
-            Route::get('/dashboard',              [LawyerDashboardController::class, 'index'])->name('lawyer.dashboard');
-            Route::get('/profile',                [LawyerDashboardController::class, 'profile'])->name('lawyer.profile');
-        });
-    });
-});
-
-Route::get('/customer/login',    [HomeController::class, 'login'])->name('customer.login');
-Route::get('/',                  [HomeController::class, 'home'])->name('home');
-
-#################                           LAWYER                  ###################################
-
-
-
-
-
-
-
-$controller_path = 'App\Http\Controllers';
+#################                           ADMIN                  ###################################
 
 Route::prefix('admin')->group(function () {
     Route::get('/',                            [Controller::class, 'redirectToLogin']);
@@ -113,6 +86,38 @@ Route::prefix('admin')->group(function () {
 
     });
 });
+#################                           ADMIN                  ###################################
+
+
+
+
+#################                           LAWYER                  ###################################
+Route::group(['middleware' => ['web']], function () {
+    Route::prefix('lawyer')->group(function () { 
+        Route::get('/register',                    [LoginController::class, 'register'])->name('lawyer.register-page');
+        Route::post('/registration',               [LoginController::class, 'registerLawyer'])->name('lawyer.register');
+        
+        Route::group(['middleware' => ['lawyerauth']], function () {
+            Route::get('/logout',                 [LoginController::class, 'logout'])->name('logout');
+            Route::get('/dashboard',              [LawyerDashboardController::class, 'index'])->name('lawyer.dashboard');
+            Route::get('/profile',                [LawyerDashboardController::class, 'profile'])->name('lawyer.profile');
+            Route::POST('/profile/update/{id}',   [LawyerDashboardController::class, 'updateProfile'])->name('lawyer.update_profile');
+        });
+    });
+});
+
+Route::get('/customer/login',    [HomeController::class, 'login'])->name('customer.login');
+Route::get('/',                  [HomeController::class, 'home'])->name('home');
+#################                           LAWYER                  ###################################
+
+
+
+
+
+
+
+$controller_path = 'App\Http\Controllers';
+
 
 // layout
 Route::get('/layouts/without-menu', $controller_path . '\layouts\WithoutMenu@index')->name('layouts-without-menu');

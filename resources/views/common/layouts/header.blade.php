@@ -34,6 +34,69 @@
                         <li class="nav-item">
                             <a href="{{route('testimonials')}}" class="nav-link" style="color: white;">Testimonials</a>
                         </li>
+                        <li class="nav-item dropdown simple-dropdown">
+                            <a href="#" class="nav-link">Lawyers</a>
+                            <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="dropdown">
+                                    <a href="#">Corporate Lawyers</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Criminal Lawyers</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Divorce Lawyers</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Labout Lawyers</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Family Lawyers</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Immigration Lawyers</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown simple-dropdown">
+                            <a href="#" class="nav-link">Practice Area</a>
+                            <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="dropdown">
+                                    <a href="#">Project And Construction</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">UAE Labour Law</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Energy</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Banking And Finance</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">General Civil Law</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Commercial Property</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Corporate Commercial Law</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Islamic Finance</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Criminal</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Family</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Accident Law</a>
+                                </li>
+                            </ul>
+                        </li>
                         @if(auth()->user())
                             <li class="nav-item">
                                 <a href="{{route('logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
