@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\TestimonialsController;
 use App\Http\Controllers\Common\LoginController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\lawyer\CalendlyController;
 use App\Http\Controllers\Lawyer\DashboardController as LawyerDashboardController;
 use App\Http\Controllers\Lawyer\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -102,6 +103,9 @@ Route::group(['middleware' => ['web']], function () {
             Route::get('/dashboard',              [LawyerDashboardController::class, 'index'])->name('lawyer.dashboard');
             Route::get('/profile',                [LawyerDashboardController::class, 'profile'])->name('lawyer.profile');
             Route::POST('/profile/update/{id}',   [LawyerDashboardController::class, 'updateProfile'])->name('lawyer.update_profile');
+            
+            Route::get('/scheduled-events',  [CalendlyController::class, 'scheduledEvents'])->name('lawyer.scheduled-events');
+
         });
     });
 });
