@@ -9,7 +9,7 @@ use App\Http\Controllers\admin\TestimonialsController;
 use App\Http\Controllers\Common\LoginController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\lawyer\CalendlyController;
+use App\Http\Controllers\Lawyer\CalendlyController;
 use App\Http\Controllers\Lawyer\DashboardController as LawyerDashboardController;
 use App\Http\Controllers\Lawyer\HomeController;
 use Illuminate\Support\Facades\Route;
