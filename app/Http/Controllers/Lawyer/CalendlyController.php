@@ -68,7 +68,6 @@ class CalendlyController extends Controller
                 $scheduledEvents = json_decode($response);
             }
         }
-        // print_r($scheduledEvents->collection);exit;
         $scheduleMeeting = new ScheduleMeeting();
         return view('lawyer.calendly.scheduled-events', compact('scheduledEvents', 'scheduleMeeting'));
     }
