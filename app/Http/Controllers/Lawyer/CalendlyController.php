@@ -11,7 +11,7 @@ class CalendlyController extends Controller
     public function scheduledEvents() {
         $scheduledEvents = null;
         $currentUser = null;
-        $curl = curl_init();
+        $curl = curl_init(); 
         curl_setopt_array($curl, [
         CURLOPT_URL => "https://api.calendly.com/users/me",
         CURLOPT_RETURNTRANSFER => true,
@@ -28,7 +28,6 @@ class CalendlyController extends Controller
 
         $response = curl_exec($curl);
         $err = curl_error($curl);
-
         curl_close($curl);
 
         if ($err) {
