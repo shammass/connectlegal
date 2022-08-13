@@ -5,6 +5,12 @@
         "name": "Dashboard",
         "icon": "menu-icon tf-icons bx bx-home-circle",
         "slug": "dashboard"
+      },
+      {
+        "url": "lawyer/scheduled-events",
+        "name": "Scheduled Events",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "scheduled-events"
       }
     ]
   }
