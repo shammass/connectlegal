@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\lawyer;
 
 use App\Http\Controllers\Controller;
+use App\Models\ScheduleMeeting;
 use Illuminate\Http\Request;
 
 class CalendlyController extends Controller
@@ -69,6 +70,7 @@ class CalendlyController extends Controller
             }
         }
         // print_r($scheduledEvents->collection);exit;
-        return view('lawyer.calendly.scheduled-events', compact('scheduledEvents'));
+        $scheduleMeeting = new ScheduleMeeting();
+        return view('lawyer.calendly.scheduled-events', compact('scheduledEvents', 'scheduleMeeting'));
     }
 }

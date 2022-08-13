@@ -38,6 +38,16 @@ Route::get('/question-&-answers',       [CommonController::class, 'questionAnswe
 
 Route::get('/unauthenticated-user',           [LoginController::class, 'unauthenticated'])->name('unauthenticated');
 
+Route::get('/send-mail',function(){
+    $user = [
+        'name' => 'Shammas',
+        'body' => 'This is simple mail from Shammas'
+    ];
+    
+    \Mail::to('s4shamma@gmail.com')->send(new \App\Mail\TestMail($user));
+      
+});
+
 #################                           ADMIN                  ###################################
 
 Route::prefix('admin')->group(function () {
