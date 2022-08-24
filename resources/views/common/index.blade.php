@@ -444,7 +444,11 @@
 
             if(!valid) {
                 event.preventDefault()
-            }
+            }            
+        }
+
+        function onlineChatting(id) {
+            document.getElementById('lawyerId').value = id
         }
     </script>
 @endsection

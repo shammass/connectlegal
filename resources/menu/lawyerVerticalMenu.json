@@ -11,6 +11,12 @@
         "name": "Scheduled Events",
         "icon": "menu-icon tf-icons bx bx-home-circle",
         "slug": "scheduled-events"
+      },
+      {
+        "url": "lawyer/chat-online-requests",
+        "name": "Chat Online Requests",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "chat-online-request"
       }
     ]
   }
