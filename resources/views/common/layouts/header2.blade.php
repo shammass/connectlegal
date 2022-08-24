@@ -122,7 +122,7 @@
                     <!-- end menu item -->
                 </ul>
                 <ul class="menu-list alt-font alt-font w-70 xl-w-100 margin-auto-lr tab-pane med-text fade in lawyerOnline" id="lawyer-online">
-                <div class="row">
+                    <div class="row">
                         <div class="col-12 col-lg-12">
                             <ul class="list-style-08">
                                 <hr>
@@ -138,14 +138,15 @@
                                                 <span class="font-weight-300 text-small text-white">{{$lawyer->user->name}}</span>
                                                 <small><p>{{$lawyer->emirates}}</p></small>
                                             </div>
+                                            <input type="hidden" id="lawyer" value="{{$lawyer->id}}">
                                             <div id="modal-popup{{$lawyer->id}}" class="col-11 col-xl-3 col-lg-6 col-md-8 col-sm-9 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
                                                 <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray">
                                                     <li class="padding-15px-bottom border-bottom border-color-medium-gray"><i class="feather  icon-feather-message-square text-large text-black margin-10px-right"></i>Post a question</li>
-                                                    <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i>Chat online</li>
+                                                    <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i><a href="#chat-online-form" style="color:black;" class="popup-with-form online-chatting" onclick="onlineChatting({{$lawyer->id}})">Chat online</a></li>
                                                     <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i>Request a callback</li>
-                                                    <li class="padding-15px-tb"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i><a href="{{route('book-a-meeting', $lawyer->id)}}" style="color:black;">Book a meeting</a></li>
-                                                    <li class="padding-15px-tb"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i>Hire a lawyer</li>
-                                                    <li class="padding-15px-tb"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
+                                                    <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i><a href="{{route('book-a-meeting', $lawyer->id)}}" style="color:black;">Book a meeting</a></li>
+                                                    <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i>Hire a lawyer</li>
+                                                    <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
                                                 </ul>
                                                 <a class="btn btn-fancy btn-small btn-transparent-light-gray popup-modal-dismiss" href="#">Dismiss</a>
                                             </div>
@@ -170,10 +171,11 @@
                                                 <span class="font-weight-300 text-small text-white">{{$lawyer->user->name}}</span>
                                                 <small><p>{{$lawyer->emirates}}</p></small>
                                             </div>
+                                            <input type="hidden" id="lawyer" value="{{$lawyer->id}}">
                                             <div id="modal-popup{{$lawyer->id}}" class="col-11 col-xl-3 col-lg-6 col-md-8 col-sm-9 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
                                                 <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray">
                                                     <li class="padding-15px-bottom border-bottom border-color-medium-gray"><i class="feather  icon-feather-message-square text-large text-black margin-10px-right"></i>Post a question</li>
-                                                    <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i>Chat online</li>
+                                                    <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i><a href="#chat-online-form" style="color:black;" class="popup-with-form online-chatting" onclick="onlineChatting({{$lawyer->id}})">Chat online</a></li>
                                                     <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i>Request a callback</li>
                                                     <li class="padding-15px-tb"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i><a href="#modal-popup3" class="modal-popup" onclick="bookAMeeting('{{$lawyer->id}}')" style="color:black;">Book a meeting</a></li>
                                                     <li class="padding-15px-tb"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i>Hire a lawyer</li>
@@ -200,6 +202,33 @@
                         </div>
                     </div>
                 </ul>
+            </div>
+        </div>
+        <div id="chat-online-form" class="white-popup-block col-xl-9 col-lg-7 col-sm-9  p-0 mx-auto mfp-hide">
+            <div class="padding-fifteen-all bg-white border-radius-6px xs-padding-six-all">                
+                <div class="tab-content">    
+                    <form action="{{route('chat-online')}}" method="POST">
+                        @csrf()
+                        <div id="chat">
+                            <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom p-5 text-center">Chat Online</h6> 
+                            <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" name="comment" placeholder="Your message"></textarea>
+                            <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="name" name="name" placeholder="Your Full Name">
+                            <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" placeholder="Your email address">
+                            <input type="hidden" name="redirect" value="">
+                            <input type="hidden" name="lawyerId" id="lawyerId" value="">
+                            <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;float:right;">Submit</button>
+                            <div class="form-results d-none"></div>
+    
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-xl-8 col-lg-10 text-center overlap-gap-section">
+                                    <div class="w-40px h-2px separator-line-vertical margin-30px-tb d-inline-block" style="background-color: #041d43;"></div>
+                                    <h3 class="alt-font font-weight-500 text-extra-dark-gray letter-spacing-minus-1px">Know How It <span class="font-weight-600" style="color:#f0b500;">Works</span></h3>
+                                    <p>Send an instance message and you will get a revert back from a lawyer only if they are online. In case if no lawyers are online, then in that case we will respond you back with a email with regards to your legal issues complete your registration</p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>                
+                </div>
             </div>
         </div>
         <hr>

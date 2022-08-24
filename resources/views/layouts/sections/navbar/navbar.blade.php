@@ -74,17 +74,23 @@ $navbarDetached = ($navbarDetached ?? '');
                     <i class="bx bx-user me-2"></i>
                       <span class="align-middle">My Profile</span>
                   </a>
-
                 @endif
               </li>
               <li>
                 <div class="dropdown-divider"></div>
               </li>
               <li>
-                <a class="dropdown-item" href="{{route('logout')}}">
-                  <i class='bx bx-power-off me-2'></i>
-                  <span class="align-middle">Log Out</span>
-                </a>
+                @if(auth()->user()->user_type == 1)
+                  <a class="dropdown-item" href="{{route('admin.logout')}}">
+                    <i class='bx bx-power-off me-2'></i>
+                    <span class="align-middle">Log Out</span>
+                  </a>
+                @else 
+                  <a class="dropdown-item" href="{{route('logout')}}">
+                    <i class='bx bx-power-off me-2'></i>
+                    <span class="align-middle">Log Out</span>
+                  </a>
+                @endif
               </li>
             </ul>
           </li>

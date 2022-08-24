@@ -10,6 +10,7 @@ use App\Http\Controllers\Common\LoginController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Lawyer\CalendlyController;
+use App\Http\Controllers\Lawyer\ChatOnlineRequestController;
 use App\Http\Controllers\Lawyer\DashboardController as LawyerDashboardController;
 use App\Http\Controllers\Lawyer\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,9 @@ Route::get('/question-&-answers',       [CommonController::class, 'questionAnswe
 
 Route::get('/unauthenticated-user',           [LoginController::class, 'unauthenticated'])->name('unauthenticated');
 
+Route::post('chat-online', [CommonController::class, 'chatOnline'])->name('chat-online');
+
+
 Route::get('/send-mail',function(){
     $user = [
         'name' => 'Shammas',
@@ -56,7 +60,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/login',                       [LoginController::class, 'adminLoginPage'])->name('admin.login_page');
     Route::post('/login',                      [LoginController::class, 'adminLogin'])->name('admin.login');
     Route::group(['middleware' => ['auth']], function () {
-        Route::get('/logout',                 [LoginController::class, 'logout'])->name('logout');
+        Route::get('/logout',                 [LoginController::class, 'logout'])->name('admin.logout');
 
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
         Route::get('/dash',      [DashboardController::class, 'test']);
@@ -114,6 +118,9 @@ Route::group(['middleware' => ['web']], function () {
             Route::get('/profile',                [LawyerDashboardController::class, 'profile'])->name('lawyer.profile');
             Route::POST('/profile/update/{id}',   [LawyerDashboardController::class, 'updateProfile'])->name('lawyer.update_profile');
             
+            Route::get('/chat-online-requests',                 [ChatOnlineRequestController::class, 'requests'])->name('lawyer.online-chat-requests');
+            Route::post('/accept/chat-online-request/{id}',     [ChatOnlineRequestController::class, 'acceptRequest'])->name('lawyer.accept-request');
+
             Route::get('/scheduled-events',  [CalendlyController::class, 'scheduledEvents'])->name('lawyer.scheduled-events');
 
         });

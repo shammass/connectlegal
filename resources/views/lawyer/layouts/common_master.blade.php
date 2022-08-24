@@ -32,6 +32,8 @@
 
   <!-- Include Scripts -->
   @include('layouts/sections/scripts')
+
+  @stack('script')
 </body>
 
 </html>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ChatOnline;
 use App\Models\ContactUs;
 use App\Models\Forum;
 use App\Models\Lawyer;
@@ -80,5 +81,16 @@ class CommonController extends Controller
     public function bookAMeeting($id) {
         $lawyer = Lawyer::whereId($id)->first();
         return view('common.book-meeting',  compact('lawyer'));
+    }
+
+    function chatOnline(Request $request) {
+        ChatOnline::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'comment' => $request->comment,
+            'lawyer_id' => $request->lawyerId,
+        ]);
+
+        return redirect()->route('home')->with('success','Your query has been sent successfully!');
     }
 }
