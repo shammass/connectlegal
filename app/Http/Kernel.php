@@ -21,6 +21,7 @@ class Kernel extends HttpKernel
     \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
     \App\Http\Middleware\TrimStrings::class,
     \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+    \JulioMotol\AuthTimeout\Middleware\AuthTimeoutMiddleware::class,
   ];
 
   /**
@@ -68,5 +69,6 @@ class Kernel extends HttpKernel
     'lawyerauth' => \App\Http\Middleware\AuthLawyer::class,
     'admin' => \App\Http\Middleware\AdminMiddleware::class,
     'LastUserActivity' => \App\Http\Middleware\LastUserActivity::class,
+    'auth.timeout' => \JulioMotol\AuthTimeout\Middleware\AuthTimeoutMiddleware::class,
   ];
 }

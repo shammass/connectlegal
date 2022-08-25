@@ -107,7 +107,7 @@ Route::prefix('admin')->group(function () {
 
 
 #################                           LAWYER                  ###################################
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => ['web', 'auth.timeout']], function () {
     Route::prefix('lawyer')->group(function () { 
         Route::get('/register',                    [LoginController::class, 'register'])->name('lawyer.register-page');
         Route::post('/registration',               [LoginController::class, 'registerLawyer'])->name('lawyer.register');
@@ -131,7 +131,7 @@ Route::get('/customer/login',    [HomeController::class, 'login'])->name('custom
 Route::get('/',                  [HomeController::class, 'home'])->name('home');
 #################                           LAWYER                  ###################################
 
-
+Route::getGroupStack();
 
 
 
