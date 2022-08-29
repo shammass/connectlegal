@@ -110,9 +110,13 @@
                                 </li>
                             </ul>
                         </li>
-                    @if(auth()->user())
+                    @if(auth()->user() && auth()->user()->user_type == 2)
                         <li class="menu-list-item">
                             <a href="{{route('logout')}}">Logout</a>
+                        </li>
+                    @elseif(auth()->user() && auth()->user()->user_type == 3)
+                        <li class="menu-list-item">
+                            <a href="{{route('user.logout')}}">Logout</a>
                         </li>
                     @else
                         <li class="menu-list-item">
@@ -212,8 +216,6 @@
                         <div id="chat">
                             <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom p-5 text-center">Chat Online</h6> 
                             <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" name="comment" placeholder="Your message"></textarea>
-                            <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="name" name="name" placeholder="Your Full Name">
-                            <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" placeholder="Your email address">
                             <input type="hidden" name="redirect" value="">
                             <input type="hidden" name="lawyerId" id="lawyerId" value="">
                             <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;float:right;">Submit</button>

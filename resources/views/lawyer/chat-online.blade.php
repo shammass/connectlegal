@@ -23,8 +23,8 @@
                 <tbody>
                     @foreach($onlineRequests as $k => $request)
                         <tr style="text-align: center;">
-                            <td>{{$request->name}}</td>
-                            <td>{{$request->email}}</td>
+                            <td>{{$request->user->name}}</td>
+                            <td>{{$request->user->email}}</td>
                             <td>{{$request->comment}}</td>
                             <td>
                                 @if($request->status == 0)
@@ -32,7 +32,7 @@
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" request_id="{{$request->id}}" {{$request->status ? 'checked' : ''}} onchange="acceptRequest(this)">
                                     </div>
                                 @else 
-                                    <a href="">Chat Online</a>
+                                    <a href="/online-chat/{{$request->user_id}}">Chat Online</a>
                                 @endif
                             </td>
                             <td>

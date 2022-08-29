@@ -139,6 +139,7 @@
         <a class="scroll-top-arrow" href="javascript:void(0);"><i class="feather icon-feather-arrow-up"></i></a>
         <!-- end scroll to top -->
         <!-- javascript -->
+        @include('layouts/sections/scriptsIncludes')
         <script type="text/javascript" src="/js/jquery.min.js"></script>
         <script type="text/javascript" src="/js/theme-vendors.min.js"></script>
         <script type="text/javascript" src="/js/main.js"></script>
@@ -177,6 +178,10 @@
                 $( '.lawyerOnline' ).addClass( 'active show' );
                 $( '.mainMenu' ).removeClass( 'active show' );
             }
+
+            $(document).ready( function () {
+                $('#myTable').DataTable();
+            });
         </script>
         @yield('script')
     </body>

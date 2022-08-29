@@ -42,6 +42,9 @@ Route::get('/unauthenticated-user',           [LoginController::class, 'unauthen
 Route::post('chat-online', [CommonController::class, 'chatOnline'])->name('chat-online');
 
 
+Route::post('user-register', [CommonController::class, 'userRegister'])->name('user.register');
+
+
 Route::get('/send-mail',function(){
     $user = [
         'name' => 'Shammas',
@@ -50,6 +53,13 @@ Route::get('/send-mail',function(){
     
     \Mail::to('s4shamma@gmail.com')->send(new \App\Mail\TestMail($user));
       
+});
+
+#################                           END USER                  ###################################
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/chat/requests',                       [CommonController::class, 'onlineChatRequests'])->name('online-chat.requests');
+    Route::get('/user/logout',                         [LoginController::class, 'logout'])->name('user.logout');
 });
 
 #################                           ADMIN                  ###################################

@@ -7,7 +7,9 @@ use App\Models\ContactUs;
 use App\Models\Forum;
 use App\Models\Lawyer;
 use App\Models\Testimonial;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class CommonController extends Controller
 {
@@ -85,12 +87,27 @@ class CommonController extends Controller
 
     function chatOnline(Request $request) {
         ChatOnline::create([
-            'name' => $request->name,
-            'email' => $request->email,
+            'user_id' => auth()->user()->id,
             'comment' => $request->comment,
             'lawyer_id' => $request->lawyerId,
         ]);
 
         return redirect()->route('home')->with('success','Your query has been sent successfully!');
+    }
+
+    public function userRegister(Request $request) {
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'user_type' => 3,            
+        ]);
+
+        return redirect()->route('home')->with('success','You have registered successfully. Please login!!');
+    }
+
+    public function onlineChatRequests() {
+        $chatRequests = ChatOnline::whereUserId(auth()->user()->id)->get();
+        return view('common.chat-requests', compact('chatRequests'));
     }
 }

@@ -415,6 +415,13 @@ function IDinfo(id, type) {
  * Send message function
  *-------------------------------------------------------------
  */
+
+function sendMessageOnEnter(e) {
+  if(e.keyCode === 13){
+    sendMessage()
+  }
+}
+
 function sendMessage() {
   temporaryMsgId += 1;
   let tempID = `temp_${temporaryMsgId}`;
@@ -465,6 +472,8 @@ function sendMessage() {
           errorMessageCard(tempID);
           console.error(data.error_msg);
         } else {
+          $("#msgInput").val("")
+          document.getElementById('msgInput').setAttribute("style","padding-left:5%;overflow:hidden;overflow-wrap:break-word;");
           // update contact item
           updateContactItem(getMessengerId());
           // temporary message card

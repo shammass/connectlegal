@@ -99,8 +99,17 @@
                         </li>
                         @if(auth()->user())
                             <li class="nav-item">
-                                <a href="{{route('logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
+                                <a href="{{route('online-chat.requests')}}" class="nav-link" style="color: white;">Online Chat Requests</a>
                             </li>
+                            @if(auth()->user()->user_type == 2)
+                                <li class="nav-item">
+                                    <a href="{{route('logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
+                                </li>
+                            @elseif(auth()->user()->user_type == 3)
+                                <li class="nav-item">
+                                    <a href="{{route('user.logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
+                                </li>
+                            @endif
                         @else 
                             <li class="nav-item">
                                 <a href="#login-form" class="nav-link popup-with-form" style="color: white;">Login</a>
@@ -143,7 +152,7 @@
                     <div class="form-results d-none"></div>
                 </div>
                 <div id="register" class="tab-pane fade">
-                    <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom" style="text-align: center;">Are You A Lawyer?</h6> 
+                    <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom" style="text-align: center;">Are You A Lawyer/Legal Consultant?</h6> 
                     <input type="hidden" name="redirect" value="">
                    
                     <div class="row justify-content-center">
@@ -157,7 +166,7 @@
             </div>
         </div>
     </form>
-    <form id="login2-form" action="email-templates/contact-form.php" method="post" class="white-popup-block col-xl-5 col-lg-7 col-sm-9  p-0 mx-auto mfp-hide">
+    <div id="login2-form" class="white-popup-block col-xl-5 col-lg-7 col-sm-9  p-0 mx-auto mfp-hide">
         <div class="padding-fifteen-all bg-white border-radius-6px xs-padding-six-all">
             <div class="row border-top border-width-1px border-color-medium-gray" style="height: 120px;margin-top: -60px;">
                 <div class="col-12 p-0 tab-style-07">
@@ -181,16 +190,20 @@
                 </div>
                 <div id="register" class="tab-pane fade in active show">
                     <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom"></h6> 
-                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" placeholder="Your email address">
-                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="password" name="passowrd" placeholder="Your password">
-                    
-                    <input type="hidden" name="redirect" value="">
-                    <button class="btn btn-medium mb-0 submit" type="submit" style="background-color: #041d43;color:white;">Signup</button>
+                    <form action="{{route('user.register')}}" method="post">
+                        @csrf()
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="name" name="name" placeholder="Your name">
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" placeholder="Your email address">
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="password" name="passowrd" placeholder="Your password">
+                        
+                        <input type="hidden" name="redirect" value="">
+                        <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;">Signup</button>
+                    </form>
                     <div class="form-results d-none"></div>
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 
     
 </header>

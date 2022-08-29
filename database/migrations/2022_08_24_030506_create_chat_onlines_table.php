@@ -15,9 +15,12 @@ return new class extends Migration
     {
         Schema::create('chat_onlines', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
             $table->longText('comment')->nullable();
-            $table->string('email')->nullable();
+            
+            $table->unsignedBigInteger('user_id')->nullable();
+			$table->foreign('user_id')
+				->references('id')->on('users')
+                ->onDelete('cascade');
 
             $table->unsignedBigInteger('lawyer_id')->nullable();
 			$table->foreign('lawyer_id')

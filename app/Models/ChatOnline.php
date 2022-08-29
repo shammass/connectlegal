@@ -10,9 +10,8 @@ class ChatOnline extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'user_id',
         'comment',
-        'email',
         'lawyer_id',
         'status',
         'complete',
@@ -20,5 +19,9 @@ class ChatOnline extends Model
 
     public function lawyer() {
         return $this->belongsTo(Lawyer::class);
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 }
