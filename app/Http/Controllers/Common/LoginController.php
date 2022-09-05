@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Common;
 
 use App\Http\Controllers\Controller;
+use App\Traits\SendMailTrait;
 use App\Models\Lawyer;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -12,9 +13,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use \Mailjet\Resources;
 
 class LoginController extends Controller
 {
+    use SendMailTrait;
+
     public function unauthenticated() {
         return view('lawyer.layouts.unauthenticated');
     }
@@ -62,9 +66,13 @@ class LoginController extends Controller
 
         event(new Registered($user));
 
-        // Auth::login($user);
+        Auth::login($user);
 
-        return redirect('/')->with('success','Please login');
+        $response = $this->sendEmail($request->email, 'Registration Successful');
+        
+        // $response->success() && var_dump($response->getData());
+
+        return redirect('/')->with('success','Your registration was successful. Please check your email');
     }
     
     public function userLogin(Request $request) {

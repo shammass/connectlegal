@@ -37,6 +37,18 @@ class ForumController extends Controller
             $verify->deleted_at = null;
         }
         $verify->save();
+
+        if($status == 1) {
+            $mail_data = [
+                'subject' => $verify->title,
+                'htmlPart' => $verify->message
+            ];
+            
+            $job = (new \App\Jobs\SendForumEmail($mail_data))
+                    ->delay(now()->addSeconds(2)); 
+    
+            dispatch($job);
+        }
         
         return "success";
     }

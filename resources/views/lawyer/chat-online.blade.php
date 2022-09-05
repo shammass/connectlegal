@@ -32,7 +32,7 @@
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" request_id="{{$request->id}}" {{$request->status ? 'checked' : ''}} onchange="acceptRequest(this)">
                                     </div>
                                 @else 
-                                    <a href="/online-chat/{{$request->user_id}}">Chat Online</a>
+                                    <a href="/online-chat/{{$request->user_id}}" target="_blank">Chat Online</a>
                                 @endif
                             </td>
                             <td>
@@ -41,7 +41,7 @@
                                 </div>
                             </td>
                             <td>
-
+                            
                             </td>
                         </tr>
                     @endforeach

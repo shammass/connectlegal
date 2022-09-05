@@ -34,6 +34,9 @@
                         <li class="nav-item">
                             <a href="{{route('testimonials')}}" class="nav-link" style="color: white;">Testimonials</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('blogs-articles', 1)}}" class="nav-link" style="color: white;">Blogs & Articles</a>
+                        </li>
                         <li class="nav-item dropdown simple-dropdown">
                             <a href="#" class="nav-link">Lawyers</a>
                             <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>

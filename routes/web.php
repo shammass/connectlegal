@@ -4,7 +4,9 @@ use App\Http\Controllers\admin\ArbitrationAreaController;
 use App\Http\Controllers\admin\ContactUsController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ForumController;
+use App\Http\Controllers\admin\HireLawyerController;
 use App\Http\Controllers\admin\LawyerController;
+use App\Http\Controllers\admin\ServicesController;
 use App\Http\Controllers\admin\TestimonialsController;
 use App\Http\Controllers\Common\LoginController;
 use App\Http\Controllers\CommonController;
@@ -39,7 +41,9 @@ Route::get('/question-&-answers',       [CommonController::class, 'questionAnswe
 
 Route::get('/unauthenticated-user',           [LoginController::class, 'unauthenticated'])->name('unauthenticated');
 
-Route::post('chat-online', [CommonController::class, 'chatOnline'])->name('chat-online');
+Route::post('chat-online',                      [CommonController::class, 'chatOnline'])->name('chat-online');
+Route::get('blogs-articles/{page}',             [CommonController::class, 'blogsArticles'])->name('blogs-articles');
+Route::get('blogs-articles-details/{id}',       [CommonController::class, 'blogsArticleDetails'])->name('blogs-article-details');
 
 
 Route::post('user-register', [CommonController::class, 'userRegister'])->name('user.register');
@@ -88,6 +92,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/view/lawyer/{id}',            [LawyerController::class, 'view'])->name('admin.view.lawyer');
         Route::get('/delete/lawyer/{id}',          [LawyerController::class, 'delete'])->name('admin.delete.lawyer');
         Route::post('/verify/lawyer/{id}',         [LawyerController::class, 'verify'])->name('admin.verify.lawyer');
+        Route::post('/update/lawyer/{id}',         [LawyerController::class, 'update'])->name('admin.update.lawyer');
         Route::get('/verify-lawyer/{id}',          [LawyerController::class, 'verifyLawyer'])->name('admin.verify-lawyer');
         
         #Forums
@@ -108,6 +113,12 @@ Route::prefix('admin')->group(function () {
         #Contact Us
         Route::get('/contact-us',                       [ContactUsController::class, 'index'])->name('admin.contact-us');
         Route::get('/delete/contact-us/{id}',           [ContactUsController::class, 'delete'])->name('admin.delete.contact-us');
+
+        Route::get('services',                       [ServicesController::class, 'index'])->name('admin.services');
+        Route::post('store/service',                 [ServicesController::class, 'store'])->name('admin.service.store');
+        Route::get('edit/service/{id}',              [ServicesController::class, 'edit'])->name('admin.service.edit');
+        Route::post('update/service/{id}',           [ServicesController::class, 'update'])->name('admin.service.update');
+        Route::get('delete/service/{id}',            [ServicesController::class, 'delete'])->name('admin.service.delete');
 
     });
 });

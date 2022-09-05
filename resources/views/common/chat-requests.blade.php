@@ -43,7 +43,7 @@
                                         @if($request->status == 0)
                                             No
                                         @else 
-                                            <a href="/online-chat/{{$request->lawyer->user_id}}" style="color:blue;">Chat Online</a>
+                                            <a href="/online-chat/{{$request->lawyer->user_id}}" style="color:blue;" target="_blank">Chat Online</a>
                                         @endif
                                     </td>
                                     <td>

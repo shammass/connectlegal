@@ -110,6 +110,9 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="menu-list-item">
+                            <a href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
+                        </li>
                     @if(auth()->user() && auth()->user()->user_type == 2)
                         <li class="menu-list-item">
                             <a href="{{route('logout')}}">Logout</a>

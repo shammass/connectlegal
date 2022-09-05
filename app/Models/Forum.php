@@ -13,8 +13,6 @@ class Forum extends Model
     protected $fillable = [
         'name',
         'email',
-        'contact',
-        'subject',
         'message',
         'slug',
         'is_verified',

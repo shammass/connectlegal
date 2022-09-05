@@ -35,6 +35,12 @@
         "name": "Contact Us",
         "icon": "menu-icon tf-icons bx bx-home-circle",
         "slug": "contact-us"
+      },
+      {
+        "url": "/admin/services",
+        "name": "Services",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "services"
       }
       
     ]

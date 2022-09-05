@@ -67,7 +67,7 @@
 @push('script')
     <script>
         $("#loader").hide();
-        function verifyForum(forumId, status, title, deleted = null) {    
+        function verifyForum(forumId, status, title, deleted = null) { 
             if(!title && !deleted) {
                 Swal.fire({
                     title: "Oops!",
@@ -80,7 +80,7 @@
                     closeOnCancel: false
                 })
             }else {
-                var msg = status == "0" ? "Approve" : "Disapprove"   
+                var msg = status == "0" ? "Approve" : "Move To Pending"   
                 Swal.fire({
                     title: "Are you sure?",
                     text: "Are you sure you want to "+msg+" this Forum?",
@@ -104,7 +104,7 @@
                             },
                             success: function(res){
                                 debugger
-                                var title = status == 0 ? "Approved" : "Disapproved"   
+                                var title = status == 0 ? "Approved" : "Moved To Pending"   
                                 Swal.fire({
                                     icon: 'success',
                                     title: title,

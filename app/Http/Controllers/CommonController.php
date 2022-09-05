@@ -11,10 +11,12 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+use function PHPSTORM_META\map;
+
 class CommonController extends Controller
 {
     public function howItWorks() {
-        $testimonials = Testimonial::whereApproved(1)->latest()->take(3)->get();
+        $testimonials = Testimonial::whereApproved(1)->latest()->take(3)->get();        
         return view('common.how-it-works', compact('testimonials'));
     }
 
@@ -110,4 +112,89 @@ class CommonController extends Controller
         $chatRequests = ChatOnline::whereUserId(auth()->user()->id)->get();
         return view('common.chat-requests', compact('chatRequests'));
     }
+
+    public function blogsArticles($page) {
+        $url = "https://connectlegal.ae/wp-json/wp/v2/posts?page=".$page;
+        $ch = curl_init();
+        $headers = [];
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        // this function is called by curl for each header received
+        curl_setopt($ch, CURLOPT_HEADERFUNCTION,
+        function($curl, $header) use (&$headers) {
+            $len = strlen($header);
+            $header = explode(':', $header, 2);
+            if (count($header) < 2) // ignore invalid headers
+            return $len;
+
+            $headers[strtolower(trim($header[0]))][] = trim($header[1]);
+            
+            return $len;
+        });
+
+        $data = curl_exec($ch);
+        $response = json_decode($data);
+        $totalPages = $headers['x-wp-totalpages'];
+        $pagesNo = range(1,$totalPages[0]);
+        return view('common.blogs.index', compact('response', 'pagesNo', 'page'));
+    }
+
+    public function blogsArticles1() {
+        $curl = curl_init();
+        
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://connectlegal.ae/wp-json/wp/v2/posts",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => [
+                'Accept: application/json',
+                "Content-Type: application/json",
+                "Access-Control-Allow-Origin: *",
+                "Access-Control-Allow-Methods: GET, POST, OPTIONS",
+                "Access-Control-Allow-Headers: X-Requested-With"
+            ],
+        ));
+
+        $response = curl_exec($curl);
+        $response = json_decode($response);
+        print_r($response);exit;
+        curl_close($curl);   
+        return view('common.blogs.index', compact('response'));
+    }
+
+    public function blogsArticleDetails($id) {
+        $curl = curl_init();
+        
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://connectlegal.ae/wp-json/wp/v2/posts/".$id,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => [
+                'Accept: application/json',
+                "Content-Type: application/json",
+                "Access-Control-Allow-Origin: *",
+                "Access-Control-Allow-Methods: GET, POST, OPTIONS",
+                "Access-Control-Allow-Headers: X-Requested-With, X-WP-Total, X-WP-TotalPages"
+            ],
+        ));
+
+        $response = curl_exec($curl);
+        $blog = json_decode($response);
+        // print_r($response);exit;
+        curl_close($curl);   
+        return view('common.blogs.details', compact('blog'));
+    }
+
+
 }
