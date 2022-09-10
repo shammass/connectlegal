@@ -23,6 +23,7 @@ return new class extends Migration
 
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
+            $table->boolean('approved')->default(0);
             $table->timestamps();
         });
     }

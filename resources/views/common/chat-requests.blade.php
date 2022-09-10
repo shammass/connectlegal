@@ -30,27 +30,28 @@
                                 <th style="text-align: center;">Email</th>
                                 <th style="text-align: center;">Comments</th>
                                 <th style="text-align: center;">Accepted</th>
-                                <th style="text-align: center;">Complete</th>
+                                <th style="text-align: center;">Completed</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($chatRequests as $k => $request)
                                 <tr style="text-align: center;">
-                                    <td>{{$request->user->name}}</td>
-                                    <td>{{$request->user->email}}</td>
+                                    <td>{{$request->lawyer->user->name}}</td>
+                                    <td>{{$request->lawyer->user->email}}</td>
                                     <td>{{$request->comment}}</td>
                                     <td>
-                                        @if($request->status == 0)
-                                            No
-                                        @else 
+                                        {{$request->status ? "Yes" : "No"}}
+                                    </td>
+                                    <td>
+                                       {{$request->complete ? 'Yes' : 'No'}}
+                                    </td>
+                                    <td>
+                                        @if($request->status && !$request->complete)
                                             <a href="/online-chat/{{$request->lawyer->user_id}}" style="color:blue;" target="_blank">Chat Online</a>
+                                        @else
+                                            -
                                         @endif
-                                    </td>
-                                    <td>
-                                       {{$request->completed ? 'No' : 'Yes'}}
-                                    </td>
-                                    <td>
-
                                     </td>
                                 </tr>
                             @endforeach

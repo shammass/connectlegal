@@ -33,7 +33,10 @@ class SendForumEmail implements ShouldQueue
      */
     public function handle()
     {
-        $lawyers = User::whereUserType(2)->get();
+        $lawyers = User::where([
+            'user_type' => 2,
+            'is_verified' => 1
+        ])->get();
         $input['subject'] = $this->mail_data['subject'];
         $input['message'] = $this->mail_data['htmlPart'];
 

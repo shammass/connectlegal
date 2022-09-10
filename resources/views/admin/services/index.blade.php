@@ -16,6 +16,7 @@
                         <th style="text-align: center;">Arbitration Area</th>
                         <th style="text-align: center;">Title</th>
                         <th style="text-align: center;">Description</th>
+                        <th style="text-align: center;">Is Approved</th>
                         <th style="text-align: center;">Actions</th>
                     </tr>
                 </thead>
@@ -26,9 +27,14 @@
                             <td>{{$service->title}}</td>
                             <td>{{$service->description}}</td>
                             <td>
+                                <div class="form-check form-switch mb-2"  style="padding-left: 3.5em;">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" service_id="{{$service->id}}" {{$service->approved ? 'checked' : ''}} onchange="approveService(this, {{$service->approved}})"></td>
+                                </div>
+                            <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
                                     <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{route('admin.service.lawyers', $service->id)}}"><i class="bx bx-user-circle me-1"></i> Lawyers</a>
                                         <a class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop{{$k}}" aria-controls="offcanvasTop"><i class="bx bx-detail me-1"></i> Edit</a>
                                         <a class="dropdown-item" href="{{route('admin.service.delete', $service->id)}}" onclick="return confirm('Are you sure?')"><i class="bx bx-trash me-1"></i> Delete</a>
                                     </div>
@@ -137,15 +143,15 @@
 @endsection
 @push('script')
     <script>
-        function verifyLawyer(data) {
-            status = data.checked == true ? 'Verify' : 'Unverify';
+        function approveService(data, isApproved) {
+            var msg = isApproved == 0 ? 'Approve' : "Disapprove"
             Swal.fire({
                 title: "Are you sure?",
-                text: "Are you sure you want to "+status+" this Lawyer?",
+                text: "Are you sure you want to "+msg+" this Service?",
                 icon: "info",
                 showCancelButton: true,
                 confirmButtonColor: "green",
-                confirmButtonText: "Yes, verify it!",
+                confirmButtonText: "Yes, "+msg+" it!",
                 cancelButtonColor: "red",
                 cancelButtonText: "Cancel!",
                 closeOnConfirm: false,
@@ -153,11 +159,12 @@
            })
             .then((verify) => {
                 if (verify.isConfirmed) {
-                    var lawyerId = $(data).attr('lawyer_id');
+                    var serviceId = $(data).attr('service_id');
                     var status = $(data).val();
+                    var msg = isApproved == 0 ? 'Approved' : "Disapproved"
                     $.ajax({
                         method:"post",
-                        url: "/admin/verify/lawyer/"+lawyerId,
+                        url: "/admin/approve/service/"+serviceId,
                         data: {
                             "_token": "{{ csrf_token() }}",
                             'status': status
@@ -165,9 +172,11 @@
                         success: function(){
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Verified',
+                                title: msg,
                                 text: 'Success'
                             })
+
+                            setTimeout(window.location.reload.bind(window.location), 1000);
                         }
                     });
                 } else {

@@ -24,4 +24,13 @@ class ChatOnlineRequestController extends Controller
 
         return "success";
     }
+
+    public function completeRequest(Request $request, $id) {
+        ChatOnline::updateOrCreate(['id' => $id],
+        [
+            'complete' => 1
+        ]);
+
+        return "success";
+    }
 }

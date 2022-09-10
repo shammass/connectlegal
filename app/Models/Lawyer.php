@@ -43,4 +43,14 @@ class Lawyer extends Model
     public function arbitration() {
         return $this->belongsTo(ArbitrationArea::class);
     }    
+
+    public function getLawyerFee($id) {
+        $lawService = LawyerService::whereServiceId($id)->first();
+        return $lawService ? $lawService->lawyer_fee : null;
+    }
+
+    public function getPlatformFee($id) {
+        $lawService = LawyerService::whereServiceId($id)->first();
+        return $lawService ? $lawService->platform_fee : null;
+    }
 }

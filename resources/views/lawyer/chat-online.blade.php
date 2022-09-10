@@ -16,8 +16,8 @@
                         <th style="text-align: center;">Email</th>
                         <th style="text-align: center;">Comments</th>
                         <th style="text-align: center;">Accepted</th>
-                        <th style="text-align: center;">Complete</th>
-                        <th style="text-align: center;">Actions</th>
+                        <th style="text-align: center;">Completed</th>
+                        <th style="text-align: center;"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,21 +27,29 @@
                             <td>{{$request->user->email}}</td>
                             <td>{{$request->comment}}</td>
                             <td>
-                                @if($request->status == 0)
+                                @if(!$request->status)
                                     <div class="form-check form-switch mb-2"  style="padding-left: 7.5em;">
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" request_id="{{$request->id}}" {{$request->status ? 'checked' : ''}} onchange="acceptRequest(this)">
                                     </div>
                                 @else 
-                                    <a href="/online-chat/{{$request->user_id}}" target="_blank">Chat Online</a>
+                                    Yes
                                 @endif
                             </td>
                             <td>
-                                <div class="form-check form-switch mb-2"  style="padding-left: 7.5em;">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" complete_id="{{$request->id}}" {{$request->completed ? 'checked' : ''}} onchange="completed(this)">
-                                </div>
+                                @if(!$request->complete)
+                                    <div class="form-check form-switch mb-2"  style="padding-left: 7.5em;">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" complete_id="{{$request->id}}" {{$request->complete ? 'checked' : ''}} onchange="completed(this)">
+                                    </div>
+                                @else 
+                                    Yes
+                                @endif
                             </td>
                             <td>
-                            
+                                @if(!$request->complete && $request->status)
+                                    <a href="/online-chat/{{$request->user_id}}" target="_blank">Chat Online</a>
+                                @else 
+                                    -
+                                @endif
                             </td>
                         </tr>
                     @endforeach
@@ -95,11 +103,11 @@
         function completed(data) {
             Swal.fire({
                 title: "Are you sure?",
-                text: "Are you sure you want to accept this request?",
+                text: "Are you sure you want to mark it as completed?",
                 icon: "info",
                 showCancelButton: true,
                 confirmButtonColor: "green",
-                confirmButtonText: "Yes, accept it!",
+                confirmButtonText: "Yes, mark it as completed!",
                 cancelButtonColor: "red",
                 cancelButtonText: "Cancel!",
                 closeOnConfirm: false,
@@ -107,11 +115,11 @@
             })
             .then((verify) => {
                 if (verify.isConfirmed) {
-                    var request_id = $(data).attr('request_id');
+                    var complete_id = $(data).attr('complete_id');
                     var status = $(data).val();
                     $.ajax({
                         method:"post",
-                        url: "/lawyer/accept/chat-online-request/"+request_id,
+                        url: "/lawyer/complete/chat-online-request/"+complete_id,
                         data: {
                             "_token": "{{ csrf_token() }}",
                             'status': status
@@ -119,9 +127,10 @@
                         success: function(){
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Verified',
+                                title: 'Completed',
                                 text: 'Success'
                             })
+                            setTimeout(window.location.reload.bind(window.location), 1000);
                         }
                     });
                 } else {

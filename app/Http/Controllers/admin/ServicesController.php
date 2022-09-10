@@ -4,6 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ArbitrationArea;
+use App\Models\Lawyer;
+use App\Models\LawyerService;
 use App\Models\Services;
 use Illuminate\Http\Request;
 
@@ -51,5 +53,32 @@ class ServicesController extends Controller
         Services::findOrFail($id)->delete();
 
         return redirect()->route('admin.services')->with('success','Service deleted successfully');
+    }
+
+    public function serviceLawyers($serviceId) {
+        $getServiceDetails = Services::whereId($serviceId)->first();
+        $lawyers = Lawyer::whereArbitrationAreaId($getServiceDetails->arbitration_area_id)->get();  
+        return view('admin.services.lawyers', compact('lawyers', 'getServiceDetails'));
+    }
+
+    public function addPlatformFee(Request $request, $userId) {
+        $this->validate(request(), [
+            'platform_fee' => 'required',
+        ]);
+        LawyerService::create([
+            'service_id'    => $request->service_id,
+            'lawyer_id'     => $userId,
+            'platform_fee'  => $request->platform_fee,
+        ]);
+
+        return redirect()->route('admin.service.lawyers', $request->service_id)->with('success','Added platform fee successfully');
+    }
+
+    public function approve(Request $request, $testimonialId) {
+        $approveService = Services::whereId($testimonialId)->first();
+        $approveService->approved = $approveService->approved == 1 ? 0 : 1;
+        $approveService->save();
+
+        return "Success";
     }
 }

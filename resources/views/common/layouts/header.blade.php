@@ -146,6 +146,7 @@
                     
                     <input type="hidden" name="redirect" value="">
                     <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;">Login</button>
+                    <a href="{{route('forgot.password.get')}}" style="float:right;">Forgot Password?</a>
                     <br>
                     <p>
                         <span style="color:red" class="email-error"></span>
@@ -189,6 +190,7 @@
                     
                     <input type="hidden" name="redirect" value="">
                     <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;">Login</button>
+                    <a href="{{route('forgot.password.get')}}" style="float:right;">Forgot Password?</a>
                     <div class="form-results d-none"></div>
                 </div>
                 <div id="register" class="tab-pane fade in active show">

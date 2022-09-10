@@ -4,17 +4,21 @@ use App\Http\Controllers\admin\ArbitrationAreaController;
 use App\Http\Controllers\admin\ContactUsController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ForumController;
-use App\Http\Controllers\admin\HireLawyerController;
 use App\Http\Controllers\admin\LawyerController;
 use App\Http\Controllers\admin\ServicesController;
 use App\Http\Controllers\admin\TestimonialsController;
 use App\Http\Controllers\Common\LoginController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\HireLawyerController;
 use App\Http\Controllers\Lawyer\CalendlyController;
 use App\Http\Controllers\Lawyer\ChatOnlineRequestController;
 use App\Http\Controllers\Lawyer\DashboardController as LawyerDashboardController;
 use App\Http\Controllers\Lawyer\HomeController;
+use App\Http\Controllers\Lawyer\LawyerServiceController;
+use App\Http\Controllers\RazorpayController;
+use App\Http\Controllers\StripeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +31,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('forgot-password',           [ForgotPasswordController::class, 'showForgotPasswordForm'])->name('forgot.password.get');
+Route::post('forgot-password',          [ForgotPasswordController::class, 'submitForgotPasswordForm'])->name('forgot.password.post'); 
+Route::get('reset-password/{token}',    [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password',           [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
 Route::post('/login',                      [LoginController::class, 'userLogin'])->name('login');
 
 Route::get('/how-it-works',             [CommonController::class, 'howItWorks'])->name('howItWorks');
@@ -48,6 +58,10 @@ Route::get('blogs-articles-details/{id}',       [CommonController::class, 'blogs
 
 Route::post('user-register', [CommonController::class, 'userRegister'])->name('user.register');
 
+Route::get('hire-a-lawyer',                 [HireLawyerController::class, 'hireALawyer'])->name('hire-a-lawyer');
+Route::get('service/lawyers/{id}',          [HireLawyerController::class, 'serviceLawyers'])->name('service.lawyers');
+
+
 
 Route::get('/send-mail',function(){
     $user = [
@@ -62,8 +76,11 @@ Route::get('/send-mail',function(){
 #################                           END USER                  ###################################
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/chat/requests',                       [CommonController::class, 'onlineChatRequests'])->name('online-chat.requests');
     Route::get('/user/logout',                         [LoginController::class, 'logout'])->name('user.logout');
+
+    Route::post('/stripe-payment',  [StripeController::class, 'payment'])->name('stripe.payment');
+
+    Route::get('/chat/requests',                       [CommonController::class, 'onlineChatRequests'])->name('online-chat.requests');
 });
 
 #################                           ADMIN                  ###################################
@@ -119,6 +136,11 @@ Route::prefix('admin')->group(function () {
         Route::get('edit/service/{id}',              [ServicesController::class, 'edit'])->name('admin.service.edit');
         Route::post('update/service/{id}',           [ServicesController::class, 'update'])->name('admin.service.update');
         Route::get('delete/service/{id}',            [ServicesController::class, 'delete'])->name('admin.service.delete');
+        Route::post('/approve/service/{id}',         [ServicesController::class, 'approve'])->name('admin.approve.service');
+        
+        Route::get('service/lawyers/{id}',                             [ServicesController::class, 'serviceLawyers'])->name('admin.service.lawyers');
+        Route::post('service/lawyers/add-platform-fee/{id}',           [ServicesController::class, 'addPlatformFee'])->name('admin.service.lawyers.add-platform-fee');
+
 
     });
 });
@@ -128,7 +150,8 @@ Route::prefix('admin')->group(function () {
 
 
 #################                           LAWYER                  ###################################
-Route::group(['middleware' => ['web', 'auth.timeout']], function () {
+// Route::group(['middleware' => ['web', 'auth.timeout']], function () {
+Route::group(['middleware' => ['web']], function () {
     Route::prefix('lawyer')->group(function () { 
         Route::get('/register',                    [LoginController::class, 'register'])->name('lawyer.register-page');
         Route::post('/registration',               [LoginController::class, 'registerLawyer'])->name('lawyer.register');
@@ -141,8 +164,12 @@ Route::group(['middleware' => ['web', 'auth.timeout']], function () {
             
             Route::get('/chat-online-requests',                 [ChatOnlineRequestController::class, 'requests'])->name('lawyer.online-chat-requests');
             Route::post('/accept/chat-online-request/{id}',     [ChatOnlineRequestController::class, 'acceptRequest'])->name('lawyer.accept-request');
+            Route::post('/complete/chat-online-request/{id}',   [ChatOnlineRequestController::class, 'completeRequest'])->name('lawyer.complete-request');
 
             Route::get('/scheduled-events',  [CalendlyController::class, 'scheduledEvents'])->name('lawyer.scheduled-events');
+
+            Route::get('/services',                  [LawyerServiceController::class, 'index'])->name('lawyer.services');
+            Route::post('service/add-fee/{id}',      [LawyerServiceController::class, 'addFee'])->name('lawyer.service.add-fee');
 
         });
     });

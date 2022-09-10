@@ -13,20 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('lawyer_services', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->id();
+            $table->string('payment_id')->nullable();
 
-            $table->unsignedBigInteger('service_id')->nullable();
-			$table->foreign('service_id')
-				->references('id')->on('services')
+            $table->unsignedBigInteger('lawyer_service_id')->nullable();
+			$table->foreign('lawyer_service_id')
+				->references('id')->on('lawyer_services')   
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('lawyer_id')->nullable();
-			$table->foreign('lawyer_id')
-				->references('id')->on('users')
+                
+            $table->unsignedBigInteger('hired_by')->nullable();
+			$table->foreign('hired_by')
+				->references('id')->on('users')   
                 ->onDelete('cascade');
 
-            $table->string('lawyer_fee')->nullable();
-            $table->string('platform_fee')->nullable();
+            $table->string('payment_status')->nullable();
             $table->timestamps();
         });
     }
@@ -38,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lawyer_services');
+        Schema::dropIfExists('payments');
     }
 };
