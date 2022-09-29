@@ -219,7 +219,7 @@
                 icon: "info",
                 showCancelButton: true,
                 confirmButtonColor: "green",
-                confirmButtonText: "Yes, verify it!",
+                confirmButtonText: "Yes, "+status+" it!",
                 cancelButtonColor: "red",
                 cancelButtonText: "Cancel!",
                 closeOnConfirm: false,
@@ -229,6 +229,7 @@
                 if (verify.isConfirmed) {
                     var lawyerId = $(data).attr('lawyer_id');
                     var status = $(data).val();
+                    debugger
                     $.ajax({
                         method:"post",
                         url: "/admin/verify/lawyer/"+lawyerId,
@@ -239,9 +240,11 @@
                         success: function(){
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Verified',
+                                title: 'Updated',
                                 text: 'Success'
                             })
+
+                            setTimeout(window.location.reload.bind(window.location), 1000);
                         }
                     });
                 } else {

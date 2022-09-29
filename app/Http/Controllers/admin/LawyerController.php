@@ -30,10 +30,14 @@ class LawyerController extends Controller
 
     public function verify(Request $request, $lawyerId) {
         $verifyLawyer = Lawyer::whereUserId($lawyerId)->first();
-        $verifyLawyer->is_verified = $request->status === "on" ? 1 : 0;
+        $verifyLawyer->is_verified = $verifyLawyer->is_verified == 1 ? 0 : 1;
         $verifyLawyer->save();
 
-        $this->verifyLawyerMail($verifyLawyer->user->email, 'Your account is verified');
+        if($verifyLawyer->is_verified) {
+            $this->verifyLawyerMail($verifyLawyer->user->email, 'Your account has been verified');
+        }else {
+            $this->verifyLawyerMail($verifyLawyer->user->email, 'Your account has been unverified');
+        }
 
         return "Success";
     }
