@@ -14,12 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('law_articles', function (Blueprint $table) {
-            $table->id();
-
-            $table->unsignedBigInteger('category_id')->nullable();
-			$table->foreign('category_id')
-				->references('id')->on('law_categories')   
-                ->onDelete('cascade');  
+            $table->id();            
 
             $table->unsignedBigInteger('added_by')->nullable();
 			$table->foreign('added_by')

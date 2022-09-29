@@ -19,6 +19,13 @@ return new class extends Migration
 				->references('id')->on('groups')   
                 ->onDelete('cascade');
         });
+
+        Schema::table('law_articles', function (Blueprint $table) {
+            $table->unsignedBigInteger('category_id')->nullable();
+			$table->foreign('category_id')
+				->references('id')->on('law_categories')   
+                ->onDelete('cascade');  
+        });
     }
 
     /**
@@ -31,6 +38,11 @@ return new class extends Migration
         Schema::table('posts', function (Blueprint $table) {
             $table->dropForeign('group_id');
             $table->dropColumn('group_id');
+        });
+
+        Schema::table('law_articles', function (Blueprint $table) {
+            $table->dropForeign('category_id');
+            $table->dropColumn('category_id');
         });
     }
 };
