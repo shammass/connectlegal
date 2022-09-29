@@ -21,8 +21,8 @@ class Lawyer extends Model
         'landline_number',
         'position',
         'linkedin_profile',
-        'calendly_link',
         'language',
+        'calendly_link',
         'moj_reg_no',
         'arbitration_area_id',
         'summary',
@@ -41,6 +41,16 @@ class Lawyer extends Model
     }
 
     public function arbitration() {
-        return $this->belongsTo(ArbitrationArea::class);
+        return $this->belongsTo(ArbitrationArea::class, 'arbitration_area_id');
     }    
+
+    public function getLawyerFee($id) {
+        $lawService = LawyerService::whereServiceId($id)->first();
+        return $lawService ? $lawService->lawyer_fee : null;
+    }
+
+    public function getPlatformFee($id) {
+        $lawService = LawyerService::whereServiceId($id)->first();
+        return $lawService ? $lawService->platform_fee : null;
+    }
 }

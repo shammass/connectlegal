@@ -1,4 +1,4 @@
-@extends('lawyer/layouts/common_master' )
+@extends('lawyer.layouts.common_master' )
 
 @php
 /* Display elements */

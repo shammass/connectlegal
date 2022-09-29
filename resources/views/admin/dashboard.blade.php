@@ -16,5 +16,41 @@
 
 @section('content')
 
+<div class="row">
+    <div class="card mb-4"> 
+        <h5 class="card-header">Hired By (Last 5 Records)</h5>
+        <div class="col-md-12" >
+            <button type="button" class="btn btn-info" style="float: right;margin-right:2%;"><a href="{{route('admin.hired-lawyer')}}" style="color:white;">More</a></button>
+        </div>
+        <div class="card-body">
+            <div class="row mb-5">
+                @forelse($hiredData as $k => $hired)
+                    <div class="col-md-6 col-lg-4 mb-3">
+                        <div class="card">
+                            <div class="card-header">
+                                {{$hired->created_at->format('d M Y')}}
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{$hired->lawyerService->services->title}}</h5>
+                                <p class="card-text">
+                                    Lawyer: <b>{{$hired->lawyerService->user->name}}</b>
+                                    <span style="float: right;">Hired By: <b>{{$hired->hiredBy->name}}</b></span>
+                                </p>                                        
+                                <p class="card-text">
+                                </p>       
+                                <p class="card-text">
+                                    Total Amount: <b>{{$hired->lawyerService->lawyer_fee + $hired->lawyerService->platform_fee}}</b>
+                                    <span style="float: right;">Platform Fee: <b>{{$hired->lawyerService->platform_fee}}</b></span>
+                                </p>                                 
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <p>No Data</p>
+                @endforelse
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection

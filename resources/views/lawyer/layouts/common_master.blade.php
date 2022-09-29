@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
   <title>@yield('title') | Connect Legal</title>
+  <meta http-equiv="refresh" content="120" >
   <meta name="description" content="{{ config('variables.templateDescription') ? config('variables.templateDescription') : '' }}" />
   <meta name="keywords" content="{{ config('variables.templateKeyword') ? config('variables.templateKeyword') : '' }}">
   <!-- laravel CRUD token -->
@@ -31,8 +32,7 @@
   <!--/ Layout Content -->
 
   <!-- Include Scripts -->
-  @include('layouts/sections/scripts')
-
+  @include('layouts.sections.scripts')
   @stack('script')
 </body>
 

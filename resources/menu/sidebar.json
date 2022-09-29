@@ -35,6 +35,42 @@
         "name": "Contact Us",
         "icon": "menu-icon tf-icons bx bx-home-circle",
         "slug": "contact-us"
+      },
+      {
+        "url": "/admin/services",
+        "name": "Services",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "services"
+      },
+      {
+        "url": "/admin/qa/ratings",
+        "name": "QA Ratings",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "qa-ratings"
+      },
+      {
+        "url": "/admin/callback/requests",
+        "name": "Callback Requests",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "callback-requests"
+      },
+      {
+        "url": "/admin/categories",
+        "name": "Categories",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "categories"
+      },
+      {
+        "url": "/admin/blogs-articles",
+        "name": "Blogs & Articles",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "blogs-articles"
+      },
+      {
+        "url": "/admin/hired",
+        "name": "Hired Lawyers",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "hired"
       }
       
     ]

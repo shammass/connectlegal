@@ -1,18 +1,34 @@
 <?php
 
 use App\Http\Controllers\admin\ArbitrationAreaController;
+use App\Http\Controllers\admin\BlogsArticlesController;
+use App\Http\Controllers\admin\CallbackController;
+use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ContactUsController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ForumController;
+use App\Http\Controllers\admin\HireController;
 use App\Http\Controllers\admin\LawyerController;
+use App\Http\Controllers\admin\QaRatingController;
+use App\Http\Controllers\admin\ServicesController;
 use App\Http\Controllers\admin\TestimonialsController;
 use App\Http\Controllers\Common\LoginController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\HireLawyerController;
 use App\Http\Controllers\Lawyer\CalendlyController;
 use App\Http\Controllers\Lawyer\ChatOnlineRequestController;
+use App\Http\Controllers\Lawyer\CommunityController;
 use App\Http\Controllers\Lawyer\DashboardController as LawyerDashboardController;
+use App\Http\Controllers\Lawyer\GroupController;
 use App\Http\Controllers\Lawyer\HomeController;
+use App\Http\Controllers\Lawyer\LawArticleController;
+use App\Http\Controllers\Lawyer\LawyerServiceController;
+use App\Http\Controllers\Lawyer\PostController;
+use App\Http\Controllers\Lawyer\QuestionAnswerController;
+use App\Http\Controllers\StripeController;
+use App\Http\Controllers\UserActivityController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +41,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('forgot-password',           [ForgotPasswordController::class, 'showForgotPasswordForm'])->name('forgot.password.get');
+Route::post('forgot-password',          [ForgotPasswordController::class, 'submitForgotPasswordForm'])->name('forgot.password.post'); 
+Route::get('reset-password/{token}',    [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password',           [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
 Route::post('/login',                      [LoginController::class, 'userLogin'])->name('login');
 
 Route::get('/how-it-works',             [CommonController::class, 'howItWorks'])->name('howItWorks');
@@ -35,21 +57,42 @@ Route::get('/testimonial',              [CommonController::class, 'testimonials'
 Route::get('/book-a-meeting/{id}',      [CommonController::class, 'bookAMeeting'])->name('book-a-meeting');
 
 #Q&A
-Route::get('/question-&-answers',       [CommonController::class, 'questionAnswer'])->name('question-answer');
+Route::get('/question-answers',                  [CommonController::class, 'questionAnswer'])->name('question-answer');
+Route::get('/question-answer/view/{slug}',       [CommonController::class, 'viewQA'])->name('question-answer.view');
 
 Route::get('/unauthenticated-user',           [LoginController::class, 'unauthenticated'])->name('unauthenticated');
 
-Route::post('chat-online', [CommonController::class, 'chatOnline'])->name('chat-online');
+Route::post('chat-online',                      [CommonController::class, 'chatOnline'])->name('chat-online');
+
+// Route::get('blogs-articles/{page}',             [CommonController::class, 'blogsArticles'])->name('blogs-articles');
+Route::get('blogs-articles/{page}',             [CommonController::class, 'index2'])->name('blogs-articles');
+// Route::get('blogs-articles-details/{id}',       [CommonController::class, 'blogsArticleDetails'])->name('blogs-article-details');
+Route::get('blogs-articles-details/{id}',       [CommonController::class, 'blogDetails2'])->name('blogs-article-details');
+
+Route::post('callback',                         [CommonController::class, 'callback'])->name('callback');
+Route::post('user-register',                    [CommonController::class, 'userRegister'])->name('user.register');
+
+Route::get('hire-a-lawyer',                 [HireLawyerController::class, 'hireALawyer'])->name('hire-a-lawyer');
+Route::get('service/lawyers/{id}',          [HireLawyerController::class, 'serviceLawyers'])->name('service.lawyers');
+Route::get('lawyer-services/{id}',          [HireLawyerController::class, 'lawyerServices'])->name('lawyer.services.list');
+Route::post('request-for-quotes/store',     [HireLawyerController::class, 'requestForQuotes'])->name('request-for-quotes');
+
+Route::get('legal-articles',               [CommonController::class, 'articleList'])->name('legal.article-list');
+Route::get('legal-articles/{id}',          [CommonController::class, 'articleDetails'])->name('legal.article-details');
+Route::get('filter-by-category',           [CommonController::class, 'filterByCategory'])->name('legal.filter-by-category');
 
 
-Route::get('/send-mail',function(){
-    $user = [
-        'name' => 'Shammas',
-        'body' => 'This is simple mail from Shammas'
-    ];
+#################                           END USER                  ###################################
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/user/logout',                         [LoginController::class, 'logout'])->name('user.logout');
     
-    \Mail::to('s4shamma@gmail.com')->send(new \App\Mail\TestMail($user));
-      
+    Route::post('/stripe-payment',  [StripeController::class, 'payment'])->name('stripe.payment');
+
+    Route::post('/question-answer/rate/{id}',        [CommonController::class, 'rate'])->name('question-answer.rate');
+    Route::get('/chat/requests',                     [CommonController::class, 'onlineChatRequests'])->name('online-chat.requests');
+
+    Route::get('/my-activity',                         [UserActivityController::class, 'userActivty'])->name('user.activity');
 });
 
 #################                           ADMIN                  ###################################
@@ -59,7 +102,7 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/login',                       [LoginController::class, 'adminLoginPage'])->name('admin.login_page');
     Route::post('/login',                      [LoginController::class, 'adminLogin'])->name('admin.login');
-    Route::group(['middleware' => ['auth']], function () {
+    Route::group(['middleware' => ['adminauth']], function () {
         Route::get('/logout',                 [LoginController::class, 'logout'])->name('admin.logout');
 
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
@@ -78,6 +121,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/view/lawyer/{id}',            [LawyerController::class, 'view'])->name('admin.view.lawyer');
         Route::get('/delete/lawyer/{id}',          [LawyerController::class, 'delete'])->name('admin.delete.lawyer');
         Route::post('/verify/lawyer/{id}',         [LawyerController::class, 'verify'])->name('admin.verify.lawyer');
+        Route::post('/update/lawyer/{id}',         [LawyerController::class, 'update'])->name('admin.update.lawyer');
         Route::get('/verify-lawyer/{id}',          [LawyerController::class, 'verifyLawyer'])->name('admin.verify-lawyer');
         
         #Forums
@@ -99,6 +143,39 @@ Route::prefix('admin')->group(function () {
         Route::get('/contact-us',                       [ContactUsController::class, 'index'])->name('admin.contact-us');
         Route::get('/delete/contact-us/{id}',           [ContactUsController::class, 'delete'])->name('admin.delete.contact-us');
 
+        #Services
+        Route::get('services',                                          [ServicesController::class, 'index'])->name('admin.services');
+        Route::post('store/service',                                    [ServicesController::class, 'store'])->name('admin.service.store');
+        Route::get('edit/service/{id}',                                 [ServicesController::class, 'edit'])->name('admin.service.edit');
+        Route::post('update/service/{id}',                              [ServicesController::class, 'update'])->name('admin.service.update');
+        Route::get('delete/service/{id}',                               [ServicesController::class, 'delete'])->name('admin.service.delete');
+        Route::post('/approve/service/{id}',                            [ServicesController::class, 'approve'])->name('admin.approve.service');        
+        Route::get('service/lawyers/{id}',                              [ServicesController::class, 'serviceLawyers'])->name('admin.service.lawyers');
+        Route::post('service/lawyers/add-platform-fee/{id}',            [ServicesController::class, 'addPlatformFee'])->name('admin.service.lawyers.add-platform-fee');
+        
+        #QA Rating
+        Route::get('qa/ratings',                              [QaRatingController::class, 'qaRatings'])->name('admin.qa.ratings');
+        Route::post('verify/rating/{id}',                     [QaRatingController::class, 'verifyRating'])->name('admin.verify.rating');
+
+        Route::get('callback/requests',                     [CallbackController::class, 'callbackRequests'])->name('admin.callback.requests');
+
+        Route::get('categories',                   [CategoryController::class, 'categories'])->name('admin.categories');
+        Route::get('category/create',              [CategoryController::class, 'createCategory'])->name('admin.category.create');
+        Route::post('category/store',              [CategoryController::class, 'storeCategory'])->name('admin.category.store');
+        Route::get('category/edit/{id}',           [CategoryController::class, 'editCategory'])->name('admin.category.edit');
+        Route::post('category/update/{id}',        [CategoryController::class, 'updateCategory'])->name('admin.category.update');
+        Route::get('category/delete/{id}',         [CategoryController::class, 'deleteCategory'])->name('admin.category.delete');
+        
+        #Blogs and Articles
+        Route::get('blogs-articles',                    [BlogsArticlesController::class, 'index'])->name('admin.blogs-articles');
+        Route::get('blogs-article/create',              [BlogsArticlesController::class, 'create'])->name('admin.blogs-article.create');
+        Route::post('blogs-article/store',              [BlogsArticlesController::class, 'store'])->name('admin.blogs-article.store');
+        Route::get('blogs-article/edit/{id}',           [BlogsArticlesController::class, 'edit'])->name('admin.blogs-article.edit');
+        Route::post('blogs-article/update/{id}',        [BlogsArticlesController::class, 'update'])->name('admin.blogs-article.update');
+        Route::get('blogs-article/delete/{id}',         [BlogsArticlesController::class, 'delete'])->name('admin.blogs-article.delete');
+        Route::post('blogs-article/image-upload',       [BlogsArticlesController::class, 'imageUpload'])->name('admin.blog-article.image-upload');
+        
+        Route::get('hired',       [HireController::class, 'index'])->name('admin.hired-lawyer');
     });
 });
 #################                           ADMIN                  ###################################
@@ -107,6 +184,7 @@ Route::prefix('admin')->group(function () {
 
 
 #################                           LAWYER                  ###################################
+// Route::group(['middleware' => ['web', 'auth.timeout']], function () {
 Route::group(['middleware' => ['web']], function () {
     Route::prefix('lawyer')->group(function () { 
         Route::get('/register',                    [LoginController::class, 'register'])->name('lawyer.register-page');
@@ -114,14 +192,63 @@ Route::group(['middleware' => ['web']], function () {
         
         Route::group(['middleware' => ['lawyerauth']], function () {
             Route::get('/logout',                 [LoginController::class, 'logout'])->name('logout');
-            Route::get('/dashboard',              [LawyerDashboardController::class, 'index'])->name('lawyer.dashboard');
-            Route::get('/profile',                [LawyerDashboardController::class, 'profile'])->name('lawyer.profile');
-            Route::POST('/profile/update/{id}',   [LawyerDashboardController::class, 'updateProfile'])->name('lawyer.update_profile');
+
+            Route::get('/dashboard',                    [LawyerDashboardController::class, 'index'])->name('lawyer.dashboard');
+            Route::get('/profile',                      [LawyerDashboardController::class, 'profile'])->name('lawyer.profile');
+            Route::get('/my-activity',                  [LawyerDashboardController::class, 'myActivity'])->name('lawyer.my-activity');
+            Route::post('/profile/update/{id}',         [LawyerDashboardController::class, 'updateProfile'])->name('lawyer.update_profile');
+            Route::post('/close-notification/{id}',     [LawyerDashboardController::class, 'closeNotification'])->name('lawyer.close-notification');
             
             Route::get('/chat-online-requests',                 [ChatOnlineRequestController::class, 'requests'])->name('lawyer.online-chat-requests');
             Route::post('/accept/chat-online-request/{id}',     [ChatOnlineRequestController::class, 'acceptRequest'])->name('lawyer.accept-request');
+            Route::post('/complete/chat-online-request/{id}',   [ChatOnlineRequestController::class, 'completeRequest'])->name('lawyer.complete-request');
 
             Route::get('/scheduled-events',  [CalendlyController::class, 'scheduledEvents'])->name('lawyer.scheduled-events');
+
+            Route::get('/services',                  [LawyerServiceController::class, 'index'])->name('lawyer.services');
+            Route::post('store/service',             [LawyerServiceController::class, 'store'])->name('lawyer.service.store');
+            Route::get('edit/service/{id}',          [LawyerServiceController::class, 'edit'])->name('lawyer.service.edit');
+            Route::post('update/service/{id}',       [LawyerServiceController::class, 'update'])->name('lawyer.service.update');
+            Route::get('delete/service/{id}',        [LawyerServiceController::class, 'delete'])->name('lawyer.service.delete');
+            Route::post('service/add-fee/{id}',      [LawyerServiceController::class, 'addFee'])->name('lawyer.service.add-fee');
+            
+            Route::get('/community',                  [CommunityController::class, 'community'])->name('lawyer.community');
+            Route::get('/community/all-lawyers',      [CommunityController::class, 'allLawyers'])->name('lawyer.community.all-lawyers');
+            
+            Route::post('create/post',                  [PostController::class, 'store'])->name('lawyer.create.post');
+            Route::post('add/comment/{id}',             [PostController::class, 'addComment'])->name('lawyer.add.comment');
+            Route::post('/updated-post',                [PostController::class, 'updatedPost'])->name('lawyer.updated-post');
+            Route::post('/updated-comment',             [PostController::class, 'updatedComment'])->name('lawyer.updated-comment');
+            
+            Route::get('/community/groups',                                     [GroupController::class, 'groups'])->name('lawyer.community.groups');
+            Route::post('/community/group/store',                               [GroupController::class, 'store'])->name('lawyer.community.group.store');
+            Route::get('/community/group/feed/{id}',                            [GroupController::class, 'groupFeed'])->name('lawyer.community.group.feed');
+            Route::post('/community/create/group/post/{id}',                    [GroupController::class, 'storeGroupPost'])->name('lawyer.create.group.post');
+            Route::get('/community/group/about/{id}',                           [GroupController::class, 'aboutGroup'])->name('lawyer.community.group.about');
+            Route::get('/community/group/chat/{id}',                            [GroupController::class, 'groupChat'])->name('lawyer.community.group.chat');
+            Route::post('/community/group/send-message/{id}',                   [GroupController::class, 'sendGroupMessage'])->name('lawyer.community.group.send-message');
+            Route::post('/community/group/latest-group-chat',                   [GroupController::class, 'getLatestGroupMsg']);
+            
+            #QA
+            Route::get('/question-answer/list',              [QuestionAnswerController::class, 'list'])->name('lawyer.qa.list');
+            Route::get('/question-answer/view/{slug}',       [QuestionAnswerController::class, 'view'])->name('lawyer.qa.view');
+            Route::post('/question-answer/answer/{id}',      [QuestionAnswerController::class, 'answer'])->name('lawyer.qa.answer');
+            
+            #Article
+            Route::get('/articles',                 [LawArticleController::class, 'index'])->name('lawyer.article');
+            Route::get('/article/create',           [LawArticleController::class, 'create'])->name('lawyer.article.create');
+            Route::post('/article/store',           [LawArticleController::class, 'store'])->name('lawyer.article.store');
+            Route::get('/article/edit/{id}',        [LawArticleController::class, 'edit'])->name('lawyer.article.edit');
+            Route::post('/article/update/{id}',     [LawArticleController::class, 'update'])->name('lawyer.article.update');
+            Route::get('/article/delete/{id}',      [LawArticleController::class, 'delete'])->name('lawyer.article.delete');
+            
+            Route::get('/article/categories',                   [LawArticleController::class, 'categories'])->name('lawyer.article.categories');
+            Route::get('/article/category/create',              [LawArticleController::class, 'createCategory'])->name('lawyer.article.category.create');
+            Route::post('/article/category/store',              [LawArticleController::class, 'storeCategory'])->name('lawyer.article.category.store');
+            Route::get('/article/category/edit/{id}',           [LawArticleController::class, 'editCategory'])->name('lawyer.article.category.edit');
+            Route::post('/article/category/update/{id}',        [LawArticleController::class, 'updateCategory'])->name('lawyer.article.category.update');
+            Route::get('/article/category/delete/{id}',         [LawArticleController::class, 'deleteCategory'])->name('lawyer.article.category.delete');
+
 
         });
     });
@@ -131,7 +258,7 @@ Route::get('/customer/login',    [HomeController::class, 'login'])->name('custom
 Route::get('/',                  [HomeController::class, 'home'])->name('home');
 #################                           LAWYER                  ###################################
 
-
+Route::getGroupStack();
 
 
 

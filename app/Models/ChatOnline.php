@@ -10,15 +10,19 @@ class ChatOnline extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'user_id',
         'comment',
-        'email',
         'lawyer_id',
         'status',
         'complete',
+        'any' //Any lawyer if user is not selected lawyer
     ];
 
     public function lawyer() {
         return $this->belongsTo(Lawyer::class);
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 }

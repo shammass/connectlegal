@@ -1,4 +1,4 @@
-@extends('admin/layouts/common_master' )
+@extends('admin.layouts.common_master' )
 
 @php
 /* Display elements */

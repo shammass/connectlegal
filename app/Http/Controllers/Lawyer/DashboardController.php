@@ -4,14 +4,38 @@ namespace App\Http\Controllers\Lawyer;
 
 use App\Http\Controllers\Controller;
 use App\Models\ArbitrationArea;
+use App\Models\ChatNotification;
+use App\Models\ForumAnswers;
 use App\Models\Lawyer;
+use App\Models\LawyerService;
+use App\Models\Payment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
     public function index() {
-        return view('lawyer.dashboard');
+        if(!auth()->user()->messenger_color) {
+            User::updateOrCreate(['id' => auth()->user()->id],
+                ['messenger_color' => auth()->user()->getColor()]
+            );
+        }
+
+        $lawyerService = LawyerService::whereLawyerId(auth()->user()->id)->get();
+        $paymentCompletedServiceIds = [];
+        foreach($lawyerService as $k => $service) {
+            $payment = Payment::whereLawyerServiceId($service->id)->first();
+            if($payment)
+                $paymentCompletedServiceIds[] = $payment->id;
+        }
+        $hiredData = Payment::whereIn('id', $paymentCompletedServiceIds)->get();
+
+        $chatNotifications = ChatNotification::where([
+            'to_user' => auth()->user()->id,
+            'seen'    => 0
+        ])->get();
+        return view('lawyer.dashboard', compact('hiredData', 'chatNotifications'));
     }
 
     public function profile() {
@@ -55,6 +79,33 @@ class DashboardController extends Controller
             $lawyer->profile_pic = $image->store($imageDir);
             $lawyer->save();
         }
+        return true;
+    }
+
+    public function myActivity() {
+        $user = auth()->user();
+        $answers = ForumAnswers::whereLawyerId($user->id)->get();
+
+        $lawyerService = LawyerService::whereLawyerId(auth()->user()->id)->get();
+        $paymentCompletedServiceIds = [];
+        foreach($lawyerService as $k => $service) {
+            $payment = Payment::whereLawyerServiceId($service->id)->first();
+            if($payment)
+                $paymentCompletedServiceIds[] = $payment->id;
+        }
+        $hiredData = Payment::whereIn('id', $paymentCompletedServiceIds)
+        ->take(5)
+        ->get();
+        return view('lawyer.my-activity', compact('answers', 'hiredData'));
+    }
+
+    public function closeNotification($notificationId) {
+        ChatNotification::updateOrCreate(['id' => $notificationId],
+            [
+                'seen' => 1
+            ]
+        );
+
         return true;
     }
 

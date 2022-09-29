@@ -49,6 +49,7 @@
                                     <label class="form-check-label" for="remember-me">
                                     Remember Me
                                     </label>
+                                    <a href="{{route('forgot.password.get')}}" style="float:right;">Forgot Password?</a>
                                 </div>
                             </div>
                             <div class="mb-3">

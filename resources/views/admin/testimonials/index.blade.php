@@ -52,7 +52,6 @@
     <script>
         function verifyTestimonial(data, isApproved) {
             var msg = isApproved == 0 ? 'Approve' : "Disapprove"
-            debugger
             Swal.fire({
                 title: "Are you sure?",
                 text: "Are you sure you want to "+msg+" this Testimonial?",

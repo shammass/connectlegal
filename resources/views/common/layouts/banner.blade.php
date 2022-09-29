@@ -34,7 +34,11 @@
                     <!-- start tab navigation -->
                     <ul class="nav nav-tabs justify-content-center text-center text-uppercase font-weight-500 alt-font margin-10-rem-bottom lg-margin-8-rem-bottom border-bottom border-color-medium-gray md-margin-6-rem-bottom">
                         <li class="nav-item"><a data-bs-toggle="tab" href="#question" class="nav-link active">Question</a></li>
-                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#chat">Chat</a></li>
+                        @if(auth()->user())
+                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#chat">Chat</a></li>
+                        @else 
+                            <li class="nav-item"><a href="#login-form3" class="nav-link popup-with-form">Chat</a></li>
+                        @endif
                         <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#callback">Callback</a></li>
                     </ul>
                     <!-- end tab navigation -->
@@ -45,8 +49,14 @@
                     <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom p-5 text-center">Ask A Question</h6> 
                     <form action="{{route('store.forum')}}" method="post">
                         @csrf()
-                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" placeholder="Your email address">
-                        <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" name="message" placeholder="Your message"></textarea>
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" required type="email" name="email" placeholder="Your email address">
+                        @error('email')
+                            <span class="error-msg" style="color:red;">{{ $message }}</span>
+                        @enderror    
+                        <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" required name="message" placeholder="Your message"></textarea>
+                        @error('message')
+                            <span class="error-msg" style="color:red;">{{ $message }}</span>
+                        @enderror    
                         <input type="hidden" name="redirect" value="">
                         <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;float:right;">Post</button>
                     </form>
@@ -62,11 +72,14 @@
                 </div>
                 <div id="chat" class="tab-pane fade">
                     <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom p-5 text-center">Chat Online</h6> 
-                    <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" name="comment" placeholder="Your message"></textarea>
-                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="name" name="name" placeholder="Your Full Name">
-                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" placeholder="Your email address">
-                    <input type="hidden" name="redirect" value="">
-                    <button class="btn btn-medium mb-0 submit" type="submit" style="background-color: #041d43;color:white;float:right;">Submit</button>
+                    <form action="{{route('chat-online')}}" method="POST">
+                        @csrf()
+                        <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" name="message" placeholder="Your message" required></textarea>     
+                        @error('message')
+                            <span class="error-msg" style="color:red;">{{ $message }}</span>
+                        @enderror              
+                        <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;float:right;">Submit</button>
+                    </form>
                     <div class="form-results d-none"></div>
 
                     <div class="row justify-content-center">
@@ -79,12 +92,23 @@
                 </div>
                 <div id="callback" class="tab-pane fade">
                     <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom p-5 text-center">Request A Callback</h6> 
-                    <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" name="comment" placeholder="Your message"></textarea>
-                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="name" name="name" placeholder="Your Full Name">
-                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" placeholder="Your email address">
-                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="number" name="contact" placeholder="Your contact number">
-                    <input type="hidden" name="redirect" value="">
-                    <button class="btn btn-medium mb-0 submit" type="submit" style="background-color: #041d43;color:white;float:right;">Submit</button>
+                    <form action="{{route('callback')}}" method="post">
+                        @csrf()
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" required type="name" name="name" placeholder="Your Full Name">
+                        @error('name')
+                            <span class="error-msg" style="color:red;">{{ $message }}</span>
+                        @enderror    
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom" type="email" name="email" placeholder="Your email address">
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" required type="number" name="contact" placeholder="Your contact number">
+                        @error('contact')
+                            <span class="error-msg" style="color:red;">{{ $message }}</span>
+                        @enderror    
+                        <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" name="message" placeholder="Your message"></textarea>
+                        @error('message')
+                            <span class="error-msg" style="color:red;">{{ $message }}</span>
+                        @enderror    
+                        <button class="btn btn-medium" type="submit" style="background-color: #041d43;color:white;float:right;">Submit</button>
+                    </form>
                     <div class="form-results d-none"></div>
 
                     <div class="row justify-content-center">
@@ -99,5 +123,91 @@
         </div>
     </div>
     <!-- end contact form -->
+
+    <form action="{{route('login')}}" onsubmit="return validateLogin(event)" method="POST" id="login-form3" class="white-popup-block col-xl-5 col-lg-7 col-sm-9  p-0 mx-auto mfp-hide">
+        @csrf()
+        <div class="padding-fifteen-all bg-white border-radius-6px xs-padding-six-all">
+            <div class="row border-top border-width-1px border-color-medium-gray" style="height: 120px;margin-top: -60px;">                
+                <div class="col-12 p-0 tab-style-07">
+                    <!-- start tab navigation -->
+                    <ul class="nav nav-tabs justify-content-center text-center text-uppercase font-weight-500 alt-font margin-10-rem-bottom lg-margin-8-rem-bottom border-bottom border-color-medium-gray md-margin-6-rem-bottom">
+                        <li class="nav-item"><a data-bs-toggle="tab" href="#login" class="nav-link active">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#register">Register</a></li>
+                    </ul>
+                    <!-- end tab navigation -->
+                </div>
+            </div>
+            <div class="tab-content">
+                <p style="color:red;">Note: Please login to send request for online chat</p>
+                <div id="login" class="tab-pane fade in active show">
+                    <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom"></h6> 
+                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" id="email" placeholder="Your email address">                    
+                    <input class="medium-input required" type="password" name="password" id="pwd" placeholder="Your password">
+                    
+                    <input type="hidden" name="redirect" value="">
+                    <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;">Login</button>
+                    <a href="{{route('forgot.password.get')}}" style="float:right;">Forgot Password?</a>
+                    <br>
+                    <p>
+                        <span style="color:red" class="email-error"></span>
+                        <br>
+                        <span style="color:red" class="pwd-error"></span>
+                    </p>
+                    <div class="form-results d-none"></div>
+                </div>
+                <div id="register" class="tab-pane fade">
+                    <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom" style="text-align: center;">Are You A Lawyer/Legal Consultant?</h6> 
+                    <input type="hidden" name="redirect" value="">
+                   
+                    <div class="row justify-content-center">
+                        <div class="col-12 btn-dual text-center">
+                            <a href="{{route('lawyer.register-page')}}" class="btn btn-large btn-dark-gray btn-round-edge d-table d-lg-inline-block lg-margin-15px-bottom md-margin-auto-lr">Yes</a>
+                            <a href="#login2-form" class="btn btn-large btn-dark-gray btn-round-edge d-table d-lg-inline-block lg-margin-15px-bottom md-margin-auto-lr popup-with-form">No</a>
+                        </div>
+                    </div>
+                    <div class="form-results d-none"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="login2-form" class="white-popup-block col-xl-5 col-lg-7 col-sm-9  p-0 mx-auto mfp-hide">
+        <div class="padding-fifteen-all bg-white border-radius-6px xs-padding-six-all">
+            <div class="row border-top border-width-1px border-color-medium-gray" style="height: 120px;margin-top: -60px;">
+                <div class="col-12 p-0 tab-style-07">
+                    <!-- start tab navigation -->
+                    <ul class="nav nav-tabs justify-content-center text-center text-uppercase font-weight-500 alt-font margin-10-rem-bottom lg-margin-8-rem-bottom border-bottom border-color-medium-gray md-margin-6-rem-bottom">
+                        <li class="nav-item"><a data-bs-toggle="tab" href="#login" class="nav-link">Login</a></li>
+                        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#register">Register</a></li>
+                    </ul>
+                    <!-- end tab navigation -->
+                </div>
+            </div>
+            <div class="tab-content">
+                <div id="login" class="tab-pane fade">
+                    <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom"></h6> 
+                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" placeholder="Your email address">
+                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="password" name="passowrd" placeholder="Your password">
+                    
+                    <input type="hidden" name="redirect" value="">
+                    <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;">Login</button>
+                    <a href="{{route('forgot.password.get')}}" style="float:right;">Forgot Password?</a>
+                    <div class="form-results d-none"></div>
+                </div>
+                <div id="register" class="tab-pane fade in active show">
+                    <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom"></h6> 
+                    <form action="{{route('user.register')}}" method="post">
+                        @csrf()
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="name" name="name" placeholder="Your name">
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" placeholder="Your email address">
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="password" name="passowrd" placeholder="Your password">
+                        
+                        <input type="hidden" name="redirect" value="">
+                        <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;">Signup</button>
+                    </form>
+                    <div class="form-results d-none"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- end hero section -->
