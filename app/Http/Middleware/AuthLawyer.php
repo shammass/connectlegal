@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Lawyer;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +22,12 @@ class AuthLawyer
             return redirect()->route('unauthenticated');
         }
         if(auth()->user()->user_type == 2) {
-            return $next($request);
+            $isVerified = Lawyer::whereUserId(auth()->user()->id)->first();
+            if($isVerified->is_verified) {
+                return $next($request);
+            }else {
+                return redirect()->route('unauthenticated');
+            }
         }
         return redirect()->route('unauthenticated');
         // abort(403);
