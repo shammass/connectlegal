@@ -41,7 +41,7 @@ class Lawyer extends Model
     }
 
     public function arbitration() {
-        return $this->belongsTo(ArbitrationArea::class);
+        return $this->belongsTo(ArbitrationArea::class, 'arbitration_area_id');
     }    
 
     public function getLawyerFee($id) {

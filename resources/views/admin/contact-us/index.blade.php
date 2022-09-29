@@ -1,10 +1,6 @@
 @extends('admin.layouts.navbar_content')
 
 @section('title', 'Contact Us')
-@section('page-script')
-    <script src="{{asset('assets/js/arbitration-area.js')}}"></script>
-@endsection
-
 @section('content')
     @include('admin.layouts.flash-message')
     <div class="card">

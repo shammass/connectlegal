@@ -65,13 +65,17 @@ class ServicesController extends Controller
         $this->validate(request(), [
             'platform_fee' => 'required',
         ]);
-        LawyerService::create([
-            'service_id'    => $request->service_id,
-            'lawyer_id'     => $userId,
-            'platform_fee'  => $request->platform_fee,
-        ]);
+        $getLawyerServiceDetails = LawyerService::whereServiceId($request->service_id)->first();
+        LawyerService::updateOrCreate(
+            ['id' => $getLawyerServiceDetails->id],
+            [
+                'service_id'    => $request->service_id,
+                'lawyer_id'     => $userId,
+                'platform_fee'  => $request->platform_fee,
+            ]
+        );
 
-        return redirect()->route('admin.service.lawyers', $request->service_id)->with('success','Added platform fee successfully');
+        return redirect()->route('admin.services')->with('success','Added platform fee successfully');
     }
 
     public function approve(Request $request, $testimonialId) {

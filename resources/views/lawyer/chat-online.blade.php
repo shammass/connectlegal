@@ -84,12 +84,20 @@
                             "_token": "{{ csrf_token() }}",
                             'status': status
                         },
-                        success: function(){
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Accepted',
-                                text: 'Success'
-                            })
+                        success: function(res){
+                            if(res === "success") {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Accepted',
+                                    text: 'Success'
+                                })
+                            }else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops. Someone already accepted this request just before you',
+                                    text: 'Error'
+                                })
+                            }
 
                             setTimeout(window.location.reload.bind(window.location), 1000);
                         }

@@ -1,4 +1,4 @@
-@extends('lawyer/layouts/navbar_content')
+@extends('lawyer.layouts.navbar_content')
 
 @section('title', 'Services')
 
@@ -6,6 +6,7 @@
     @include('admin.layouts.flash-message')
     <div class="card">
         <div class="card-header">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEnd" aria-controls="offcanvasEnd" style="float: right;">Add Service</button>
             <h5 class="card-title">Services</h5>
         </div>
         <div class="card-body">
@@ -15,7 +16,7 @@
                         <th style="text-align: center;">Arbitration Area</th>
                         <th style="text-align: center;">Title</th>
                         <th style="text-align: center;">Description</th>
-                        <th style="text-align: center;">Your Fee</th>
+                        <th style="text-align: center;">My Fee</th>
                         <th style="text-align: center;">Platform Fee</th>
                         <th style="text-align: center;">Actions</th>
                     </tr>
@@ -67,10 +68,51 @@
                 </tbody>
             </table>
         </div>
+        <div class="col-lg-3 col-md-6">
+            <small class="text-light fw-semibold mb-3">Create Service</small>
+            <div class="mt-3">
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEnd" aria-labelledby="offcanvasEndLabel">
+                    <div class="offcanvas-header">
+                        <h5 id="offcanvasEndLabel" class="offcanvas-title">Add Service</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body my-auto mx-0 flex-grow-0">
+                        <form action="{{route('lawyer.service.store')}}" method="POST">
+                            @csrf()
+                            <div class="row">
+                                <div class="col-xl">
+                                    <div class="card mb-4">
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="basic-default-fullname">Arbitration Area</label>
+                                                <select name="area" id="" class="form-control">
+                                                    <option value="{{$arbitrationArea->arbitration_area_id}}">{{$arbitrationArea->arbitration->area}}</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label" for="basic-default-company">Title</label>
+                                                <input type="text" class="form-control" id="basic-default-company" name="title"/>
+                                                @error('title')
+                                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                                @enderror  
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label" for="basic-default-message">Description</label>
+                                                <textarea id="basic-default-message" class="form-control" name="description"></textarea>
+                                                @error('description')
+                                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                                @enderror  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                                
+                            </div>                                      
+                            <button type="submit" class="btn btn-success">Add</button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
-@push('script')
-    <script>
-        
-    </script>
-@endpush

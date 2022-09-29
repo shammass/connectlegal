@@ -38,7 +38,7 @@
                                 </div>
                                 <h4 style="color: black;">{{$service->getLowestFee($service->id)}} USD</h4>
                                 <div class="move-bottom-top margin-15px-top">
-                                    <a href="{{route('service.lawyers', $service->id)}}" class="btn btn-link p-0 btn-extra-large text-extra-dark-gray md-margin-auto-lr">Read More</a>
+                                    <a href="{{route('service.lawyers', $service->id)}}" class="btn btn-link p-0 btn-extra-large text-extra-dark-gray md-margin-auto-lr">View Services</a>
                                 </div>
                             </div>
                         </div>

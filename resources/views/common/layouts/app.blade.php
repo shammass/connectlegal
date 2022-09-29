@@ -139,11 +139,11 @@
         <a class="scroll-top-arrow" href="javascript:void(0);"><i class="feather icon-feather-arrow-up"></i></a>
         <!-- end scroll to top -->
         <!-- javascript -->
-        @include('layouts/sections/scriptsIncludes')
+        @include('layouts.sections.scriptsIncludes')
         <script type="text/javascript" src="/js/jquery.min.js"></script>
         <script type="text/javascript" src="/js/theme-vendors.min.js"></script>
         <script type="text/javascript" src="/js/main.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>        
         <script>
             $(document).ready(function() {
                 toastr.options.timeOut = 10000;
@@ -181,6 +181,7 @@
 
             $(document).ready( function () {
                 $('#myTable').DataTable();
+                $('#myTable2').DataTable();
             });
         </script>
         @yield('script')

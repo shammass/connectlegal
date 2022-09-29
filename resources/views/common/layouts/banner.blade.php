@@ -49,8 +49,14 @@
                     <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom p-5 text-center">Ask A Question</h6> 
                     <form action="{{route('store.forum')}}" method="post">
                         @csrf()
-                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" placeholder="Your email address">
-                        <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" name="message" placeholder="Your message"></textarea>
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" required type="email" name="email" placeholder="Your email address">
+                        @error('email')
+                            <span class="error-msg" style="color:red;">{{ $message }}</span>
+                        @enderror    
+                        <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" required name="message" placeholder="Your message"></textarea>
+                        @error('message')
+                            <span class="error-msg" style="color:red;">{{ $message }}</span>
+                        @enderror    
                         <input type="hidden" name="redirect" value="">
                         <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;float:right;">Post</button>
                     </form>
@@ -66,8 +72,14 @@
                 </div>
                 <div id="chat" class="tab-pane fade">
                     <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom p-5 text-center">Chat Online</h6> 
-                    <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" name="comment" placeholder="Your message"></textarea>                   
-                    <button class="btn btn-medium mb-0 submit" type="submit" style="background-color: #041d43;color:white;float:right;">Submit</button>
+                    <form action="{{route('chat-online')}}" method="POST">
+                        @csrf()
+                        <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" name="message" placeholder="Your message" required></textarea>     
+                        @error('message')
+                            <span class="error-msg" style="color:red;">{{ $message }}</span>
+                        @enderror              
+                        <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;float:right;">Submit</button>
+                    </form>
                     <div class="form-results d-none"></div>
 
                     <div class="row justify-content-center">
@@ -80,12 +92,23 @@
                 </div>
                 <div id="callback" class="tab-pane fade">
                     <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom p-5 text-center">Request A Callback</h6> 
-                    <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" name="comment" placeholder="Your message"></textarea>
-                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="name" name="name" placeholder="Your Full Name">
-                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" placeholder="Your email address">
-                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="number" name="contact" placeholder="Your contact number">
-                    <input type="hidden" name="redirect" value="">
-                    <button class="btn btn-medium mb-0 submit" type="submit" style="background-color: #041d43;color:white;float:right;">Submit</button>
+                    <form action="{{route('callback')}}" method="post">
+                        @csrf()
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" required type="name" name="name" placeholder="Your Full Name">
+                        @error('name')
+                            <span class="error-msg" style="color:red;">{{ $message }}</span>
+                        @enderror    
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom" type="email" name="email" placeholder="Your email address">
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" required type="number" name="contact" placeholder="Your contact number">
+                        @error('contact')
+                            <span class="error-msg" style="color:red;">{{ $message }}</span>
+                        @enderror    
+                        <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" name="message" placeholder="Your message"></textarea>
+                        @error('message')
+                            <span class="error-msg" style="color:red;">{{ $message }}</span>
+                        @enderror    
+                        <button class="btn btn-medium" type="submit" style="background-color: #041d43;color:white;float:right;">Submit</button>
+                    </form>
                     <div class="form-results d-none"></div>
 
                     <div class="row justify-content-center">

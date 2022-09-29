@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\Lawyer;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -33,16 +34,45 @@ class SendForumEmail implements ShouldQueue
      */
     public function handle()
     {
-        $lawyers = User::where([
-            'user_type' => 2,
-            'is_verified' => 1
-        ])->get();
-        $input['subject'] = $this->mail_data['subject'];
-        $input['message'] = $this->mail_data['htmlPart'];
+        $lawyers = Lawyer::whereIsVerified(1)->get();
+        $subject = $this->mail_data['subject'];
+        $message = $this->mail_data['htmlPart'];
+        $lawyerId = $this->mail_data['lawyer'];
 
-        foreach ($lawyers as $k => $value) {
-            $input['email'] = $value->email;
-            $input['name'] = $value->name;
+        if(!$lawyerId) {
+            foreach ($lawyers as $k => $value) {
+                $input['email'] = $value->user->email;
+                $input['name'] = $value->user->name;
+    
+                $apikey = env('MJ_APIKEY_PUBLIC');
+                $apisecret = env('MJ_APIKEY_PRIVATE');
+    
+                $mj = new \Mailjet\Client($apikey, $apisecret,true,['version' => 'v3.1']);
+    
+                $body = [
+                    'Messages' => [
+                        [
+                            'From' => [
+                                'Email' => "s4shamma@gmail.com",
+                                'Name' => "Connect Legal"
+                            ],
+                            'To' => [
+                                [
+                                    'Email' => 's4shamma@gmail.com',
+                                    'Name' => $input['name']
+                                ]
+                            ],
+                            'Subject' => $subject,
+                            // 'TextPart' => "Greetings from Mailjet!",
+                            'HTMLPart' => $message
+                        ]
+                    ]
+                ];
+                
+                $mj->post(Resources::$Email, ['body' => $body]);
+            }
+        }else {
+            $user = User::whereId($lawyerId)->first();
 
             $apikey = env('MJ_APIKEY_PUBLIC');
             $apisecret = env('MJ_APIKEY_PRIVATE');
@@ -58,13 +88,13 @@ class SendForumEmail implements ShouldQueue
                         ],
                         'To' => [
                             [
-                                'Email' => $input['email'],
-                                'Name' => $input['name']
+                                'Email' => $user->email,
+                                'Name' => $user->name
                             ]
                         ],
-                        'Subject' => $input['subject'],
+                        'Subject' => $subject,
                         // 'TextPart' => "Greetings from Mailjet!",
-                        'HTMLPart' => $input['message']
+                        'HTMLPart' => $message
                     ]
                 ]
             ];

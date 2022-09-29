@@ -15,4 +15,12 @@ class Payment extends Model
         'payment_status',
         'payment_id',
     ];
+
+    public function lawyerService() {
+        return $this->belongsTo(LawyerService::class, 'lawyer_service_id');
+    }
+
+    public function hiredBy() {
+        return $this->belongsTo(User::class, 'hired_by');
+    }
 }

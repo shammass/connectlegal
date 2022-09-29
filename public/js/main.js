@@ -1131,7 +1131,7 @@
                 _this.children( '.dropdown-menu' ).removeClass( 'show' );
             });
             // Close classic menu
-            $( '[data-mobile-nav-style="classic"] .navbar-collapse' ).collapse( 'hide' );
+            // $( '[data-mobile-nav-style="classic"] .navbar-collapse' ).collapse( 'hide' );
             // Close theme demos
             if( ! $( e.target ).closest( '.theme-demos' ).length && $( '.theme-demos' ).hasClass( 'active' ) ) {
                 $( '.theme-demos' ).removeClass( 'active' );

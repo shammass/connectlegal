@@ -15,6 +15,7 @@ class ChatOnline extends Model
         'lawyer_id',
         'status',
         'complete',
+        'any' //Any lawyer if user is not selected lawyer
     ];
 
     public function lawyer() {

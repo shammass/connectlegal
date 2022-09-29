@@ -450,5 +450,9 @@
         function onlineChatting(id) {
             document.getElementById('lawyerId').value = id
         }
+
+        function callbackReq(id) {
+            document.getElementById('callback_lawyerId').value = id
+        }
     </script>
 @endsection

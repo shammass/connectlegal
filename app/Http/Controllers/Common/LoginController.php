@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Common;
 
+use App\Events\StatusLiked;
 use App\Http\Controllers\Controller;
 use App\Traits\SendMailTrait;
 use App\Models\Lawyer;
@@ -27,7 +28,7 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function register() {
+    public function register() {        
         return view('lawyer.register');
     }
 
@@ -79,9 +80,7 @@ class LoginController extends Controller
         // print_r($request->all());exit;
         $user = User::whereEmail($request->email)->first();
         if($user) {
-            if (!Hash::check($request->password, $user->password)) {
-                return redirect()->route('home')->with('error','Login Fail, please check your password!');
-            }else {
+            if (Hash::check($request->password, $user->password)) {
                 if($user->user_type == 1) {
                     return redirect()->route('home')->with('error','Login Fail, please check your credentials!');
                 }
@@ -97,6 +96,8 @@ class LoginController extends Controller
                     Auth::login($user);
                     return redirect(RouteServiceProvider::HOME);            
                 }
+            }else {
+                return redirect()->route('home')->with('error','Login Fail, please check your password!');
             }
         }else {
             return redirect()->route('home')->with('error','Login Fail, please check your email!');
@@ -112,7 +113,10 @@ class LoginController extends Controller
 
     public function adminLogin(Request $request) {
         // print_r($request->all());exit;
-        $user = User::whereEmail($request->email)->first();
+        $user = User::where([
+            'email'     => $request->email,
+            'user_type' => 1
+        ])->first();
         if($user) {
             if (!Hash::check($request->password, $user->password)) {
                 return redirect()->route('admin.login')->with('error','Login Fail, please check your password!');    

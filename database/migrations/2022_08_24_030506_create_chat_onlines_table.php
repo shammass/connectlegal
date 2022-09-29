@@ -29,6 +29,7 @@ return new class extends Migration
             
             $table->boolean('status')->default(0);
             $table->boolean('complete')->default(0);
+            $table->boolean('any')->default(1)->comment="If lawyer_id is null then this will be true";
             $table->timestamps();
         });
     }

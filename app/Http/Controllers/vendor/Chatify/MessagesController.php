@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\vendor\Chatify;
 
+use App\Models\ChatNotification;
+use App\Models\ChatOnline;
 use App\Models\ChMessage;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -10,8 +12,11 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Response;
 use App\Models\ChMessage as Message;
 use App\Models\ChFavorite as Favorite;
+use App\Models\Lawyer;
 use Chatify\Facades\ChatifyMessenger as Chatify;
 use App\Models\User;
+use Carbon\Carbon;
+use Carbon\CarbonInterval;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request as FacadesRequest;
@@ -55,18 +60,32 @@ class MessagesController extends Controller
      * @param int $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index( $id = null)
-    {
+    public function index( $id = null) //$id = user id
+    {                
+        $bothLawyer = false;
+        $isLoggedInUserIsLawyer = Lawyer::whereUserId(auth()->user()->id)->first();
+        if($isLoggedInUserIsLawyer) {
+            $isOtherUserIsLawyer = Lawyer::whereUserId($id)->first();
+            if($isOtherUserIsLawyer) {
+                $bothLawyer = true;
+            }
+        }
+        if(!$bothLawyer) {
+            $expired = $this->isExpired($id);
+        }else {
+            $expired = false;
+        }
         $routeName= FacadesRequest::route()->getName();
         $type = in_array($routeName, ['user','group'])
             ? $routeName
             : 'user';
-
+        
         return view('Chatify::pages.app', [
-            'id' => $id ?? 0,
-            'type' => $type ?? 'user',
-            'messengerColor' => Auth::user()->messenger_color ?? $this->messengerFallbackColor,
-            'dark_mode' => Auth::user()->dark_mode < 1 ? 'light' : 'dark',
+            'id'                => $id ?? 0,
+            'expired'           => $expired,
+            'type'              => $type ?? 'user',
+            'messengerColor'    => Auth::user()->messenger_color ?? $this->messengerFallbackColor,
+            'dark_mode'         => Auth::user()->dark_mode < 1 ? 'light' : 'dark',
         ]);
     }
 
@@ -161,27 +180,36 @@ class MessagesController extends Controller
             if (!$error->status) {
                 // send to database
                 $messageID = mt_rand(9, 999999999) + time();
-                Chatify::newMessage([
-                    'id' => $messageID,
-                    'type' => 'user',
-                    'from_id' => Auth::user()->id,
-                    'to_id' => $request['to_id'],
-                    'body' => htmlentities(trim($request['message']), ENT_QUOTES, 'UTF-8'),
-                    'attachment' => ($attachment) ? json_encode((object)[
-                        'new_name' => $attachment,
-                        'old_name' => htmlentities(trim($attachment_title), ENT_QUOTES, 'UTF-8'),
-                    ]) : null,
-                ]);
-    
-                // fetch message to send it with the response
-                $messageData = Chatify::fetchMessage($messageID);
-    
-                // send to user using pusher
-                Chatify::push('private-chatify', 'messaging', [
-                    'from_id' => Auth::user()->id,
-                    'to_id' => $request['to_id'],
-                    'message' => Chatify::messageCard($messageData, 'default')
-                ]);
+                $expired = $this->isExpired($request['to_id']);
+                if(!$expired) {
+                    Chatify::newMessage([
+                        'id' => $messageID,
+                        'type' => 'user',
+                        'from_id' => Auth::user()->id,
+                        'to_id' => $request['to_id'],
+                        'body' => htmlentities(trim($request['message']), ENT_QUOTES, 'UTF-8'),
+                        'attachment' => ($attachment) ? json_encode((object)[
+                            'new_name' => $attachment,
+                            'old_name' => htmlentities(trim($attachment_title), ENT_QUOTES, 'UTF-8'),
+                        ]) : null,
+                    ]);
+        
+                    // fetch message to send it with the response
+                    $messageData = Chatify::fetchMessage($messageID);
+        
+                    // send to user using pusher
+                    Chatify::push('private-chatify', 'messaging', [
+                        'from_id' => Auth::user()->id,
+                        'to_id' => $request['to_id'],
+                        'message' => Chatify::messageCard($messageData, 'default')
+                    ]);
+
+                    ChatNotification::create([
+                        'to_user'       => $request['to_id'],
+                        'from_user'     => auth()->user()->id,
+                        'msg'           => htmlentities(trim($request['message']), ENT_QUOTES, 'UTF-8')
+                    ]);
+                }
             }
     
             // send the response
@@ -193,6 +221,30 @@ class MessagesController extends Controller
             // ]);
             return redirect()->back();
         }
+    }
+
+    public function isExpired($id) {
+        if(auth()->user()->user_type == 2) {
+            $lawyer = Lawyer::whereUserId(auth()->user()->id)->first();
+            $getHours = ChatOnline::where([
+                'user_id' => $id,
+                'lawyer_id' => $lawyer->id
+            ])->first();
+        }else {
+            $lawyer = Lawyer::whereUserId($id)->first();
+            $getHours = ChatOnline::where([
+                'user_id' => auth()->user()->id,
+                'lawyer_id' => $lawyer->id
+            ])->first();
+        }
+        $date = $getHours->updated_at->addHour(2);
+        $addTwoHours = $date->todatetimestring();
+        $expired = false;
+        if(now()->toDateTimeString() >= $addTwoHours) {
+            $expired = true;
+        }
+
+        return $expired;
     }
 
     /**

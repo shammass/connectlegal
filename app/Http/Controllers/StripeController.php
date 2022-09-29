@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LawyerService;
 use App\Models\Payment;
 use Exception;
 use Illuminate\Http\Request;
@@ -47,12 +48,24 @@ class StripeController extends Controller
         $charge = $this->createCharge($token['id'], $request->amount);
         
         if (!empty($charge) && $charge['status'] == 'succeeded') {
-            Payment::create([
+            $payment = Payment::create([
                 'lawyer_service_id' => $request->serviceId,
                 'hired_by'          => auth()->user()->id,
                 'payment_id'        => $charge->id,
                 'payment_status'    => $charge->outcome->seller_message
             ]);
+
+            $mail_data = [
+                'subject' => "Hired by user",
+                'htmlPart' => "You are hired by user: ". auth()->user()->name. " for the service: ".$payment->lawyerService->services->title,
+                'lawyer' => $payment->lawyerService->user->email,
+            ];
+
+            $job = (new \App\Jobs\SendHiredEmail($mail_data))
+                    ->delay(now()->addSeconds(2)); 
+    
+            dispatch($job);
+
             return redirect()->route('service.lawyers', $request->serviceId)->with('success', "Payment Completed");
         } else {
             return redirect()->route('service.lawyers', $request->serviceId)->with('danger', "Payment Failed");

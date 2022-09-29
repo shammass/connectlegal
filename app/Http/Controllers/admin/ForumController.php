@@ -37,13 +37,14 @@ class ForumController extends Controller
             $verify->deleted_at = null;
         }
         $verify->save();
-
+        $htmlPart = (string) view('admin.forums.mail',  compact('verify'));  
         if($status == 1) {
             $mail_data = [
                 'subject' => $verify->title,
-                'htmlPart' => $verify->message
+                'htmlPart' => $htmlPart,
+                'lawyer' => $verify->toLawyer ? $verify->toLawyer->email : null,
             ];
-            
+
             $job = (new \App\Jobs\SendForumEmail($mail_data))
                     ->delay(now()->addSeconds(2)); 
     

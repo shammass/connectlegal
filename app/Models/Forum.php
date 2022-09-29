@@ -16,6 +16,24 @@ class Forum extends Model
         'message',
         'slug',
         'is_verified',
-        'title'
+        'title',
+        'to_lawyer'
     ];
+
+    public function toLawyer() {
+        return $this->belongsTo(User::class, 'to_lawyer');
+    }
+
+    public function myAnswer($forumId) {
+        $answer = ForumAnswers::where([
+            'forum_id'      => $forumId,
+            'lawyer_id'     => auth()->user()->id
+        ])->first();
+        return $answer ? $answer->answer : null;
+    }
+
+    public function isAnswered($forumId) {
+        $answer = ForumAnswers::whereForumId($forumId)->first();
+        return $answer ? true : false;
+    }
 }

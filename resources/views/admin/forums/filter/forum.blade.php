@@ -20,10 +20,10 @@
             <div class="card-footer">
                 @if($forum->is_verified)
                     <input type="hidden" name="status" value=1>
-                    <button type="button" class="btn btn-danger" onclick="verifyForum('{{$forum->id}}', 0)">Disapprove</button>
+                    <button type="button" class="btn btn-danger" onclick="verifyForum('{{$forum->id}}', 0, '{{$forum->title}}')">Move To Pending</button>
                 @else 
                     <input type="hidden" name="status" value=0>
-                    <button type="button" class="btn btn-primary" onclick="verifyForum('{{$forum->id}}', 1)">Approve</button>
+                    <button type="button" class="btn btn-primary" onclick="verifyForum('{{$forum->id}}', 1, '{{$forum->title}}')">Approve</button>
                 @endif
             </div>
         </div>

@@ -21,6 +21,11 @@ return new class extends Migration
 				->references('id')->on('arbitration_areas')
                 ->onDelete('cascade');
 
+            $table->unsignedBigInteger('added_by')->nullable();
+            $table->foreign('added_by')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
+
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
             $table->boolean('approved')->default(0);

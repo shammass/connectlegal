@@ -14,10 +14,15 @@ class Services extends Model
         'title',
         'description',
         'approved', //by default "No"
+        'added_by',
     ];
 
     public function arbitration() {
         return $this->belongsTo(ArbitrationArea::class, 'arbitration_area_id');
+    }  
+
+    public function addedBy() {
+        return $this->belongsTo(User::class, 'added_by');
     }  
 
     public function getLawyerFee($id) {
