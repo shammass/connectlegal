@@ -62,7 +62,7 @@ class ForgotPasswordController extends Controller
                     // 'TextPart' => "Greetings from Mailjet!",
                     'HTMLPart' => "<h1>Forgot Password Email</h1>You can reset password from bellow link:
                                     <br>
-                                    <a href=\"http://127.0.0.1:8000/reset-password/".$token."\">Reset Password</a>"
+                                    <a href=\"https://dev.test.connectlegal.ae/reset-password/".$token."\">Reset Password</a>"
                 ]
             ]
         ];
