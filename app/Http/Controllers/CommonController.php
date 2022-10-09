@@ -303,4 +303,9 @@ class CommonController extends Controller
         ->paginate(5);
         return (string) view('common.law-article.category-filter',  compact('articles')); 
     }
+
+    public function ourLawyers() {
+        $lawyers = Lawyer::whereIsVerified(1)->paginate(2);
+        return view('common.our-lawyers.index', compact('lawyers'));
+    }
 }

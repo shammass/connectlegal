@@ -75,13 +75,13 @@
                                 </div>
                                 <div class="chat-history">
                                     <div class="avenue-messenger">
-                                        <div class="chat">
+                                        <div class="chat">                                    
                                             <p class="sending" style="display:none;text-align: center;"><b>Sending...</b></p>
-                                            <div class="messages-content">
+                                            <div class="messages-content" id="chat-text">
                                                 @foreach($messages as $k => $message)
                                                     @if($message->from_id != auth()->user()->id)
                                                         <div class="message new">
-                                                            <h5 style="color:{{$message->fromUser->messenger_color}}"><b>{{$message->fromUser->name}}</b></h5>
+                                                            <h5 style="color:{{$message->fromUser->messenger_color}}"><b>{{ucfirst($message->fromUser->name)}}</b></h5>
                                                            <b>{{$message->body}}</b>
                                                            <br><small>{{date('g:i A', strtotime($message->created_at))}}</small>
                                                             <!-- <div class="timestamp" style="width: max-content;">{{date('g:i A', strtotime($message->created_at))}}</div> -->
@@ -98,10 +98,10 @@
                                                     @endif
                                                 @endforeach
                                             </div>
-                                            <div class="message-box" style="margin-top: 5%;">
+                                            <div class="message-box" id="msgFieldFirst">
                                                 <input type="hidden" id="groupId" value="{{$groupId}}">
                                                 <textarea class="message-input emojiPicker m-send app-scroll"
-                                                    placeholder="Type message..." id="msgField" style="padding-left: 5%;"></textarea>      
+                                                    placeholder="Type message..." id="msgField" style="padding-left: 5%;display:2 !important;"></textarea>      
                                                 <!-- <textarea name="message" class="m-send app-scroll" placeholder="Type a message.." style="padding-left: 5%;" id="msgField"></textarea>                                           -->
                                                 <a href="#" class="message-submit" onclick="sendMessage()"><i data-feather="send"></i></a>
                                             </div>

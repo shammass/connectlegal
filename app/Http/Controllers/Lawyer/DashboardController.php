@@ -100,11 +100,26 @@ class DashboardController extends Controller
     }
 
     public function closeNotification($notificationId) {
-        ChatNotification::updateOrCreate(['id' => $notificationId],
-            [
-                'seen' => 1
-            ]
-        );
+        $notificationData = ChatNotification::whereId($notificationId)->first();
+        if($notificationData->group_id) {
+            $closeAllNotification = ChatNotification::where([
+                'group_id' => $notificationData->group_id,
+                'to_user'  => auth()->user()->id,
+                'seen'     => 0
+            ])->get();
+        }else {
+            $closeAllNotification = ChatNotification::where([
+                'to_user'  => auth()->user()->id,
+                'seen'     => 0
+            ])->get();
+        }   
+        foreach($closeAllNotification as $k => $notification) {
+            ChatNotification::updateOrCreate(['id' => $notification->id],
+                [
+                    'seen' => 1
+                ]
+            );
+        }
 
         return true;
     }

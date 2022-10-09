@@ -47,6 +47,9 @@
                     <li class="menu-list-item">
                         <a href="{{route('testimonials')}}">Testimonials</a>
                     </li>
+                    <li class="menu-list-item">
+                        <a href="{{route('our-lawyers')}}">Our Lawyers</a>
+                    </li>
                     <li class="nav-item dropdown simple-dropdown">
                             <a href="#" class="nav-link">Lawyers</a>
                             <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
