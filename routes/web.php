@@ -27,6 +27,7 @@ use App\Http\Controllers\Lawyer\LawArticleController;
 use App\Http\Controllers\Lawyer\LawyerServiceController;
 use App\Http\Controllers\Lawyer\PostController;
 use App\Http\Controllers\Lawyer\QuestionAnswerController;
+use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\UserActivityController;
 use App\Http\Controllers\vendor\Chatify\MessagesController;
@@ -83,6 +84,9 @@ Route::get('legal-articles/{id}',          [CommonController::class, 'articleDet
 Route::get('filter-by-category',           [CommonController::class, 'filterByCategory'])->name('legal.filter-by-category');
 Route::get('our-lawyers',                  [CommonController::class, 'ourLawyers'])->name('our-lawyers');
 Route::get('our-lawyers/details/{id}',     [CommonController::class, 'lawyerDetail'])->name('our-lawyer.details');
+
+Route::get('zoom',     [MeetingController::class, 'store']);
+
 
 
 #################                           END USER                  ###################################
