@@ -28,7 +28,7 @@ class TestMail extends Mailable
      */
     public function build()
     {
-        return $this->from('shammas.ta@pacewisdom.com')
+        return $this->from('s4shamma@gmail.com')
                ->subject('Mail from Me')
                ->view('emails.test',["user"=>'s4shamma@gmail.com',"title"=>"Please login"]);
     }

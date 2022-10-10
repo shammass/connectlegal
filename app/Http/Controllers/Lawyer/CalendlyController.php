@@ -12,4 +12,18 @@ class CalendlyController extends Controller
         
         return view('lawyer.calendly.scheduled-events');
     }
+
+    public function slots() {
+        return view('lawyer.calendly.slots');
+    }
+
+    public function addSlots() {
+        return view('lawyer.calendly.add-slot');
+    }
+
+    public function storeSlots(Request $request) {
+        print_r($request->all());exit;
+    }
+
+    
 }
