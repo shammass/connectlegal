@@ -29,6 +29,7 @@ use App\Http\Controllers\Lawyer\PostController;
 use App\Http\Controllers\Lawyer\QuestionAnswerController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\UserActivityController;
+use App\Http\Controllers\vendor\Chatify\MessagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -80,6 +81,8 @@ Route::post('request-for-quotes/store',     [HireLawyerController::class, 'reque
 Route::get('legal-articles',               [CommonController::class, 'articleList'])->name('legal.article-list');
 Route::get('legal-articles/{id}',          [CommonController::class, 'articleDetails'])->name('legal.article-details');
 Route::get('filter-by-category',           [CommonController::class, 'filterByCategory'])->name('legal.filter-by-category');
+Route::get('our-lawyers',                  [CommonController::class, 'ourLawyers'])->name('our-lawyers');
+Route::get('our-lawyers/details/{id}',     [CommonController::class, 'lawyerDetail'])->name('our-lawyer.details');
 
 
 #################                           END USER                  ###################################
@@ -93,6 +96,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/chat/requests',                     [CommonController::class, 'onlineChatRequests'])->name('online-chat.requests');
 
     Route::get('/my-activity',                         [UserActivityController::class, 'userActivty'])->name('user.activity');
+
+    Route::post('online-chat/sendMessage',             [MessagesController::class, 'send'])->name('send.message');
 });
 
 #################                           ADMIN                  ###################################
@@ -184,8 +189,8 @@ Route::prefix('admin')->group(function () {
 
 
 #################                           LAWYER                  ###################################
-Route::group(['middleware' => ['web', 'auth.timeout']], function () {
-// Route::group(['middleware' => ['web']], function () {
+// Route::group(['middleware' => ['web', 'auth.timeout']], function () {
+Route::group(['middleware' => ['web']], function () {
     Route::prefix('lawyer')->group(function () { 
         Route::get('/register',                    [LoginController::class, 'register'])->name('lawyer.register-page');
         Route::post('/registration',               [LoginController::class, 'registerLawyer'])->name('lawyer.register');

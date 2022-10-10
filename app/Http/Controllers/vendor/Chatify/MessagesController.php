@@ -61,7 +61,23 @@ class MessagesController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index( $id = null) //$id = user id
-    {                
+    {             
+        $expired = $this->isBothLawyer($id);
+        $routeName= FacadesRequest::route()->getName();
+        $type = in_array($routeName, ['user','group'])
+            ? $routeName
+            : 'user';
+        
+        return view('Chatify::pages.app', [
+            'id'                => $id ?? 0,
+            'expired'           => $expired,
+            'type'              => $type ?? 'user',
+            'messengerColor'    => Auth::user()->messenger_color ?? $this->messengerFallbackColor,
+            'dark_mode'         => Auth::user()->dark_mode < 1 ? 'light' : 'dark',
+        ]);
+    }
+
+    public function isBothLawyer($id) {
         $bothLawyer = false;
         $isLoggedInUserIsLawyer = Lawyer::whereUserId(auth()->user()->id)->first();
         if($isLoggedInUserIsLawyer) {
@@ -75,18 +91,8 @@ class MessagesController extends Controller
         }else {
             $expired = false;
         }
-        $routeName= FacadesRequest::route()->getName();
-        $type = in_array($routeName, ['user','group'])
-            ? $routeName
-            : 'user';
-        
-        return view('Chatify::pages.app', [
-            'id'                => $id ?? 0,
-            'expired'           => $expired,
-            'type'              => $type ?? 'user',
-            'messengerColor'    => Auth::user()->messenger_color ?? $this->messengerFallbackColor,
-            'dark_mode'         => Auth::user()->dark_mode < 1 ? 'light' : 'dark',
-        ]);
+
+        return $expired;
     }
 
 
@@ -180,7 +186,7 @@ class MessagesController extends Controller
             if (!$error->status) {
                 // send to database
                 $messageID = mt_rand(9, 999999999) + time();
-                $expired = $this->isExpired($request['to_id']);
+                $expired = $this->isBothLawyer($request['to_id']);
                 if(!$expired) {
                     Chatify::newMessage([
                         'id' => $messageID,
@@ -213,13 +219,16 @@ class MessagesController extends Controller
             }
     
             // send the response
-            // return Response::json([
-            //     'status' => '200',
-            //     'error' => $error,
-            //     'message' => Chatify::messageCard(@$messageData),
-            //     'tempID' => $request['temporaryMsgId'],
-            // ]);
-            return redirect()->back();
+            if(request()->ajax()) {
+                return Response::json([
+                    'status' => '200',
+                    'error' => $error,
+                    'message' => Chatify::messageCard(@$messageData),
+                    'tempID' => $request['temporaryMsgId'],
+                ]);
+            }else {
+                return redirect()->back();
+            }
         }
     }
 

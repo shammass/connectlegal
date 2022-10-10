@@ -127,15 +127,24 @@
                         // $(".all-posts-"+data.postComment.post_id).empty();
                         $(".sending").css('display', 'none');
                         $(".messages-content").append(res);
+                        $("#chat-text").animate({ scrollTop: $('#chat-text').prop("scrollHeight")}, 1000);
                     }
                 });
+            }
+        }); 
+
+        var input = document.getElementById("msgFieldFirst");
+        input.addEventListener("keyup", function(event) {
+            if (event.code === "Enter") {
+                sendMessage()
             }
         });
 
         function sendMessage() {
+            const messagesContainer = $(".chat-history");
             $(".sending").css('display', 'block');
             $(".sending").css('text-align', 'center');
-            var msg = $("#msgField").val();
+            var msg = $(".emojionearea-editor").text();
             var groupId = $("#groupId").val();
             $("#msgField").val("")
             $(".emojionearea-editor").empty();
@@ -149,6 +158,8 @@
                         'msg':msg
                     },
                     success: function(res){
+                        $("#chat-text").animate({ scrollTop: $('#chat-text').prop("scrollHeight")}, 1000);
+                        // $('#chat-text').scrollTop($('#chat-text')[0].scrollHeight);
                     }
                 });
             }

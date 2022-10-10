@@ -416,6 +416,14 @@ function IDinfo(id, type) {
  *-------------------------------------------------------------
  */
 
+var input = document.getElementById("msgInput");
+input.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+      event.preventDefault();
+      sendMessage()
+  }
+});
+
 function sendMessageOnEnter(e) {
   if(e.keyCode === 13){
     sendMessage()
