@@ -46,7 +46,7 @@
                             </td>
                             <td>
                                 @if(!$request->complete && $request->status)
-                                    <a href="/online-chat/{{$request->user_id}}" target="_blank">Chat Online</a>
+                                    <a href="/online-chat/{{$request->user_id}}" target="_blank">Chat Here</a>
                                 @else 
                                     -
                                 @endif

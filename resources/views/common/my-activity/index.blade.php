@@ -223,7 +223,7 @@
                                     </td>
                                     <td>
                                         @if($request->status && !$request->complete)
-                                            <a href="/online-chat/{{$request->lawyer->user_id}}" style="color:blue;" target="_blank">Chat Online</a>
+                                            <a href="/online-chat/{{$request->lawyer->user_id}}" style="color:blue;" target="_blank">Chat Here</a>
                                         @else
                                             -
                                         @endif
