@@ -27,6 +27,7 @@ use App\Http\Controllers\Lawyer\LawArticleController;
 use App\Http\Controllers\Lawyer\LawyerServiceController;
 use App\Http\Controllers\Lawyer\PostController;
 use App\Http\Controllers\Lawyer\QuestionAnswerController;
+use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\UserActivityController;
 use App\Http\Controllers\vendor\Chatify\MessagesController;
@@ -65,7 +66,7 @@ Route::get('/unauthenticated-user',           [LoginController::class, 'unauthen
 
 Route::post('chat-online',                      [CommonController::class, 'chatOnline'])->name('chat-online');
 
-// Route::get('blogs-articles/{page}',             [CommonController::class, 'blogsArticles'])->name('blogs-articles');
+Route::get('blogs-articles-store/{page}',       [CommonController::class, 'blogsArticles'])->name('blogs-articles2');
 Route::get('blogs-articles/{page}',             [CommonController::class, 'index2'])->name('blogs-articles');
 // Route::get('blogs-articles-details/{id}',       [CommonController::class, 'blogsArticleDetails'])->name('blogs-article-details');
 Route::get('blogs-articles-details/{id}',       [CommonController::class, 'blogDetails2'])->name('blogs-article-details');
@@ -83,6 +84,9 @@ Route::get('legal-articles/{id}',          [CommonController::class, 'articleDet
 Route::get('filter-by-category',           [CommonController::class, 'filterByCategory'])->name('legal.filter-by-category');
 Route::get('our-lawyers',                  [CommonController::class, 'ourLawyers'])->name('our-lawyers');
 Route::get('our-lawyers/details/{id}',     [CommonController::class, 'lawyerDetail'])->name('our-lawyer.details');
+
+Route::get('zoom',     [MeetingController::class, 'store']);
+
 
 
 #################                           END USER                  ###################################
@@ -208,7 +212,10 @@ Route::group(['middleware' => ['web']], function () {
             Route::post('/accept/chat-online-request/{id}',     [ChatOnlineRequestController::class, 'acceptRequest'])->name('lawyer.accept-request');
             Route::post('/complete/chat-online-request/{id}',   [ChatOnlineRequestController::class, 'completeRequest'])->name('lawyer.complete-request');
 
-            Route::get('/scheduled-events',  [CalendlyController::class, 'scheduledEvents'])->name('lawyer.scheduled-events');
+            Route::get('/scheduled-events',     [CalendlyController::class, 'scheduledEvents'])->name('lawyer.scheduled-events');
+            Route::get('/slots',                [CalendlyController::class, 'slots'])->name('lawyer.slots');
+            Route::get('/add-slots',            [CalendlyController::class, 'addSlots'])->name('lawyer.add-slots');
+            Route::post('/store-slots',         [CalendlyController::class, 'storeSlots'])->name('lawyer.store-slots');
 
             Route::get('/services',                  [LawyerServiceController::class, 'index'])->name('lawyer.services');
             Route::post('store/service',             [LawyerServiceController::class, 'store'])->name('lawyer.service.store');

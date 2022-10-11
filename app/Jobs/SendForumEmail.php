@@ -58,7 +58,7 @@ class SendForumEmail implements ShouldQueue
                             ],
                             'To' => [
                                 [
-                                    'Email' => 's4shamma@gmail.com',
+                                    'Email' => $input['email'],
                                     'Name' => $input['name']
                                 ]
                             ],

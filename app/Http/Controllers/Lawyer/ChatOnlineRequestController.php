@@ -42,8 +42,8 @@ class ChatOnlineRequestController extends Controller
             $mail_data = [
                 'subject' => "Your chat request has been accepted",
                 'htmlPart' => "Dear user. Your chat request has been accepted and you have 2 hours to clarify your queries",
-                // 'user_email' => $chatRequest->user->email
-                'user_email' => "s4shamma@gmail.com"
+                'user_email' => $chatRequest->user->email
+                // 'user_email' => "s4shamma@gmail.com"
             ];
     
             $job = (new \App\Jobs\SendOnlineChatRequestEmail($mail_data))

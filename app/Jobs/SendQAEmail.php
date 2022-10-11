@@ -53,8 +53,8 @@ class SendQAEmail implements ShouldQueue
                     ],
                     'To' => [
                         [
-                            // 'Email' => $email,
-                            'Email' => 's4shamma@gmail.com',
+                            'Email' => $email,
+                            // 'Email' => 's4shamma@gmail.com',
                             'Name' => 'You'
                         ]
                     ],
