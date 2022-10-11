@@ -27,6 +27,7 @@ class UserActivityController extends Controller
         $chatRequests = ChatOnline::whereUserId(auth()->user()->id)->get();
         $forumQuestions = Forum::whereEmail(auth()->user()->email)->get();
         $callbackRequests = Callback::whereEmail(auth()->user()->email)->get();
-        return view('common.my-activity.index', compact('chatRequests', 'forumQuestions', 'requestForQuotes', 'callbackRequests'));
+        $hiredData = Payment::whereHiredBy(auth()->user()->id)->get();
+        return view('common.my-activity.index', compact('chatRequests', 'forumQuestions', 'requestForQuotes', 'callbackRequests', 'hiredData'));
     }
 }

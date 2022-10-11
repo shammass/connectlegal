@@ -32,6 +32,7 @@
                                 <li>Total Questions Asked: <b>{{$forumQuestions->count()}}</b></li>
                                 <li>Online Chat Requests: <b>{{$chatRequests->count()}}</b></li>
                                 <li>Callback Requests: <b>{{$callbackRequests->count()}}</b></li>
+                                <li>Lawyers Hired: <b>{{$hiredData->count()}}</b></li>
                             </ul>
                         </div>
                     </div>
@@ -148,6 +149,37 @@
                     <div class="swiper-button-next-nav-3 swiper-button-next rounded-circle light slider-navigation-style-07 box-shadow-double-large" tabindex="0" role="button" aria-label="Next slide"><i class="feather icon-feather-arrow-right"></i></div>
                     <div class="swiper-button-previous-nav-3 swiper-button-prev rounded-circle light slider-navigation-style-07 box-shadow-double-large" tabindex="0" role="button" aria-label="Previous slide"><i class="feather icon-feather-arrow-left"></i></div>
                 </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 text-center margin-five-bottom">
+                        <h6 class="alt-font text-extra-dark-gray font-weight-500">Request For Quotes</h6>
+                    </div>
+                </div>
+                <div class="col-12 position-relative p-0 wow animate__fadeIn" data-wow-delay="0.4s">
+                    @if($hiredData->count() > 4)
+                        <div class="swiper-container h-auto padding-15px-all black-move" data-slider-options='{ "loop": true, "slidesPerView": 1, "spaceBetween": 30, "autoplay": { "delay": 3000, "disableOnInteraction": false },  "observer": true, "observeParents": true, "navigation": { "nextEl": ".swiper-button-next-nav-3", "prevEl": ".swiper-button-previous-nav-3" }, "keyboard": { "enabled": true, "onlyInViewport": true }, "breakpoints": { "1200": { "slidesPerView": 4 }, "992": { "slidesPerView": 3 }, "768": { "slidesPerView": 2 } }, "effect": "slide" }'>
+                    @else
+                        <div class="swiper-container h-auto padding-15px-all black-move" data-slider-options='{ "loop": false, "slidesPerView": 1, "spaceBetween": 30, "autoplay": { "delay": 3000, "disableOnInteraction": false },  "observer": true, "observeParents": true, "navigation": { "nextEl": ".swiper-button-next-nav-3", "prevEl": ".swiper-button-previous-nav-3" }, "keyboard": { "enabled": true, "onlyInViewport": true }, "breakpoints": { "1200": { "slidesPerView": 4 }, "992": { "slidesPerView": 3 }, "768": { "slidesPerView": 2 } }, "effect": "slide" }'>
+                    @endif
+                    <div class="swiper-wrapper">
+                        @foreach($hiredData as $k => $hired)
+                            <div class="swiper-slide box-shadow-small box-shadow-extra-large-hover">
+                                <div class="position-relative bg-white padding-3-rem-all md-padding-4-rem-lr">
+                                    <div class="bg-neon-orange text-small font-weight-500 alt-font text-white text-uppercase position-absolute top-minus-15px right-0px padding-5px-tb padding-20px-lr">${{$quote->lawyerService->lawyer_fee + $quote->lawyerService->platform_fee}}</div>
+                                    <!-- <span class="text-medium text-uppercase d-block margin-5px-bottom">08 Days</span> -->
+                                    <a href="#" class="alt-font font-weight-500 d-block margin-30px-bottom line-height-24px text-extra-dark-gray text-neon-orange-hover d-block">{{$quote->lawyerService->services->title}}</a>
+                                    <span class="text-golden-yellow text-small line-height-18px d-block">{{$quote->lawyerService->user->name}}</span>
+                                    <span class="text-medium">{{$quote->lawyerService->getEmirate($quote->lawyerService->lawyer_id)}}</span>
+                                    <a href="#hire-lawyer-form-{{$k}}" class="btn btn-medium bg-extra-dark-gray d-block text-white section-link popup-with-form">Hire Now</a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div> 
+                </div>
+                <div class="swiper-button-next-nav-3 swiper-button-next rounded-circle light slider-navigation-style-07 box-shadow-double-large" tabindex="0" role="button" aria-label="Next slide"><i class="feather icon-feather-arrow-right"></i></div>
+                <div class="swiper-button-previous-nav-3 swiper-button-prev rounded-circle light slider-navigation-style-07 box-shadow-double-large" tabindex="0" role="button" aria-label="Previous slide"><i class="feather icon-feather-arrow-left"></i></div>
             </div>
             <hr>
             <div class="row">

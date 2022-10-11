@@ -186,7 +186,7 @@
                 <div id="login" class="tab-pane fade">
                     <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom"></h6> 
                     <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" placeholder="Your email address">
-                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="password" name="passowrd" placeholder="Your password">
+                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="password" name="password" placeholder="Your password">
                     
                     <input type="hidden" name="redirect" value="">
                     <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;">Login</button>
@@ -199,7 +199,7 @@
                         @csrf()
                         <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="name" name="name" placeholder="Your name">
                         <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" placeholder="Your email address">
-                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="password" name="passowrd" placeholder="Your password">
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="password" name="password" placeholder="Your password">
                         
                         <input type="hidden" name="redirect" value="">
                         <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;">Signup</button>
