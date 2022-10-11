@@ -62,7 +62,8 @@ class MessagesController extends Controller
      */
     public function index( $id = null) //$id = user id
     {             
-        $expired = $this->isBothLawyer($id);
+        // $expired = $this->isBothLawyer($id);
+        $expired = false;
         $routeName= FacadesRequest::route()->getName();
         $type = in_array($routeName, ['user','group'])
             ? $routeName
@@ -186,7 +187,8 @@ class MessagesController extends Controller
             if (!$error->status) {
                 // send to database
                 $messageID = mt_rand(9, 999999999) + time();
-                $expired = $this->isBothLawyer($request['to_id']);
+                // $expired = $this->isBothLawyer($request['to_id']);
+                $expired = false;
                 if(!$expired) {
                     Chatify::newMessage([
                         'id' => $messageID,

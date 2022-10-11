@@ -58,10 +58,22 @@ class ChatOnlineRequestController extends Controller
     }
 
     public function completeRequest(Request $request, $id) {
-        ChatOnline::updateOrCreate(['id' => $id],
+        $chat = ChatOnline::updateOrCreate(['id' => $id],
         [
             'complete' => 1
         ]);
+
+        $mail_data = [
+            'subject' => "Your chat request has been completed",
+            'htmlPart' => "Dear user. Your chat request has been completed",
+            'user_email' => $chat->user->email
+            // 'user_email' => "s4shamma@gmail.com"
+        ];
+
+        $job = (new \App\Jobs\ChatRequestCompleted($mail_data))
+                ->delay(now()->addSeconds(2)); 
+
+        dispatch($job);
 
         return "success";
     }

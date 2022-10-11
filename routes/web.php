@@ -66,7 +66,7 @@ Route::get('/unauthenticated-user',           [LoginController::class, 'unauthen
 
 Route::post('chat-online',                      [CommonController::class, 'chatOnline'])->name('chat-online');
 
-Route::get('blogs-articles-store/{page}',       [CommonController::class, 'blogsArticles'])->name('blogs-articles2');
+// Route::get('blogs-articles-store/{page}',       [CommonController::class, 'blogsArticles'])->name('blogs-articles2');
 Route::get('blogs-articles/{page}',             [CommonController::class, 'index2'])->name('blogs-articles');
 // Route::get('blogs-articles-details/{id}',       [CommonController::class, 'blogsArticleDetails'])->name('blogs-article-details');
 Route::get('blogs-articles-details/{id}',       [CommonController::class, 'blogDetails2'])->name('blogs-article-details');
