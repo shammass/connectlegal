@@ -94,115 +94,205 @@
 </style>
 @endsection
 @section('content')
-    @include('admin.layouts.flash-message') 
-    <div class="col-md-12">
-        <div class="card mb-4">
-            <h5 class="card-header">Create Slots</h5>
-            <div class="card-body">
-                <form action="{{route('lawyer.store-slots')}}" method="POST">
-                    @csrf()
-                    <div class="app-time">
-  <div>
-    <p>Timings</p>
-    <p>9:00AM to 12:00PM</p>
-    <div class="app-check">
-      <input type="radio" class="option-input radio" name="example" />
-      <div class="app-border">
+  @include('admin.layouts.flash-message') 
+  <div class="col-md-12">
+    <div class="card mb-4">
+      <h5 class="card-header">Create Slots</h5>
+      <div class="card-body">
+      <ul class="nav nav-tabs nav-fill" role="tablist">
+        <li class="nav-item">
+          <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#monday" aria-controls="monday" aria-selected="true"><i class="tf-icons bx bx-calendar"></i> Monday </button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#tuesday" aria-controls="tuesday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Tuesday</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#wednesday" aria-controls="wednesday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Wednesday</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#thursday" aria-controls="thursday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Thursday</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#friday" aria-controls="friday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Friday</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#saturday" aria-controls="saturday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Saturday</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#sunday" aria-controls="sunday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Sunday</button>
+        </li>
+      </ul>
+        <form action="{{route('lawyer.store-slots')}}" method="POST">
+          @csrf()
+          <div class="tab-content">
 
-        <label class="app-label">9:00 AM
-        </label>
-      </div>
-      <input type="radio" class="option-input radio" disabled name="example" />
-      <div class="app-border">
-
-        <label class="app-label">9:30 AM
-        </label>
-      </div>
-      <input type="radio" class="option-input radio" name="example" disabled />
-      <div class="app-border">
-
-        <label class="app-label">10:00 AM
-        </label>
-      </div>
-      <input type="radio" class="option-input radio" name="example" />
-      <div class="app-border">
-
-        <label class="app-label">10:30 AM
-        </label>
-      </div>
-      <input type="radio" class="option-input radio" name="example" />
-      <div class="app-border">
-
-        <label class="app-label">11:00 AM
-        </label>
-      </div>
-      <input type="radio" class="option-input radio" name="example" disabled />
-      <div class="app-border">
-
-        <label class="app-label">11:30 AM
-        </label>
-      </div>
-    </div>
-  </div>
-  <div>
-    <p>Timings</p>
-    <p>1:00PM to 5:00PM</p>
-    <div class="app-check">
-      <input type="radio" class="option-input radio" name="example" />
-      <div class="app-border">
-
-        <label class="app-label">1:00 PM
-        </label>
-      </div>
-      <input type="radio" class="option-input radio" name="example" disabled />
-      <div class="app-border">
-
-        <label class="app-label">1:30 PM
-        </label>
-      </div>
-      <input type="radio" class="option-input radio" name="example" />
-      <div class="app-border">
-
-        <label class="app-label">2:00 PM
-        </label>
-      </div>
-      <input type="radio" class="option-input radio" name="example" disabled />
-      <div class="app-border">
-
-        <label class="app-label">2:30 PM
-        </label>
-      </div>
-      <input type="radio" class="option-input radio" name="example" />
-      <div class="app-border">
-
-        <label class="app-label">3:00 PM
-        </label>
-      </div>
-      <input type="radio" class="option-input radio" name="example" disabled />
-      <div class="app-border">
-
-        <label class="app-label">3:30 PM
-        </label>
-      </div>
-      <input type="radio" class="option-input radio" name="example" />
-      <div class="app-border">
-
-        <label class="app-label">4:00 PM
-        </label>
-      </div>
-
-      <input type="radio" class="option-input radio" name="example" disabled />
-      <div class="app-border">
-
-        <label class="app-label">4:30 PM
-        </label>
-      </div>
-
-    </div>
-  </div>
-</div>
-                </form>
+            <!-- MONDAY -->
+            <div class="tab-pane fade show active" id="monday" role="tabpanel">
+              <div class="app-time">
+                <div id="appended-monday">
+                  <div class="app-check col-md-3" id="monday_div_0">
+                    <input type="text" class="form-control" name="monday[]" id="monday_0" placeholder="Ex: 9 - 9.30 AM" />    
+                    <button type="button" class="btn btn-primary" style="margin-left: 2%;" onclick="appendField('Monday')">+</button>
+                    <input type="hidden" name="monday_dynamic" id="monday_dynamic" value="0">
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
+
+            <!-- TUESDAY -->
+            <div class="tab-pane fade" id="tuesday" role="tabpanel">
+              <div class="app-time">
+                <div id="appended-tuesday">
+                  <div class="app-check col-md-3" id="tuesday_div_0">
+                    <input type="text" class="form-control" name="tuesday[]" id="tuesday_0" placeholder="Ex: 9 - 9.30 AM" />    
+                    <button type="button" class="btn btn-primary" style="margin-left: 2%;" onclick="appendField('Tuesday')">+</button>  
+                    <input type="hidden" name="tuesday_dynamic" id="tuesday_dynamic" value="0">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- WEDNESDAY -->
+            <div class="tab-pane fade" id="wednesday" role="tabpanel">
+              <div class="app-time">
+                <div id="appended-wednesday">
+                  <div class="app-check col-md-3" id="wednesday_div_0">
+                    <input type="text" class="form-control" name="wednesday[]" id="wednesday_0" placeholder="Ex: 9 - 9.30 AM" />    
+                    <button type="button" class="btn btn-primary" style="margin-left: 2%;" onclick="appendField('Wednesday')">+</button>
+                    <input type="hidden" name="wednesday_dynamic" id="wednesday_dynamic" value="0">  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- THURSDAY -->
+            <div class="tab-pane fade" id="thursday" role="tabpanel">
+              <div class="app-time">
+                <div id="appended-thursday">
+                  <div class="app-check col-md-3" id="thursday_div_0">
+                    <input type="text" class="form-control" name="thursday[]" id="thursday_0" placeholder="Ex: 9 - 9.30 AM" />    
+                    <button type="button" class="btn btn-primary" style="margin-left: 2%;" onclick="appendField('Thursday')">+</button>
+                    <input type="hidden" name="thursday_dynamic" id="thursday_dynamic" value="0">  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FRIDAY -->
+            <div class="tab-pane fade" id="friday" role="tabpanel">
+              <div class="app-time">
+                <div id="appended-friday">
+                  <div class="app-check col-md-3" id="friday_div_0">
+                    <input type="text" class="form-control" name="friday[]" id="friday_0" placeholder="Ex: 9 - 9.30 AM" />    
+                    <button type="button" class="btn btn-primary" style="margin-left: 2%;" onclick="appendField('Friday')">+</button>
+                    <input type="hidden" name="friday_dynamic" id="friday_dynamic" value="0">  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SATURDAY -->
+            <div class="tab-pane fade" id="saturday" role="tabpanel">
+              <div class="app-time">
+                <div id="appended-saturday">
+                  <div class="app-check col-md-3" id="saturday_div_0">
+                    <input type="text" class="form-control" name="saturday[]" id="saturday_0" placeholder="Ex: 9 - 9.30 AM" />    
+                    <button type="button" class="btn btn-primary" style="margin-left: 2%;" onclick="appendField('Saturday')">+</button>
+                    <input type="hidden" name="saturday_dynamic" id="saturday_dynamic" value="0">  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SUNDAY -->
+            <div class="tab-pane fade" id="sunday" role="tabpanel">
+              <div class="app-time">
+                <div id="appended-sunday">
+                  <div class="app-check col-md-3" id="sunday_div_0">
+                    <input type="text" class="form-control" name="sunday[]" id="sunday_0" placeholder="Ex: 9 - 9.30 AM" />    
+                    <button type="button" class="btn btn-primary" style="margin-left: 2%;" onclick="appendField('Sunday')">+</button>
+                    <input type="hidden" name="sunday_dynamic" id="sunday_dynamic" value="0">  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <button class="btn btn-primary" style="float:right;">Submit</button>
+        </form>
+      </div>
     </div>
+  </div>
 @endsection
+@push('script')
+  <script>
+    function appendField(day) {
+      if(day === "Monday") {
+        monDyn = $("#monday_dynamic").val()
+        monDyn++
+        $("#monday_dynamic").val(monDyn)
+        $("#appended-monday").append('<div class="app-check col-md-3" id="monday_div_'+monDyn+'" style="margin-top: 2%;"><input type="text" class="form-control" name="monday[]" id="monday_'+monDyn+'" placeholder="Ex: 9 - 9.30 AM" /><button type="button" class="btn btn-danger" style="margin-left: 2%;" onclick="removeField(\'Monday\', '+monDyn+')">-</button></div>')
+      }
+      else if(day === "Tuesday") {
+        tueDyn = $("#tuesday_dynamic").val()
+        tueDyn++
+        $("#tuesday_dynamic").val(tueDyn)
+        $("#appended-tuesday").append('<div class="app-check col-md-3" id="tuesday_div_'+tueDyn+'" style="margin-top: 2%;"><input type="text" class="form-control" name="tuesday[]" id="tuesday_'+tueDyn+'" placeholder="Ex: 9 - 9.30 AM" /><button type="button" class="btn btn-danger" style="margin-left: 2%;" onclick="removeField(\'Tuesday\', '+tueDyn+')">-</button></div>')
+      }
+      else if(day === "Wednesday") {
+        wedDyn = $("#wednesday_dynamic").val()
+        wedDyn++
+        $("#wednesday_dynamic").val(wedDyn)
+        $("#appended-wednesday").append('<div class="app-check col-md-3" id="wednesday_div_'+wedDyn+'" style="margin-top: 2%;"><input type="text" class="form-control" name="wednesday[]" id="wednesday_'+wedDyn+'" placeholder="Ex: 9 - 9.30 AM" /><button type="button" class="btn btn-danger" style="margin-left: 2%;" onclick="removeField(\'Wednesday\', '+wedDyn+')">-</button></div>')
+      }
+      else if(day === "Thursday") {
+        thurDyn = $("#thursday_dynamic").val()
+        thurDyn++
+        $("#thursday_dynamic").val(thurDyn)
+        $("#appended-thursday").append('<div class="app-check col-md-3" id="thursday_div_'+thurDyn+'" style="margin-top: 2%;"><input type="text" class="form-control" name="thursday[]" id="thursday_'+thurDyn+'" placeholder="Ex: 9 - 9.30 AM" /><button type="button" class="btn btn-danger" style="margin-left: 2%;" onclick="removeField(\'Thursday\', '+thurDyn+')">-</button></div>')
+      }
+      else if(day === "Friday") {
+        friDyn = $("#friday_dynamic").val()
+        friDyn++
+        $("#friday_dynamic").val(friDyn)
+        $("#appended-friday").append('<div class="app-check col-md-3" id="friday_div_'+friDyn+'" style="margin-top: 2%;"><input type="text" class="form-control" name="friday[]" id="friday_'+friDyn+'" placeholder="Ex: 9 - 9.30 AM" /><button type="button" class="btn btn-danger" style="margin-left: 2%;" onclick="removeField(\'Friday\', '+friDyn+')">-</button></div>')
+      }
+      else if(day === "Saturday") {
+        satDyn = $("#saturday_dynamic").val()
+        satDyn++
+        $("#saturday_dynamic").val(satDyn)
+        $("#appended-saturday").append('<div class="app-check col-md-3" id="saturday_div_'+satDyn+'" style="margin-top: 2%;"><input type="text" class="form-control" name="saturday[]" id="saturday_'+satDyn+'" placeholder="Ex: 9 - 9.30 AM" /><button type="button" class="btn btn-danger" style="margin-left: 2%;" onclick="removeField(\'Saturday\', '+satDyn+')">-</button></div>')
+      }
+      else if(day === "Sunday") {
+        sunDyn = $("#sunday_dynamic").val()
+        sunDyn++
+        $("#sunday_dynamic").val(sunDyn)
+        $("#appended-sunday").append('<div class="app-check col-md-3" id="sunday_div_'+sunDyn+'" style="margin-top: 2%;"><input type="text" class="form-control" name="sunday[]" id="sunday_'+sunDyn+'" placeholder="Ex: 9 - 9.30 AM" /><button type="button" class="btn btn-danger" style="margin-left: 2%;" onclick="removeField(\'Sunday\', '+sunDyn+')">-</button></div>')
+      }
+    }
+
+    function removeField(day, count) {
+      if(day === "Monday") {
+        $("#monday_div_"+count).remove();
+      }
+      if(day === "Tuesday") {
+        $("#tuesday_div_"+count).remove();
+      }
+      if(day === "Wednesday") {
+        $("#wednesday_div_"+count).remove();
+      }
+      if(day === "Thursday") {
+        $("#thursday_div_"+count).remove();
+      }
+      if(day === "Friday") {
+        $("#friday_div_"+count).remove();
+      }
+      if(day === "Saturday") {
+        $("#saturday_div_"+count).remove();
+      }
+      if(day === "Sunday") {
+        $("#sunday_div_"+count).remove();
+      }
+    }
+  </script>
+@endpush
