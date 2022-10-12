@@ -94,7 +94,11 @@ class CommonController extends Controller
     }
 
     function chatOnline(Request $request) {
-        $isAlreadyRequested = ChatOnline::whereUserId(auth()->user()->id)->first();
+        $isAlreadyRequested = ChatOnline::where([
+            'user_id'   => auth()->user()->id,
+            'lawyer_id' => $request->lawyerId,
+            'status'    => 1
+        ])->first();
         if($isAlreadyRequested) {
             return redirect()->route('home')->with('warning','Oops! You can send free online chat request only once');
         }else {
