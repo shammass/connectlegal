@@ -6,12 +6,14 @@ use App\Models\BlogsArticles;
 use App\Models\Callback;
 use App\Models\ChatOnline;
 use App\Models\ContactUs;
+use App\Models\DaysSlot;
 use App\Models\Forum;
 use App\Models\ForumAnswers;
 use App\Models\LawArticle;
 use App\Models\LawCategory;
 use App\Models\Lawyer;
 use App\Models\Rate;
+use App\Models\Slot;
 use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -88,9 +90,43 @@ class CommonController extends Controller
         return view('common.testimonials', compact('testimonials'));
     }
 
-    public function bookAMeeting($id) {
+    public function  bookAMeeting($id) {
         $lawyer = Lawyer::whereId($id)->first();
-        return view('common.book-meeting',  compact('lawyer'));
+        $slot = Slot::whereLawyerId($lawyer->user_id)->first();
+        $unavailableDays = [];
+        foreach($slot as $k => $v) {
+            $unavailableDays[] = $this->notAvailableDays($v);
+        }
+        $daySlots = DaysSlot::whereSlotId($slot->id)->get();
+        return view('common.book-meeting',  compact('lawyer', 'daySlots', 'slot'));
+    }
+
+    public function notAvailableDays($day) {
+        switch($day) {
+            case("monday_slot"):
+               return 1;
+                break;            
+            case("tuesday_slot"):
+               return 2;
+                break;            
+            case("wednesday_slot"):
+               return 3;
+                break;            
+            case("thursday_slot"):
+               return 4;
+                break;            
+            case("friday_slot"):
+               return 5;
+                break;            
+            case("saturday_slot"):
+               return 6;
+                break;            
+            case("sunday_slot"):
+               return 0;
+                break;            
+            default:
+                $msg = 'Something went wrong.';
+        }
     }
 
     function chatOnline(Request $request) {
@@ -100,7 +136,7 @@ class CommonController extends Controller
             'status'    => 1
         ])->first();
         if($isAlreadyRequested) {
-            return redirect()->route('home')->with('warning','Oops! You can send free online chat request only once');
+            return redirect()->route('home')->with('warning','Oops! You can send free online chat request only once to same lawyer');
         }else {
             $request->validate([
                 'message'          =>  ['required'],

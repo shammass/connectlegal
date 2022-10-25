@@ -7,8 +7,15 @@
 @yield('vendor-script')
 <!-- END: Page Vendor JS-->
 <!-- BEGIN: Theme JS-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
+<script src="https://www.jonthornton.com/jquery-timepicker/jquery.timepicker.js"></script>
+<script src="{{ asset('assets/timepicker/dist/datepair.js') }}"></script>
+<script src="{{ asset('assets/timepicker/dist/jquery.datepair.js') }}"></script>
+
 <script src="{{ asset(mix('assets/js/main.js')) }}"></script>
 <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $('.ckeditor').ckeditor();

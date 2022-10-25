@@ -3,7 +3,9 @@
 
 <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 <script src="{{ asset('assets/js/config.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
 <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" defer></script>
 
 
@@ -33,6 +35,7 @@
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+
 <script>
   $(document).ready( function () {
     $('#myTable').DataTable();

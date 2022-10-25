@@ -17,11 +17,15 @@
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" />
 
+  <link rel="stylesheet" type="text/css" href="https://www.jonthornton.com/jquery-timepicker/jquery.timepicker.css" />
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+
   <!-- Include Styles -->
   @include('layouts.sections.styles')
 
   <!-- Include Scripts for customizer, helper, analytics, config -->
-  @include('layouts/sections/scriptsIncludes')
+  @include('layouts.sections.scriptsIncludes')
 </head>
 
 <body>

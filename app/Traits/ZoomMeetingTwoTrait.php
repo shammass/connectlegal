@@ -1,15 +1,20 @@
 <?php
     namespace App\Traits;
+
     use GuzzleHttp\Client;
     use Log;
 
-    trait ZoomMeetingTrait
+    /**
+     * trait ZoomMeetingTrait
+     */
+    trait ZoomMeetingTwoTrait
     {
         public $client;
         public $jwt;
         public $headers;
 
-        public function __construct() {
+        public function __construct()
+        {
             $this->client = new Client();
             $this->jwt = $this->generateZoomToken();
             $this->headers = [
@@ -18,8 +23,8 @@
                 'Accept'        => 'application/json',
             ];
         }
-
-        public function generateZoomToken() {
+        public function generateZoomToken()
+        {
             $key = env('ZOOM_API_KEY', '');
             $secret = env('ZOOM_API_SECRET', '');
             $payload = [
@@ -30,11 +35,13 @@
             return \Firebase\JWT\JWT::encode($payload, $secret, 'HS256');
         }
 
-        private function retrieveZoomUrl() {
+        private function retrieveZoomUrl()
+        {
             return env('ZOOM_API_URL', '');
         }
 
-        public function toZoomTimeFormat(string $dateTime) {
+        public function toZoomTimeFormat(string $dateTime)
+        {
             try {
                 $date = new \DateTime($dateTime);
 
@@ -46,7 +53,8 @@
             }
         }
 
-        public function create($data) {
+        public function create($data)
+        {
             $path = 'users/me/meetings';
             $url = $this->retrieveZoomUrl();
 
@@ -64,9 +72,9 @@
                         'participant_video' => ($data['participant_video'] == "1") ? true : false,
                         'waiting_room'      => true,
                         'meeting_invitees' => [
-                           [
-                               "email" => "s4shamma@gmail.com",
-                           ],
+                            [
+                                "email" => "s4shamma@gmail.com",
+                            ],
                         ],
                         "registrants_confirmation_email" => true,
                         "calendar_type" => 2
@@ -100,6 +108,13 @@
                         'host_video'        => ($data['host_video'] == "1") ? true : false,
                         'participant_video' => ($data['participant_video'] == "1") ? true : false,
                         'waiting_room'      => true,
+                        'meeting_invitees' => [
+                            [
+                                "email" => "s4shamma@gmail.com",
+                            ],
+                        ],
+                        "registrants_confirmation_email" => true,
+                        "calendar_type" => 2
                     ],
                 ]),
             ];

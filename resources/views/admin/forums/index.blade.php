@@ -103,7 +103,6 @@
                                 "status" : status
                             },
                             success: function(res){
-                                debugger
                                 var title = status == 0 ? "Approved" : "Moved To Pending"   
                                 Swal.fire({
                                     icon: 'success',

@@ -17,7 +17,7 @@ use App\Http\Controllers\CommonController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HireLawyerController;
-use App\Http\Controllers\Lawyer\CalendlyController;
+use App\Http\Controllers\Lawyer\SlotController;
 use App\Http\Controllers\Lawyer\ChatOnlineRequestController;
 use App\Http\Controllers\Lawyer\CommunityController;
 use App\Http\Controllers\Lawyer\DashboardController as LawyerDashboardController;
@@ -94,7 +94,8 @@ Route::get('zoom',     [MeetingController::class, 'store']);
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/user/logout',                         [LoginController::class, 'logout'])->name('user.logout');
     
-    Route::post('/stripe-payment',  [StripeController::class, 'payment'])->name('stripe.payment');
+    Route::post('/stripe-payment',      [StripeController::class, 'payment'])->name('stripe.payment');
+    Route::post('/schedule-meeting',    [MeetingController::class, 'scheduleMeeting'])->name('schedule.meeting');
 
     Route::post('/question-answer/rate/{id}',        [CommonController::class, 'rate'])->name('question-answer.rate');
     Route::get('/chat/requests',                     [CommonController::class, 'onlineChatRequests'])->name('online-chat.requests');
@@ -212,10 +213,12 @@ Route::group(['middleware' => ['web', 'auth.timeout']], function () {
             Route::post('/accept/chat-online-request/{id}',     [ChatOnlineRequestController::class, 'acceptRequest'])->name('lawyer.accept-request');
             Route::post('/complete/chat-online-request/{id}',   [ChatOnlineRequestController::class, 'completeRequest'])->name('lawyer.complete-request');
 
-            Route::get('/scheduled-events',     [CalendlyController::class, 'scheduledEvents'])->name('lawyer.scheduled-events');
-            Route::get('/slots',                [CalendlyController::class, 'slots'])->name('lawyer.slots');
-            Route::get('/add-slots',            [CalendlyController::class, 'addSlots'])->name('lawyer.add-slots');
-            Route::post('/store-slots',         [CalendlyController::class, 'storeSlots'])->name('lawyer.store-slots');
+            Route::get('/scheduled-events',                     [SlotController::class, 'scheduledEvents'])->name('lawyer.scheduled-events');
+            Route::get('/slots',                                [SlotController::class, 'addSlots'])->name('lawyer.slots');
+            Route::get('/add-slots',                            [SlotController::class, 'addSlots'])->name('lawyer.add-slots');
+            Route::post('/update-timepicker',                   [SlotController::class, 'timepicker'])->name('lawyer.timepicker');
+            Route::post('/store-slots',                         [SlotController::class, 'storeSlots'])->name('lawyer.store-slots');
+            Route::post('/available-day',                       [SlotController::class, 'availableDay'])->name('lawyer.slot.available-day');
 
             Route::get('/services',                  [LawyerServiceController::class, 'index'])->name('lawyer.services');
             Route::post('store/service',             [LawyerServiceController::class, 'store'])->name('lawyer.service.store');
