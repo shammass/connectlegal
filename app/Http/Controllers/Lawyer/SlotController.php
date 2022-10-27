@@ -61,7 +61,7 @@ class SlotController extends Controller
         // print_r($request->all());exit;
         $data = $request->all();
         $this->deleteSlots(); //only when the slots existing //this is just for updating old data
-        $slotId = $this->slotStore($data['description']);
+        $slotId = $this->slotStore($data['description'], $data['title']);
         if(!empty($data['mon_strt_time'][0])) {                
             $this->storeDaysSlot(array_combine($data['mon_strt_time'], $data['mon_end_time']), $data['mon_amt'], $slotId,  "Monday");
         }
@@ -112,16 +112,18 @@ class SlotController extends Controller
         return true;
     }
 
-    public function slotStore($descr) {
+    public function slotStore($descr, $title) {
         $isExisting = Slot::whereLawyerId(auth()->user()->id)->first();
         if(!$isExisting) {
             $slot = Slot::create([
                 'lawyer_id'     => auth()->user()->id,
+                'title'         => $title,
                 'description'   => $descr,
             ]);
             return $slot->id;
         }
         $isExisting->description = $descr;
+        $isExisting->title       = $title;
         $isExisting->save();
         
         return $isExisting->id;

@@ -53,4 +53,9 @@ class Lawyer extends Model
         $lawService = LawyerService::whereServiceId($id)->first();
         return $lawService ? $lawService->platform_fee : null;
     }
+
+    public function isReadyWithSlot($userId) {
+        $isSlotReady = Slot::whereLawyerId($userId)->first();
+        return $isSlotReady ? true : false;
+    }
 }

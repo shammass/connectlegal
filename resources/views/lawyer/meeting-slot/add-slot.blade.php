@@ -308,8 +308,8 @@
               </div>
             </div>
             <div class="col-md-12 pt-2">
-              <input type="text" placeholder="Title" class="form-control" style="margin-bottom:2%;">
-              <textarea name="description" placeholder="About your services" class="form-control" id="" cols="30" rows="10"></textarea>
+              <input type="text" placeholder="Title" required class="form-control" name="title" style="margin-bottom:2%;">
+              <textarea name="description" required placeholder="About your services" class="form-control" id="" cols="30" rows="10"></textarea>
             </div>
           </div>
           <button class="btn btn-primary" style="float:right;">Submit</button>

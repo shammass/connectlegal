@@ -19,12 +19,14 @@
     <!-- start section -->
     <section class="parallax xs-padding-15px-lr" data-parallax-background-ratio="0.5" style="background-color:aliceblue;">
         <div class="container">
+            <input type="hidden" name="" id="unavailableDays" value="{{implode(',', $unavailableDays)}}">
             <textarea  class="form-control" readonly id="" cols="30" rows="10">{{$slot->description}}</textarea>
-            <input type="text" name="" id="datePick" class="form-control">
+            <input type="text" name="" id="datePick" class="form-control">            
+            <p style="text-align: center;" class="note">Select Date to view the slots</p>
             @foreach($daySlots as $k => $slot)
                 @if($slot->isAvailable($slot->slot_id, $slot->day))
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-8 slot_{{$slot->day}} allDays" style="display:none;">
                             <span>{{$slot->day}}</span>
                             <p id="tueTimeOnlyExample_0" style="display: flex;">
                                 <input type="text" readonly class="form-control time start" value="{{$slot->slot_start_time}}" style="margin-right: 2%;" /> - 
@@ -35,7 +37,7 @@
                             </p>
                         </div>
                     </div>
-
+                    
                     <div id="free-advice-form-{{$k}}" class="white-popup-block col-xl-9 col-lg-7 col-sm-9  p-0 mx-auto mfp-hide">
                         <main>
                             <div class="row">
@@ -60,7 +62,9 @@
                                                         <input type="hidden" name="slotId" value="{{$slot->slot_id}}"> 
                                                         <input type="hidden" name="daySlotId" value="{{$slot->id}}"> 
                                                         <input type="hidden" name="amount" value="{{$slot->amount}}">                                                   
-                                                        <input type="hidden" name="lawyerId" value="{{$lawyer->user_id}}">                                                   
+                                                        <input type="hidden" name="lawyerUserId" value="{{$lawyer->user_id}}">    
+                                                        <input type="hidden" name="lawyerId" value="{{$lawyer->id}}">    
+                                                        <input type="hidden" name="date" class="dateVal" value="0">                                                   
                                                         <div class="form-group">
                                                             <label for="username">Full name (on the card)</label>
                                                             <input type="text" class="form-control" name="fullName" placeholder="Full Name">
@@ -131,11 +135,20 @@
             beforeShowDay: checkAvailable
         });
 
-        var unavailableDates = [0, 6];
-
+        $("#datePick").on('change', function(){
+            $(".note").css('display', 'none');
+            $(".allDays").css('display', 'none');
+            var datePick = $("#datePick").val();
+            var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            var today = new Date(datePick);
+            $('.slot_'+days[today.getDay()]).css('display','block');
+            $(".dateVal").val(datePick)
+        });
+        
+        var unavailableDays = @json($unavailableDays);
         function checkAvailable(date) {
-            d = date.getDate();
-            if ($.inArray(d, unavailableDates) != -1) {
+            d = date.getDay();
+            if ($.inArray(d, unavailableDays) != -1) {
                 return [false, "", "unAvailable"];
             } else {
                 var day = date.getDay();

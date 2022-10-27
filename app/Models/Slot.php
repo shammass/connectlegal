@@ -18,6 +18,7 @@ class Slot extends Model
         'friday_slot',
         'saturday_slot',
         'sunday_slot',
+        'title',
         'description',
     ];
 

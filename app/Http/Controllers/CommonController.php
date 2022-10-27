@@ -94,11 +94,25 @@ class CommonController extends Controller
         $lawyer = Lawyer::whereId($id)->first();
         $slot = Slot::whereLawyerId($lawyer->user_id)->first();
         $unavailableDays = [];
-        foreach($slot as $k => $v) {
-            $unavailableDays[] = $this->notAvailableDays($v);
+        if($slot) {
+            if(!$slot->monday_slot)
+                $unavailableDays[] = 1;
+            if(!$slot->tuesday_slot)
+                $unavailableDays[] = 2;
+            if(!$slot->wednesday_slot)
+                $unavailableDays[] = 3;
+            if(!$slot->thursday_slot)
+                $unavailableDays[] = 4;
+            if(!$slot->friday_slot)
+                $unavailableDays[] = 5;
+            if(!$slot->saturday_slot)
+                $unavailableDays[] = 6;
+            if(!$slot->sunday_slot)
+                $unavailableDays[] = 0;
         }
+
         $daySlots = DaysSlot::whereSlotId($slot->id)->get();
-        return view('common.book-meeting',  compact('lawyer', 'daySlots', 'slot'));
+        return view('common.book-meeting',  compact('lawyer', 'daySlots', 'slot', 'unavailableDays'));
     }
 
     public function notAvailableDays($day) {

@@ -28,6 +28,7 @@ return new class extends Migration
             $table->boolean('friday_slot')->default(0);
             $table->boolean('saturday_slot')->default(0);
             $table->boolean('sunday_slot')->default(0);
+            $table->string('title')->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();
         });

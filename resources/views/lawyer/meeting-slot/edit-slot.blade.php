@@ -455,6 +455,7 @@
               </div>
             </div>
             <div class="col-md-12 pt-2">
+              <input type="text" placeholder="Title" class="form-control" name="title" style="margin-bottom:2%;" value="{{$slotData->title ?? ''}}">
               <textarea name="description" placeholder="About your services" class="form-control" id="" cols="30" rows="10">{{$slotData->description ?? ''}}</textarea>
             </div>
           </div>
