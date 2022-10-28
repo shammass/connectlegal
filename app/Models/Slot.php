@@ -25,4 +25,14 @@ class Slot extends Model
     public function lawyer() {
         return $this->belongsTo(User::class, 'lawyer_id');
     }
+
+    public function isActive($lawyerId=null) {
+        $lawyerId = $lawyerId ?? auth()->user()->id;
+        $slotFee = SlotFees::whereLawyerId($lawyerId)->first();
+        if($slotFee && $slotFee->fifteen > 0 && $slotFee->thirty > 0) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

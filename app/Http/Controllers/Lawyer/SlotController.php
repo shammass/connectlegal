@@ -4,6 +4,7 @@ namespace App\Http\Controllers\lawyer;
 
 use App\Http\Controllers\Controller;
 use App\Models\DaysSlot;
+use App\Models\SchduledMeeting;
 use App\Models\ScheduleMeeting;
 use App\Models\Slot;
 use Illuminate\Http\Request;
@@ -12,8 +13,8 @@ use Illuminate\Support\Facades\Redis;
 class SlotController extends Controller
 {
     public function scheduledEvents() {
-        
-        return view('lawyer.meeting-slot.scheduled-events');
+        $scheduledMeetings = SchduledMeeting::whereLawyerId(auth()->user()->id)->get();
+        return view('lawyer.meeting-slot.scheduled-events', compact('scheduledMeetings'));
     }
 
     public function slots() {

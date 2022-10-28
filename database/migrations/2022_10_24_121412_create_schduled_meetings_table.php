@@ -31,6 +31,11 @@ return new class extends Migration
 				->references('id')->on('users')   
                 ->onDelete('cascade');
 
+            $table->unsignedBigInteger('zoom_id')->nullable();
+            $table->foreign('zoom_id')
+                ->references('id')->on('zooms')   
+                ->onDelete('cascade');
+
             $table->string('payment_id')->nullable();
             $table->timestamps();
         });

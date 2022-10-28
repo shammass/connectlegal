@@ -1,6 +1,7 @@
 <?php
     namespace App\Traits;
 
+use App\Models\SchduledMeeting;
 use App\Models\Zoom;
 use GuzzleHttp\Client;
     use Log;
@@ -97,6 +98,10 @@ use GuzzleHttp\Client;
                 'join_url' => $bodyData['join_url'],
                 'password' => $bodyData['password'],
             ]);
+
+            SchduledMeeting::updateOrCreate(['id' => $data['paymentId']],
+            ['zoom_id' => $zoom->id]);
+            
             $startTime = new \DateTime($data['start_time']);
             $mail_data = [
                 'subject' => "Meeting scheduled",

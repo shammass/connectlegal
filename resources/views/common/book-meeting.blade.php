@@ -20,7 +20,8 @@
     <section class="parallax xs-padding-15px-lr" data-parallax-background-ratio="0.5" style="background-color:aliceblue;">
         <div class="container">
             <input type="hidden" name="" id="unavailableDays" value="{{implode(',', $unavailableDays)}}">
-            <textarea  class="form-control" readonly id="" cols="30" rows="10">{{$slot->description}}</textarea>
+            <h5>{{$slot->title ?? ''}}</h5>
+            <textarea  class="form-control" readonly id="" cols="30" rows="10">{{$slot->description ?? ''}}</textarea>
             <input type="text" name="" id="datePick" class="form-control">            
             <p style="text-align: center;" class="note">Select Date to view the slots</p>
             @forelse($daySlots as $k => $slot)

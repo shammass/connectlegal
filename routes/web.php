@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ForumController;
 use App\Http\Controllers\admin\HireController;
 use App\Http\Controllers\admin\LawyerController;
+use App\Http\Controllers\admin\LawyerSlotController;
 use App\Http\Controllers\admin\QaRatingController;
 use App\Http\Controllers\admin\ServicesController;
 use App\Http\Controllers\admin\TestimonialsController;
@@ -186,6 +187,11 @@ Route::prefix('admin')->group(function () {
         Route::post('blogs-article/image-upload',       [BlogsArticlesController::class, 'imageUpload'])->name('admin.blog-article.image-upload');
         
         Route::get('hired',       [HireController::class, 'index'])->name('admin.hired-lawyer');
+        
+        #Slots
+        Route::get('lawyer-slots',                      [LawyerSlotController::class, 'lawyers'])->name('admin.lawyer-slots');
+        Route::get('lawyer-slots/{id}',                 [LawyerSlotController::class, 'slots'])->name('admin.lawyer-slots-list');
+        Route::post('lawyer--update-slots/{id}',        [LawyerSlotController::class, 'updateSlots'])->name('admin.update-slots');
     });
 });
 #################                           ADMIN                  ###################################

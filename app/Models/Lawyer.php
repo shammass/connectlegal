@@ -55,11 +55,11 @@ class Lawyer extends Model
     }
 
     public function isReadyWithSlot($userId) {
-        $isSlotReady = Slot::whereLawyerId($userId)->first();
-        if($isSlotReady) {
-            $isSlotTimingsAdded = DaysSlot::whereSlotId($isSlotReady->id)->first();
-            return $isSlotTimingsAdded ? true : false;
+        $slotFee = SlotFees::whereLawyerId($userId)->first();
+        if($slotFee && $slotFee->fifteen > 0 && $slotFee->thirty > 0) {
+            return true;
+        }else {
+            return false;
         }
-        return false;
     }
 }
