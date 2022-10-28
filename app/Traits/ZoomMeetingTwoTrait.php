@@ -1,17 +1,20 @@
 <?php
     namespace App\Traits;
 
-use App\Models\Zoom;
-use GuzzleHttp\Client;
+    use GuzzleHttp\Client;
     use Log;
 
-    trait ZoomMeetingTrait
+    /**
+     * trait ZoomMeetingTrait
+     */
+    trait ZoomMeetingTwoTrait
     {
         public $client;
         public $jwt;
         public $headers;
 
-        public function __construct() {
+        public function __construct()
+        {
             $this->client = new Client();
             $this->jwt = $this->generateZoomToken();
             $this->headers = [
@@ -20,8 +23,8 @@ use GuzzleHttp\Client;
                 'Accept'        => 'application/json',
             ];
         }
-
-        public function generateZoomToken() {
+        public function generateZoomToken()
+        {
             $key = env('ZOOM_API_KEY', '');
             $secret = env('ZOOM_API_SECRET', '');
             $payload = [
@@ -32,14 +35,16 @@ use GuzzleHttp\Client;
             return \Firebase\JWT\JWT::encode($payload, $secret, 'HS256');
         }
 
-        private function retrieveZoomUrl() {
+        private function retrieveZoomUrl()
+        {
             return env('ZOOM_API_URL', '');
         }
 
-        public function toZoomTimeFormat(string $dateTime) {
+        public function toZoomTimeFormat(string $dateTime)
+        {
             try {
                 $date = new \DateTime($dateTime);
-                // dd($date->format('Y-m-d\TH:i:s'));
+
                 return $date->format('Y-m-d\TH:i:s');
             } catch (\Exception $e) {
                 Log::error('ZoomJWT->toZoomTimeFormat : '.$e->getMessage());
@@ -48,8 +53,8 @@ use GuzzleHttp\Client;
             }
         }
 
-        public function create($data) {            
-            // dd($dateInLocal);
+        public function create($data)
+        {
             $path = 'users/me/meetings';
             $url = $this->retrieveZoomUrl();
 
@@ -58,57 +63,27 @@ use GuzzleHttp\Client;
                 'body'    => json_encode([
                     'topic'      => $data['topic'],
                     'type'       => self::MEETING_TYPE_SCHEDULE,
-                    'start_time' => $data['start_time'],
+                    'start_time' => $this->toZoomTimeFormat($data['start_time']),
                     'duration'   => $data['duration'],
                     'agenda'     => (! empty($data['agenda'])) ? $data['agenda'] : null,
-                    'timezone'   => 'Asia/Calcutta',
+                    'timezone'     => 'Asia/Kolkata',
                     'settings'   => [
                         'host_video'        => ($data['host_video'] == "1") ? true : false,
                         'participant_video' => ($data['participant_video'] == "1") ? true : false,
                         'waiting_room'      => true,
                         'meeting_invitees' => [
                             [
-                                "email" => $data['email'],
+                                "email" => "s4shamma@gmail.com",
                             ],
-                            [
-                                "email" => auth()->user()->email,
-                            ]
                         ],
                         "registrants_confirmation_email" => true,
-                        "calendar_type" => 2,
-                        "email_notification" => true,
+                        "calendar_type" => 2
                     ],
                 ]),
             ];
 
             $response =  $this->client->post($url.$path, $body);
-            $bodyData = json_decode($response->getBody(), true);
-            // dd($bodyData);
-            $zoom = Zoom::create([
-                'uuid' => $bodyData['uuid'],
-                'days_slot_id' => $data['daySlotId'],
-                'payment_id' => $data['paymentId'],
-                'topic' => $data['topic'],
-                'start_date_time' => $data['start_time'],
-                'end_date_time' => $data['end_time'],
-                'duration' => $data['duration'],
-                'agenda' => $data['agenda'],
-                'start_url' => $bodyData['start_url'],
-                'join_url' => $bodyData['join_url'],
-                'password' => $bodyData['password'],
-            ]);
-            $startTime = new \DateTime($data['start_time']);
-            $mail_data = [
-                'subject' => "Meeting scheduled",
-                'htmlPart' => "Meeting link: ". $bodyData['join_url']. " Starts at: ".$startTime->format('Y-m-d H:i:s'). ' duration: '.$data['duration'].', agenda: '.$data['agenda'],
-                'emails' => [$zoom->payment->scheduledBy->email, $zoom->payment->lawyer->email],
-            ];
-
-            $job = (new \App\Jobs\ScheduledMeetingEmail($mail_data))
-                    ->delay(now()->addSeconds(2)); 
-    
-            dispatch($job);
-
+            dd(json_decode($response->getBody(), true));
             return [
                 'success' => $response->getStatusCode() === 201,
                 'data'    => json_decode($response->getBody(), true),
@@ -133,6 +108,13 @@ use GuzzleHttp\Client;
                         'host_video'        => ($data['host_video'] == "1") ? true : false,
                         'participant_video' => ($data['participant_video'] == "1") ? true : false,
                         'waiting_room'      => true,
+                        'meeting_invitees' => [
+                            [
+                                "email" => "s4shamma@gmail.com",
+                            ],
+                        ],
+                        "registrants_confirmation_email" => true,
+                        "calendar_type" => 2
                     ],
                 ]),
             ];

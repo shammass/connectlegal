@@ -170,7 +170,9 @@
                                                         <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i><a href="#login-form" style="color:black;" class="popup-with-form online-chatting">Chat online</a></li>
                                                     @endif
                                                     <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i><a href="#callback-form" style="color:black;" class="popup-with-form callback-form" onclick="callbackReq({{$lawyer->user->id}})">Request a callback<a></li>
-                                                    <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i><a href="{{route('book-a-meeting', $lawyer->id)}}" style="color:black;">Book a meeting</a></li>
+                                                    @if($lawyer->isReadyWithSlot($lawyer->user->id))
+                                                        <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i><a href="{{route('book-a-meeting', $lawyer->id)}}" style="color:black;">Book a meeting</a></li>
+                                                    @endif
                                                     <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i><a href="{{route('lawyer.services.list', $lawyer->user->id)}}" style="color:black;">Hire The lawyer</a></li>
                                                     <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
                                                 </ul>
@@ -207,7 +209,9 @@
                                                         <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i><a href="#login-form" style="color:black;" class="popup-with-form online-chatting">Chat online</a></li>
                                                     @endif
                                                     <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i><a href="#callback-form" style="color:black;" class="popup-with-form online-chatting" onclick="callbackReq({{$lawyer->user->id}})">Request a callback<a></li>
-                                                    <li class="padding-15px-tb"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i><a href="#modal-popup3" class="modal-popup" onclick="bookAMeeting('{{$lawyer->id}}')" style="color:black;">Book a meeting</a></li>
+                                                    @if($lawyer->isReadyWithSlot($lawyer->user->id))
+                                                        <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i><a href="{{route('book-a-meeting', $lawyer->id)}}" style="color:black;">Book a meeting</a></li>
+                                                    @endif
                                                     <li class="padding-15px-tb"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i> <a href="{{route('lawyer.services.list', $lawyer->user->id)}}" style="color:black;">Hire The lawyer</a> </li>
                                                     <li class="padding-15px-tb"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
                                                 </ul>
