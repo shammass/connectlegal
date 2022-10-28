@@ -1,5 +1,5 @@
 @extends('lawyer.layouts.navbar_content')
-@section('title', 'Profile')
+@section('title', 'Add Slots')
 @section('page-style')
 <style>
     .app-time {

@@ -1,5 +1,5 @@
 @extends('lawyer.layouts.navbar_content')
-@section('title', 'Profile')
+@section('title', 'Edit Slots')
 @section('page-style')
 <style>
     .app-time {
@@ -131,6 +131,7 @@
               <li> Default session amount: $20</li>
             </ul>
             </b></p>
+            <p style="text-align: right;"><b>Slot Status: <span style="color:{{$slotData->isActive() ? 'green' : 'red'}};">{{$slotData->isActive() ? 'Active' : 'Inactive'}}</span></b></p>
             <!-- MONDAY -->
             @php 
                 $monCount = 0;

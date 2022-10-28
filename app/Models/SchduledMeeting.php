@@ -13,6 +13,7 @@ class SchduledMeeting extends Model
         'days_slot_id',
         'scheduled_by',
         'lawyer_id',
+        'zoom_id',
         'payment_id',
     ];
 
@@ -26,5 +27,15 @@ class SchduledMeeting extends Model
 
     public function lawyer() {
         return $this->belongsTo(User::class, 'lawyer_id');
+    }
+
+    public function zoom() {
+        return $this->belongsTo(Zoom::class, 'zoom_id');
+    }
+
+    public function getSessionAmount($session, $lawyerId) {
+        $column = $session == 15 ? "fifteen" : "thirty";
+        $fees = SlotFees::whereLawyerId($lawyerId)->first();
+        return $fees ? $fees->$column : 0;
     }
 }

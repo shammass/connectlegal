@@ -71,6 +71,12 @@
         "name": "Hired Lawyers",
         "icon": "menu-icon tf-icons bx bx-home-circle",
         "slug": "hired"
+      },
+      {
+        "url": "/admin/lawyer-slots",
+        "name": "Lawyer Slots",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "lawyer-slots"
       }
       
     ]
