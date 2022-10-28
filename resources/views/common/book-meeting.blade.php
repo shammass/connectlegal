@@ -23,7 +23,7 @@
             <textarea  class="form-control" readonly id="" cols="30" rows="10">{{$slot->description}}</textarea>
             <input type="text" name="" id="datePick" class="form-control">            
             <p style="text-align: center;" class="note">Select Date to view the slots</p>
-            @foreach($daySlots as $k => $slot)
+            @forelse($daySlots as $k => $slot)
                 @if($slot->isAvailable($slot->slot_id, $slot->day))
                     <div class="row">
                         <div class="col-md-8 slot_{{$slot->day}} allDays" style="display:none;">
@@ -122,7 +122,9 @@
                         </main>
                     </div>
                 @endif
-            @endforeach
+            @empty
+                <p style="text-align: center;">No slots available</p>
+            @endforelse
         </div>
     </section>
 @endsection

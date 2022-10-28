@@ -52,7 +52,7 @@ class ScheduledMeetingEmail implements ShouldQueue
                         ],
                         'To' => [
                             [
-                                'Email' => "s4shamma@gmail.com",
+                                'Email' => $email,
                                 'Name' => "You"
                             ]
                         ],
