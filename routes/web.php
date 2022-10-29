@@ -80,11 +80,13 @@ Route::get('service/lawyers/{id}',          [HireLawyerController::class, 'servi
 Route::get('lawyer-services/{id}',          [HireLawyerController::class, 'lawyerServices'])->name('lawyer.services.list');
 Route::post('request-for-quotes/store',     [HireLawyerController::class, 'requestForQuotes'])->name('request-for-quotes');
 
-Route::get('legal-articles',               [CommonController::class, 'articleList'])->name('legal.article-list');
-Route::get('legal-articles/{id}',          [CommonController::class, 'articleDetails'])->name('legal.article-details');
-Route::get('filter-by-category',           [CommonController::class, 'filterByCategory'])->name('legal.filter-by-category');
-Route::get('our-lawyers',                  [CommonController::class, 'ourLawyers'])->name('our-lawyers');
-Route::get('our-lawyers/details/{id}',     [CommonController::class, 'lawyerDetail'])->name('our-lawyer.details');
+Route::get('legal-articles',                        [CommonController::class, 'articleList'])->name('legal.article-list');
+Route::get('legal-articles/{id}',                   [CommonController::class, 'articleDetails'])->name('legal.article-details');
+Route::get('filter-by-category',                    [CommonController::class, 'filterByCategory'])->name('legal.filter-by-category');
+Route::get('our-lawyers',                           [CommonController::class, 'ourLawyers'])->name('our-lawyers');
+Route::get('our-lawyers/details/{id}',              [CommonController::class, 'lawyerDetail'])->name('our-lawyer.details');
+Route::get('filter-by-lawyer-name',                 [CommonController::class, 'filterByLawyerName'])->name('filter-by-lawyer-name');
+Route::get('filter-by-area',                        [CommonController::class, 'filterByArea'])->name('filter-by-area');
 
 Route::get('zoom',     [MeetingController::class, 'store']);
 

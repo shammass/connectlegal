@@ -24,6 +24,11 @@
 
         <!-- Theme css -->
         <link id="change-link" rel="stylesheet" type="text/css" href="../customer/assets/css/style.css">
+
+        <!-- Captcha -->
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <!-- Captcha -->
+
         <style>
             .logo .mobile-logo {
                 display: none;

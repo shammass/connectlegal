@@ -13,7 +13,9 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\Rules;
+use Illuminate\Validation\ValidationException;
 use \Mailjet\Resources;
 
 class LoginController extends Controller
@@ -77,30 +79,44 @@ class LoginController extends Controller
     }
     
     public function userLogin(Request $request) {
-        // print_r($request->all());exit;
-        $user = User::whereEmail($request->email)->first();
-        if($user) {
-            if (Hash::check($request->password, $user->password)) {
-                if($user->user_type == 1) {
-                    return redirect()->route('home')->with('error','Login Fail, please check your credentials!');
-                }
-                if($user->user_type == 2) {
-                    $checkIsVerifiedUser = Lawyer::whereUserId($user->id)->first();
-                    if($checkIsVerifiedUser->is_verified) {
-                        Auth::login($user);
-                        return redirect(RouteServiceProvider::LAWYER_HOME);
+        $request->validate([
+            'g-recaptcha-response' => 'required|string',
+        ]);
+        
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => config('services.recaptcha.secret_key'),
+            'response' => $request->get('g-recaptcha-response'),
+            'remoteip' => $request->getClientIp(),
+        ]);
+        
+        if (! $response->json('success')) {
+            throw ValidationException::withMessages(['g-recaptcha-response' => 'Error verifying reCAPTCHA, please try again.']);
+        }else {
+            // print_r($request->all());exit;
+            $user = User::whereEmail($request->email)->first();
+            if($user) {
+                if (Hash::check($request->password, $user->password)) {
+                    if($user->user_type == 1) {
+                        return redirect()->route('home')->with('error','Login Fail, please check your credentials!');
+                    }
+                    if($user->user_type == 2) {
+                        $checkIsVerifiedUser = Lawyer::whereUserId($user->id)->first();
+                        if($checkIsVerifiedUser->is_verified) {
+                            Auth::login($user);
+                            return redirect(RouteServiceProvider::LAWYER_HOME);
+                        }else {
+                            return redirect()->route('home')->with('error','You are not yet verified by admin');
+                        }
                     }else {
-                        return redirect()->route('home')->with('error','You are not yet verified by admin');
+                        Auth::login($user);
+                        return redirect(RouteServiceProvider::HOME);            
                     }
                 }else {
-                    Auth::login($user);
-                    return redirect(RouteServiceProvider::HOME);            
+                    return redirect()->route('home')->with('error','Login Fail, please check your password!');
                 }
             }else {
-                return redirect()->route('home')->with('error','Login Fail, please check your password!');
+                return redirect()->route('home')->with('error','Login Fail, please check your email!');
             }
-        }else {
-            return redirect()->route('home')->with('error','Login Fail, please check your email!');
         }
     }
 
