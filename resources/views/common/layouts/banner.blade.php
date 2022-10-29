@@ -145,6 +145,10 @@
                     <input class="medium-input required" type="password" name="password" id="pwd" placeholder="Your password">
                     
                     <input type="hidden" name="redirect" value="">
+                    <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}" style="margin-bottom: 2%;"></div>
+                    @error('g-recaptcha-response')
+                        <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                     <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;">Login</button>
                     <a href="{{route('forgot.password.get')}}" style="float:right;">Forgot Password?</a>
                     <br>
@@ -189,6 +193,10 @@
                     <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="password" name="password" placeholder="Your password">
                     
                     <input type="hidden" name="redirect" value="">
+                    <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}" style="margin-bottom: 2%;"></div>
+                    @error('g-recaptcha-response')
+                        <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                     <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;">Login</button>
                     <a href="{{route('forgot.password.get')}}" style="float:right;">Forgot Password?</a>
                     <div class="form-results d-none"></div>
