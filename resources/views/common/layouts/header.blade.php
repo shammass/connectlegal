@@ -117,6 +117,10 @@
                             <li class="nav-item">
                                 <a href="#login-form" class="nav-link popup-with-form" style="color: white;">Login</a>
                             </li>
+                            <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}"></div>
+                            @error('g-recaptcha-response')
+                                <div class="text-red-500">{{ $message }}</div>
+                            @enderror
                         @endif
                     </ul>
                 </div>

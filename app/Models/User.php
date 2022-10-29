@@ -56,4 +56,24 @@ class User extends Authenticatable
         $color = '#'.$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)];
         return $color;
     }
+
+    public function getLawyerId($userId) {
+        $lawyer = Lawyer::whereUserId($userId)->first();
+        return $lawyer->id;
+    }
+    
+    public function getProfilePic($userId) {
+        $lawyer = Lawyer::whereUserId($userId)->first();
+        return $lawyer->profile_pic;
+    }
+
+    public function getEmirates($userId) {
+        $lawyer = Lawyer::whereUserId($userId)->first();
+        return $lawyer->emirates;
+    }
+
+    public function getArea($userId) {
+        $lawyer = Lawyer::whereUserId($userId)->first();
+        return $lawyer->arbitration->area;
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ArbitrationArea;
 use App\Models\BlogsArticles;
 use App\Models\Callback;
 use App\Models\ChatOnline;
@@ -364,6 +365,88 @@ class CommonController extends Controller
 
     public function ourLawyers() {
         $lawyers = Lawyer::whereIsVerified(1)->paginate(2);
-        return view('common.our-lawyers.index', compact('lawyers'));
+        $arbitrationAreas = ArbitrationArea::pluck('area', 'id');
+        return view('common.our-lawyers.index', compact('lawyers', 'arbitrationAreas'));
+    }
+
+    public function lawyerDetail($lawyerId) {
+        
+    }
+
+    public function filterByLawyerName() {
+        $name = $_GET['name'];
+        $area = $_GET['area'];
+        
+        if($name && $area) {
+            $lawyers = Lawyer::where([
+                'is_verified' => 1,
+                'arbitration_area_id' => $area,
+            ])
+            ->whereHas('user', function ($query) use($name) {
+                $query->where([
+                    ['user_type', 2],
+                    ['name', 'LIKE', '%'.$name.'%']
+                ]);
+            })
+            ->with('user')
+            ->paginate(2);
+            $lawyers->withPath('/our-lawyers');
+        }else if($name) {
+            $lawyers = Lawyer::whereIsVerified(1)
+            ->whereHas('user', function ($query) use($name) {
+                $query->where([
+                    ['user_type', 2],
+                    ['name', 'LIKE', '%'.$name.'%']
+                ]);
+            })
+            ->with('user')
+            ->paginate(2);
+            $lawyers->withPath('/our-lawyers');
+        }else if($area) {
+            $lawyers = Lawyer::where([
+                'is_verified' => 1,
+                'arbitration_area_id' => $area,
+            ])
+            ->paginate(2);
+            $lawyers->withPath('/our-lawyers');
+        }else {
+            $lawyers = Lawyer::whereIsVerified(1)->paginate(2);
+            $lawyers->withPath('/our-lawyers');
+        }
+
+        return (string) view('common.our-lawyers.filtered', compact('lawyers'));
+    }
+
+    public function filterByArea() {
+        $name = $_GET['name'];
+        $area = $_GET['area'];
+        
+        if($name && $area) {
+            $lawyers = Lawyer::where([
+                'is_verified' => 1,
+                'arbitration_area_id' => $area,
+            ])
+            ->whereHas('user', function ($query) use($name) {
+                $query->where([
+                    ['user_type', 2],
+                    ['name', 'LIKE', '%'.$name.'%']
+                ]);
+            })
+            ->with('user')
+            ->paginate(2);
+            $lawyers->withPath('/our-lawyers');
+        }else if($area) {
+            $lawyers = Lawyer::where([
+                'is_verified' => 1,
+                'arbitration_area_id' => $area,
+            ])
+            ->paginate(2);
+            $lawyers->withPath('/our-lawyers');
+        }else {
+            $lawyers = Lawyer::whereIsVerified(1)->paginate(2);
+            $lawyers->withPath('/our-lawyers');
+        }
+
+        return (string) view('common.our-lawyers.filtered', compact('lawyers'));
     }
 }
