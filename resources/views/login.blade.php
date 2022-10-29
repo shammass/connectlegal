@@ -33,6 +33,10 @@
                                 <input class="d-inline-block align-middle w-auto mb-0 margin-5px-right" type="checkbox" name="account">
                                 <span class="d-inline-block align-middle">Remember me</span> 
                             </label>
+                            <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}" style="margin-bottom: 2%;"></div>
+                            @error('g-recaptcha-response')
+                                <div class="text-red-500">{{ $message }}</div>
+                            @enderror
                             <button class="btn btn-medium btn-fancy btn-dark-gray w-100 submit" type="submit">Login</button>
                             <p class="text-end margin-20px-top mb-0"><a href="#" class="btn btn-link  btn-medium text-extra-dark-gray">Lost your password?</a></p>
                             <p class="text-end margin-20px-top">Don't you have an account?</p>
