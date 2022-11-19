@@ -10,6 +10,7 @@ use App\Models\ContactUs;
 use App\Models\DaysSlot;
 use App\Models\Forum;
 use App\Models\ForumAnswers;
+use App\Models\Language;
 use App\Models\LawArticle;
 use App\Models\LawCategory;
 use App\Models\Lawyer;
@@ -370,7 +371,18 @@ class CommonController extends Controller
     }
 
     public function lawyerDetail($lawyerId) {
-        
+        $lawyerDetails = Lawyer::whereId($lawyerId)->first();
+        $languages = Language::whereIn('id', explode(',', $lawyerDetails->language_ids))->get();
+        $langs = [];
+        foreach($languages as $k => $v) {
+            $langs[] = $v->language;
+        }
+        $otherLang = explode(',', $lawyerDetails->other_lang);
+        foreach($otherLang as $k => $v) {
+            $langs[] = trim($v);
+        }
+        $answers = ForumAnswers::whereLawyerId($lawyerDetails->user_id)->get();
+        return view('common.our-lawyers.detail', compact('lawyerDetails', 'langs', 'answers'));
     }
 
     public function filterByLawyerName() {

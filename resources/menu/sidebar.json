@@ -55,6 +55,12 @@
         "slug": "callback-requests"
       },
       {
+        "url": "/admin/chat/requests",
+        "name": "Chat Requests",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "chat-requests"
+      },
+      {
         "url": "/admin/categories",
         "name": "Categories",
         "icon": "menu-icon tf-icons bx bx-home-circle",
@@ -77,6 +83,12 @@
         "name": "Lawyer Slots",
         "icon": "menu-icon tf-icons bx bx-home-circle",
         "slug": "lawyer-slots"
+      },
+      {
+        "url": "/admin/languages",
+        "name": "Languages",
+        "icon": "menu-icon tf-icons bx bx-home-circle",
+        "slug": "languages"
       }
       
     ]

@@ -37,7 +37,7 @@
                                 <a class="dropdown-item btn btn-primary" type="button" style="color:white;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop{{$k}}" aria-controls="offcanvasTop"><i class="bx bx-dollar-circle me-1"></i> Add Platform Fee</a>
                                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasTop{{$k}}" aria-labelledby="offcanvasTopLabel" style="height: 100%!important;">
                                     <div class="offcanvas-header">
-                                        <h5 id="offcanvasTopLabel" class="offcanvas-title">Add Platform Fee</h5>
+                                        <h5 id="offcanvasTopLabel" class="offcanvas-title">Update Service</h5>
                                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                     </div>
                                     <div class="offcanvas-body">
@@ -47,6 +47,27 @@
                                                 <div class="col-xl">
                                                     <div class="card mb-4">
                                                         <div class="card-body">                                                            
+                                                            <div class="mb-3">
+                                                                <label class="form-label" for="basic-default-company">Title</label>
+                                                                <input type="text" class="form-control" id="basic-default-company" name="title" value="{{$service->title}}" />
+                                                                @error('title')
+                                                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="form-label" for="basic-default-company">Description</label>
+                                                                <input type="text" class="form-control" id="basic-default-company" name="description" value="{{$service->description}}" />
+                                                                @error('description')
+                                                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="form-label" for="basic-default-company">Lawyer Fee</label>
+                                                                <input type="text" class="form-control" id="basic-default-company" name="lawyer_fee" value="{{$service->getLawyerFee($service->id)}}" />
+                                                                @error('lawyer_fee')
+                                                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
                                                             <div class="mb-3">
                                                                 <input type="hidden" name="service_id" value="{{$service->id}}">
                                                                 <label class="form-label" for="basic-default-company">Platform Fee</label>

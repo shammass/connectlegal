@@ -63,14 +63,23 @@ class ServicesController extends Controller
 
     public function addPlatformFee(Request $request, $userId) {
         $this->validate(request(), [
-            'platform_fee' => 'required',
+            'title'             => 'required',
+            'description'       => 'required',
+            'lawyer_fee'        => 'required',
+            'platform_fee'      => 'required',
         ]);
+
         $getLawyerServiceDetails = LawyerService::whereServiceId($request->service_id)->first();
+        Services::updateOrCreate(['id' => $request->service_id],[
+            'title'         => $request->title,
+            'description'   => $request->description,
+        ]);
         LawyerService::updateOrCreate(
             ['id' => $getLawyerServiceDetails->id],
             [
                 'service_id'    => $request->service_id,
-                'lawyer_id'     => $userId,
+                'lawyer_id'     => $userId,                
+                'lawyer_fee'    => $request->lawyer_fee,
                 'platform_fee'  => $request->platform_fee,
             ]
         );

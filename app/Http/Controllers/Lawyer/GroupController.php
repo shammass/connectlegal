@@ -10,7 +10,9 @@ use App\Models\GroupMember;
 use App\Models\GroupMessages;
 use App\Models\Lawyer;
 use App\Models\Post;
+use Chatify\Facades\ChatifyMessenger as Chatify;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Str;
 
 class GroupController extends Controller
@@ -95,11 +97,47 @@ class GroupController extends Controller
     }
 
     public function sendGroupMessage(Request $request, $groupId) {
-        $msg = $request->msg;
+        Log::info("Heyyeye");
+        Log::info($request->all());
+        $msg = $request->msg ?? 'file';
+        $error = (object)[
+            'status' => 0,
+            'message' => null
+        ];
+        $attachment = null;
+        $attachment_title = null;
+        if ($request->hasFile('file')) {
+            // allowed extensions
+            $allowed_images = Chatify::getAllowedImages();
+            $allowed_files  = Chatify::getAllowedFiles();
+            $allowed        = array_merge($allowed_images, $allowed_files);
+
+            $file = $request->file('file');
+            // check file size
+            if ($file->getSize() < Chatify::getMaxUploadSize()) {
+                if (in_array(strtolower($file->getClientOriginalExtension()), $allowed)) {
+                    // get attachment name
+                    $attachment_title = $file->getClientOriginalName();
+                    // upload attachment and store the new name
+                    $attachment = Str::uuid() . "." . $file->getClientOriginalExtension();
+                    $file->storeAs(config('chatify.attachments.folder'), $attachment, config('chatify.storage_disk_name'));
+                } else {
+                    $error->status = 1;
+                    $error->message = "File extension not allowed!";
+                }
+            } else {
+                $error->status = 1;
+                $error->message = "File size you are trying to upload is too large!";
+            }
+        }
         $message = GroupMessages::create([
-            'from_id'   => auth()->user()->id,
-            'body'      => $msg,
-            'group_id'  => $groupId
+            'from_id'       => auth()->user()->id,
+            'body'          => $msg,
+            'group_id'      => $groupId,
+            'attachment'    => ($attachment) ? json_encode((object)[
+                'new_name' => $attachment,
+                'old_name' => htmlentities(trim($attachment_title), ENT_QUOTES, 'UTF-8'),
+            ]) : null,
         ]);
         event(new PostComment($message->id, 'groupMessage'));     
 
@@ -134,7 +172,11 @@ class GroupController extends Controller
     public function getLatestGroupMsg(Request $request) {
         $msgId = $request->data;
         $message = GroupMessages::whereId($msgId['postComment'])->first();
-        $latestMsg = (string) view('lawyer.community.groups.latest-chat',  compact('message'));        
+        $attachment = null;
+        if($message->attachment) {
+            $attachment = json_decode($message->attachment);                                                           
+        }
+        $latestMsg = (string) view('lawyer.community.groups.latest-chat',  compact('message', 'attachment'));        
         return $latestMsg;
     }
 

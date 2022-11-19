@@ -79,11 +79,22 @@
                                             <p class="sending" style="display:none;text-align: center;"><b>Sending...</b></p>
                                             <div class="messages-content" id="chat-text">
                                                 @foreach($messages as $k => $message)
+                                                    @php 
+                                                        $attachment = null;
+                                                        if($message->attachment) {
+                                                            $attachment = json_decode($message->attachment);                                                           
+                                                        }
+                                                    @endphp
                                                     @if($message->from_id != auth()->user()->id)
                                                         <div class="message new">
                                                             <h5 style="color:{{$message->fromUser->messenger_color}}"><b>{{ucfirst($message->fromUser->name)}}</b></h5>
-                                                           <b>{{$message->body}}</b>
+                                                           <b>{{$message->body}}<b>
                                                            <br><small>{{date('g:i A', strtotime($message->created_at))}}</small>
+                                                           {{-- If attachment is a file --}}
+                                                            @if(@$attachment->old_name)
+                                                                <a href="{{ route(config('chatify.attachments.download_route_name'), ['fileName'=>@$attachment->new_name]) }}" class="file-download" style="background: #0285c3;">
+                                                                <span class="fas fa-file"></span> {{@$attachment->old_name}}</a>
+                                                            @endif
                                                             <!-- <div class="timestamp" style="width: max-content;">{{date('g:i A', strtotime($message->created_at))}}</div> -->
                                                             <!-- <div class="checkmark-sent-delivered">✓</div> -->
                                                             <!-- <div class="checkmark-read">✓</div> -->
@@ -91,20 +102,54 @@
                                                     @else
                                                         <div class="message message-personal new">
                                                             <b>{{$message->body}}</b>
-                                                           <br><small>{{date('g:i A', strtotime($message->created_at))}}</small>
+                                                            <br><small>{{date('g:i A', strtotime($message->created_at))}}</small>
+                                                            {{-- If attachment is a file --}}
+                                                            @if(@$attachment->old_name)
+                                                                <a href="{{ route(config('chatify.attachments.download_route_name'), ['fileName'=>@$attachment->new_name]) }}" class="file-download">
+                                                                <span class="fas fa-file"></span> {{@$attachment->old_name}}</a>
+                                                            @endif
                                                             <!-- <div class="checkmark-sent-delivered">✓</div> -->
                                                             <!-- <div class="checkmark-read">✓</div> -->
                                                         </div>
                                                     @endif
                                                 @endforeach
                                             </div>
+                                            
+                                                <div class="messenger-sendCard" style="margin-top: 100px;">
+                                                <div class="message-box" id="msgFieldFirst">
+                                                    <form id="message-form" method="POST" action="{{ route('send.message') }}" onsubmit="return false;">
+                                                        @csrf()
+                                                        <input type="hidden" id="groupId" value="{{$groupId}}">
+                                                        <label style="margin-right: 2%;margin-top:1%;">
+                                                            <span class="fas fa-paperclip"></span>
+                                                            <input type="file" 
+                                                                    class="upload-attachment" 
+                                                                    name="file" 
+                                                                    accept=".{{implode(', .',config('chatify.attachments.allowed_images'))}}, .{{implode(', .',config('chatify.attachments.allowed_files'))}}" />
+                                                        </label>
+                                                        <textarea class="message-input emojiPicker m-send app-scroll"
+                                                            placeholder="Type message..." id="msgField" style="padding-left: 5%;display:2 !important;"></textarea>      
+                                                        <!-- <textarea name="message" class="m-send app-scroll" placeholder="Type a message.." style="padding-left: 5%;" id="msgField"></textarea>                                           -->
+                                                        <a href="#" class="message-submit" id="msgField" onclick="sendMessage()"><i data-feather="send"></i></a>
+                                                    </form>
+                                                </div>    
+                                                </div>
+                                           
+                                            {{-- 
                                             <div class="message-box" id="msgFieldFirst">
                                                 <input type="hidden" id="groupId" value="{{$groupId}}">
+                                                <label >
+                                                    <span class="fas fa-paperclip"></span>
+                                                    <input type="file" 
+                                                            class="upload-attachment" 
+                                                            name="file" 
+                                                            accept=".{{implode(', .',config('chatify.attachments.allowed_images'))}}, .{{implode(', .',config('chatify.attachments.allowed_files'))}}" />
+                                                </label>
                                                 <textarea class="message-input emojiPicker m-send app-scroll"
                                                     placeholder="Type message..." id="msgField" style="padding-left: 5%;display:2 !important;"></textarea>      
                                                 <!-- <textarea name="message" class="m-send app-scroll" placeholder="Type a message.." style="padding-left: 5%;" id="msgField"></textarea>                                           -->
                                                 <a href="#" class="message-submit" onclick="sendMessage()"><i data-feather="send"></i></a>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -116,6 +161,12 @@
             </div>
         </section>
 
+        <script>
+            const allowedImages = {!! json_encode(config('chatify.attachments.allowed_images')) !!} || [];
+            const allowedFiles = {!! json_encode(config('chatify.attachments.allowed_files')) !!} || [];
+            const getAllowedExtensions = [...allowedImages, ...allowedFiles];
+            const getMaxUploadSize = {{ Chatify::getMaxUploadSize() }};
+        </script>
         @include('lawyer.community.layouts.scripts')
 
     </body>

@@ -45,8 +45,12 @@
                                 @endif
                             </td>
                             <td>
-                                @if(!$request->complete && $request->status)
-                                    <a href="/online-chat/{{$request->user_id}}" target="_blank">Chat Here</a>
+                                @if($request->status)
+                                    @if($request->complete)
+                                        <a href="/online-chat/{{$request->user_id}}" target="_blank">Chat History</a>
+                                    @else 
+                                        <a href="/online-chat/{{$request->user_id}}" target="_blank">Chat Here</a>                                
+                                    @endif
                                 @else 
                                     -
                                 @endif

@@ -14,6 +14,11 @@ class GroupMessages extends Model
         'group_id',
         'body',
         'seen',
+        'attachment'
+    ];
+
+    protected $casts = [
+        // 'attachment' => 'json',
     ];
 
     public function getColor() {

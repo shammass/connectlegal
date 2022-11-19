@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ArbitrationArea;
 use App\Models\ChatNotification;
 use App\Models\ForumAnswers;
+use App\Models\Language;
 use App\Models\Lawyer;
 use App\Models\LawyerService;
 use App\Models\Payment;
@@ -41,29 +42,31 @@ class DashboardController extends Controller
     public function profile() {
         $lawyer = Lawyer::whereUserId(auth()->user()->id)->first();
         $arbitrationArea = ArbitrationArea::pluck('area', 'id');
-        return view('lawyer.profile', compact('lawyer', 'arbitrationArea'));
+        $languages = Language::pluck('language', 'id');
+        return view('lawyer.profile', compact('lawyer', 'arbitrationArea', 'languages'));
     }
 
     public function updateProfile(Request $request, $id) {
         $lawyer = Lawyer::updateOrCreate(
             ['id' => $id],
             [
-                'law_firm_name' => $request->lawfirm_name,
-                'law_firm_website' => $request->lawfirm_website,
-                'emirates' => $request->emirates,
-                'office_address' => $request->office_address,            
-                'contact_number' => $request->contact_number,
-                'landline_number' => $request->landline_number,
-                'position' => $request->position,
-                'linkedin_profile' => $request->linkedin_profile,
-                'calendly_link' => $request->calendly_link,
-                'language' => $request->language,
-                'arbitration_area_id' => $request->area,
-                'summary' => $request->summary,
-                'education' => $request->education,
-                'assosiation_and_membership' => $request->assosiation_and_membership,
-                'honors_and_awards' => $request->honors_and_awards,
-                'disclaimer' => $request->disclaimer,
+                'law_firm_name'                 => $request->lawfirm_name,
+                'law_firm_website'              => $request->lawfirm_website,
+                'emirates'                      => $request->emirates,
+                'office_address'                => $request->office_address,            
+                'contact_number'                => $request->contact_number,
+                'landline_number'               => $request->landline_number,
+                'position'                      => $request->position,
+                'linkedin_profile'              => $request->linkedin_profile,
+                'calendly_link'                 => $request->calendly_link,
+                'language_ids'                  => $request->language ? implode(',', $request->language) : null,
+                'other_lang'                    => $request->other_lang,
+                'arbitration_area_id'           => $request->area,
+                'summary'                       => $request->summary,
+                'education'                     => $request->education,
+                'assosiation_and_membership'    => $request->assosiation_and_membership,
+                'honors_and_awards'             => $request->honors_and_awards,
+                'disclaimer'                    => $request->disclaimer,
             ]
         );
         $this->profilePic($lawyer, $request);

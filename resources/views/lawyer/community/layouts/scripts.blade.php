@@ -46,7 +46,16 @@
     <script src="//js.pusher.com/3.1/pusher.min.js"></script>
     
     <script>
-         $('.comment-section .main-comment').hide();
+        var messenger,
+            typingTimeout,
+            typingNow = 0,
+            temporaryMsgId = 0,
+            defaultAvatarInSettings = null,
+            messengerColor,
+            dark_mode,
+            messages_page = 1;
+
+        $('.comment-section .main-comment').hide();
         feather.replace();
         $(".emojiPicker").emojioneArea({
             inline: true,
@@ -141,28 +150,196 @@
         });
 
         function sendMessage() {
+            temporaryMsgId += 1;
+            let tempID = `temp_${temporaryMsgId}`;
             const messagesContainer = $(".chat-history");
+            const messageInput = $("#message-form .m-send")
+            const inputValue = $.trim(messageInput.val());
             $(".sending").css('display', 'block');
             $(".sending").css('text-align', 'center');
             var msg = $(".emojionearea-editor").text();
             var groupId = $("#groupId").val();
-            $("#msgField").val("")
+            $("#msgField").val("")            
             $(".emojionearea-editor").empty();
+            let hasFile = !!$(".upload-attachment").val();  
+            // const formData = "abcd";
+            const formData = new FormData($("#message-form")[0]);
+            const access_token = $('meta[name="csrf-token"]').attr("content");
+            formData.append("_token", access_token);
+            formData.append("temporaryMsgId", tempID);
+            formData.append("msg", msg);
             // document.getElementById('msgField').setAttribute("style","padding-left:5%;overflow:hidden;overflow-wrap:break-word;");
-            if(msg) {
-                $.ajax({
-                    method:"post",
-                    url: "/lawyer/community/group/send-message/"+groupId,
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                        'msg':msg
-                    },
-                    success: function(res){
-                        $("#chat-text").animate({ scrollTop: $('#chat-text').prop("scrollHeight")}, 1000);
-                        // $('#chat-text').scrollTop($('#chat-text')[0].scrollHeight);
+            // if(msg) {
+            $.ajax({
+                method:"post",
+                url: "/lawyer/community/group/send-message/"+groupId,
+                // data: {
+                //     "_token": "{{ csrf_token() }}",
+                //     'msg':msg,
+                //     'data':formData 
+                // },
+                data: formData,
+                dataType: "JSON",
+                processData: false,
+                contentType: false,
+                beforeSend: () => {
+                    // remove message hint
+                    $(".messages").find(".message-hint").remove();
+                    // append a temporary message card
+                    if (hasFile) {
+                    messagesContainer
+                        .find(".messages")
+                        .append(
+                        sendTempMessageCard(
+                            inputValue + "\n" + loadingSVG("28px"),
+                            tempID
+                        )
+                        );
+                    } else {
+                    messagesContainer
+                        .find(".messages")
+                        .append(sendTempMessageCard(inputValue, tempID));
                     }
+                    // scroll to bottom
+                    scrollToBottom(messagesContainer);
+                    messageInput.css({ height: "42px" });
+                    // form reset and focus
+                    $("#message-form").trigger("reset");
+                    cancelAttachment();
+                    messageInput.focus();
+                },
+                success: function(res){                    
+                    $("#chat-text").animate({ scrollTop: $('#chat-text').prop("scrollHeight")}, 1000);
+                    $('#chat-text').scrollTop($('#chat-text')[0].scrollHeight);
+                }
+            });
+            // }
+        }
+
+        function sendTempMessageCard(message, id) {
+  
+            console.log("message", message);
+            return `
+            <div class="message-card mc-sender" data-id="${id}">
+                <p>
+                    ${message}
+                    <sub>
+                        <span class="far fa-clock"></span>
+                    </sub>
+                </p>
+            </div>
+            `;
+        }
+
+        function cancelAttachment() {
+            $(".message-box").find(".attachment-preview").remove();
+            $(".upload-attachment").replaceWith(
+                $(".upload-attachment").val("").clone(true)
+            );
+        }
+
+        function scrollToBottom(container) {
+            $(container)
+                .stop()
+                .animate({
+                scrollTop: $(container)[0].scrollHeight,
                 });
+        }
+
+
+        const escapeHtml = (unsafe) => {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+            };
+
+        function loadingSVG(size = "25px", className = "", style = "") {
+            return `
+            <svg style="${style}" class="loadingSVG ${className}" xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 40 40" stroke="#ffffff">
+            <g fill="none" fill-rule="evenodd">
+            <g transform="translate(2 2)" stroke-width="3">
+            <circle stroke-opacity=".1" cx="18" cy="18" r="18"></circle>
+            <path d="M36 18c0-9.94-8.06-18-18-18" transform="rotate(349.311 18 18)">
+            <animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur=".8s" repeatCount="indefinite"></animateTransform>
+            </path>
+            </g>
+            </g>
+            </svg>
+            `;
+        }
+
+        function attachmentTemplate(fileType, fileName, imgURL = null) {
+            if (fileType != "image") {
+                return (
+                `
+            <div class="attachment-preview" style="margin-left: 5%;">
+            <span class="fas fa-times cancel"></span>
+            <p style="padding:0px 30px;"><span class="fas fa-file"></span> ` +
+                escapeHtml(fileName) +
+                `</p>
+            </div>
+            `
+                );
+            } else {
+                return (
+                `
+            <div class="attachment-preview" style="margin-left: 5%;">
+            <span class="fas fa-times cancel"></span>
+            <div class="image-file chat-image" style="background-image: url('` +
+                imgURL +
+                `');"></div>
+            <p><span class="fas fa-file-image"></span> ` +
+                escapeHtml(fileName) +
+                `</p>
+            </div>
+            `
+                );
             }
+        }
+
+        $("body").on("change", ".upload-attachment", (e) => {
+            let file = e.target.files[0];
+            if (!attachmentValidate(file)) return false;
+            let reader = new FileReader();
+            let sendCard = $(".message-box");
+            reader.readAsDataURL(file);
+            reader.addEventListener("loadstart", (e) => {
+            $("#message-form").before(loadingSVG());
+            });
+            reader.addEventListener("load", (e) => {
+            $(".message-box").find(".loadingSVG").remove();
+            if (!file.type.match("image.*")) {
+                // if the file not image
+                sendCard.find(".attachment-preview").remove(); // older one
+                sendCard.prepend(attachmentTemplate("file", file.name));
+            } else {
+                // if the file is an image
+                sendCard.find(".attachment-preview").remove(); // older one
+                sendCard.prepend(
+                attachmentTemplate("image", file.name, e.target.result)
+                );
+            }
+            });
+        });
+
+        function attachmentValidate(file) {
+            const fileElement = $(".upload-attachment");
+            const { name: fileName, size: fileSize } = file;
+            const fileExtension = fileName.split(".").pop();
+            if (
+            !getAllowedExtensions.includes(fileExtension.toString().toLowerCase())
+            ) {
+            alert("file type not allowed");
+            fileElement.val("");
+            return false;
+            }
+            // Validate file size.
+            if (fileSize > getMaxUploadSize) {
+            alert("File is too large!");
+            return false;
+            }
+            return true;
         }
 
     </script>

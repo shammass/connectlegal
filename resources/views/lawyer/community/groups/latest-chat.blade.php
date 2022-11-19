@@ -4,6 +4,11 @@
         <b>{{$message->body}}</b>
         <br>
         {{date('g:i A', strtotime($message->created_at))}}
+        {{-- If attachment is a file --}}
+        @if(@$attachment->old_name)
+            <a href="{{ route(config('chatify.attachments.download_route_name'), ['fileName'=>@$attachment->new_name]) }}" class="file-download">
+            <span class="fas fa-file"></span> {{@$attachment->old_name}}</a>
+        @endif
         <!-- <div class="checkmark-sent-delivered">✓</div> -->
         <!-- <div class="checkmark-read">✓</div> -->
     </div>
@@ -12,6 +17,11 @@
         <b>{{$message->body}}</b>
         <br>
         {{date('g:i A', strtotime($message->created_at))}}
+        {{-- If attachment is a file --}}
+        @if(@$attachment->old_name)
+            <a href="{{ route(config('chatify.attachments.download_route_name'), ['fileName'=>@$attachment->new_name]) }}" class="file-download">
+            <span class="fas fa-file"></span> {{@$attachment->old_name}}</a>
+        @endif
         <!-- <div class="checkmark-sent-delivered">✓</div> -->
         <!-- <div class="checkmark-read">✓</div> -->
     </div>

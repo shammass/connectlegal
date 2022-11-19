@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('password_resets', function (Blueprint $table) {
-            $table->timestamp('updated_at')->nullable();
+        Schema::table('group_messages', function (Blueprint $table) {
+            $table->string('attachment')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('password_resets', function (Blueprint $table) {
-            $table->dropColumn('updated_at');
+        Schema::table('group_messages', function (Blueprint $table) {
+            $table->dropColumn('attachment');
         });
     }
 };

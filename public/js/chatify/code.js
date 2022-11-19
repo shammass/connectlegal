@@ -66,17 +66,17 @@ function updateSelectedContact(user_id) {
 // Loading svg
 function loadingSVG(size = "25px", className = "", style = "") {
   return `
-<svg style="${style}" class="loadingSVG ${className}" xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 40 40" stroke="#ffffff">
-<g fill="none" fill-rule="evenodd">
-<g transform="translate(2 2)" stroke-width="3">
-<circle stroke-opacity=".1" cx="18" cy="18" r="18"></circle>
-<path d="M36 18c0-9.94-8.06-18-18-18" transform="rotate(349.311 18 18)">
- <animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur=".8s" repeatCount="indefinite"></animateTransform>
-</path>
-</g>
-</g>
-</svg>
-`;
+  <svg style="${style}" class="loadingSVG ${className}" xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 40 40" stroke="#ffffff">
+  <g fill="none" fill-rule="evenodd">
+  <g transform="translate(2 2)" stroke-width="3">
+  <circle stroke-opacity=".1" cx="18" cy="18" r="18"></circle>
+  <path d="M36 18c0-9.94-8.06-18-18-18" transform="rotate(349.311 18 18)">
+  <animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur=".8s" repeatCount="indefinite"></animateTransform>
+  </path>
+  </g>
+  </g>
+  </svg>
+  `;
 }
 function loadingWithContainer(className) {
   return `<div class="${className}" style="text-align:center;padding:15px">${loadingSVG(
@@ -113,6 +113,7 @@ function listItemLoading(items) {
 
 // loading placeholder for avatars
 function avatarLoading(items) {
+  
   let template = "";
   for (let i = 0; i < items; i++) {
     template += `
@@ -136,6 +137,7 @@ function avatarLoading(items) {
 
 // While sending a message, show this temporary message card.
 function sendTempMessageCard(message, id) {
+  
   console.log("message", message);
   return `
  <div class="message-card mc-sender" data-id="${id}">
@@ -153,7 +155,7 @@ function attachmentTemplate(fileType, fileName, imgURL = null) {
   if (fileType != "image") {
     return (
       `
-<div class="attachment-preview">
+<div class="attachment-preview" style="margin-left: 5%;">
 <span class="fas fa-times cancel"></span>
 <p style="padding:0px 30px;"><span class="fas fa-file"></span> ` +
       escapeHtml(fileName) +
@@ -164,7 +166,7 @@ function attachmentTemplate(fileType, fileName, imgURL = null) {
   } else {
     return (
       `
-<div class="attachment-preview">
+<div class="attachment-preview" style="margin-left: 5%;">
 <span class="fas fa-times cancel"></span>
 <div class="image-file chat-image" style="background-image: url('` +
       imgURL +
@@ -191,6 +193,7 @@ function activeStatusCircle() {
 $(window).resize(function () {
   cssMediaQueries();
 });
+
 function cssMediaQueries() {
   if (window.matchMedia("(min-width: 980px)").matches) {
     $(".messenger-listView").removeAttr("style");
@@ -253,6 +256,7 @@ let app_modal = function ({
  *-------------------------------------------------------------
  */
 function scrollToBottom(container) {
+  
   $(container)
     .stop()
     .animate({
@@ -265,31 +269,31 @@ function scrollToBottom(container) {
  * click and drag to scroll - function
  *-------------------------------------------------------------
  */
-function hScroller(scroller) {
-  const slider = document.querySelector(scroller);
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+// function hScroller(scroller) {
+//   const slider = document.querySelector(scroller);
+//   let isDown = false;
+//   let startX;
+//   let scrollLeft;
 
-  slider.addEventListener("mousedown", (e) => {
-    isDown = true;
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-  });
-  slider.addEventListener("mouseleave", () => {
-    isDown = false;
-  });
-  slider.addEventListener("mouseup", () => {
-    isDown = false;
-  });
-  slider.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 1;
-    slider.scrollLeft = scrollLeft - walk;
-  });
-}
+//   slider.addEventListener("mousedown", (e) => {
+//     isDown = true;
+//     startX = e.pageX - slider.offsetLeft;
+//     scrollLeft = slider.scrollLeft;
+//   });
+//   slider.addEventListener("mouseleave", () => {
+//     isDown = false;
+//   });
+//   slider.addEventListener("mouseup", () => {
+//     isDown = false;
+//   });
+//   slider.addEventListener("mousemove", (e) => {
+//     if (!isDown) return;
+//     e.preventDefault();
+//     const x = e.pageX - slider.offsetLeft;
+//     const walk = (x - startX) * 1;
+//     slider.scrollLeft = scrollLeft - walk;
+//   });
+// }
 
 /**
  *-------------------------------------------------------------
@@ -300,6 +304,7 @@ function hScroller(scroller) {
  *-------------------------------------------------------------
  */
 function disableOnLoad(action = true) {
+  
   if (action == true) {
     // hide star button
     $(".add-to-favorite").hide();
@@ -351,6 +356,7 @@ function errorMessageCard(id) {
  *-------------------------------------------------------------
  */
 function IDinfo(id, type) {
+  
   // clear temporary message id
   temporaryMsgId = 0;
   // clear typing now
@@ -531,6 +537,7 @@ function setMessagesLoading(loading = false) {
   }
   messagesLoading = loading;
 }
+
 function fetchMessages(id, type, newFetch = false) {
   if (newFetch) {
     messagesPage = 1;
@@ -614,6 +621,7 @@ var channel = pusher.subscribe("private-chatify");
 
 // Listen to messages, and append if data received
 channel.bind("messaging", function (data) {
+  fetchMessages(getMessengerId(), getMessengerType(), true);
   if (data.from_id == getMessengerId() && data.to_id == auth_id) {
     $(".messages").find(".message-hint").remove();
     messagesContainer.find(".messages").append(data.message);
@@ -1277,7 +1285,7 @@ $(document).ready(function () {
   });
 
   // make favorites card dragable on click to slide.
-  hScroller(".messenger-favorites");
+  // hScroller(".messenger-favorites");
 
   // click action for list item [user/group]
   $("body").on("click", ".messenger-list-item", function () {

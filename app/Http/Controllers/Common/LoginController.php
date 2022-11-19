@@ -79,20 +79,21 @@ class LoginController extends Controller
     }
     
     public function userLogin(Request $request) {
-        $request->validate([
-            'g-recaptcha-response' => 'required|string',
-        ]);
+        // $request->validate([
+        //     'g-recaptcha-response' => 'required|string',
+        // ]);
         
-        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-            'secret' => config('services.recaptcha.secret_key'),
-            'response' => $request->get('g-recaptcha-response'),
-            'remoteip' => $request->getClientIp(),
-        ]);
+        // $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+        //     'secret' => config('services.recaptcha.secret_key'),
+        //     'response' => $request->get('g-recaptcha-response'),
+        //     'remoteip' => $request->getClientIp(),
+        // ]);
         
-        if (! $response->json('success')) {
-            throw ValidationException::withMessages(['g-recaptcha-response' => 'Error verifying reCAPTCHA, please try again.']);
-        }else {
-            // print_r($request->all());exit;
+        // if (! $response->json('success')) {
+        //     // throw ValidationException::withMessages(['g-recaptcha-response' => 'Error verifying reCAPTCHA, please try again.']);
+        //     return redirect()->route('home')->with('error','Error verifying reCAPTCHA, please try again.');
+        // }else {
+        //     // print_r($request->all());exit;
             $user = User::whereEmail($request->email)->first();
             if($user) {
                 if (Hash::check($request->password, $user->password)) {
@@ -117,7 +118,7 @@ class LoginController extends Controller
             }else {
                 return redirect()->route('home')->with('error','Login Fail, please check your email!');
             }
-        }
+        // }
     }
 
     public function adminLoginPage() {

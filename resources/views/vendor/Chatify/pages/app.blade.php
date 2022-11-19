@@ -10,7 +10,11 @@
                 {{-- header back button, avatar and user name --}}
                 <div class="chatify-d-flex chatify-justify-content-between chatify-align-items-center">
                     <a href="#" class="show-listView"><i class="fas fa-arrow-left"></i></a>
-                    <div class="avatar av-s header-avatar" style="margin: 0px 10px; margin-top: -5px; margin-bottom: -5px;background-image: url(http://localhost/storage/users-avatar/avatar.png);">
+                    @if($profilePic)
+                        <div class="avatar av-s header-avatar" style="margin: 0px 10px; margin-top: -5px; margin-bottom: -5px;background-image: url(/storage/{{$profilePic}});">
+                    @else                             
+                        <div class="avatar av-s header-avatar" style="margin: 0px 10px; margin-top: -5px; margin-bottom: -5px;background-image: url(http://localhost/storage/users-avatar/avatar.png);">
+                    @endif
                     </div>
                     <a href="#" class="user-name">{{ config('chatify.name') }}</a>
                 </div>
@@ -48,6 +52,14 @@
             {{-- Send Message Form --}}
             @include('Chatify::layouts.sendForm')
         </div>
+    </div>
+    {{-- ---------------------- Info side ---------------------- --}}
+    <div class="messenger-infoView app-scroll" style="margin-top: 2%;">
+        {{-- nav actions --}}
+        <nav>
+            <a href="#"><i class="fas fa-times"></i></a>
+        </nav>
+        {!! view('Chatify::layouts.info', compact('profilePic'))->render() !!}
     </div>
 </div>
 

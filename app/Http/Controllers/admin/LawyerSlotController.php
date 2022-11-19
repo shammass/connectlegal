@@ -12,9 +12,7 @@ use Illuminate\Http\Request;
 class LawyerSlotController extends Controller
 {
     public function lawyers() {
-        $lawyersScheduled = SchduledMeeting::select('lawyer_id')
-        ->groupBy('lawyer_id')
-        ->get();
+        $lawyersScheduled = Slot::select('lawyer_id')->get();
         return view('admin.lawyer-slots.lawyers', compact('lawyersScheduled'));
     }
 
