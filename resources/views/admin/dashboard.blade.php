@@ -52,5 +52,33 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="card mb-4"> 
+        <h5 class="card-header">Unresponded Chats</h5>
+        <div class="card-body">
+            <div class="row mb-5">
+                @forelse($unrespondedChatRqsts as $k => $chatRqst)
+                    <div class="col-md-6 col-lg-4 mb-3">
+                        <div class="card">
+                            <div class="card-header">
+                                {{$chatRqst->created_at->format('d M Y')}}
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{$chatRqst->comment}}</h5>
+                                <p class="card-text">
+                                    Lawyer: <b>{{$chatRqst->lawyer->user->name}} - ({{$chatRqst->lawyer->user->email}})</b>
+                                    <span style="float: right;">Requested By: <b>{{$chatRqst->user->name}} - ({{$chatRqst->user->email}})</b></span>
+                                </p>     
+                                <button type="button" class="btn btn-info" style="margin-right:2%;margin-top:2%;"><a href="{{route('admin.send-reminder', $chatRqst->id)}}" style="color:white;">Send Reminder</a></button>                         
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <p>No Data</p>
+                @endforelse
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection

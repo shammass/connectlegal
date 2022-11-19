@@ -31,7 +31,10 @@ class CommunityController extends Controller
     }
 
     public function allLawyers() {
-        $lawyers = Lawyer::whereIsVerified(1)->get();
+        $lawyers = Lawyer::where([
+            ['is_verified', 1],
+            ['user_id', '!=', auth()->user()->id]
+        ])->get();
         return view('lawyer.community.all-lawyers', compact('lawyers'));
     }
 

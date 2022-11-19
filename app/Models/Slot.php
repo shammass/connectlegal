@@ -35,4 +35,10 @@ class Slot extends Model
             return false;
         }
     }
+
+    public function getSessionAmount($session, $lawyerId) {
+        $column = $session == 15 ? "fifteen" : "thirty";
+        $fees = SlotFees::whereLawyerId($lawyerId)->first();
+        return $fees ? $fees->$column : 0;
+    }
 }

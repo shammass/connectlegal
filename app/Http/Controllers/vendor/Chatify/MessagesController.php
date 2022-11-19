@@ -63,19 +63,63 @@ class MessagesController extends Controller
     public function index( $id = null) //$id = user id
     {             
         // $expired = $this->isBothLawyer($id);
+        $user1 = User::whereId($id)->first();
+        $user2 = User::whereId(auth()->user()->id)->first();
         $expired = false;
+        $completed = false;
+        $bothLawyers = false;
+        $completed = $this->isCompleted($id, auth()->user()->id);
+        if($user1->user_type == 2 && $user2->user_type == 2) {
+            $bothLawyers = true;
+        }
+
         $routeName= FacadesRequest::route()->getName();
+        if(auth()->user()->user_type != 2) {
+            $profilePic = Lawyer::whereUserId($id)->first();
+            $profilePic = $profilePic->profile_pic;
+        }else {
+            $profilePic = null;
+        }
+
+        if($bothLawyers) {
+            $profilePic = Lawyer::whereUserId($id)->first();
+            if($profilePic)
+                $profilePic = $profilePic->profile_pic;
+        }
+
         $type = in_array($routeName, ['user','group'])
             ? $routeName
             : 'user';
-        
         return view('Chatify::pages.app', [
             'id'                => $id ?? 0,
             'expired'           => $expired,
+            'completed'         => $completed,
+            'profilePic'        => $profilePic,
             'type'              => $type ?? 'user',
             'messengerColor'    => Auth::user()->messenger_color ?? $this->messengerFallbackColor,
             'dark_mode'         => Auth::user()->dark_mode < 1 ? 'light' : 'dark',
         ]);
+    }
+
+    public function getProfPic($id) {
+
+    }
+
+    public function isCompleted($id, $loggedInUserId) {
+        if(auth()->user()->user_type == 2) {
+            $lawyer = Lawyer::whereUserId($loggedInUserId)->first();
+            $requestStatus = ChatOnline::where([
+                'user_id' => $id,
+                'lawyer_id' => $lawyer->id
+            ])->first();
+        }else {
+            $lawyer = Lawyer::whereUserId($id)->first();
+            $requestStatus = ChatOnline::where([
+                'user_id' => auth()->user()->id,
+                'lawyer_id' => $lawyer->id
+            ])->first();
+        }
+        return $requestStatus->complete;
     }
 
     public function isBothLawyer($id) {
@@ -148,6 +192,7 @@ class MessagesController extends Controller
      */
     public function send(Request $request)
     {
+        $request['message'] = $request['message'] ?? 'file';
         if($request['message']) {
 
             // default variables
@@ -190,18 +235,18 @@ class MessagesController extends Controller
                 // $expired = $this->isBothLawyer($request['to_id']);
                 $expired = false;
                 if(!$expired) {
-                    Chatify::newMessage([
+                    $chat = Chatify::newMessage([
                         'id' => $messageID,
                         'type' => 'user',
                         'from_id' => Auth::user()->id,
                         'to_id' => $request['to_id'],
-                        'body' => htmlentities(trim($request['message']), ENT_QUOTES, 'UTF-8'),
+                        'body' =>  $request['message'] ? htmlentities(trim($request['message']), ENT_QUOTES, 'UTF-8') : 'file',
                         'attachment' => ($attachment) ? json_encode((object)[
                             'new_name' => $attachment,
                             'old_name' => htmlentities(trim($attachment_title), ENT_QUOTES, 'UTF-8'),
                         ]) : null,
                     ]);
-        
+                    // $this->attachedPdf($chat, $request);
                     // fetch message to send it with the response
                     $messageData = Chatify::fetchMessage($messageID);
         
@@ -232,6 +277,17 @@ class MessagesController extends Controller
                 return redirect()->back();
             }
         }
+    }
+
+    public function attachedPdf($chat, $request) {
+        $imageDir = 'chat/attached/' . $chat->id;
+
+        $image = $request->file('file');
+        if ($request->hasFile('file')) {
+            $chat->attachment = $image->store($imageDir);
+            $chat->save();
+        }
+        return true;
     }
 
     public function isExpired($id) {

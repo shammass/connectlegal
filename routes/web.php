@@ -4,10 +4,12 @@ use App\Http\Controllers\admin\ArbitrationAreaController;
 use App\Http\Controllers\admin\BlogsArticlesController;
 use App\Http\Controllers\admin\CallbackController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\ChatRequestController;
 use App\Http\Controllers\admin\ContactUsController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ForumController;
 use App\Http\Controllers\admin\HireController;
+use App\Http\Controllers\admin\LanguageController;
 use App\Http\Controllers\admin\LawyerController;
 use App\Http\Controllers\admin\LawyerSlotController;
 use App\Http\Controllers\admin\QaRatingController;
@@ -115,11 +117,13 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/login',                       [LoginController::class, 'adminLoginPage'])->name('admin.login_page');
     Route::post('/login',                      [LoginController::class, 'adminLogin'])->name('admin.login');
+    
     Route::group(['middleware' => ['adminauth']], function () {
         Route::get('/logout',                 [LoginController::class, 'logout'])->name('admin.logout');
 
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-        Route::get('/dash',      [DashboardController::class, 'test']);
+        Route::get('/dashboard',                [DashboardController::class, 'index'])->name('admin.dashboard');
+        Route::get('/send-reminder/{id}',       [DashboardController::class, 'sendReminder'])->name('admin.send-reminder');
+        // Route::get('/dash',             [DashboardController::class, 'test']);
 
         #Arbitration Area
         Route::get('/arbitration-area',                     [ArbitrationAreaController::class, 'index'])->name('admin.arbitration-area');
@@ -172,12 +176,24 @@ Route::prefix('admin')->group(function () {
 
         Route::get('callback/requests',                     [CallbackController::class, 'callbackRequests'])->name('admin.callback.requests');
 
+        Route::get('chat/requests',                     [ChatRequestController::class, 'chatRequests'])->name('admin.chat.requests');
+        Route::get('chat/requests/{status}',            [ChatRequestController::class, 'filteredChatRequest'])->name('admin.pending.chat.requests');
+
+        #CATEGORY
         Route::get('categories',                   [CategoryController::class, 'categories'])->name('admin.categories');
         Route::get('category/create',              [CategoryController::class, 'createCategory'])->name('admin.category.create');
         Route::post('category/store',              [CategoryController::class, 'storeCategory'])->name('admin.category.store');
         Route::get('category/edit/{id}',           [CategoryController::class, 'editCategory'])->name('admin.category.edit');
         Route::post('category/update/{id}',        [CategoryController::class, 'updateCategory'])->name('admin.category.update');
         Route::get('category/delete/{id}',         [CategoryController::class, 'deleteCategory'])->name('admin.category.delete');
+
+        #LANGUAGE
+        Route::get('languages',                    [LanguageController::class, 'languages'])->name('admin.languages');
+        Route::get('language/create',              [LanguageController::class, 'createLang'])->name('admin.language.create');
+        Route::post('language/store',              [LanguageController::class, 'storeLang'])->name('admin.language.store');
+        Route::get('language/edit/{id}',           [LanguageController::class, 'editLang'])->name('admin.language.edit');
+        Route::post('language/update/{id}',        [LanguageController::class, 'updateLang'])->name('admin.language.update');
+        Route::get('language/delete/{id}',         [LanguageController::class, 'deleteLang'])->name('admin.language.delete');
         
         #Blogs and Articles
         Route::get('blogs-articles',                    [BlogsArticlesController::class, 'index'])->name('admin.blogs-articles');

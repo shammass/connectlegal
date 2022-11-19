@@ -47,9 +47,13 @@
                                        {{$request->complete ? 'Yes' : 'No'}}
                                     </td>
                                     <td>
-                                        @if($request->status && !$request->complete)
-                                            <a href="/online-chat/{{$request->lawyer->user_id}}" style="color:blue;" target="_blank">Chat Here</a>
-                                        @else
+                                        @if($request->status)
+                                            @if($request->complete)
+                                                <a href="/online-chat/{{$request->lawyer->user_id}}" target="_blank" style="color:blue;">Chat History</a>
+                                            @else 
+                                                <a href="/online-chat/{{$request->lawyer->user_id}}" target="_blank" style="color:blue;">Chat Here</a>                                
+                                            @endif
+                                        @else 
                                             -
                                         @endif
                                     </td>

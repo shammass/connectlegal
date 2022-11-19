@@ -1,4 +1,4 @@
-@extends('lawyer/layouts/navbar_content')
+@extends('lawyer.layouts.navbar_content')
 @section('title', 'Profile')
 @section('content')
     @include('admin.layouts.flash-message')
@@ -16,6 +16,9 @@
                 <h5 class="card-header">Profile Details</h5>
             <!-- Account -->
             <div class="card-body">
+                @php 
+                    $languageIds = explode(',', $lawyer->language_ids);
+                @endphp
                 <form id="formAccountSettings" method="POST" action="{{route('lawyer.update_profile', $lawyer->id)}}" enctype="multipart/form-data">
                     @csrf()
                     <div class="card-body">
@@ -82,15 +85,22 @@
                             <input class="form-control" type="text" id="linkedin_profile" name="linkedin_profile" value="{{$lawyer->linkedin_profile}}" />
                         </div>
                         <div class="mb-3 col-md-6">
-                            <label for="calendly_link" class="form-label">Calendly Profile URL</label>
-                            <input type="text" class="form-control" id="calendly_link" name="calendly_link" value="{{$lawyer->calendly_link}}" />
+                            <label for="language" class="form-label">Language</label>
+                            <select name="language[]" id="language-multiselect" multiple="multiple" class="custom-select">
+                                @if($lawyer->language_ids)
+                                    @foreach($languages as $k => $language)
+                                        <option value="{{$k}}" {{in_array($k, $languageIds) ? 'selected' : ''}}>{{$language}}</option>
+                                    @endforeach
+                                @else 
+                                    @foreach($languages as $k => $language)
+                                        <option value="{{$k}}">{{$language}}</option>
+                                    @endforeach
+                                @endif
+                            </select>
                         </div>
                         <div class="mb-3 col-md-6">
-                            <label for="language" class="form-label">Language</label>
-                            <select name="language" id="" class="form-control">
-                                <option value="English" {{$lawyer->language === "English" ? 'selected' : ''}}>English</option>
-                                <option value="Arabic" {{$lawyer->language === "Arabic" ? 'selected' : ''}}>Arabic</option>
-                            </select>
+                            <label for="other_lang" class="form-label">Other Languages</label>
+                            <input type="text" class="form-control" id="other_lang" name="other_lang" placeholder="Ex: Language 1, Language 2" value="{{$lawyer->other_lang}}" />
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="area" class="form-label">Arbitration Area</label>
@@ -144,5 +154,7 @@
             if(fileName)
                 $("#is_selected").append('Profile pic selected: '+ fileName)
         }
+
+        
     </script>
 @endsection

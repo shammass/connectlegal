@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="friendbook">
     <meta name="keywords" content="friendbook">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="friendbook">
             <!-- favicon icon -->
     <link rel="shortcut icon" href="/images/favicon.png">
@@ -134,5 +135,117 @@
             background-color: white;
             color: black;
         }   
+
+        .message-box input[type="file"] {
+            display: none;
+        }
+
+        .message-box label {
+            margin-right: 2%;
+        }
+
+        .attachment-preview {
+            position: relative;
+            padding: 10px;
+        }
+        .attachment-preview > p {
+            margin: 0;
+            font-weight: 600;
+            padding: 0px;
+            padding-top: 10px;
+        }
+        .attachment-preview > p > svg {
+            font-size: 16px;
+            margin: 0;
+            margin-bottom: -1px;
+            color: #737373;
+        }
+        .attachment-preview svg:active {
+            transform: none;
+        }
+        .image-file {
+            cursor: pointer;
+            width: 140px;
+            height: 70px;
+            border-radius: 4px;
+            background-color: #f7f7f7;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        .attachment-preview > svg:first-child {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.33);
+            width: 20px;
+            height: 20px;
+            padding: 3px;
+            border-radius: 100%;
+            font-size: 16px;
+            margin: 0;
+            top: 10px;
+            color: #fff;
+        }
+
+        .messenger-sendCard {
+  /* display: none; */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.messenger-sendCard form {
+  width: 100%;
+  display: inline-flex;
+  margin: 0;
+}
+.messenger-sendCard input[type="file"] {
+  display: none;
+}
+.messenger-sendCard button,
+.messenger-sendCard button:active,
+.messenger-sendCard button:focus {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+.messenger-sendCard label {
+  margin: 0;
+}
+.messenger-sendCard svg {
+  margin: 9px 10px;
+  color: #bdcbd6;
+  cursor: pointer;
+  font-size: 21px;
+  transition: transform 0.15s;
+}
+
+.messenger-sendCard svg:active {
+  transform: scale(0.9);
+}
+
+.file-download {
+  font-size: 12px;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.03);
+  padding: 2px 8px;
+  margin-top: 10px;
+  border-radius: 20px;
+  transition: transform 0.3s, background 0.3s;
+}
+.file-download:hover,
+.file-download:focus {
+  color: #fff;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.08);
+}
+.file-download:active {
+  transform: scale(0.95);
+}
     </style>
 </head>

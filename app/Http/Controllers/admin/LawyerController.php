@@ -56,7 +56,7 @@ class LawyerController extends Controller
             'position'                      => $request->position,
             'linkedin_profile'              => $request->linkedin,
             'moj_reg_no'                    => $request->moj_reg_no,
-            'calendly_link'                 => $request->calendly_link,
+            // 'calendly_link'                 => $request->calendly_link,
             'language'                      => $request->language,
             'arbitration_area_id'           => $request->arbitration,
             'education'                     => $request->education,

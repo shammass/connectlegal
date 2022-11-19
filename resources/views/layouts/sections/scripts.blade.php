@@ -15,11 +15,18 @@
 
 <script src="{{ asset(mix('assets/js/main.js')) }}"></script>
 <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
-
+<script src="{{asset('community/assets/select2/js/select2.full.min.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.ckeditor').ckeditor();
     });
+
+    $('#language-multiselect').select2({
+        width: '100%',
+        placeholder: "Select Languages",
+        allowClear: true,
+        closeOnSelect:false,
+    })
 </script>
 <!-- END: Theme JS-->
 <!-- Pricing Modal JS-->
