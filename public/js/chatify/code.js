@@ -36,6 +36,7 @@ const escapeHtml = (unsafe) => {
     .replace(/>/g, "&gt;");
 };
 function actionOnScroll(selector, callback, topScroll = false) {
+  console.log("1");
   $(selector).on("scroll", function () {
     let element = $(this).get(0);
     const condition = topScroll
@@ -47,10 +48,12 @@ function actionOnScroll(selector, callback, topScroll = false) {
   });
 }
 function routerPush(title, url) {
+  console.log("2");
   $("meta[name=url]").attr("content", url);
   return window.history.pushState({}, title || document.title, url);
 }
 function updateSelectedContact(user_id) {
+  console.log("3");
   $(document).find(".messenger-list-item").removeClass("m-list-active");
   $(document)
     .find(
@@ -356,7 +359,6 @@ function errorMessageCard(id) {
  *-------------------------------------------------------------
  */
 function IDinfo(id, type) {
-  
   // clear temporary message id
   temporaryMsgId = 0;
   // clear typing now
@@ -526,6 +528,7 @@ let messagesPage = 1;
 let noMoreMessages = false;
 let messagesLoading = false;
 function setMessagesLoading(loading = false) {
+  console.log("4");
   if (!loading) {
     messagesContainer.find(".messages").find(".loading-messages").remove();
     NProgress.done();
@@ -539,7 +542,8 @@ function setMessagesLoading(loading = false) {
 }
 
 function fetchMessages(id, type, newFetch = false) {
-  if (newFetch) {
+  console.log("5");
+  if(newFetch) {
     messagesPage = 1;
     noMoreMessages = false;
   }
@@ -729,6 +733,7 @@ document.addEventListener("visibilitychange", handleVisibilityChange, false);
  *-------------------------------------------------------------
  */
 function makeSeen(status) {
+  console.log("first");
   if (document?.hidden) {
     return;
   }
@@ -1237,6 +1242,7 @@ $(document).ready(function () {
 
   // check if pusher has access to the channel [Internet status]
   pusher.connection.bind("state_change", function (states) {
+    console.log("6- state change");
     let selector = $(".internet-connection");
     checkInternet(states.current, selector);
     // listening for pusher:subscription_succeeded

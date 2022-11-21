@@ -68,9 +68,10 @@ class MessagesController extends Controller
         $expired = false;
         $completed = false;
         $bothLawyers = false;
-        $completed = $this->isCompleted($id, auth()->user()->id);
         if($user1->user_type == 2 && $user2->user_type == 2) {
             $bothLawyers = true;
+        }else {
+            $completed = $this->isCompleted($id, auth()->user()->id);
         }
 
         $routeName= FacadesRequest::route()->getName();
