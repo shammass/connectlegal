@@ -46,6 +46,9 @@
     <script src="//js.pusher.com/3.1/pusher.min.js"></script>
     
     <script>
+        const getMessengerId = () => $("meta[name=id]").attr("content");
+        const access_token = $('meta[name="csrf-token"]').attr("content");
+        auth_id = $("meta[name=url]").attr("data-user");
         var messenger,
             typingTimeout,
             typingNow = 0,
@@ -54,6 +57,70 @@
             messengerColor,
             dark_mode,
             messages_page = 1;
+
+        function handleVisibilityChange() {
+            if (!document?.hidden) {
+                makeSeen(true);
+            }
+        }
+
+        document.addEventListener("visibilitychange", handleVisibilityChange, false);
+
+        function makeSeen(status) {
+            console.log("first");
+            if (document?.hidden) {
+                return;
+            }
+            // seen
+            $.ajax({
+                url: "/lawyer/community/group/make-seen",
+                method: "POST",
+                data: { _token: access_token, id: getMessengerId() },
+                dataType: "JSON",
+                success: function(res) {
+                    console.log("----")
+                    console.log(res)
+                    console.log("----")
+                    if(res == 1) {
+                        groupSeen(auth_id, getMessengerId(), status)
+                    }
+                    console.log("[seen] Messages seen - " + getMessengerId());
+                }
+            });
+            
+            // return channel.trigger("group-seen", {
+            //     from_id: auth_id, // Me
+            //     group_id: getMessengerId(), // Messenger
+            //     seen: data.status,
+            // });
+        }
+
+        function groupSeen(fromId, groupId, status) {
+            if (groupId == getMessengerId() && fromId == auth_id) {
+                if (status) {
+                    $(".msg-seen")
+                        .find(".fa-check")
+                        .before('<span class="fas fa-check-double seen"></span> ');
+                    $(".msg-seen").find(".fa-check").remove();
+                    console.info("[seen] triggered!");
+                } else {
+                    console.error("[seen] event not triggered!");
+                }
+            }
+        }
+        // channel.bind("group-seen", function (data) {
+        //     if (data.group_id == getMessengerId() && data.from_id == auth_id) {
+        //         if (data.seen == true) {
+        //         $(".msg-seen")
+        //             .find(".fa-check")
+        //             .before('<span class="fas fa-check-double seen"></span> ');
+        //         $(".msg-seen").find(".fa-check").remove();
+        //         console.info("[seen] triggered!");
+        //         } else {
+        //         console.error("[seen] event not triggered!");
+        //         }
+        //     }
+        // });
 
         $('.comment-section .main-comment').hide();
         feather.replace();
@@ -163,8 +230,7 @@
             $(".emojionearea-editor").empty();
             let hasFile = !!$(".upload-attachment").val();  
             // const formData = "abcd";
-            const formData = new FormData($("#message-form")[0]);
-            const access_token = $('meta[name="csrf-token"]').attr("content");
+            const formData = new FormData($("#message-form")[0]);            
             formData.append("_token", access_token);
             formData.append("temporaryMsgId", tempID);
             formData.append("msg", msg);

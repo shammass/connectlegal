@@ -267,6 +267,7 @@ Route::group(['middleware' => ['web', 'auth.timeout']], function () {
             Route::get('/community/group/chat/{id}',                            [GroupController::class, 'groupChat'])->name('lawyer.community.group.chat');
             Route::post('/community/group/send-message/{id}',                   [GroupController::class, 'sendGroupMessage'])->name('lawyer.community.group.send-message');
             Route::post('/community/group/latest-group-chat',                   [GroupController::class, 'getLatestGroupMsg']);
+            Route::post('/community/group/make-seen',                           [GroupController::class, 'makeSeen']);
             
             #QA
             Route::get('/question-answer/list',              [QuestionAnswerController::class, 'list'])->name('lawyer.qa.list');

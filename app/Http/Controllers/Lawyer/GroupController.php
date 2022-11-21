@@ -13,6 +13,7 @@ use App\Models\Post;
 use Chatify\Facades\ChatifyMessenger as Chatify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Response;
 use Str;
 
 class GroupController extends Controller
@@ -97,8 +98,6 @@ class GroupController extends Controller
     }
 
     public function sendGroupMessage(Request $request, $groupId) {
-        Log::info("Heyyeye");
-        Log::info($request->all());
         $msg = $request->msg ?? 'file';
         $error = (object)[
             'status' => 0,
@@ -183,5 +182,25 @@ class GroupController extends Controller
     public function aboutGroup($groupId) {
         $group = Group::whereId($groupId)->first();
         return view('lawyer.community.groups.about', compact('group', 'groupId'));
+    }
+
+    public function makeSeen(Request $request) {
+        // make as seen
+        $isTrue = GroupMessages::where([
+            ['group_id', $request->id],
+            ['seen', 0]
+        ])->first();
+        if(!$isTrue) {
+            return 1;
+        }
+        // send the response
+        $seen = GroupMessages::where([
+            ['group_id', $request->id],
+            ['seen', 0],
+            ['from_id', '!=', auth()->user()->id]
+        ])
+        ->update(['seen' => 1]);
+        
+        return 0;
     }
 }

@@ -108,6 +108,9 @@
                                                                 <a href="{{ route(config('chatify.attachments.download_route_name'), ['fileName'=>@$attachment->new_name]) }}" class="file-download">
                                                                 <span class="fas fa-file"></span> {{@$attachment->old_name}}</a>
                                                             @endif
+                                                            <div class="msg-seen">
+                                                                <span class="fas fa-{{ $message->seen > 0 ? 'check-double' : 'check' }} seen"></span>
+                                                            </div>
                                                             <!-- <div class="checkmark-sent-delivered">✓</div> -->
                                                             <!-- <div class="checkmark-read">✓</div> -->
                                                         </div>
