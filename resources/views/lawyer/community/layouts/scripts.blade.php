@@ -396,7 +396,7 @@
             if (
             !getAllowedExtensions.includes(fileExtension.toString().toLowerCase())
             ) {
-            alert("file type not allowed");
+            alert("Only PDF format is allowed");
             fileElement.val("");
             return false;
             }

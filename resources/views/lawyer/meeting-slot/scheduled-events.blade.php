@@ -29,8 +29,8 @@
                                     <td>-</td>
                                 @endif
                                 <td>{{$meeting->daysSlot->slot_start_time .'-'. $meeting->daysSlot->slot_end_time}}</td>
-                                <td>{{$meeting->daysSlot->amount}}</td>
-                                <td></td>
+                                <td>{{preg_replace('/[^0-9]/', '', $meeting->daysSlot->amount) + $meeting->daysSlot->getPlatformFee($meeting->days_slot_id, $meeting->lawyer_id)}}</td>
+                                <td>{{$meeting->daysSlot->getPlatformFee($meeting->days_slot_id, $meeting->lawyer_id)}}</td>
                                 @if($meeting->zoom)
                                     <td><a href="{{$meeting->zoom->join_url}}" target="_blank">Click here to join</a></td>
                                 @else 

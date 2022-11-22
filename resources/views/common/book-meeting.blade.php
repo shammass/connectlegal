@@ -32,7 +32,7 @@
                             <p id="tueTimeOnlyExample_0" style="display: flex;">
                                 <input type="text" readonly class="form-control time start" value="{{$slot->slot_start_time}}" style="margin-right: 2%;" /> - 
                                 <input type="text" readonly class="form-control time end" value="{{$slot->slot_end_time}}" style="margin-left: 2%;"/> 
-                                <input type="text" readonly class="form-control" value="{{$slot->amount}}" style="margin-left: 2%;" />   
+                                <input type="text" readonly class="form-control" value="{{preg_replace('/[^0-9]/', '', $slot->amount) + $slot->getPlatformFee($slot->id, $slot->slot->lawyer_id)}}" style="margin-left: 2%;" />   
                                 <!-- <button class="btn btn-primary col-md-2" style="height: fit-content;margin-left: 2%;">Select</button>      -->
                                 <a href="#free-advice-form-{{$k}}" class="btn btn-medium bg-extra-dark-gray d-block text-white section-link popup-with-form col-md-2" style="height: fit-content;margin-left: 2%;">Schedule</a>                
                             </p>
@@ -62,7 +62,7 @@
                                                         @csrf
                                                         <input type="hidden" name="slotId" value="{{$slot->slot_id}}"> 
                                                         <input type="hidden" name="daySlotId" value="{{$slot->id}}"> 
-                                                        <input type="hidden" name="amount" value="{{$slot->amount}}">                                                   
+                                                        <input type="hidden" name="amount" value="{{preg_replace('/[^0-9]/', '', $slot->amount) + $slot->getPlatformFee($slot->id, $slot->slot->lawyer_id)}}">                                                   
                                                         <input type="hidden" name="lawyerUserId" value="{{$lawyer->user_id}}">    
                                                         <input type="hidden" name="lawyerId" value="{{$lawyer->id}}">    
                                                         <input type="hidden" name="date" class="dateVal" value="0">                                                   

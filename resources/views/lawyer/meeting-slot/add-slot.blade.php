@@ -129,7 +129,7 @@
               <b><span style="color:red;">Note</span>
                 <ul>
                   <li> Max meeting duration: 30 minutes</li>
-                  <li> Default session amount: $20</li>
+                  <li> Default session amount: AED 20</li>
                 </ul>
               </b>
             </p>
@@ -147,7 +147,7 @@
                         <p id="monTimeOnlyExample_0" style="display: flex;">
                           <input type="text" class="form-control time start" name="mon_strt_time[]" id="mon_start_time_0" placeholder="Start time" style="margin-right: 5%;" /> to
                           <input type="text" class="form-control time end" name="mon_end_time[]" id="mon_end_time_0" onchange="endTime('#mon_start_time_0', '#mon_end_time_0', 0)" placeholder="End time" style="margin-left: 5%;"/> 
-                          <input type="text" class="form-control" name="mon_amt[]" id="mon_amt_0" placeholder="Ex: $50" style="margin-left: 5%;" />                        
+                          <input type="text" class="form-control" name="mon_amt[]" id="mon_amt_0" placeholder="Ex: AED 50" style="margin-left: 5%;" />                        
                         </p>
                       </div>
                     </div>    
@@ -172,7 +172,7 @@
                         <p id="tueTimeOnlyExample_0" style="display: flex;">
                           <input type="text" class="form-control time start" name="tue_strt_time[]" id="tue_start_time_0" placeholder="Start time" style="margin-right: 5%;" /> to
                           <input type="text" class="form-control time end" name="tue_end_time[]" id="tue_end_time_0" onchange="endTime('#tue_start_time_0', '#tue_end_time_0', 0)" placeholder="End time" style="margin-left: 5%;"/> 
-                          <input type="text" class="form-control" name="tue_amt[]" id="tue_amt_0" placeholder="Ex: $50" style="margin-left: 5%;" />                        
+                          <input type="text" class="form-control" name="tue_amt[]" id="tue_amt_0" placeholder="Ex: AED 50" style="margin-left: 5%;" />                        
                         </p>
                       </div>
                     </div>
@@ -197,7 +197,7 @@
                         <p id="wedTimeOnlyExample_0" style="display: flex;">
                           <input type="text" class="form-control time start" name="wed_strt_time[]" id="wed_start_time_0" placeholder="Start time" style="margin-right: 5%;" /> to
                           <input type="text" class="form-control time end" name="wed_end_time[]" id="wed_end_time_0" onchange="endTime('#wed_start_time_0', '#wed_end_time_0', 0)" placeholder="End time" style="margin-left: 5%;"/> 
-                          <input type="text" class="form-control" name="wed_amt[]" id="wed_amt_0" placeholder="Ex: $50" style="margin-left: 5%;" />                        
+                          <input type="text" class="form-control" name="wed_amt[]" id="wed_amt_0" placeholder="Ex: AED 50" style="margin-left: 5%;" />                        
                         </p>
                       </div>
                     </div>
@@ -222,7 +222,7 @@
                         <p id="thurTimeOnlyExample_0" style="display: flex;">
                           <input type="text" class="form-control time start" name="thur_strt_time[]" id="thur_start_time_0" placeholder="Start time" style="margin-right: 5%;" /> to
                           <input type="text" class="form-control time end" name="thur_end_time[]" id="thur_end_time_0" onchange="endTime('#thur_start_time_0', '#thur_end_time_0', 0)" placeholder="End time" style="margin-left: 5%;"/> 
-                          <input type="text" class="form-control" name="thur_amt[]" id="thur_amt_0" placeholder="Ex: $50" style="margin-left: 5%;" />                        
+                          <input type="text" class="form-control" name="thur_amt[]" id="thur_amt_0" placeholder="Ex: AED 50" style="margin-left: 5%;" />                        
                         </p>
                       </div>
                     </div> 
@@ -247,7 +247,7 @@
                         <p id="friTimeOnlyExample_0" style="display: flex;">
                           <input type="text" class="form-control time start" name="fri_strt_time[]" id="fri_start_time_0" placeholder="Start time" style="margin-right: 5%;" /> to
                           <input type="text" class="form-control time end" name="fri_end_time[]" id="fri_end_time_0" onchange="endTime('#fri_start_time_0', '#fri_end_time_0', 0)" placeholder="End time" style="margin-left: 5%;"/> 
-                          <input type="text" class="form-control" name="fri_amt[]" id="fri_amt_0" placeholder="Ex: $50" style="margin-left: 5%;" />                        
+                          <input type="text" class="form-control" name="fri_amt[]" id="fri_amt_0" placeholder="Ex: AED 50" style="margin-left: 5%;" />                        
                         </p>
                       </div>
                     </div>
@@ -272,7 +272,7 @@
                         <p id="satTimeOnlyExample_0" style="display: flex;">
                           <input type="text" class="form-control time start" name="sat_strt_time[]" id="sat_start_time_0" placeholder="Start time" style="margin-right: 5%;" /> to
                           <input type="text" class="form-control time end" name="sat_end_time[]" id="sat_end_time_0" onchange="endTime('#sat_start_time_0', '#sat_end_time_0', 0)" placeholder="End time" style="margin-left: 5%;"/> 
-                          <input type="text" class="form-control" name="sat_amt[]" id="sat_amt_0" placeholder="Ex: $50" style="margin-left: 5%;" />                        
+                          <input type="text" class="form-control" name="sat_amt[]" id="sat_amt_0" placeholder="Ex: AED 50" style="margin-left: 5%;" />                        
                         </p>
                       </div>
                     </div>  
@@ -297,7 +297,7 @@
                         <p id="sunTimeOnlyExample_0" style="display: flex;">
                           <input type="text" class="form-control time start" name="sun_strt_time[]" id="sun_start_time_0" placeholder="Start time" style="margin-right: 5%;" /> to
                           <input type="text" class="form-control time end" name="sun_end_time[]" id="sun_end_time_0" onchange="endTime('#sun_start_time_0', '#sun_end_time_0', 0)" placeholder="End time" style="margin-left: 5%;"/> 
-                          <input type="text" class="form-control" name="sun_amt[]" id="sun_amt_0" placeholder="Ex: $50" style="margin-left: 5%;" />                        
+                          <input type="text" class="form-control" name="sun_amt[]" id="sun_amt_0" placeholder="Ex: AED 50" style="margin-left: 5%;" />                        
                         </p>
                       </div>
                     </div>
@@ -328,7 +328,7 @@
         $("#monday_dynamic").val(monDyn)
         strtId = "#mon_start_time_"+monDyn;
         endId = "#mon_end_time_"+monDyn;
-        $("#appended-monday").append('<div class="app-check col-md-6" id="monday_div_'+monDyn+'" style="margin-top: 2%;"><div class="col-md-12 row"><div><p id="monTimeOnlyExample_'+monDyn+'" style="display: flex;"><input type="text" class="form-control time start" id="mon_start_time_'+monDyn+'" name="mon_strt_time[]" placeholder="Start time" style="margin-right: 5%;" /> to <input type="text" class="form-control time end" id="mon_end_time_'+monDyn+'" name="mon_end_time[]" onchange="endTime(\''+strtId+'\', \''+endId+'\', '+monDyn+')" placeholder="End time" style="margin-left: 5%;"/><input type="text" class="form-control" name="mon_amt[]" id="mon_amt_'+monDyn+'" placeholder="Ex: $50" style="margin-left: 5%;" /></p></div></div><button type="button" class="btn btn-danger" style="margin-left: 2%;height: fit-content;" onclick="removeField(\'Monday\', '+monDyn+')">-</button></div>')
+        $("#appended-monday").append('<div class="app-check col-md-6" id="monday_div_'+monDyn+'" style="margin-top: 2%;"><div class="col-md-12 row"><div><p id="monTimeOnlyExample_'+monDyn+'" style="display: flex;"><input type="text" class="form-control time start" id="mon_start_time_'+monDyn+'" name="mon_strt_time[]" placeholder="Start time" style="margin-right: 5%;" /> to <input type="text" class="form-control time end" id="mon_end_time_'+monDyn+'" name="mon_end_time[]" onchange="endTime(\''+strtId+'\', \''+endId+'\', '+monDyn+')" placeholder="End time" style="margin-left: 5%;"/><input type="text" class="form-control" name="mon_amt[]" id="mon_amt_'+monDyn+'" placeholder="Ex: AED 50" style="margin-left: 5%;" /></p></div></div><button type="button" class="btn btn-danger" style="margin-left: 2%;height: fit-content;" onclick="removeField(\'Monday\', '+monDyn+')">-</button></div>')
         var pid = "#monTimeOnlyExample_"+monDyn+" .time";
         var id = "monTimeOnlyExample_"+monDyn;
         appendedTimepicker(pid, id, monDyn)
@@ -339,7 +339,7 @@
         $("#tuesday_dynamic").val(tueDyn)
         strtId = "#tue_start_time_"+tueDyn;
         endId = "#tue_end_time_"+tueDyn;
-        $("#appended-tuesday").append('<div class="app-check col-md-6" id="tuesday_div_'+tueDyn+'" style="margin-top: 2%;"><div class="col-md-12 row"><div><p id="tueTimeOnlyExample_'+tueDyn+'" style="display: flex;"><input type="text" class="form-control time start" name="tue_strt_time[]" id="tue_start_time_'+tueDyn+'" placeholder="Start time" style="margin-right: 5%;" /> to <input type="text" class="form-control time end" name="tue_end_time[]" id="tue_end_time_'+tueDyn+'" onchange="endTime(\''+strtId+'\', \''+endId+'\', '+tueDyn+')" placeholder="End time" style="margin-left: 5%;"/><input type="text" class="form-control" name="tue_amt[]" id="tue_amt_'+tueDyn+'" placeholder="Ex: $50" style="margin-left: 5%;" /></p></div></div><button type="button" class="btn btn-danger" style="margin-left: 2%;height: fit-content;" onclick="removeField(\'Tuesday\', '+tueDyn+')">-</button></div>')
+        $("#appended-tuesday").append('<div class="app-check col-md-6" id="tuesday_div_'+tueDyn+'" style="margin-top: 2%;"><div class="col-md-12 row"><div><p id="tueTimeOnlyExample_'+tueDyn+'" style="display: flex;"><input type="text" class="form-control time start" name="tue_strt_time[]" id="tue_start_time_'+tueDyn+'" placeholder="Start time" style="margin-right: 5%;" /> to <input type="text" class="form-control time end" name="tue_end_time[]" id="tue_end_time_'+tueDyn+'" onchange="endTime(\''+strtId+'\', \''+endId+'\', '+tueDyn+')" placeholder="End time" style="margin-left: 5%;"/><input type="text" class="form-control" name="tue_amt[]" id="tue_amt_'+tueDyn+'" placeholder="Ex: AED 50" style="margin-left: 5%;" /></p></div></div><button type="button" class="btn btn-danger" style="margin-left: 2%;height: fit-content;" onclick="removeField(\'Tuesday\', '+tueDyn+')">-</button></div>')
         var pid = "#tueTimeOnlyExample_"+tueDyn+" .time";
         var id = "tueTimeOnlyExample_"+tueDyn;
         appendedTimepicker(pid, id, tueDyn)
@@ -350,7 +350,7 @@
         $("#wednesday_dynamic").val(wedDyn)
         strtId = "#wed_start_time_"+wedDyn;
         endId = "#wed_end_time_"+wedDyn;
-        $("#appended-wednesday").append('<div class="app-check col-md-6" id="wednesday_div_'+wedDyn+'" style="margin-top: 2%;"><div class="col-md-12 row"><div><p id="wedTimeOnlyExample_'+wedDyn+'" style="display: flex;"><input type="text" class="form-control time start" name="wed_start_time[]" id="wed_start_time_'+wedDyn+'" placeholder="Start time" style="margin-right: 5%;" /> to <input type="text" class="form-control time end" name="wed_end_time[]" id="wed_end_time_'+wedDyn+'" onchange="endTime(\''+strtId+'\', \''+endId+'\', '+wedDyn+')" placeholder="End time" style="margin-left: 5%;"/><input type="text" class="form-control" name="wed_amt[]" id="wed_amt_'+wedDyn+'" placeholder="Ex: $50" style="margin-left: 5%;" /></p></div></div><button type="button" class="btn btn-danger" style="margin-left: 2%;height: fit-content;" onclick="removeField(\'Wednesday\', '+wedDyn+')">-</button></div>')
+        $("#appended-wednesday").append('<div class="app-check col-md-6" id="wednesday_div_'+wedDyn+'" style="margin-top: 2%;"><div class="col-md-12 row"><div><p id="wedTimeOnlyExample_'+wedDyn+'" style="display: flex;"><input type="text" class="form-control time start" name="wed_start_time[]" id="wed_start_time_'+wedDyn+'" placeholder="Start time" style="margin-right: 5%;" /> to <input type="text" class="form-control time end" name="wed_end_time[]" id="wed_end_time_'+wedDyn+'" onchange="endTime(\''+strtId+'\', \''+endId+'\', '+wedDyn+')" placeholder="End time" style="margin-left: 5%;"/><input type="text" class="form-control" name="wed_amt[]" id="wed_amt_'+wedDyn+'" placeholder="Ex: AED 50" style="margin-left: 5%;" /></p></div></div><button type="button" class="btn btn-danger" style="margin-left: 2%;height: fit-content;" onclick="removeField(\'Wednesday\', '+wedDyn+')">-</button></div>')
         var pid = "#wedTimeOnlyExample_"+wedDyn+" .time";
         var id = "wedTimeOnlyExample_"+wedDyn;
         appendedTimepicker(pid, id, wedDyn)
@@ -361,7 +361,7 @@
         $("#thursday_dynamic").val(thurDyn)
         strtId = "#thur_start_time_"+thurDyn;
         endId = "#thur_end_time_"+thurDyn;
-        $("#appended-thursday").append('<div class="app-check col-md-6" id="thursday_div_'+thurDyn+'" style="margin-top: 2%;"><div class="col-md-12 row"><div><p id="thurTimeOnlyExample_'+thurDyn+'" style="display: flex;"><input type="text" class="form-control time start" name="thur_start_time[]" id="thur_start_time_'+thurDyn+'" placeholder="Start time" style="margin-right: 5%;" /> to <input type="text" class="form-control time end" name="thur_end_time[]" id="thur_end_time_'+thurDyn+'" onchange="endTime(\''+strtId+'\', \''+endId+'\', '+thurDyn+')" placeholder="End time" style="margin-left: 5%;"/><input type="text" class="form-control" name="thur_amt[]" id="thur_amt_'+thurDyn+'" placeholder="Ex: $50" style="margin-left: 5%;" /></p></div></div><button type="button" class="btn btn-danger" style="margin-left: 2%;height: fit-content;" onclick="removeField(\'Thursday\', '+thurDyn+')">-</button></div>')
+        $("#appended-thursday").append('<div class="app-check col-md-6" id="thursday_div_'+thurDyn+'" style="margin-top: 2%;"><div class="col-md-12 row"><div><p id="thurTimeOnlyExample_'+thurDyn+'" style="display: flex;"><input type="text" class="form-control time start" name="thur_start_time[]" id="thur_start_time_'+thurDyn+'" placeholder="Start time" style="margin-right: 5%;" /> to <input type="text" class="form-control time end" name="thur_end_time[]" id="thur_end_time_'+thurDyn+'" onchange="endTime(\''+strtId+'\', \''+endId+'\', '+thurDyn+')" placeholder="End time" style="margin-left: 5%;"/><input type="text" class="form-control" name="thur_amt[]" id="thur_amt_'+thurDyn+'" placeholder="Ex: AED 50" style="margin-left: 5%;" /></p></div></div><button type="button" class="btn btn-danger" style="margin-left: 2%;height: fit-content;" onclick="removeField(\'Thursday\', '+thurDyn+')">-</button></div>')
         var pid = "#thurTimeOnlyExample_"+thurDyn+" .time";
         var id = "thurTimeOnlyExample_"+thurDyn;
         appendedTimepicker(pid, id, thurDyn)
@@ -372,7 +372,7 @@
         $("#friday_dynamic").val(friDyn)
         strtId = "#fri_start_time_"+friDyn;
         endId = "#fri_end_time_"+friDyn;
-        $("#appended-friday").append('<div class="app-check col-md-6" id="friday_div_'+friDyn+'" style="margin-top: 2%;"><div class="col-md-12 row"><div><p id="friTimeOnlyExample_'+friDyn+'" style="display: flex;"><input type="text" class="form-control time start" name="fri_start_time[]" id="fri_start_time_'+friDyn+'" placeholder="Start time" style="margin-right: 5%;" /> to <input type="text" class="form-control time end" name="fri_end_time[]" id="fir_end_time_'+friDyn+'" onchange="endTime(\''+strtId+'\', \''+endId+'\', '+friDyn+')" placeholder="End time" style="margin-left: 5%;"/><input type="text" class="form-control" name="fri_amt[]" id="fri_amt_'+friDyn+'" placeholder="Ex: $50" style="margin-left: 5%;" /></p></div></div><button type="button" class="btn btn-danger" style="margin-left: 2%;height: fit-content;" onclick="removeField(\'Friday\', '+friDyn+')">-</button></div>')
+        $("#appended-friday").append('<div class="app-check col-md-6" id="friday_div_'+friDyn+'" style="margin-top: 2%;"><div class="col-md-12 row"><div><p id="friTimeOnlyExample_'+friDyn+'" style="display: flex;"><input type="text" class="form-control time start" name="fri_start_time[]" id="fri_start_time_'+friDyn+'" placeholder="Start time" style="margin-right: 5%;" /> to <input type="text" class="form-control time end" name="fri_end_time[]" id="fir_end_time_'+friDyn+'" onchange="endTime(\''+strtId+'\', \''+endId+'\', '+friDyn+')" placeholder="End time" style="margin-left: 5%;"/><input type="text" class="form-control" name="fri_amt[]" id="fri_amt_'+friDyn+'" placeholder="Ex: AED 50" style="margin-left: 5%;" /></p></div></div><button type="button" class="btn btn-danger" style="margin-left: 2%;height: fit-content;" onclick="removeField(\'Friday\', '+friDyn+')">-</button></div>')
         var pid = "#friTimeOnlyExample_"+friDyn+" .time";
         var id = "friTimeOnlyExample_"+friDyn;
         appendedTimepicker(pid, id, friDyn)
@@ -383,7 +383,7 @@
         $("#saturday_dynamic").val(satDyn)
         strtId = "#sat_start_time_"+satDyn;
         endId = "#sat_end_time_"+satDyn;
-        $("#appended-saturday").append('<div class="app-check col-md-6" id="saturday_div_'+satDyn+'" style="margin-top: 2%;"><div class="col-md-12 row"><div><p id="satTimeOnlyExample_'+satDyn+'" style="display: flex;"><input type="text" class="form-control time start" name="sat_start_time[]" id="sat_start_time_'+satDyn+'" placeholder="Start time" style="margin-right: 5%;" /> to <input type="text" class="form-control time end" name="sat_end_time[]" id="sat_end_time_'+satDyn+'" onchange="endTime(\''+strtId+'\', \''+endId+'\', '+satDyn+')" placeholder="End time" style="margin-left: 5%;"/><input type="text" class="form-control" name="sat_amt[]" id="sat_amt_'+satDyn+'" placeholder="Ex: $50" style="margin-left: 5%;" /></p></div></div><button type="button" class="btn btn-danger" style="margin-left: 2%;height: fit-content;" onclick="removeField(\'Saturday\', '+satDyn+')">-</button></div>')
+        $("#appended-saturday").append('<div class="app-check col-md-6" id="saturday_div_'+satDyn+'" style="margin-top: 2%;"><div class="col-md-12 row"><div><p id="satTimeOnlyExample_'+satDyn+'" style="display: flex;"><input type="text" class="form-control time start" name="sat_start_time[]" id="sat_start_time_'+satDyn+'" placeholder="Start time" style="margin-right: 5%;" /> to <input type="text" class="form-control time end" name="sat_end_time[]" id="sat_end_time_'+satDyn+'" onchange="endTime(\''+strtId+'\', \''+endId+'\', '+satDyn+')" placeholder="End time" style="margin-left: 5%;"/><input type="text" class="form-control" name="sat_amt[]" id="sat_amt_'+satDyn+'" placeholder="Ex: AED 50" style="margin-left: 5%;" /></p></div></div><button type="button" class="btn btn-danger" style="margin-left: 2%;height: fit-content;" onclick="removeField(\'Saturday\', '+satDyn+')">-</button></div>')
         var pid = "#satTimeOnlyExample_"+satDyn+" .time";
         var id = "satTimeOnlyExample_"+satDyn;
         appendedTimepicker(pid, id, satDyn)
@@ -394,7 +394,7 @@
         $("#sunday_dynamic").val(sunDyn)
         strtId = "#sun_start_time_"+sunDyn;
         endId = "#sun_end_time_"+sunDyn;
-        $("#appended-sunday").append('<div class="app-check col-md-6" id="sunday_div_'+sunDyn+'" style="margin-top: 2%;"><div class="col-md-12 row"><div><p id="sunTimeOnlyExample_'+sunDyn+'" style="display: flex;"><input type="text" class="form-control time start" name="sun_start_time[]" id="sun_start_time_'+sunDyn+'" placeholder="Start time" style="margin-right: 5%;" /> to <input type="text" class="form-control time end" name="sun_end_time[]" id="sun_end_time_'+sunDyn+'" onchange="endTime(\''+strtId+'\', \''+endId+'\', '+sunDyn+')" placeholder="End time" style="margin-left: 5%;"/><input type="text" class="form-control" name="sun_amt[]" id="sun_amt_'+sunDyn+'" placeholder="Ex: $50" style="margin-left: 5%;" /></p></div></div><button type="button" class="btn btn-danger" style="margin-left: 2%;height: fit-content;" onclick="removeField(\'Sunday\', '+sunDyn+')">-</button></div>')
+        $("#appended-sunday").append('<div class="app-check col-md-6" id="sunday_div_'+sunDyn+'" style="margin-top: 2%;"><div class="col-md-12 row"><div><p id="sunTimeOnlyExample_'+sunDyn+'" style="display: flex;"><input type="text" class="form-control time start" name="sun_start_time[]" id="sun_start_time_'+sunDyn+'" placeholder="Start time" style="margin-right: 5%;" /> to <input type="text" class="form-control time end" name="sun_end_time[]" id="sun_end_time_'+sunDyn+'" onchange="endTime(\''+strtId+'\', \''+endId+'\', '+sunDyn+')" placeholder="End time" style="margin-left: 5%;"/><input type="text" class="form-control" name="sun_amt[]" id="sun_amt_'+sunDyn+'" placeholder="Ex: AED 50" style="margin-left: 5%;" /></p></div></div><button type="button" class="btn btn-danger" style="margin-left: 2%;height: fit-content;" onclick="removeField(\'Sunday\', '+sunDyn+')">-</button></div>')
         var pid = "#sunTimeOnlyExample_"+sunDyn+" .time";
         var id = "sunTimeOnlyExample_"+sunDyn;
         appendedTimepicker(pid, id, sunDyn)

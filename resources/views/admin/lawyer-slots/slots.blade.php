@@ -145,7 +145,7 @@
                                                     <p id="monTimeOnlyExample_{{$k}}" style="display: flex;">
                                                         <input type="text" class="form-control time start" readonly value="{{$slot->slot_start_time}}" name="mon_strt_time[]" id="mon_start_time_{{$k}}" placeholder="Start time" style="margin-right: 5%;" /> to
                                                         <input type="text" class="form-control time end" readonly value="{{$slot->slot_end_time}}" name="mon_end_time[]" id="mon_end_time_{{$k}}" onchange="endTime('#mon_start_time_{{$k}}', '#mon_end_time_{{$k}}', '{{$k}}')" placeholder="End time" style="margin-left: 5%;"/> 
-                                                        <input type="text" class="form-control" name="mon_amt[]" readonly value="{{$slot->amount}}" id="mon_amt_{{$k}}" placeholder="Ex: $50" style="margin-left: 5%;" />    
+                                                        <input type="text" class="form-control" name="mon_amt[]" readonly value="{{$slot->amount}}" id="mon_amt_{{$k}}" placeholder="Ex: AED 50" style="margin-left: 5%;" />    
                                                     </p>
                                                 </div>
                                             </div>
@@ -168,7 +168,7 @@
                                                     <p id="tueTimeOnlyExample_{{$k}}" style="display: flex;">
                                                         <input type="text" class="form-control time start" value="{{$slot->slot_start_time}}" name="tue_strt_time[]" id="tue_start_time_{{$k}}" placeholder="Start time" style="margin-right: 5%;" /> to
                                                         <input type="text" class="form-control time end" value="{{$slot->slot_end_time}}" name="tue_end_time[]" id="tue_end_time_{{$k}}" onchange="endTime('#tue_start_time_{{$k}}', '#tue_end_time_{{$k}}', '{{$k}}')" placeholder="End time" style="margin-left: 5%;"/> 
-                                                        <input type="text" class="form-control" name="tue_amt[]" value="{{$slot->amount}}" id="tue_amt_{{$k}}" placeholder="Ex: $50" style="margin-left: 5%;" />                        
+                                                        <input type="text" class="form-control" name="tue_amt[]" value="{{$slot->amount}}" id="tue_amt_{{$k}}" placeholder="Ex: AED 50" style="margin-left: 5%;" />                        
                                                     </p>
                                                 </div>
                                             </div>
@@ -191,7 +191,7 @@
                                                     <p id="wedTimeOnlyExample_{{$k}}" style="display: flex;">
                                                         <input type="text" class="form-control time start" value="{{$slot->slot_start_time}}" name="wed_strt_time[]" id="wed_start_time_{{$k}}" placeholder="Start time" style="margin-right: 5%;" /> to
                                                         <input type="text" class="form-control time end" value="{{$slot->slot_end_time}}" name="wed_end_time[]" id="wed_end_time_{{$k}}" onchange="endTime('#wed_start_time_{{$k}}', '#wed_end_time_{{$k}}', '{{$k}}')" placeholder="End time" style="margin-left: 5%;"/> 
-                                                        <input type="text" class="form-control" name="wed_amt[]" value="{{$slot->amount}}" id="wed_amt_{{$k}}" placeholder="Ex: $50" style="margin-left: 5%;" />                        
+                                                        <input type="text" class="form-control" name="wed_amt[]" value="{{$slot->amount}}" id="wed_amt_{{$k}}" placeholder="Ex: AED 50" style="margin-left: 5%;" />                        
                                                     </p>
                                                 </div>
                                             </div>
@@ -214,7 +214,7 @@
                                                     <p id="thurTimeOnlyExample_{{$k}}" style="display: flex;">
                                                         <input type="text" class="form-control time start" value="{{$slot->slot_start_time}}" name="thur_strt_time[]" id="thur_start_time_{{$k}}" placeholder="Start time" style="margin-right: 5%;" /> to
                                                         <input type="text" class="form-control time end" value="{{$slot->slot_end_time}}" name="thur_end_time[]" id="thur_end_time_{{$k}}" onchange="endTime('#thur_start_time_{{$k}}', '#thur_end_time_{{$k}}', '{{$k}}')" placeholder="End time" style="margin-left: 5%;"/> 
-                                                        <input type="text" class="form-control" name="thur_amt[]" value="{{$slot->amount}}" id="thur_amt_{{$k}}" placeholder="Ex: $50" style="margin-left: 5%;" />                        
+                                                        <input type="text" class="form-control" name="thur_amt[]" value="{{$slot->amount}}" id="thur_amt_{{$k}}" placeholder="Ex: AED 50" style="margin-left: 5%;" />                        
                                                     </p>
                                                 </div>
                                             </div>
@@ -237,7 +237,7 @@
                                                     <p id="friTimeOnlyExample_{{$k}}" style="display: flex;">
                                                         <input type="text" class="form-control time start" value="{{$slot->slot_start_time}}" name="fri_strt_time[]" id="fri_start_time_{{$k}}" placeholder="Start time" style="margin-right: 5%;" /> to
                                                         <input type="text" class="form-control time end" value="{{$slot->slot_end_time}}" name="fri_end_time[]" id="fri_end_time_{{$k}}" onchange="endTime('#fri_start_time_{{$k}}', '#fri_end_time_{{$k}}', '{{$k}}')" placeholder="End time" style="margin-left: 5%;"/> 
-                                                        <input type="text" class="form-control" name="fri_amt[]" value="{{$slot->amount}}" id="fri_amt_{{$k}}" placeholder="Ex: $50" style="margin-left: 5%;" />                        
+                                                        <input type="text" class="form-control" name="fri_amt[]" value="{{$slot->amount}}" id="fri_amt_{{$k}}" placeholder="Ex: AED 50" style="margin-left: 5%;" />                        
                                                     </p>
                                                 </div>
                                             </div>
@@ -260,7 +260,7 @@
                                                     <p id="satTimeOnlyExample_{{$k}}" style="display: flex;">
                                                         <input type="text" class="form-control time start" value="{{$slot->slot_start_time}}" name="sat_strt_time[]" id="sat_start_time_{{$k}}" placeholder="Start time" style="margin-right: 5%;" /> to
                                                         <input type="text" class="form-control time end" value="{{$slot->slot_end_time}}" name="sat_end_time[]" id="sat_end_time_{{$k}}" onchange="endTime('#sat_start_time_{{$k}}', '#sat_end_time_{{$k}}', '{{$k}}')" placeholder="End time" style="margin-left: 5%;"/> 
-                                                        <input type="text" class="form-control" name="sat_amt[]" value="{{$slot->amount}}" id="sat_amt_{{$k}}" placeholder="Ex: $50" style="margin-left: 5%;" />                        
+                                                        <input type="text" class="form-control" name="sat_amt[]" value="{{$slot->amount}}" id="sat_amt_{{$k}}" placeholder="Ex: AED 50" style="margin-left: 5%;" />                        
                                                     </p>
                                                 </div>
                                             </div> 
@@ -283,7 +283,7 @@
                                                     <p id="sunTimeOnlyExample_{{$k}}" style="display: flex;">
                                                         <input type="text" class="form-control time start" name="sun_strt_time[]" id="sun_start_time_{{$k}}" placeholder="Start time" style="margin-right: 5%;" /> to
                                                         <input type="text" class="form-control time end" name="sun_end_time[]" id="sun_end_time_{{$k}}" onchange="endTime('#sun_start_time_{{$k}}', '#sun_end_time_{{$k}}', '{{$k}}')" placeholder="End time" style="margin-left: 5%;"/> 
-                                                        <input type="text" class="form-control" name="sun_amt[]" id="sun_amt_{{$k}}" placeholder="Ex: $50" style="margin-left: 5%;" />                        
+                                                        <input type="text" class="form-control" name="sun_amt[]" id="sun_amt_{{$k}}" placeholder="Ex: AED 50" style="margin-left: 5%;" />                        
                                                     </p>
                                                 </div>
                                             </div> 
