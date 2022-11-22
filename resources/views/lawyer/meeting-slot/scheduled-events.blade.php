@@ -31,7 +31,11 @@
                                 <td>{{$meeting->daysSlot->slot_start_time .'-'. $meeting->daysSlot->slot_end_time}}</td>
                                 <td>{{$meeting->daysSlot->amount}}</td>
                                 <td></td>
-                                <td><a href="{{$meeting->zoom->join_url}}" target="_blank">Click here to join</a></td>
+                                @if($meeting->zoom)
+                                    <td><a href="{{$meeting->zoom->join_url}}" target="_blank">Click here to join</a></td>
+                                @else 
+                                    <td>No meeting link generated</td>
+                                @endif
                                 <td>{{$meeting->scheduledBy->name}}</td>
                             </tr>
                         @endforeach
