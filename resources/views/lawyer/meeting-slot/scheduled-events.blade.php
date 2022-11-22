@@ -22,7 +22,7 @@
                     <tbody class="table-border-bottom-0">
                         @foreach($scheduledMeetings as $k => $meeting)
                             <tr style="text-align: center;">
-                                @php $startDateTime = new  \DateTime($meeting->zoom->start_date_time); @endphp
+                                @php $startDateTime = $meeting->zoom ? new  \DateTime($meeting->zoom->start_date_time) : '-'; @endphp
                                 <td>{{$startDateTime->format('Y-m-d')}}</td>
                                 <td>{{$meeting->daysSlot->slot_start_time .'-'. $meeting->daysSlot->slot_end_time}}</td>
                                 <td>{{$meeting->daysSlot->amount}}</td>
