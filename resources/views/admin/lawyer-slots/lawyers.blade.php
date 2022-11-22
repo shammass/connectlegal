@@ -34,11 +34,11 @@
                                                             <div class="card-body">                                                            
                                                                 <div class="mb-3">
                                                                     <label class="form-label" for="basic-default-company">15 minute session</label>
-                                                                    <input type="text" class="form-control" id="basic-default-company" placeholder="Ex: $50" name="fifteen" value="{{$lawyers->getSessionAmount(15, $lawyers->lawyer_id)}}" />                                                                   
+                                                                    <input type="text" class="form-control" id="basic-default-company" placeholder="Ex: AED 50" name="fifteen" value="{{$lawyers->getSessionAmount(15, $lawyers->lawyer_id)}}" />                                                                   
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <label class="form-label" for="basic-default-company">30 minute session</label>
-                                                                    <input type="text" class="form-control" id="basic-default-company" placeholder="Ex: $50" name="thirty" value="{{$lawyers->getSessionAmount(30, $lawyers->lawyer_id)}}" />                                                                   
+                                                                    <input type="text" class="form-control" id="basic-default-company" placeholder="Ex: AED 50" name="thirty" value="{{$lawyers->getSessionAmount(30, $lawyers->lawyer_id)}}" />                                                                   
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -162,7 +162,7 @@ class MeetingController extends Controller
             $stripe = new StripeClient(env('STRIPE_SECRET'));
             $charge = $stripe->charges->create([
                 'amount' => $amount * 100,
-                'currency' => 'usd',
+                'currency' => 'aed',
                 'source' => $tokenId,
                 'description' => 'My second payment'
             ]);

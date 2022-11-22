@@ -96,7 +96,7 @@ class SlotController extends Controller
                 'day'                   => $day,
                 'slot_start_time'       => $k,
                 'slot_end_time'         => $v,
-                'amount'                => $amounts[$i] ? (str_contains($amounts[$i], '$') ? $amounts[$i] : '$'.$amounts[$i]) : '$20'
+                'amount'                => $amounts[$i] ? (str_contains($amounts[$i], 'AED') ? $amounts[$i] : 'AED'.$amounts[$i]) : 'AED 20'
             ]);
         }
     }
