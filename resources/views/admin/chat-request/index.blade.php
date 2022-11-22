@@ -25,16 +25,18 @@
                 </thead>
                 <tbody class="table-border-bottom-0">
                     @foreach($chatRqsts as $k => $request)
-                        <tr style="text-align: center;">
-                            <td>{{$request->user->name}} - ({{$request->user->email}})</td>
-                            <td>{{$request->lawyer->user->name}} - ({{$request->lawyer->user->email}})</td>
-                            <td>{{$request->comment}}</td>
-                            @if($request->status == 0 || $request->status == 1 && $request->complete == 0)
-                                <td>{{$request->status == 1 ? 'Accepted' : 'Pending'}}</td>
-                            @else 
-                                <td>Completed</td>
-                            @endif
-                        </tr>
+                        @if($request->lawyer)
+                            <tr style="text-align: center;">
+                                <td>{{$request->user->name}} - ({{$request->user->email}})</td>
+                                <td>{{$request->lawyer->user->name}} - ({{$request->lawyer->user->email}})</td>
+                                <td>{{$request->comment}}</td>
+                                @if($request->status == 0 || $request->status == 1 && $request->complete == 0)
+                                    <td>{{$request->status == 1 ? 'Accepted' : 'Pending'}}</td>
+                                @else 
+                                    <td>Completed</td>
+                                @endif
+                            </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>
