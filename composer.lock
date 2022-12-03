@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa989a89c2b3ca0d1742ba5ed352955e",
+    "content-hash": "c16a8020de96a9300504c1d3d59dac0e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1394,6 +1394,63 @@
                 }
             ],
             "time": "2022-08-28T14:45:39+00:00"
+        },
+        {
+            "name": "hidehalo/nanoid-php",
+            "version": "1.1.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hidehalo/nanoid-php.git",
+                "reference": "3229400d7e69b127a9e4f8fdad2e498e64cdaae4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hidehalo/nanoid-php/zipball/3229400d7e69b127a9e4f8fdad2e498e64cdaae4",
+                "reference": "3229400d7e69b127a9e4f8fdad2e498e64cdaae4",
+                "shasum": ""
+            },
+            "require": {
+                "paragonie/random_compat": ">=2.0",
+                "php": "~5.6|~7.0|~8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=5.6",
+                "squizlabs/php_codesniffer": "^2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hidehalo\\Nanoid\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "hidehalo",
+                    "email": "tianchen_cc@yeah.net",
+                    "homepage": "https://github.com/hidehalo",
+                    "role": "Owner"
+                }
+            ],
+            "description": "A copy of nanoid in PHP",
+            "homepage": "https://github.com/hidehalo/nanoid-php",
+            "keywords": [
+                "hidehalo",
+                "nanoid-php"
+            ],
+            "support": {
+                "issues": "https://github.com/hidehalo/nanoid-php/issues",
+                "source": "https://github.com/hidehalo/nanoid-php/tree/1.1.12"
+            },
+            "time": "2021-12-30T07:27:43+00:00"
         },
         {
             "name": "juliomotol/laravel-auth-timeout",
@@ -2923,6 +2980,71 @@
                 "source": "https://github.com/paragonie/sodium_compat/tree/v1.19.0"
             },
             "time": "2022-09-26T03:40:35+00:00"
+        },
+        {
+            "name": "paragraph/laravel",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ParagraphApp/laravel.git",
+                "reference": "aef0f05d9d45244b29db350a1862a5ab9f528a1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ParagraphApp/laravel/zipball/aef0f05d9d45244b29db350a1862a5ab9f528a1e",
+                "reference": "aef0f05d9d45244b29db350a1862a5ab9f528a1e",
+                "shasum": ""
+            },
+            "require": {
+                "hidehalo/nanoid-php": "^1.1",
+                "illuminate/support": "5.*|^6.0|^7.0|^8.0|^9.0",
+                "nikic/php-parser": "^4.11",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "larapack/dd": "^1.1",
+                "phpunit/phpunit": "^8.5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Paragraph\\Providers\\ParagraphServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "helpers/helpers.php"
+                ],
+                "psr-4": {
+                    "Paragraph\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Denis Mysenko",
+                    "email": "denis@paragraph.ph",
+                    "homepage": "https://paragraph.ph"
+                }
+            ],
+            "description": "Official Laravel package for Paragraph - a more productive way to manage your texts",
+            "homepage": "https://github.com/ParagraphApp/laravel",
+            "keywords": [
+                "localization",
+                "templates",
+                "texts"
+            ],
+            "support": {
+                "issues": "https://github.com/ParagraphApp/laravel/issues",
+                "source": "https://github.com/ParagraphApp/laravel/tree/main"
+            },
+            "time": "2022-10-23T11:15:30+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -9777,7 +9899,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "paragraph/laravel": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
