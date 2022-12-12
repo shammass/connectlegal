@@ -10,7 +10,7 @@ class SessionTimeOut
 {
 
     /**
-     * Handle an incoming request.dd
+     * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
