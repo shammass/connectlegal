@@ -25,7 +25,7 @@ use App\Http\Controllers\Lawyer\ChatOnlineRequestController;
 use App\Http\Controllers\Lawyer\CommunityController;
 use App\Http\Controllers\Lawyer\DashboardController as LawyerDashboardController;
 use App\Http\Controllers\Lawyer\GroupController;
-use App\Http\Controllers\common\HomeController;
+use App\Http\Controllers\Common\HomeController;
 use App\Http\Controllers\Lawyer\LawArticleController;
 use App\Http\Controllers\Lawyer\LawyerServiceController;
 use App\Http\Controllers\Lawyer\PostController;
