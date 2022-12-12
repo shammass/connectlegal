@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\MakeLawyerOffline;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use JulioMotol\AuthTimeout\Events\AuthTimeoutEvent;
 
 class LawyerOffline
 {
@@ -15,7 +16,6 @@ class LawyerOffline
      */
     public function __construct()
     {
-        //
     }
 
     /**
@@ -24,8 +24,9 @@ class LawyerOffline
      * @param  \App\Events\MakeLawyerOffline  $event
      * @return void
      */
-    public function handle(MakeLawyerOffline $event)
+    public function handle(AuthTimeoutEvent $event)
     {
-        // print_r($event->user);exit;
+        // $event->user;   // The user that timed out.
+        // $event->guard;  // The authentication guard.
     }
 }

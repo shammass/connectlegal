@@ -2,10 +2,13 @@
 
 namespace App\Http\Middleware;
 
+use App\Events\LawyerLoginLogout;
 use App\Models\Lawyer;
+use App\Models\SessionUser;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class AuthLawyer
 {
@@ -18,7 +21,33 @@ class AuthLawyer
      */
     public function handle(Request $request, Closure $next)
     {
+        $sessionId = null;
+        foreach($request as $k => $v) {
+            if($k === "cookies") {
+                foreach($v as $j => $n) {
+                    if($j === "laravel_session") {
+                        $sessionId = $n;
+                    }
+                }
+            }
+        }
+        
+
         if (!Auth::check()) {
+            if($sessionId) {
+                $getUserId = SessionUser::where([
+                    ['session_id', $sessionId],
+                    ['user_id', '!=', null]
+                ])->first();
+                if($getUserId) {
+                    event(new LawyerLoginLogout($getUserId->user_id, 'lawyerLoginLogout'));
+                    Cache::forget('user-is-online-' . $getUserId->user_id);
+                    $deleteSessions = SessionUser::whereSessionId($sessionId)->get();
+                    foreach($deleteSessions as $sk => $sv) {
+                        $sv->delete();
+                    }
+                }
+            }
             return redirect()->route('unauthenticated');
         }
         if(auth()->user()->user_type == 2) {

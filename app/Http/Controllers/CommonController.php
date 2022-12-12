@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+Use Alert;
 use App\Models\ArbitrationArea;
 use App\Models\BlogsArticles;
 use App\Models\Callback;
@@ -20,6 +21,7 @@ use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+
 
 use function PHPSTORM_META\map;
 
@@ -40,8 +42,8 @@ class CommonController extends Controller
             'email' => $request->email,
             'message' => $request->message
         ]);
-
-        return redirect()->route('home')->with('success','Your query has been sent successfully!');
+        Alert::success('Success', 'Your query has been sent successfully!');
+        return redirect()->route('home');
     }
 
     public function storeContactUs(Request $request) {
@@ -59,8 +61,8 @@ class CommonController extends Controller
             'subject'   => $request->contact_subject,
             'message'   => $request->contact_message
         ]);
-
-        return redirect()->route('howItWorks')->with('success','Your query has been sent successfully!');
+        Alert::success('Success', 'Your query has been sent successfully!');
+        return redirect()->route('howItWorks');
     }
 
     public function storeTestimonials(Request $request) {
@@ -75,13 +77,14 @@ class CommonController extends Controller
             'emirate' => $request->emirate,
             'message' => $request->message
         ]);
-
-        return redirect()->route('howItWorks')->with('success','Your query has been sent successfully!');
+        Alert::success('Success', 'Your feedback has been sent successfully!');
+        return redirect()->route('howItWorks');
     }
 
     public function questionAnswer() {
-        $forums = Forum::whereIsVerified(1)->paginate(4);
-        return view('common.question-answer.list', compact('forums'));
+        $forums = Forum::whereIsVerified(1)->paginate(10);
+        // return view('common.question-answer.list', compact('forums'));
+        return view('common.pages.question-answer.list', compact('forums'));
     }
 
     public function testimonials() {
@@ -89,7 +92,8 @@ class CommonController extends Controller
             ->orderBy('updated_at', 'DESC')
             ->get();
 
-        return view('common.testimonials', compact('testimonials'));
+        // return view('common.testimonials', compact('testimonials'));
+        return view('common.pages.testimonials', compact('testimonials'));
     }
 
     public function  bookAMeeting($id) {
@@ -156,7 +160,8 @@ class CommonController extends Controller
             'status'    => 1
         ])->first();
         if($isAlreadyRequested) {
-            return redirect()->route('home')->with('warning','Oops! You can send free online chat request only once to same lawyer');
+            Alert::error('Error', 'Oops! You can send free online chat request only once to the same lawyer');
+            return redirect()->route('home');
         }else {
             $request->validate([
                 'message'          =>  ['required'],
@@ -179,8 +184,8 @@ class CommonController extends Controller
                     ->delay(now()->addSeconds(2)); 
     
             dispatch($job);
-    
-            return redirect()->route('home')->with('success','Your query has been sent successfully!');
+            Alert::success('Success', 'Your query has been sent successfully!');
+            return redirect()->route('home');
         }
     }
 
@@ -191,8 +196,8 @@ class CommonController extends Controller
             'password' => Hash::make($request->password),
             'user_type' => 3,            
         ]);
-
-        return redirect()->route('home')->with('success','You have registered successfully. Please login!!');
+        Alert::success('Success', 'You have registered successfully. Please login!!');
+        return redirect()->route('home');
     }
 
     public function onlineChatRequests() {
@@ -307,6 +312,11 @@ class CommonController extends Controller
 
     public function viewQA($slug) {
         $forum = Forum::whereSlug($slug)->first();
+
+        $increaseViews = Forum::findOrFail($forum->id);
+        $increaseViews->views = ++$increaseViews->views;
+        $increaseViews->save();
+
         if(!$forum) {
             return view('404');
         }
@@ -322,8 +332,8 @@ class CommonController extends Controller
             'rate'          => $request->rating,
             'comment'       => $request->comment,
         ]);
-
-        return redirect()->route('question-answer.view', $answer->forum->slug)->with('success', 'Your have rated successfully');
+        Alert::success('Success', 'You have rated successfully');
+        return redirect()->route('question-answer.view', $answer->forum->slug);
     }
 
     public function callback(Request $request) {
@@ -340,8 +350,8 @@ class CommonController extends Controller
             'contact_no'    => $request->contact,
             'to_lawyer'     => $request->lawyer_id ?? null
         ]);
-
-        return redirect()->route('home')->with('success', 'Your query has been sent successfully');
+        Alert::success('Success', 'Your query has been sent successfully');
+        return redirect()->route('home');
     }
 
     public function articleList() {

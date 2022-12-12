@@ -10,8 +10,9 @@ use Illuminate\Http\Request;
 class HireLawyerController extends Controller
 {
     public function hireALawyer() {
-        $services = Services::whereApproved(1)->get();
-        return view('common.hire-lawyer.service', compact('services'));
+        $services = Services::whereApproved(1)->paginate(2);
+        // return view('common.hire-lawyer.service', compact('services'));
+        return view('common.pages.hire-lawyer.services', compact('services'));
     }
 
     public function serviceLawyers($id) {

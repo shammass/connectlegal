@@ -44,8 +44,8 @@ $(document).ready(function(){
     autoplayTimeout: 2000,
     autoplayHoverPause: true,
     dots: true,
-    center:true,
-    // margin:10,
+    // center:true,
+    margin:10,
      smartSpeed: 1500,
   
   

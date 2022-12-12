@@ -24,7 +24,12 @@
 'mixins',
 '_reset',
 '_normalize',
-'_home';
+'_footer',
+'_navbar',
+'_home',
+'_login-modal',
+'_question-answer';
+
 
 
 /* Start Basics  */
@@ -36,7 +41,7 @@
 }
 
 body {
-    color: black;
+    color:#191919;
     font-family: $pr;
     font-size: 14px;
 }

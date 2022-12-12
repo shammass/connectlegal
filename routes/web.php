@@ -25,7 +25,7 @@ use App\Http\Controllers\Lawyer\ChatOnlineRequestController;
 use App\Http\Controllers\Lawyer\CommunityController;
 use App\Http\Controllers\Lawyer\DashboardController as LawyerDashboardController;
 use App\Http\Controllers\Lawyer\GroupController;
-use App\Http\Controllers\Lawyer\HomeController;
+use App\Http\Controllers\common\HomeController;
 use App\Http\Controllers\Lawyer\LawArticleController;
 use App\Http\Controllers\Lawyer\LawyerServiceController;
 use App\Http\Controllers\Lawyer\PostController;
@@ -46,19 +46,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',                                             [HomeController::class, 'home'])->name('home');
+Route::get('/online-offline-lawyers/{section}',             [HomeController::class, 'onlineOfflineLawyers'])->name('online-offline-lawyers');
 
 Route::get('forgot-password',           [ForgotPasswordController::class, 'showForgotPasswordForm'])->name('forgot.password.get');
 Route::post('forgot-password',          [ForgotPasswordController::class, 'submitForgotPasswordForm'])->name('forgot.password.post'); 
 Route::get('reset-password/{token}',    [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password',           [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
-Route::post('/login',                      [LoginController::class, 'userLogin'])->name('login');
+Route::post('/login',                                       [LoginController::class, 'userLogin'])->name('login');
 
 Route::get('/how-it-works',             [CommonController::class, 'howItWorks'])->name('howItWorks');
 Route::post('/forum',                   [CommonController::class, 'storeForum'])->name('store.forum');
 Route::post('/contact-us',              [CommonController::class, 'storeContactUs'])->name('store.contact-us');
 Route::post('/store-testimonial',       [CommonController::class, 'storeTestimonials'])->name('store.testimonials');
-Route::get('/testimonial',              [CommonController::class, 'testimonials'])->name('testimonials');
+Route::get('/testimonials',             [CommonController::class, 'testimonials'])->name('testimonials');
 Route::get('/book-a-meeting/{id}',      [CommonController::class, 'bookAMeeting'])->name('book-a-meeting');
 
 #Q&A
@@ -217,15 +219,17 @@ Route::prefix('admin')->group(function () {
 
 
 
+
 #################                           LAWYER                  ###################################
-Route::group(['middleware' => ['web', 'auth.timeout']], function () {
+Route::group(['middleware' => ['web']], function () {
 // Route::group(['middleware' => ['web']], function () {
     Route::prefix('lawyer')->group(function () { 
         Route::get('/register',                    [LoginController::class, 'register'])->name('lawyer.register-page');
         Route::post('/registration',               [LoginController::class, 'registerLawyer'])->name('lawyer.register');
         
-        Route::group(['middleware' => ['lawyerauth']], function () {
-            Route::get('/logout',                 [LoginController::class, 'logout'])->name('logout');
+        // Route::group(['middleware' => ['lawyerauth', 'auth.timeout']], function () {
+        Route::group(['middleware' => ['lawyerauth', 'auth.timeout']], function () {
+            Route::get('/logout',                       [LoginController::class, 'logout'])->name('logout');
 
             Route::get('/dashboard',                    [LawyerDashboardController::class, 'index'])->name('lawyer.dashboard');
             Route::get('/profile',                      [LawyerDashboardController::class, 'profile'])->name('lawyer.profile');
@@ -294,8 +298,7 @@ Route::group(['middleware' => ['web', 'auth.timeout']], function () {
     });
 });
 
-Route::get('/customer/login',    [HomeController::class, 'login'])->name('customer.login');
-Route::get('/',                  [HomeController::class, 'home'])->name('home');
+
 #################                           LAWYER                  ###################################
 
 Route::getGroupStack();

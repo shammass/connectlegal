@@ -20,7 +20,7 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        MakeLawyerOffline::class => [
+        \JulioMotol\AuthTimeout\Events\AuthTimeoutEvent::class => [
             LawyerOffline::class,
         ],
     ];
@@ -32,7 +32,6 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
     }
 
     /**
