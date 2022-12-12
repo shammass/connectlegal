@@ -17,7 +17,8 @@ class Forum extends Model
         'slug',
         'is_verified',
         'title',
-        'to_lawyer'
+        'to_lawyer',
+        'views'
     ];
 
     public function toLawyer() {
@@ -35,5 +36,10 @@ class Forum extends Model
     public function isAnswered($forumId) {
         $answer = ForumAnswers::whereForumId($forumId)->first();
         return $answer ? true : false;
+    }
+
+    public function totalAnswerCount($forumId) {
+        $count = ForumAnswers::whereForumId($forumId)->count();
+        return $count;
     }
 }

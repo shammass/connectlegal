@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Common;
 
-use App\Events\StatusLiked;
+use App\Events\LawyerLoginLogout;
 use App\Http\Controllers\Controller;
 use App\Traits\SendMailTrait;
 use App\Models\Lawyer;
@@ -104,6 +104,8 @@ class LoginController extends Controller
                         $checkIsVerifiedUser = Lawyer::whereUserId($user->id)->first();
                         if($checkIsVerifiedUser->is_verified) {
                             Auth::login($user);
+                            Cache::put('user-is-online-' . Auth::user()->id, true);  
+                            event(new LawyerLoginLogout(auth()->user()->id, 'lawyerLoginLogout'));
                             return redirect(RouteServiceProvider::LAWYER_HOME);
                         }else {
                             return redirect()->route('home')->with('error','You are not yet verified by admin');
@@ -148,9 +150,10 @@ class LoginController extends Controller
 
     public function logout(Request $request) {
         if(auth()->user()->user_type == 2) {
+            event(new LawyerLoginLogout(auth()->user()->id, 'lawyerLoginLogout'));
             // last seen
             Lawyer::where('user_id', auth()->user()->id)->update(['last_active_at' => (new \DateTime())->format("Y-m-d H:i:s")]);
-            Cache::put('user-is-online-' . Auth::user()->id, true, $seconds=1);
+            Cache::forget('user-is-online-' . Auth::user()->id);
         }
         Auth::guard('web')->logout();
         $request->session()->invalidate();
