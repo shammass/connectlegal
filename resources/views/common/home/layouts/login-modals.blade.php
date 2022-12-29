@@ -20,7 +20,7 @@
                                         <div class="col-md-6">
                                             <div class="thebest-legal-card">
                                                 <img class="legal-card-small-img"
-                                                    src="new-design/assets/image/home/Group 170.png" alt="">
+                                                    src="/new-design/assets/image/home/Group 170.png" alt="">
                                                 <h1>The best Legal
                                                     Portal in UAE</h1>
                                                 <p>Be found. Register with us and get new leads every day.
@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="thebest-legal-card-img">
-                                                <img src="new-design/assets/image/modal/login-image.png" alt="">
+                                                <img src="/new-design/assets/image/modal/login-image.png" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -100,7 +100,7 @@
                                         <div class="col-md-6">
                                             <div class="thebest-legal-card register-lawyer">
                                                 <img class="legal-card-small-img"
-                                                    src="new-design/assets/image/home/Group 170.png" alt="">
+                                                    src="/new-design/assets/image/home/Group 170.png" alt="">
                                                 <h1>Register<br>
                                                     like a Lawyer</h1>
                                                 <p>Join us like a bigger buffet of lawyers in the Middle East
@@ -110,7 +110,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="thebest-legal-card-img">
-                                                <img src="new-design/assets/image/modal/register-like-lawyer.png" alt="">
+                                                <img src="/new-design/assets/image/modal/register-like-lawyer.png" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -122,7 +122,7 @@
                                         <div class="col-md-6">
                                             <div class="thebest-legal-card register-user">
                                                 <img class="legal-card-small-img"
-                                                    src="new-design/assets/image/home/Group 170.png" alt="">
+                                                    src="/new-design/assets/image/home/Group 170.png" alt="">
                                                 <h1>Register<br>
                                                     like user</h1>
                                                 <p>Are you looking to hire a lawyer or make one consultant?
@@ -135,7 +135,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="thebest-legal-card-img">
-                                                <img src="new-design/assets/image/modal/register-like-user.png" alt="">
+                                                <img src="/new-design/assets/image/modal/register-like-user.png" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -172,7 +172,7 @@
                                         <div class="col-md-6">
                                             <div class="thebest-legal-card">
                                                 <img class="legal-card-small-img"
-                                                    src="new-design/assets/image/home/Group 170.png" alt="">
+                                                    src="/new-design/assets/image/home/Group 170.png" alt="">
                                                 <h1>Find your lawyer or make your
                                                     consultation</h1>
                                                 <p>Be found. Register with us and get new leads every day.
@@ -183,7 +183,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="thebest-legal-card-img">
-                                                <img src="new-design/assets/image/modal/signin-img.png" alt="">
+                                                <img src="/new-design/assets/image/modal/signin-img.png" alt="">
                                             </div>
                                         </div>
                                     </div>

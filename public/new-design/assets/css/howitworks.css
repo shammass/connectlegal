@@ -1,0 +1,616 @@
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.h-i-w-main {
+    display: flex;
+}
+
+.how-it-works-header {
+    width: 557px;
+    height: 72px;
+    font-style: normal;
+    font: 32px "Poppins-Medium";
+    font-weight: 600;
+    line-height: 72px;
+    color: #191919;
+    margin-top: 8%;
+}
+
+.how-it-works {
+    padding-left: 5%;
+}
+
+.how-it-works-man {
+    width: 360px;
+    height: 500px;
+}
+
+.how-it-works-play {
+    position: absolute;
+    width: 128px;
+    height: 128px;
+    filter: drop-shadow(2px 4px 6px gray);
+    top: 36.5%;
+    margin-left: -4%;
+}
+
+.how-it-works-p {
+    /* position: absolute; */
+    width: 580px;
+    height: 100px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    color: #191919;
+    /* margin-top: 7%; */
+}
+
+
+  .how-it-works-plus-minus-btn {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 22px;
+    color: #208C84;
+    float: right;
+  }
+
+  .how-it-works-contactus {
+    box-sizing: border-box;
+    height: 55%;
+    width: 124%;
+    background: #FFFFFF;
+    border: 0.5px solid rgba(32, 140, 132, 0.5);
+    margin-left: 0.3%;
+    margin-top: 29.6%;
+  }
+
+  .h-i-w-contactus-text {
+    position: absolute;
+    height: 48px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 80px;
+    color: #191919;
+    margin-left: 1%;
+  }
+
+  .h-i-w-input-box {
+    margin-bottom: 27px;
+    font-family: 'Poppins-Light';
+    width: 90%;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: #787878;
+    border: none;
+    padding: 16px 25px;
+    border-bottom: 1px solid #191919;
+    margin-left: 3%;
+  }
+
+  .h-i-w-contact-input {
+    margin-bottom: 27px;
+    font-family: 'Poppins-Light';
+    width: 90%;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: #787878;
+    border: none;
+    padding: 16px 25px;
+    border-bottom: 1px solid #191919;
+    margin-left: 3%;
+  }
+
+  .h-i-w-submit-btn {
+    width: 145px;
+    height: 50px;
+    background: #208C84;
+    color: white;
+    border: navajowhite;
+    float: right;
+    margin-bottom: 5%;
+    margin-right: 6.5%;
+  }
+
+  .h-i-w-client-testimonials {
+    box-sizing: border-box;
+    position: absolute;
+    width: 360px;
+    height: 50%;
+    background: #FFFFFF;
+    border: 0.5px solid rgba(32, 140, 132, 0.5);
+    margin-left: 0.3%;
+    margin-top: 2%;
+  }
+
+  .h-i-w-c-t-text {
+    width: 250px;
+    height: 48px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 48px;
+    color: #191919;
+    margin-left: 5%;
+    margin-top: 3%;
+  }
+
+  .h-i-w-c-t-icon {
+    width: 45px;
+    height: 45px;
+    margin-left: 5%;
+  }
+
+  .h-i-w-c-t-user-name {
+    width: 153px;
+    height: 30px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 30px;
+    color: #208C84;
+    position: absolute;
+    margin-left: 2%;
+  }
+
+.h-i-w-man-section {
+    margin-left: auto;
+}
+
+.h-i-w-coll-sec {
+    width: 124%;
+}
+
+  .h-i-w-c-t-date {
+    position: absolute;
+    width: 111px;
+    height: 30px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 30px;
+    color: #191919;
+    margin-left: 52%;
+  }
+
+  .h-i-w-c-t-msg {
+    width: 242px;
+    height: 24px;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 24px;
+    color: #191919;
+    margin-left: 2%;
+  }
+
+  .accordion {
+    background-color: #E8F8F2;
+    color: #208C84;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    margin-bottom: 2%;
+  }
+  
+  .accordion:after {
+    content: '\002B';
+    color: #208C84;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+
+  .active-box:after {
+    content: "\2212";
+  }
+  
+  .panel {
+    padding: 0 18px;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
+
+@media screen and (max-width: 640px) {
+    .h-i-w-main {
+        display: block!important;
+    }
+
+    .h-i-w-man-section {
+        margin-left: 0;
+    }
+
+    .how-it-works-play {
+        top: 190.5%!important;
+        margin-left: -6%!important;
+        width: 100px!important;
+        height: 100px!important;
+    }
+
+    .how-it-works-header {
+        width: 343px!important;
+        line-height: 40px!important;
+        margin-top: 15%!important;
+    }
+
+    .how-it-works-p {
+        width: 290px!important;
+        font-size: 13px!important;
+        margin-top: 7%!important;
+    }
+
+    .accordion {       
+        width: 190%!important;
+        margin-top: 8%;
+    }
+
+    .panel {
+        width: 180%;
+    }
+
+    .how-it-works-contactus {
+        width: 232%!important;
+    }
+    
+    .h-i-w-contactus-text {
+        font-size: 21px!important;
+        line-height: 50px!important;
+        margin-left: 5%!important;
+    }
+
+    .h-i-w-input-box {
+        width: 83%!important;
+        font-size: 13px!important;
+        margin-left: 8%!important;
+    }
+
+    .h-i-w-small-input {
+        width: 32%!important;
+    }
+
+    .h-i-w-contact-input {
+        width: 46%!important;
+        font-size: 13px!important;
+        padding: 0px 0px!important;
+    }
+
+    .footer {
+        margin-top: 120%;
+    }
+
+    .h-i-w-submit-btn {
+        float: none!important;
+        margin-left: 52%!important;
+    }
+
+    .h-i-w-man-section {
+        margin-top: 10%;
+    }
+
+    .how-it-works-man {
+        width: 352px!important;
+        height: 490px!important;
+        margin-left: 9%;
+    }
+
+    .h-i-w-client-testimonials {
+        width: 366px!important;
+    }
+
+    .h-i-w-c-t-text { 
+        font-size: 20px!important;
+    }
+
+    .h-i-w-c-t-icon { 
+        width: 40px!important;
+        height: 40px!important;
+    }
+
+    .h-i-w-c-t-msg { 
+        margin-left: 2%;
+    }
+}
+
+@media screen and (width: 320px) {
+    .h-i-w-submit-btn {
+        margin-left: 38%!important;
+    }
+
+    .how-it-works-man {
+        width: 262px!important;
+        height: 395px!important;
+    }
+
+    .how-it-works-play {
+        top: 174.5%!important;
+        margin-left: -9%!important;
+    }
+
+    .h-i-w-client-testimonials {
+        width: 271px!important;
+    }
+
+    .h-i-w-c-t-icon { 
+        width: 30px!important;
+        height: 30px!important;
+    }
+    
+    .h-i-w-c-t-msg { 
+        margin-left: 15%;
+    }
+}
+
+@media screen and (width: 375px) {
+    .h-i-w-submit-btn {
+        margin-left: 46%!important;
+    }
+
+    .how-it-works-man {
+        width: 310px!important;
+        height: 433px!important;
+        margin-left: 9%;
+    }
+
+    .how-it-works-play {
+        top: 181.5%!important;
+        margin-left: -7%!important;
+    }
+
+    .h-i-w-client-testimonials {
+        width: 321px!important;
+    }
+
+    .h-i-w-c-t-icon { 
+        width: 30px!important;
+        height: 30px!important;
+    }
+    
+    .h-i-w-c-t-msg {
+        margin-left: 15%;
+    }
+}
+
+@media screen and (width: 768px) {
+    .how-it-works-p {
+        width: 390px!important;
+    }
+
+    .how-it-works-man {
+        width: 270px!important;
+        height: 445px!important;
+    }
+
+    .h-i-w-man-section {
+        margin-left: 20%!important;
+    }
+
+    .how-it-works-play {
+        width: 115px!important;
+        height: 115px!important;
+        top: 39.5%!important;
+        margin-left: -7%!important;
+    }
+
+    .h-i-w-submit-btn {
+        margin-bottom: 13%!important;
+    }
+
+    .h-i-w-client-testimonials {
+        width: 268px!important;
+    }
+
+    .h-i-w-c-t-icon { 
+        width: 30px!important;
+        height: 30px!important;
+    }
+    
+    .h-i-w-c-t-text {
+        font-size: 23px;
+    }
+
+    .h-i-w-c-t-msg {
+        margin-left: 18%;
+    }
+
+    .h-i-w-contact-input {
+        width: 56%!important;
+    }
+}
+
+
+@media screen and (width: 1024px) {
+    .how-it-works {
+        padding-left: 2%!important;
+    }    
+
+    .how-it-works-p {
+        width: 390px!important;
+    }
+
+    .how-it-works-man {
+        width: 280px!important;
+        height: 444px!important;
+    }
+
+    .h-i-w-man-section {
+        margin-left: 17%!important;
+    }
+
+    .how-it-works-play {
+        width: 115px!important;
+        height: 115px!important;
+        top: 29.5%!important;
+        margin-left: -4.5%!important;
+    }
+
+    .h-i-w-client-testimonials {
+        width: 281px!important;
+        margin-left: 0%!important;
+    }
+
+    .h-i-w-c-t-icon { 
+        width: 30px!important;
+        height: 30px!important;
+    }
+    
+    .h-i-w-submit-btn {
+        margin-bottom: 13%!important;
+    }
+
+    .h-i-w-c-t-msg {
+        margin-left: 18%;
+    }
+
+    .add-width {
+        width: 260px!important;
+    }
+
+    .always-open-content {
+        margin-left: 260px!important;
+    }
+    
+    .nav-item {
+        font-size: 12.5px!important;
+    }
+
+    .h-i-w-contact-input {
+        width: 57%!important;
+    }
+
+    .footer.with-sidebar-always-open {
+        margin-left: 0;
+    }
+}
+
+@media screen and (width: 1440px) {
+    .how-it-works-play {
+        top: 37.5%!important;
+        margin-left: -3.5%!important;
+    }
+
+    .h-i-w-contact-input {
+        width: 66%!important;
+    }
+
+    .custom-navbar .navbar-nav li a {
+        font-size: 17px;
+    }
+
+    .footer.with-sidebar-always-open {
+        margin-left: 0;
+    }
+}
+
+@media screen and (width: 1920px) {
+    .add-width {
+        width: 409px!important;
+    }
+
+    .how-it-works {
+        padding-left: -1px!important;
+    }
+
+    .how-it-works-header {
+        font-size: 48px!important;
+    }
+
+    .how-it-works-p {
+        font-size: 19px!important;
+    }
+
+    .how-it-works-man {
+        width: 491px!important;
+        height: 690px!important;
+    }
+
+    .h-i-w-man-section {
+        margin-left: 16%!important;
+    }
+
+    .how-it-works-play {
+        width: 150px;
+        height: 150px;
+        top: 24.5%;
+        margin-left: -3%;
+    }
+
+    .nav-item {
+        font-size: 23px!important;
+    }
+
+    .lawyers-online-icon {
+        width: 20px!important;
+        height: 20px!important;
+        vertical-align: middle;
+    }
+
+    .menu-icon {
+        width: 19px!important;
+        height: 19px!important;
+        vertical-align: middle;
+    }
+
+    .lawyer-online-count-h4 {
+        font-size: 21px!important;
+    }
+
+    .lawyer-list-name {
+        font-size: 23px!important;
+    }
+
+    .lawyer-list-emirate {
+        font-size: 19px!important;
+    }
+
+    .lawyer-online-prof-pic {
+        width: 45px!important;
+        height: 45px!important;
+    }
+    
+    .how-it-works-contactus {
+        margin-top: 58.6%!important;
+        height: 48%!important;
+    }
+
+    .h-i-w-client-testimonials {
+        width: 492px;
+        margin-left: 0.1%;
+        height: 20%!important;
+    }
+
+    .h-i-w-contact-input {
+        width: 70%!important;
+    }
+
+    .footer.with-sidebar-always-open {
+        margin-left: 0;
+    }
+}
+
+.lawyers-online-icon {
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+}
+
+.menu-icon {
+    width: 13px;
+    height: 13px;
+    vertical-align: middle;
+}
+
+

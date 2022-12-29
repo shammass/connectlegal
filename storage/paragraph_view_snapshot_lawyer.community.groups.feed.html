@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="friendbook">
+    <meta name="keywords" content="friendbook">
+    <meta name="id" content="4">
+    <meta name="csrf-token" content="fktgw3oUmJUk7wulLIxT0ZUESECsz0IneEunvSfK">
+    <meta name="author" content="friendbook">
+            <!-- favicon icon -->
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/community/assets/select2/css/select2.css">
+    
+    <title>Connect Legal - Lawyers Community</title>
+    
+    <!--Google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <!-- style sheets and font icons  -->   
+    <link rel="stylesheet" type="text/css" href="/css/font-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/theme-vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/responsive.css" />
+    
+    <!-- Theme css -->
+    <link id="change-link" rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/community/assets/css/style.css">
+    
+    <!-- Theme css -->
+    <style>
+        .logo .mobile-logo {
+            display: none;
+        }
+        /* when screen is less than 600px wide
+            show mobile version and hide desktop */
+        @media (max-width: 768px) {
+            .logo .mobile-logo {
+                display: block;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .logo .mobile-logo {
+                padding-top: 72.977px;
+            }
+        }
+
+        .select2-container {
+            z-index: 9999 !important;
+        }
+        
+        
+        .bottomNavbar {
+            overflow: hidden;
+            background-color: black;
+            position: fixed;
+            bottom: 0;
+            width: 23.3%;
+        }
+        
+        @media (max-width: 425px) {
+            .bottomNavbar {                    
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .bottomNavbar {                   
+                width: 49%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .bottomNavbar {                   
+                width: 37%;
+            }
+
+            .banner-image {
+                margin-left: 48%;
+                margin-top: 9%;
+            }
+
+            .for-lawyers {
+                margin-left: 33px;
+            }
+
+            .for-lawyers-breadcrumb {
+                padding-top: 108px;
+                padding-bottom: 0px;
+                margin-left: 50px;
+            }
+
+            .for-lawyers-form {
+                width: 54.89%!important;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .bottomNavbar {                   
+                width: 23.8%;
+            }
+
+            .banner-image {
+                margin-left: 0%;
+                margin-top: 0%;
+            }
+
+            .for-lawyers {
+                margin-left: 0px;
+            }
+
+            .for-lawyers-form {
+                width: 58.1%!important;
+            }
+        }
+        
+        .bottomNavbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .bottomNavbar a:hover {
+            background: #f1f1f1;
+            color: black;
+        }
+
+        .bottomNavbar a.active {
+            background-color: white;
+            color: black;
+        }   
+
+        .message-box input[type="file"] {
+            display: none;
+        }
+
+        .message-box label {
+            margin-right: 2%;
+        }
+
+        .attachment-preview {
+            position: relative;
+            padding: 10px;
+        }
+        .attachment-preview > p {
+            margin: 0;
+            font-weight: 600;
+            padding: 0px;
+            padding-top: 10px;
+        }
+        .attachment-preview > p > svg {
+            font-size: 16px;
+            margin: 0;
+            margin-bottom: -1px;
+            color: #737373;
+        }
+        .attachment-preview svg:active {
+            transform: none;
+        }
+        .image-file {
+            cursor: pointer;
+            width: 140px;
+            height: 70px;
+            border-radius: 4px;
+            background-color: #f7f7f7;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        .attachment-preview > svg:first-child {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.33);
+            width: 20px;
+            height: 20px;
+            padding: 3px;
+            border-radius: 100%;
+            font-size: 16px;
+            margin: 0;
+            top: 10px;
+            color: #fff;
+        }
+
+        .messenger-sendCard {
+  /* display: none; */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.messenger-sendCard form {
+  width: 100%;
+  display: inline-flex;
+  margin: 0;
+}
+.messenger-sendCard input[type="file"] {
+  display: none;
+}
+.messenger-sendCard button,
+.messenger-sendCard button:active,
+.messenger-sendCard button:focus {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+.messenger-sendCard label {
+  margin: 0;
+}
+.messenger-sendCard svg {
+  margin: 9px 10px;
+  color: #bdcbd6;
+  cursor: pointer;
+  font-size: 21px;
+  transition: transform 0.15s;
+}
+
+.messenger-sendCard svg:active {
+  transform: scale(0.9);
+}
+
+.file-download {
+  font-size: 12px;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.03);
+  padding: 2px 8px;
+  margin-top: 10px;
+  border-radius: 20px;
+  transition: transform 0.3s, background 0.3s;
+}
+.file-download:hover,
+.file-download:focus {
+  color: #fff;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.08);
+}
+.file-download:active {
+  transform: scale(0.95);
+}
+    </style>
+</head>
+    <!-- <body  style="background-image: url('/community/assets/images/smiley-bg.jpg');"> -->
+    <body  class="bg-smile">
+        <header>
+    <!-- start navigation -->
+    <nav class="navbar navbar-expand-lg navbar-boxed navbar-dark border-bottom border-color-white-transparent fixed-top" style="background-color:#041d43;">
+        <div class="container-fluid nav-header-container">
+            <div class="col-auto col-sm-6 col-lg-2 me-auto ps-lg-0">
+                <a class="navbar-brand" href="/">
+                    <img src="/logo.png" data-at2x="/logo.png" class="default-logo" alt="" style="max-height: 50px!important;margin-left:23px;">
+                    <img src="/logo.png" data-at2x="/logo.png" class="alt-logo" alt="">
+                    <img src="/logo.png" data-at2x="/logo.png" class="mobile-logo" alt="">
+                </a>
+            </div>
+            <div class="col-auto menu-order px-lg-0">
+                <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-line"></span>
+                    <span class="navbar-toggler-line"></span>
+                    <span class="navbar-toggler-line"></span>
+                    <span class="navbar-toggler-line"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav alt-font">
+                        <li class="nav-item dropdown megamenu">
+                            <a href="/" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://127.0.0.1:8000/how-it-works" class="nav-link" style="color: white;">How It Works</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://127.0.0.1:8000/lawyer/register" class="nav-link" style="color: white;">For Lawyers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://127.0.0.1:8000/question-answers" class="nav-link" style="color: white;">Q & A</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://127.0.0.1:8000/testimonials" class="nav-link" style="color: white;">Testimonials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://127.0.0.1:8000/blogs-articles/1" class="nav-link" style="color: white;">Blogs & Articles</a>
+                        </li>
+                        <li class="nav-item dropdown simple-dropdown">
+                            <a href="#" class="nav-link">Lawyers</a>
+                            <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="dropdown">
+                                    <a href="#">Corporate Lawyers</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Criminal Lawyers</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Divorce Lawyers</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Labout Lawyers</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Family Lawyers</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Immigration Lawyers</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown simple-dropdown">
+                            <a href="#" class="nav-link">Practice Area</a>
+                            <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="dropdown">
+                                    <a href="#">Project And Construction</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">UAE Labour Law</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Energy</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Banking And Finance</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">General Civil Law</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Commercial Property</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Corporate Commercial Law</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Islamic Finance</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Criminal</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Family</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Accident Law</a>
+                                </li>
+                            </ul>
+                        </li>      
+                                              
+                                                            <li class="nav-item">
+                                    <a href="http://127.0.0.1:8000/lawyer/logout" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
+                                </li>
+                                                                        </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- end navigation -->
+    <form action="http://127.0.0.1:8000/login" onsubmit="return validateLogin(event)" method="POST" id="login-form" class="white-popup-block col-xl-5 col-lg-7 col-sm-9  p-0 mx-auto mfp-hide">
+    <input type="hidden" name="_token" value="fktgw3oUmJUk7wulLIxT0ZUESECsz0IneEunvSfK">    <div class="padding-fifteen-all bg-white border-radius-6px xs-padding-six-all">
+        <div class="row border-top border-width-1px border-color-medium-gray" style="height: 120px;margin-top: -60px;">
+            <div class="col-12 p-0 tab-style-07">
+                <!-- start tab navigation -->
+                <ul class="nav nav-tabs justify-content-center text-center text-uppercase font-weight-500 alt-font margin-10-rem-bottom lg-margin-8-rem-bottom border-bottom border-color-medium-gray md-margin-6-rem-bottom">
+                    <li class="nav-item"><a data-bs-toggle="tab" href="#login" class="nav-link active">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#register">Register</a></li>
+                </ul>
+                <!-- end tab navigation -->
+            </div>
+        </div>
+        <div class="tab-content">
+            <div id="login" class="tab-pane fade in active show">
+                <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom"></h6> 
+                <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" id="email" placeholder="Your email address">                    
+                <input class="medium-input required" type="password" name="password" id="pwd" placeholder="Your password">
+                
+                <input type="hidden" name="redirect" value="">
+                <div class="g-recaptcha" data-sitekey="6LeYW8MiAAAAALy4ssUEk_GhtwI1Gp_DhNfinvbn" style="margin-bottom: 2%;"></div>
+                                <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;">Login</button>
+                <a href="http://127.0.0.1:8000/forgot-password" style="float:right;">Forgot Password?</a>
+                <br>
+                <p>
+                    <span style="color:red" class="email-error"></span>
+                    <br>
+                    <span style="color:red" class="pwd-error"></span>
+                </p>
+                <div class="form-results d-none"></div>
+            </div>
+            <div id="register" class="tab-pane fade">
+                <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom" style="text-align: center;">Are You A Lawyer/Legal Consultant?</h6> 
+                <input type="hidden" name="redirect" value="">
+            
+                <div class="row justify-content-center">
+                    <div class="col-12 btn-dual text-center">
+                        <a href="http://127.0.0.1:8000/lawyer/register" class="btn btn-large btn-dark-gray btn-round-edge d-table d-lg-inline-block lg-margin-15px-bottom md-margin-auto-lr">Yes</a>
+                        <a href="#login2-form" class="btn btn-large btn-dark-gray btn-round-edge d-table d-lg-inline-block lg-margin-15px-bottom md-margin-auto-lr popup-with-form">No</a>
+                    </div>
+                </div>
+                <div class="form-results d-none"></div>
+            </div>
+        </div>
+    </div>
+</form>
+<div id="login2-form" class="white-popup-block col-xl-5 col-lg-7 col-sm-9  p-0 mx-auto mfp-hide">
+    <div class="padding-fifteen-all bg-white border-radius-6px xs-padding-six-all">
+        <div class="row border-top border-width-1px border-color-medium-gray" style="height: 120px;margin-top: -60px;">
+            <div class="col-12 p-0 tab-style-07">
+                <!-- start tab navigation -->
+                <ul class="nav nav-tabs justify-content-center text-center text-uppercase font-weight-500 alt-font margin-10-rem-bottom lg-margin-8-rem-bottom border-bottom border-color-medium-gray md-margin-6-rem-bottom">
+                    <li class="nav-item"><a data-bs-toggle="tab" href="#login" class="nav-link">Login</a></li>
+                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#register">Register</a></li>
+                </ul>
+                <!-- end tab navigation -->
+            </div>
+        </div>
+        <div class="tab-content">
+            <div id="login" class="tab-pane fade">
+                <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom"></h6> 
+                <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" placeholder="Your email address">
+                <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="password" name="password" placeholder="Your password">
+                
+                <input type="hidden" name="redirect" value="">
+                <div class="g-recaptcha" data-sitekey="6LeYW8MiAAAAALy4ssUEk_GhtwI1Gp_DhNfinvbn" style="margin-bottom: 2%;"></div>
+                                <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;">Login</button>
+                <a href="http://127.0.0.1:8000/forgot-password" style="float:right;">Forgot Password?</a>
+                <div class="form-results d-none"></div>
+            </div>
+            <div id="register" class="tab-pane fade in active show">
+                <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom"></h6> 
+                <form action="http://127.0.0.1:8000/user-register" method="post">
+                    <input type="hidden" name="_token" value="fktgw3oUmJUk7wulLIxT0ZUESECsz0IneEunvSfK">                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="name" name="name" placeholder="Your name">
+                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="email" name="email" placeholder="Your email address">
+                    <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" type="password" name="password" placeholder="Your password">
+                    
+                    <input type="hidden" name="redirect" value="">
+                    <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;">Signup</button>
+                </form>
+                <div class="form-results d-none"></div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+</header>
+<header class="side-menu menu-style-2">
+    <!-- start sidebar strip -->
+    <div class="sidebar-nav-action" style="background-color:#041d43;">
+        <div class="sidebar-nav-action-main">
+            <a href="/" class="logo">
+                <img alt="" src="/logo.png" class="mobile-logo" data-at2x="/logo.png">
+            </a>
+            <div class="side-menu-button">
+                <a href="javascript:void(0);" class="nav-icon" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div>
+            <ul class="sidebar-social-icon list-unstyled d-none d-sm-inline-block">
+                <li><a href="https://www.facebook.com/" target="_blank" class="text-white"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                <li><a href="https://twitter.com/" target="_blank" class="text-white"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="http://www.linkedin.com" target="_blank" class="text-white"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- end sidebar strip -->
+    <!-- start navigation -->
+    <div class="bg-black sidebar-nav-menu navbar-expand-lg">
+        <div class="hover-background-color bg-extra-dark-gray d-none d-lg-block"></div>
+        <!-- start menu -->
+        <div class="col-12 h-100 padding-3-half-rem-lr sm-padding-1-rem-lr">
+            <div class="menu-list-wrapper" data-scroll-options='{ "theme": "light" }'>
+                <ul class="menu-list alt-font alt-font w-70 xl-w-100 margin-auto-lr tab-pane med-text mainMenu fade in active show" id="main-menu">
+                    <!-- start menu item -->
+                    <li class="menu-list-item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="menu-list-item">
+                        <a href="http://127.0.0.1:8000/how-it-works">How It Works</a>
+                    </li>
+                    <li class="menu-list-item">
+                        <a href="http://127.0.0.1:8000/lawyer/register">For Lawyers</a>
+                    </li>
+                    <li class="menu-list-item">
+                        <a href="http://127.0.0.1:8000/question-answers">Q&A</a>
+                    </li>
+                    <li class="menu-list-item">
+                        <a href="http://127.0.0.1:8000/testimonials">Testimonials</a>
+                    </li>
+                    <li class="menu-list-item">
+                        <a href="http://127.0.0.1:8000/our-lawyers">Our Lawyers</a>
+                    </li>
+                    <li class="nav-item dropdown simple-dropdown">
+                            <a href="#" class="nav-link">Lawyers</a>
+                            <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="dropdown">
+                                    <a href="#">Corporate Lawyers</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Criminal Lawyers</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Divorce Lawyers</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Labout Lawyers</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Family Lawyers</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Immigration Lawyers</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown simple-dropdown">
+                            <a href="#" class="nav-link">Practice Area</a>
+                            <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown" aria-hidden="true"></i>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="dropdown">
+                                    <a href="#">Project And Construction</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">UAE Labour Law</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Energy</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Banking And Finance</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">General Civil Law</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Commercial Property</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Corporate Commercial Law</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Islamic Finance</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Criminal</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Family</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#">Accident Law</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="http://127.0.0.1:8000/blogs-articles/1">Blogs & Articles</a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="http://127.0.0.1:8000/hire-a-lawyer">Hire Lawyer</a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="http://127.0.0.1:8000/legal-articles">Legal Articles</a>
+                        </li>
+                                            <li class="menu-list-item">
+                            <a href="http://127.0.0.1:8000/lawyer/logout">Logout</a>
+                        </li>
+                                        <!-- end menu item -->
+                </ul>
+                <ul class="menu-list alt-font alt-font w-70 xl-w-100 margin-auto-lr tab-pane med-text fade in lawyerOnline" id="lawyer-online">
+                    <div class="row">
+                        <div class="col-12 col-lg-12">
+                            <ul class="list-style-08">
+                                <hr>
+                                <strong>Lawyers Online</strong>
+                                                                                                            <hr>
+                                        <li class="border-bottom border-color-black-transparent" style="padding: 0px 0;">
+                                            <a class="modal-popup" href="#modal-popup1">
+                                                <img class="rounded-circle border-all border-width-6px border-color-green box-shadow-small margin-25px-right xs-w-40px xs-margin-4px-right" src="/logo.png" alt="" style="width: 50px;"/>
+                                            </a>
+                                            <div class="w-100 lg-w-65 xs-w-60 xs-margin-10px-right last-paragraph-no-margin avatar avatar-online">
+                                                <span class="font-weight-300 text-small text-white">shammas</span>
+                                                <small><p>UAE</p></small>
+                                            </div>
+                                            <input type="hidden" id="lawyer" value="1">
+                                            <div id="modal-popup1" class="col-11 col-xl-3 col-lg-6 col-md-8 col-sm-9 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
+                                                <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray">
+                                                    <li class="padding-15px-bottom border-bottom border-color-medium-gray"><i class="feather  icon-feather-message-square text-large text-black margin-10px-right"></i>Post a question</li>
+                                                                                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i><a href="#chat-online-form" style="color:black;" class="popup-with-form online-chatting" onclick="onlineChatting(1)">Chat online</a></li>
+                                                                                                        <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i><a href="#callback-form" style="color:black;" class="popup-with-form callback-form" onclick="callbackReq(2)">Request a callback<a></li>
+                                                                                                        <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i><a href="http://127.0.0.1:8000/lawyer-services/2" style="color:black;">Hire The lawyer</a></li>
+                                                    <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
+                                                </ul>
+                                                <a class="btn btn-fancy btn-small btn-transparent-light-gray popup-modal-dismiss" href="#">Dismiss</a>
+                                            </div>
+                                            <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
+                                        </li>
+                                        <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
+                                        
+                                        <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
+                                        <hr>
+                                                                                                                                                                                                                                            
+                                <strong>Lawyers Offline</strong>
+                                                                                                                                                                                <hr>
+                                        <li class="border-bottom border-color-black-transparent" style="padding: 0px 0;margin-bottom: 35px;">
+                                            <a class="modal-popup" href="#modal-popup2">
+                                                <img class="rounded-circle border-all border-width-6px border-color-green box-shadow-small margin-25px-right xs-w-40px xs-margin-4px-right" src="/logo.png" alt="" style="width: 50px;border-color:red!important;"/>
+                                            </a>
+                                            <div class="w-100 lg-w-65 xs-w-60 xs-margin-10px-right last-paragraph-no-margin avatar avatar-online">
+                                                <span class="font-weight-300 text-small text-white">Ashik</span>
+                                                <small><p>Qatar</p></small>
+                                            </div>
+                                            <input type="hidden" id="lawyer" value="2">
+                                            <div id="modal-popup2" class="col-11 col-xl-3 col-lg-6 col-md-8 col-sm-9 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
+                                                <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray">
+                                                    <li class="padding-15px-bottom border-bottom border-color-medium-gray"><i class="feather  icon-feather-message-square text-large text-black margin-10px-right"></i>Post a question</li>
+                                                                                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i><a href="#chat-online-form" style="color:black;" class="popup-with-form online-chatting" onclick="onlineChatting(2)">Chat online</a></li>
+                                                                                                        <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i><a href="#callback-form" style="color:black;" class="popup-with-form online-chatting" onclick="callbackReq(3)">Request a callback<a></li>
+                                                                                                        <li class="padding-15px-tb"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i> <a href="http://127.0.0.1:8000/lawyer-services/3" style="color:black;">Hire The lawyer</a> </li>
+                                                    <li class="padding-15px-tb"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
+                                                </ul>
+                                                <a class="btn btn-fancy btn-small btn-transparent-light-gray popup-modal-dismiss" href="#">Dismiss</a>
+                                            </div>
+                                            <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
+                                            <div id="modal-popup-2" class="col-11 col-xl-12 col-lg-12 col-md-12 col-sm-12 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
+                                                <!-- start section -->
+                                                <div class="calendly-inline-widget" style="min-width:320px;height:580px;" data-auto-load="false">
+                                                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+                                                <script>
+                                                    Calendly.initInlineWidget({
+                                                        url: ''
+                                                    });
+                                                </script>
+                                            </div>
+                                        </li>
+                                        <hr>
+                                                                                                                                                <hr>
+                                        <li class="border-bottom border-color-black-transparent" style="padding: 0px 0;margin-bottom: 35px;">
+                                            <a class="modal-popup" href="#modal-popup4">
+                                                <img class="rounded-circle border-all border-width-6px border-color-green box-shadow-small margin-25px-right xs-w-40px xs-margin-4px-right" src="/logo.png" alt="" style="width: 50px;border-color:red!important;"/>
+                                            </a>
+                                            <div class="w-100 lg-w-65 xs-w-60 xs-margin-10px-right last-paragraph-no-margin avatar avatar-online">
+                                                <span class="font-weight-300 text-small text-white">Manal</span>
+                                                <small><p>UAE</p></small>
+                                            </div>
+                                            <input type="hidden" id="lawyer" value="4">
+                                            <div id="modal-popup4" class="col-11 col-xl-3 col-lg-6 col-md-8 col-sm-9 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
+                                                <ul class="list-style-02 alt-font font-weight-500 text-small text-uppercase text-extra-dark-gray">
+                                                    <li class="padding-15px-bottom border-bottom border-color-medium-gray"><i class="feather  icon-feather-message-square text-large text-black margin-10px-right"></i>Post a question</li>
+                                                                                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-message-circle text-large text-black margin-10px-right"></i><a href="#chat-online-form" style="color:black;" class="popup-with-form online-chatting" onclick="onlineChatting(4)">Chat online</a></li>
+                                                                                                        <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-phone-call text-large text-black margin-10px-right"></i><a href="#callback-form" style="color:black;" class="popup-with-form online-chatting" onclick="callbackReq(7)">Request a callback<a></li>
+                                                                                                            <li class="padding-15px-tb border-bottom border-color-medium-gray"><i class="feather icon-feather-calendar text-large text-black margin-10px-right"></i><a href="http://127.0.0.1:8000/book-a-meeting/4" style="color:black;">Book a meeting</a></li>
+                                                                                                        <li class="padding-15px-tb"><i class="feather icon-feather-briefcase text-large text-black margin-10px-right"></i> <a href="http://127.0.0.1:8000/lawyer-services/7" style="color:black;">Hire The lawyer</a> </li>
+                                                    <li class="padding-15px-tb"><i class="feather icon-feather-user-plus text-large text-black margin-10px-right"></i>Open profile</li>
+                                                </ul>
+                                                <a class="btn btn-fancy btn-small btn-transparent-light-gray popup-modal-dismiss" href="#">Dismiss</a>
+                                            </div>
+                                            <!-- <div class="font-weight-500 text-extra-medium text-extra-dark-gray">$10.00</div> -->
+                                            <div id="modal-popup-4" class="col-11 col-xl-12 col-lg-12 col-md-12 col-sm-12 position-relative mx-auto bg-white text-center modal-popup-main padding-4-half-rem-all mfp-hide border-radius-6px sm-padding-2-half-rem-lr">
+                                                <!-- start section -->
+                                                <div class="calendly-inline-widget" style="min-width:320px;height:580px;" data-auto-load="false">
+                                                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+                                                <script>
+                                                    Calendly.initInlineWidget({
+                                                        url: 'https://calendly.com/abcd'
+                                                    });
+                                                </script>
+                                            </div>
+                                        </li>
+                                        <hr>
+                                                                                                </ul>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div id="chat-online-form" class="white-popup-block col-xl-9 col-lg-7 col-sm-9  p-0 mx-auto mfp-hide">
+            <div class="padding-fifteen-all bg-white border-radius-6px xs-padding-six-all">                
+                <div class="tab-content">    
+                    <form action="http://127.0.0.1:8000/chat-online" method="POST">
+                        <input type="hidden" name="_token" value="fktgw3oUmJUk7wulLIxT0ZUESECsz0IneEunvSfK">                        <div id="chat">
+                            <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom p-5 text-center">Chat Online</h6> 
+                            <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" name="message" placeholder="Your message"></textarea>
+                            <input type="hidden" name="redirect" value="">
+                            <input type="hidden" name="lawyerId" id="lawyerId" value="">
+                            <button class="btn btn-medium mb-0" type="submit" style="background-color: #041d43;color:white;float:right;">Submit</button>
+                            <div class="form-results d-none"></div>
+    
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-xl-8 col-lg-10 text-center overlap-gap-section">
+                                    <div class="w-40px h-2px separator-line-vertical margin-30px-tb d-inline-block" style="background-color: #041d43;"></div>
+                                    <h3 class="alt-font font-weight-500 text-extra-dark-gray letter-spacing-minus-1px">Know How It <span class="font-weight-600" style="color:#f0b500;">Works</span></h3>
+                                    <p>Send an instance message and you will get a revert back from a lawyer only if they are online. In case if no lawyers are online, then in that case we will respond you back with a email with regards to your legal issues complete your registration</p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>                
+                </div>
+            </div>
+        </div>
+        <div id="callback-form" class="white-popup-block col-xl-9 col-lg-7 col-sm-9  p-0 mx-auto mfp-hide">
+            <div class="padding-fifteen-all bg-white border-radius-6px xs-padding-six-all">                
+                <div class="tab-content">    
+                    <h6 class="text-extra-dark-gray font-weight-500 margin-35px-bottom xs-margin-15px-bottom p-5 text-center">Request A Callback</h6> 
+                    <form action="http://127.0.0.1:8000/callback" method="post">
+                        <input type="hidden" name="_token" value="fktgw3oUmJUk7wulLIxT0ZUESECsz0IneEunvSfK">                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" required type="name" name="name" placeholder="Your Full Name">
+                            
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom" type="email" name="email" placeholder="Your email address">
+                        <input class="medium-input margin-25px-bottom xs-margin-10px-bottom required" required type="number" name="contact" placeholder="Your contact number">
+                            
+                        <textarea class="medium-textarea xs-h-100px xs-margin-10px-bottom" rows="6" name="message" placeholder="Your message"></textarea>
+                            
+                        <input type="hidden" name="lawyer_id" id="callback_lawyerId" value="">
+                        <button class="btn btn-medium" type="submit" style="background-color: #041d43;color:white;float:right;">Submit</button>
+                    </form>
+                    <div class="form-results d-none"></div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-xl-8 col-lg-10 text-center overlap-gap-section">
+                            <div class="w-40px h-2px separator-line-vertical margin-30px-tb d-inline-block" style="background-color: #041d43;"></div>
+                            <h3 class="alt-font font-weight-500 text-extra-dark-gray letter-spacing-minus-1px">Know How It <span class="font-weight-600" style="color:#f0b500;">Works</span></h3>
+                            <p>In case you will require a lawyers suggestion on a particular issue – drop your query here consider weekend and holidays as off days as you will hear on the subnsequest working day of the week</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!-- end menu -->
+        <div class="bottomNavbar">
+            <a href="#main-menu" class="mainMenu active" onclick="mainMenu()">
+                <i class="feather icon-feather-menu align-middle"> Menu</i>
+            </a>
+            <a href="#lawyer-online" class="lawyerOnline" onclick="lawyerOnline()">
+                <i class="feather icon-feather-message-square align-middle"> Lawyers Online</i>
+            </a>
+        </div>
+
+    </div>
+    <!-- end navigation -->
+</header>        <!-- page body start -->
+        <div class="page-body container-fluid custom-padding profile-page">
+    <div class="page-center" style="margin-left: 10%;">
+        <!-- <div class="profile-cover">
+            <img src="http://127.0.0.1:8000/community/assets/images/cover/1.jpg" class="img-fluid blur-up lazyload bg-img" alt="cover">
+            <div class="setting-dropdown btn-group custom-dropdown arrow-none dropdown-sm">
+                <div class="dropdown-menu dropdown-menu-right custom-dropdown">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#choosePhoto"><i
+                                    class="icon-font-light iw-16 ih-16" data-feather="image"></i>choose
+                                photo</a>
+                        </li>
+                        <li class="choose-file">
+                            <a href=""><i class="icon-font-light iw-16 ih-16" data-feather="upload"></i>upload
+                                photo</a>
+                            <input type="file">
+                        </li>
+                        <li>
+                            <a href=""><i class="icon-font-light iw-16 ih-16" data-feather="maximize"></i>set
+                                position</a>
+                        </li>
+                        <li>
+                            <a href=""><i class="icon-font-light iw-16 ih-16" data-feather="trash-2"></i>remove
+                                photo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+        <!-- profile cover end -->
+
+        <!-- profile menu start -->
+        <div class="profile-menu section-t-space">
+            <ul>
+                <li class="active">
+                    <a href="http://127.0.0.1:8000/lawyer/community">
+                        <i class="iw-14 ih-14" data-feather="clock"></i>
+                        <h6>All Feed</h6>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="http://127.0.0.1:8000/lawyer/community/group/feed/4">
+                        <i class="iw-14 ih-14" data-feather="clock"></i>
+                        <h6>Feed</h6>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:8000/lawyer/community/group/about/4">
+                        <i class="iw-14 ih-14" data-feather="info"></i>
+                        <h6>about</h6>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:8000/lawyer/community/groups">
+                        <i class="iw-14 ih-14" data-feather="users"></i>
+                        <h6>Groups</h6>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="profile-gallery.html">
+                        <i class="iw-14 ih-14" data-feather="image"></i>
+                        <h6>photos</h6>
+                    </a>
+                </li> -->
+            </ul>
+            <ul class="right-menu d-xl-flex d-none">
+                <li>
+                    <a href="http://127.0.0.1:8000/lawyer/community/all-lawyers">
+                        <i class="iw-14 ih-14" data-feather="award"></i>
+                        <h6>All Lawyers</h6>
+                    </a>
+                </li>
+                <li class="active" style="cursor:pointer;">
+                    <a href="http://127.0.0.1:8000/lawyer/community/group/chat/4">
+                        <i class="iw-14 ih-14" data-feather="message-square"></i>
+                        <h6>Chat</h6>
+                    </a>
+                </li>
+            </ul>                
+        </div>
+        <!-- profile menu end -->
+    </div>
+</div>
+
+        <!-- <div class="page-body container-fluid custom-padding newsfeed-style4">        
+            <div class="page-center page-lg"> -->
+                <div class="container-fluid section-t-space px-0">
+                    <div class="page-content">
+                        <div class="content-center content-full" style="margin-left:13%;width: calc(100% - 264px)!important;">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <!-- create post -->
+                                    <div class="create-post">
+                                        <h3 style="text-align: center;"><b>G-Square</b></h3>
+                                        <form action="http://127.0.0.1:8000/lawyer/community/create/group/post/4" method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="_token" value="fktgw3oUmJUk7wulLIxT0ZUESECsz0IneEunvSfK">                                            <div class="static-section">
+                                                <div class="card-title">
+                                                    <h3>create post</h3>                                            
+                                                </div>
+                                                <div class="search-input input-style icon-right">
+                                                    <div class="form-control" style="margin-bottom: 10px;">
+                                                        <input type="text" class="form-control enable" placeholder="Title" name="title">
+                                                          
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <textarea name="description" id="" cols="30" rows="10" class="form-control" placeholder="Write something here..."></textarea>
+                                                    </div>
+                                                    <input type="hidden" name="page" value="group">
+                                                </div>
+                                            </div>
+                                            <div id="post-btn" class="post-btn">
+                                                <button>post</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="overlay-bg"></div>
+                                    <div class="post-panel section-t-space all-group-posts">
+                                                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- </div>
+
+        </div> -->
+        <!-- page body end -->
+
+        <!-- laravel style -->
+<script src="http://127.0.0.1:8000/assets/vendor/js/helpers.js"></script>
+
+<!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+<script src="http://127.0.0.1:8000/assets/js/config.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" defer></script>
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script>
+
+
+<!-- beautify ignore:end -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="async" src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+
+</script>
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<script>
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+  });
+
+
+</script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/theme-vendors.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>    
+    <!-- latest jquery-->
+    <script src="http://127.0.0.1:8000/community/assets/js/jquery-3.6.0.min.js"></script>
+    
+    <!-- popper js-->
+    <script src="http://127.0.0.1:8000/community/assets/js/popper.min.js"></script>
+    
+    <!-- slick slider js -->
+    <script src="http://127.0.0.1:8000/community/assets/js/slick.js"></script>
+    <script src="http://127.0.0.1:8000/community/assets/js/custom-slick.js"></script>
+    
+    <!-- chatbox js -->
+    <script src="http://127.0.0.1:8000/community/assets/js/chatbox-2.js"></script>
+    
+    <!-- counter js -->
+    <script src="http://127.0.0.1:8000/community/assets/js/counter.js"></script>
+    
+    <!-- popover js for custom popover -->
+    <script src="http://127.0.0.1:8000/community/assets/js/popover.js"></script>
+    
+    <!-- feather icon js-->
+    <script src="http://127.0.0.1:8000/community/assets/js/feather.min.js"></script>
+    
+    <!-- map js -->
+    <script src="http://127.0.0.1:8000/community/assets/js/custom_map.js"></script>
+    
+    <!-- emoji picker js-->
+    <script src="http://127.0.0.1:8000/community/assets/js/emojionearea.min.js"></script>
+    
+    <!-- Bootstrap js-->
+    <script src="http://127.0.0.1:8000/community/assets/js/bootstrap.js"></script>
+    
+    <!-- lazyload js-->
+    <script src="http://127.0.0.1:8000/community/assets/js/lazysizes.min.js"></script>
+    
+    <!-- theme setting js-->
+    <script src="http://127.0.0.1:8000/community/assets/js/theme-setting.js"></script>
+    <script src="http://127.0.0.1:8000/community/assets/select2/js/select2.full.min.js"></script>
+
+    <!-- Theme js-->
+    <script src="http://127.0.0.1:8000/community/assets/js/script.js"></script>
+    <script src="//js.pusher.com/3.1/pusher.min.js"></script>
+    
+    <script>
+        const getMessengerId = () => $("meta[name=id]").attr("content");
+        const access_token = $('meta[name="csrf-token"]').attr("content");
+        auth_id = $("meta[name=url]").attr("data-user");
+        var messenger,
+            typingTimeout,
+            typingNow = 0,
+            temporaryMsgId = 0,
+            defaultAvatarInSettings = null,
+            messengerColor,
+            dark_mode,
+            messages_page = 1;
+
+        function handleVisibilityChange() {
+            if (!document?.hidden) {
+                makeSeen(true);
+            }
+        }
+
+        document.addEventListener("visibilitychange", handleVisibilityChange, false);
+
+        function makeSeen(status) {
+            console.log("first");
+            if (document?.hidden) {
+                return;
+            }
+            // seen
+            $.ajax({
+                url: "/lawyer/community/group/make-seen",
+                method: "POST",
+                data: { _token: access_token, id: getMessengerId() },
+                dataType: "JSON",
+                success: function(res) {
+                    console.log("----")
+                    console.log(res)
+                    console.log("----")
+                    if(res == 1) {
+                        groupSeen(auth_id, getMessengerId(), status)
+                    }
+                    console.log("[seen] Messages seen - " + getMessengerId());
+                }
+            });
+            
+            // return channel.trigger("group-seen", {
+            //     from_id: auth_id, // Me
+            //     group_id: getMessengerId(), // Messenger
+            //     seen: data.status,
+            // });
+        }
+
+        function groupSeen(fromId, groupId, status) {
+            if (groupId == getMessengerId() && fromId == auth_id) {
+                if (status) {
+                    $(".msg-seen")
+                        .find(".fa-check")
+                        .before('<span class="fas fa-check-double seen"></span> ');
+                    $(".msg-seen").find(".fa-check").remove();
+                    console.info("[seen] triggered!");
+                } else {
+                    console.error("[seen] event not triggered!");
+                }
+            }
+        }
+        // channel.bind("group-seen", function (data) {
+        //     if (data.group_id == getMessengerId() && data.from_id == auth_id) {
+        //         if (data.seen == true) {
+        //         $(".msg-seen")
+        //             .find(".fa-check")
+        //             .before('<span class="fas fa-check-double seen"></span> ');
+        //         $(".msg-seen").find(".fa-check").remove();
+        //         console.info("[seen] triggered!");
+        //         } else {
+        //         console.error("[seen] event not triggered!");
+        //         }
+        //     }
+        // });
+
+        $('.comment-section .main-comment').hide();
+        feather.replace();
+        $(".emojiPicker").emojioneArea({
+            inline: true,
+            placement: 'absleft',
+            pickerPosition: "top left",
+        });
+
+       
+        $('#lawyer-multiselect').select2({
+            width: '100%',
+            placeholder: "Select Lawyer",
+            allowClear: true,
+            closeOnSelect:false,
+        })
+
+        // Enable pusher logging - don't include this in production
+        // Pusher.logToConsole = true;
+
+        var pusher = new Pusher('a34a416e0fe588185c8e', {
+        cluster: 'ap2'
+        });
+
+        // Subscribe to the channel we specified in our Laravel Event
+        var channel = pusher.subscribe('post-comment');
+
+        // Bind a function to a Event (the full Laravel class)
+        channel.bind('App\\Events\\PostComment', function(data) {
+            if(data.type === "comment") {
+                $.ajax({
+                    method:"post",
+                    url: "/lawyer/updated-comment",
+                    data: {
+                        "_token": "fktgw3oUmJUk7wulLIxT0ZUESECsz0IneEunvSfK",
+                        'data':data
+                    },
+                    success: function(res){
+                        $(".all-comments-"+data.postComment.post_id).empty();
+                        $(".all-comments-"+data.postComment.post_id).prepend(res.comments);
+                        $("#commentCounts_"+data.postComment.post_id).empty();
+                        $("#commentCounts_"+data.postComment.post_id).prepend(res.count);
+                    }
+                });
+            }else if(data.type === "post") {
+                $.ajax({
+                    method:"post",
+                    url: "/lawyer/updated-post",
+                    data: {
+                        "_token": "fktgw3oUmJUk7wulLIxT0ZUESECsz0IneEunvSfK",
+                        'data':data
+                    },
+                    success: function(res){
+                        // $(".all-posts-"+data.postComment.post_id).empty();
+                        $(".all-posts").prepend(res);
+                    }
+                });
+            }else if(data.type === "groupPost") {
+                $.ajax({
+                    method:"post",
+                    url: "/lawyer/updated-post",
+                    data: {
+                        "_token": "fktgw3oUmJUk7wulLIxT0ZUESECsz0IneEunvSfK",
+                        'data':data
+                    },
+                    success: function(res){
+                        // $(".all-posts-"+data.postComment.post_id).empty();
+                        $(".all-group-posts").prepend(res);
+                    }
+                });
+            }else if(data.type === "groupMessage") {
+                $.ajax({
+                    method:"post",
+                    url: "/lawyer/community/group/latest-group-chat",
+                    data: {
+                        "_token": "fktgw3oUmJUk7wulLIxT0ZUESECsz0IneEunvSfK",
+                        'data':data
+                    },
+                    success: function(res){
+                        // $(".all-posts-"+data.postComment.post_id).empty();
+                        $(".sending").css('display', 'none');
+                        $(".messages-content").append(res);
+                        $("#chat-text").animate({ scrollTop: $('#chat-text').prop("scrollHeight")}, 1000);
+                    }
+                });
+            }
+        }); 
+
+        var input = document.getElementById("msgFieldFirst");
+        input.addEventListener("keyup", function(event) {
+            if (event.code === "Enter") {
+                sendMessage()
+            }
+        });
+
+        function sendMessage() {
+            temporaryMsgId += 1;
+            let tempID = `temp_${temporaryMsgId}`;
+            const messagesContainer = $(".chat-history");
+            const messageInput = $("#message-form .m-send")
+            const inputValue = $.trim(messageInput.val());
+            $(".sending").css('display', 'block');
+            $(".sending").css('text-align', 'center');
+            var msg = $(".emojionearea-editor").text();
+            var groupId = $("#groupId").val();
+            $("#msgField").val("")            
+            $(".emojionearea-editor").empty();
+            let hasFile = !!$(".upload-attachment").val();  
+            // const formData = "abcd";
+            const formData = new FormData($("#message-form")[0]);            
+            formData.append("_token", access_token);
+            formData.append("temporaryMsgId", tempID);
+            formData.append("msg", msg);
+            // document.getElementById('msgField').setAttribute("style","padding-left:5%;overflow:hidden;overflow-wrap:break-word;");
+            // if(msg) {
+            $.ajax({
+                method:"post",
+                url: "/lawyer/community/group/send-message/"+groupId,
+                // data: {
+                //     "_token": "fktgw3oUmJUk7wulLIxT0ZUESECsz0IneEunvSfK",
+                //     'msg':msg,
+                //     'data':formData 
+                // },
+                data: formData,
+                dataType: "JSON",
+                processData: false,
+                contentType: false,
+                beforeSend: () => {
+                    // remove message hint
+                    $(".messages").find(".message-hint").remove();
+                    // append a temporary message card
+                    if (hasFile) {
+                    messagesContainer
+                        .find(".messages")
+                        .append(
+                        sendTempMessageCard(
+                            inputValue + "\n" + loadingSVG("28px"),
+                            tempID
+                        )
+                        );
+                    } else {
+                    messagesContainer
+                        .find(".messages")
+                        .append(sendTempMessageCard(inputValue, tempID));
+                    }
+                    // scroll to bottom
+                    scrollToBottom(messagesContainer);
+                    messageInput.css({ height: "42px" });
+                    // form reset and focus
+                    $("#message-form").trigger("reset");
+                    cancelAttachment();
+                    messageInput.focus();
+                },
+                success: function(res){                    
+                    $("#chat-text").animate({ scrollTop: $('#chat-text').prop("scrollHeight")}, 1000);
+                    $('#chat-text').scrollTop($('#chat-text')[0].scrollHeight);
+                }
+            });
+            // }
+        }
+
+        function sendTempMessageCard(message, id) {
+  
+            console.log("message", message);
+            return `
+            <div class="message-card mc-sender" data-id="${id}">
+                <p>
+                    ${message}
+                    <sub>
+                        <span class="far fa-clock"></span>
+                    </sub>
+                </p>
+            </div>
+            `;
+        }
+
+        function cancelAttachment() {
+            $(".message-box").find(".attachment-preview").remove();
+            $(".upload-attachment").replaceWith(
+                $(".upload-attachment").val("").clone(true)
+            );
+        }
+
+        function scrollToBottom(container) {
+            $(container)
+                .stop()
+                .animate({
+                scrollTop: $(container)[0].scrollHeight,
+                });
+        }
+
+
+        const escapeHtml = (unsafe) => {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+            };
+
+        function loadingSVG(size = "25px", className = "", style = "") {
+            return `
+            <svg style="${style}" class="loadingSVG ${className}" xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 40 40" stroke="#ffffff">
+            <g fill="none" fill-rule="evenodd">
+            <g transform="translate(2 2)" stroke-width="3">
+            <circle stroke-opacity=".1" cx="18" cy="18" r="18"></circle>
+            <path d="M36 18c0-9.94-8.06-18-18-18" transform="rotate(349.311 18 18)">
+            <animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur=".8s" repeatCount="indefinite"></animateTransform>
+            </path>
+            </g>
+            </g>
+            </svg>
+            `;
+        }
+
+        function attachmentTemplate(fileType, fileName, imgURL = null) {
+            if (fileType != "image") {
+                return (
+                `
+            <div class="attachment-preview" style="margin-left: 5%;">
+            <span class="fas fa-times cancel"></span>
+            <p style="padding:0px 30px;"><span class="fas fa-file"></span> ` +
+                escapeHtml(fileName) +
+                `</p>
+            </div>
+            `
+                );
+            } else {
+                return (
+                `
+            <div class="attachment-preview" style="margin-left: 5%;">
+            <span class="fas fa-times cancel"></span>
+            <div class="image-file chat-image" style="background-image: url('` +
+                imgURL +
+                `');"></div>
+            <p><span class="fas fa-file-image"></span> ` +
+                escapeHtml(fileName) +
+                `</p>
+            </div>
+            `
+                );
+            }
+        }
+
+        $("body").on("change", ".upload-attachment", (e) => {
+            let file = e.target.files[0];
+            if (!attachmentValidate(file)) return false;
+            let reader = new FileReader();
+            let sendCard = $(".message-box");
+            reader.readAsDataURL(file);
+            reader.addEventListener("loadstart", (e) => {
+            $("#message-form").before(loadingSVG());
+            });
+            reader.addEventListener("load", (e) => {
+            $(".message-box").find(".loadingSVG").remove();
+            if (!file.type.match("image.*")) {
+                // if the file not image
+                sendCard.find(".attachment-preview").remove(); // older one
+                sendCard.prepend(attachmentTemplate("file", file.name));
+            } else {
+                // if the file is an image
+                sendCard.find(".attachment-preview").remove(); // older one
+                sendCard.prepend(
+                attachmentTemplate("image", file.name, e.target.result)
+                );
+            }
+            });
+        });
+
+        function attachmentValidate(file) {
+            const fileElement = $(".upload-attachment");
+            const { name: fileName, size: fileSize } = file;
+            const fileExtension = fileName.split(".").pop();
+            if (
+            !getAllowedExtensions.includes(fileExtension.toString().toLowerCase())
+            ) {
+            alert("Only PDF format is allowed");
+            fileElement.val("");
+            return false;
+            }
+            // Validate file size.
+            if (fileSize > getMaxUploadSize) {
+            alert("File is too large!");
+            return false;
+            }
+            return true;
+        }
+
+    </script>
+    
+    </body>
+
+</html>

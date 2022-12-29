@@ -1,0 +1,287 @@
+
+.ask-lawyer-main {
+    background: rgba(194, 221, 228, 0.5);
+    position: initial;
+}
+
+
+.ask-lawyer-form {
+    background: #FFFFFF;
+    border-radius: 15px;
+    height: fit-content;
+}
+
+.bg-gray {
+    background: #EFEFEF;
+    padding: inherit;
+    border-radius: 13px;
+}
+
+.bg-white {
+    background: white;
+    padding: inherit;
+    border-radius: 13px;
+}
+
+.need-lawyer {
+    color: #156075;
+}
+
+@media only screen and (max-width: 600px) {
+    .ask-lawyer-main {
+        height: 390px!important;
+        padding: 6%!important;
+        margin: auto!important;
+    }
+
+    .hangout-img {
+        width: 35px!important;
+    }
+
+    .looking-else {
+        padding: 10px!important;
+        font-size: 15px!important;
+    }
+
+    .advice-btns {
+        width: 14.83px!important;
+        margin-top: 5%!important;
+        vertical-align: text-bottom;
+    }
+
+    .advice-txt {
+        font-size: 7px!important;
+        align-self: flex-end!important;
+        margin-top: -6%!important
+    }    
+
+    .home-banner {
+        margin-top: 17%!important;
+    }
+
+    .lawyers-section {
+        margin-left: -1%!important;
+    }
+
+    .lawyer-3 {
+        margin-left: 40%!important;
+        margin-top: 1%!important;
+    }
+
+    .lawyers {
+        position: relative;
+        width: 107px;
+        left: 58%;
+        background: #FFFFFF;
+        box-shadow: 0px 10px 10px rgb(0 0 0 / 10%);
+        border-radius: 15px;
+        margin-right: 1%;
+    }
+
+    .need-lawyer {
+        font-size: 23px!important;
+    }
+
+    .single-lawyer {
+        margin-top: -4.5rem!important;
+        width: 125%!important;
+    }
+
+    .buy-quote {
+        width: 21%!important;
+        vertical-align: middle;
+    }
+
+    .buy-quote-sec {
+        margin-top: -4%!important;
+    }
+
+    .need-lawyer-descr {
+        font: 14px "Poppins-Regular"!important;
+    }
+
+    .modal-popup {
+        margin-left: -3%!important;
+    }
+
+    .advice-popup-body {
+        margin-left: -4%!important;
+        margin-top: -2%!important;
+        margin-bottom: -6%!important;
+    }
+
+    .popup-lawyers {
+        margin-left: 10%!important;
+    }
+
+    .b-q-sec-popup {
+        margin-left: 7%!important;
+    }
+} 
+
+
+@media only screen and (min-width: 600px) {
+    .ask-lawyer-main {
+        margin-left: 2%!important;        
+        height: 390px!important;
+    }
+
+
+    .looking-else {
+        padding: 10px!important;
+        font-size: 17px!important;
+    }
+
+    .advice-btns {
+        width: 22.83px!important;
+        margin-top: 5%!important;
+        vertical-align: text-bottom;
+    }
+
+    .advice-txt {
+        font-size: 11px!important;
+        align-self: flex-end!important;
+        margin-top: -6%!important
+    }    
+    
+} 
+
+
+@media only screen and (min-width: 768px) {
+    .ask-lawyer-main {
+        margin-left: 2%!important;        
+        height: 390px!important;
+    }
+
+    .need-lawyer {
+
+    }
+
+    .hangout-img {
+        /* width: inherit!important; */
+    }
+
+    .looking-else {
+        padding: 10px!important;
+        font-size: 17px!important;
+    }
+
+    .advice-btns {
+        width: 22.83px!important;
+        margin-top: 5%!important;
+        vertical-align: text-bottom;
+    }
+
+    .advice-txt {
+        font-size: 11px!important;
+        align-self: flex-end!important;
+        margin-top: -6%!important
+    }    
+} 
+
+@media only screen and (min-width: 992px) {    
+    .ask-lawyer-main {
+        margin-left: 2%!important;        
+        height: 390px!important;
+    }
+
+    .looking-else {
+        padding: 10px!important;
+        font-size: 17px!important;
+    }
+
+    .advice-btns {
+        width: 22.83px!important;
+        margin-top: 5%!important;
+        vertical-align: text-bottom;
+    }
+
+    .advice-txt {
+        font-size: 11px!important;
+        align-self: flex-end!important;
+        margin-top: -6%!important
+    }    
+} 
+
+@media only screen and (min-width: 1200px) {
+    .ask-lawyer-main {
+        margin-left: 2%!important;        
+        height: 390px!important;
+    }
+
+    .looking-else {
+        padding: 10px!important;
+        font-size: 17px!important;
+    }
+
+    .advice-btns {
+        width: 22.83px!important;
+        margin-top: 5%!important;
+        vertical-align: text-bottom;
+    }
+
+    .advice-txt {
+        font-size: 11px!important;
+        align-self: flex-end!important;
+        margin-top: -6%!important
+    }    
+
+    .lawyers-section {
+        margin-left: -1%!important;
+    }
+
+    .lawyer-3 {
+        margin-left: 40%!important;
+        margin-top: 1%!important;
+    }
+
+    .lawyers {
+        position: relative;
+        width: 107px;
+        left: 58%;
+        background: #FFFFFF;
+        box-shadow: 0px 10px 10px rgb(0 0 0 / 10%);
+        border-radius: 15px;
+        margin-right: 1%;
+    }
+
+    .need-lawyer {
+        font-size: 23px!important;
+    }
+
+    .single-lawyer {
+        margin-top: -4.5rem!important;
+        width: 125%!important;
+    }
+
+    .buy-quote {
+        width: 21%!important;
+        vertical-align: middle;
+    }
+
+    .buy-quote-sec {
+        margin-top: -4%!important;
+    }
+
+    .need-lawyer-descr {
+        font: 14px "Poppins-Regular"!important;
+    }
+
+    .modal-popup {
+        margin-left: -3%!important;
+    }
+
+    .advice-popup-body {
+        margin-left: -4%!important;
+        margin-top: -2%!important;
+        margin-bottom: -6%!important;
+    }
+
+    .popup-lawyers {
+        margin-left: 10%!important;
+    }
+
+    .b-q-sec-popup {
+        margin-left: 7%!important;
+    }
+}

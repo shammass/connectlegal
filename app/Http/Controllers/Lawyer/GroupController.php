@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Lawyer;
 
+use Alert;
 use App\Events\PostComment;
 use App\Http\Controllers\Controller;
 use App\Models\ChatNotification;
@@ -12,8 +13,7 @@ use App\Models\Lawyer;
 use App\Models\Post;
 use Chatify\Facades\ChatifyMessenger as Chatify;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Validator;
 use Str;
 
 class GroupController extends Controller
@@ -22,35 +22,48 @@ class GroupController extends Controller
         $user = auth()->user();
         $groupsByMe = Group::whereAdminId($user->id)
         ->orderBy('created_at', 'DESC')
-        ->get();
-
+        ->paginate(4, '*', 'groups-created-by-me');
+        
         $groupsIamIn = GroupMember::whereMemberId($user->id)
         ->orderBy('created_at', 'DESC')
-        ->get();
-
+        ->paginate(4, '*', 'groups-im-in');
+        
         $lawyers = Lawyer::where([
             ['user_id', '!=', $user->id],
             ['is_verified', 1]
         ])->get();
 
-        return view('lawyer.community.groups.index', compact('groupsByMe', 'groupsIamIn', 'lawyers'));
+        // return view('lawyer.community.groups.index', compact('groupsByMe', 'groupsIamIn', 'lawyers'));
+        return view('lawyer.pages.community.groups.list', compact('groupsByMe', 'groupsIamIn', 'lawyers'));
     }
 
     public function store(Request $request) {
-        $group = Group::create([
-            'admin_id'      => auth()->user()->id,
-            'group_name'    => $request->group,
-            'about'         => $request->about,
+        $validator = Validator::make($request->all(),[
+            'group'     => 'required',   
+            'about'     => 'required',
+            'lawyers'   => 'required|array|min:1'
         ]);
 
-        foreach($request->lawyers as $k => $lawyer) {
-            GroupMember::create([
-                'group_id'  => $group->id,
-                'member_id' => $lawyer
+        if($validator->fails()) {
+            Alert::error('Error', 'Please go back to the form to view the errors');
+            return redirect()->route('lawyer.community.groups')->withErrors($validator);
+        }else {
+            $group = Group::create([
+                'admin_id'      => auth()->user()->id,
+                'group_name'    => $request->group,
+                'about'         => $request->about,
             ]);
+    
+            foreach($request->lawyers as $k => $lawyer) {
+                GroupMember::create([
+                    'group_id'  => $group->id,
+                    'member_id' => $lawyer
+                ]);
+            }
+            Alert::success('Success', 'Created group successfully');
+            return redirect()->route('lawyer.community.groups');
         }
 
-        return redirect()->route('lawyer.community.group.feed', $group->id)->with('success', 'Created group successfully');
     }
 
     public function groupFeed($groupId) {
@@ -87,7 +100,8 @@ class GroupController extends Controller
             'slug'          => Str::slug($request->title)
         ]);
         event(new PostComment($post->slug, 'groupPost'));
-        return redirect()->route('lawyer.community.group.feed', $groupId)->with('success','Your post has been successfully added!');
+        Alert::success('Success', 'Your post has been successfully added');
+        return redirect()->route('lawyer.community.group.feed', $groupId);
     }
 
     public function groupChat($groupId) {

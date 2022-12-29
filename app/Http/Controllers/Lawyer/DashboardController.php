@@ -36,7 +36,9 @@ class DashboardController extends Controller
             'to_user' => auth()->user()->id,
             'seen'    => 0
         ])->get();
-        return view('lawyer.dashboard', compact('hiredData', 'chatNotifications'));
+        $questionAnswered = ForumAnswers::whereLawyerId(auth()->user()->id)->count();
+        // return view('lawyer.dashboard', compact('hiredData', 'chatNotifications'));
+        return view('lawyer.pages.dashboard', compact('hiredData', 'chatNotifications', 'questionAnswered'));
     }
 
     public function profile() {

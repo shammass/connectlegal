@@ -39,14 +39,14 @@
                     <p>Connect with top Advocates or Legal consultants and chat with them all across UAE We provide a platform for legal advice seekers to obtain expert advice from highly qualified lawyers. Also, check out our latest blogs and articles and stay up-to-date with legal information.</p>
                     <div class="contact-now-btn">
                         <button type="btn" class="btn contact-now-button" data-bs-toggle="modal" data-bs-target="#log-inmodal">Register as user <span>
-                            <img src="new-design/assets/image/home/left-white-arrow.png" alt="">
+                            <img src="/new-design/assets/image/home/left-white-arrow.png" alt="">
                         </span>
                         </button>
                     </div>
                 </div>
                 <div class="col-md-6 order-smm-1">
                     <div class="connect-clients-img">
-                        <img src="new-design/assets/image/home/weconnect-client-img.jpeg" alt="">
+                        <img src="/new-design/assets/image/home/weconnect-client-img.jpeg" alt="">
                     </div>
                 </div>
             </div>

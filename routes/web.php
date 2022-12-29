@@ -63,8 +63,14 @@ Route::post('/store-testimonial',       [CommonController::class, 'storeTestimon
 Route::get('/testimonials',             [CommonController::class, 'testimonials'])->name('testimonials');
 Route::get('/book-a-meeting/{id}',      [CommonController::class, 'bookAMeeting'])->name('book-a-meeting');
 
+#Page practice area
+Route::get('/page-practice-area',               [CommonController::class, 'pagePracticeArea'])->name('page-practice-area');
+Route::get('/page-practice-area/details',       [CommonController::class, 'pagePracticeAreaDetails'])->name('page-practice-area');
+Route::get('/page-practice-area/details/1',       [CommonController::class, 'pagePracticeAreaDetails'])->name('page-practice-area');
+
 #Q&A
 Route::get('/question-answers',                  [CommonController::class, 'questionAnswer'])->name('question-answer');
+Route::get('/question-answers/list',             [CommonController::class, 'questionAnswerListView'])->name('question-answer.list');
 Route::get('/question-answer/view/{slug}',       [CommonController::class, 'viewQA'])->name('question-answer.view');
 
 Route::get('/unauthenticated-user',           [LoginController::class, 'unauthenticated'])->name('unauthenticated');
@@ -237,7 +243,7 @@ Route::group(['middleware' => ['web']], function () {
             Route::post('/profile/update/{id}',         [LawyerDashboardController::class, 'updateProfile'])->name('lawyer.update_profile');
             Route::post('/close-notification/{id}',     [LawyerDashboardController::class, 'closeNotification'])->name('lawyer.close-notification');
             
-            Route::get('/chat-online-requests',                 [ChatOnlineRequestController::class, 'requests'])->name('lawyer.online-chat-requests');
+            Route::get('/online-chat-requests',                 [ChatOnlineRequestController::class, 'requests'])->name('lawyer.online-chat-requests');
             Route::post('/accept/chat-online-request/{id}',     [ChatOnlineRequestController::class, 'acceptRequest'])->name('lawyer.accept-request');
             Route::post('/complete/chat-online-request/{id}',   [ChatOnlineRequestController::class, 'completeRequest'])->name('lawyer.complete-request');
 

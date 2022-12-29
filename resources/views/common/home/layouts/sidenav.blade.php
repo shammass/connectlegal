@@ -1,46 +1,59 @@
-<div id="mySidenav" class="sidenav">
+<div id="mySidenav" class="sidenav add-width">
     <div class="sidenav-wraper">
-        <img id="closeNav" class="side-nav-logo" src="new-design/assets/image/home/side-nav-logo.png" alt="">
+        <img id="closeNav" class="side-nav-logo" src="/new-design/assets/image/home/side-nav-logo.png" alt="">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
-                <span class="icon-Vector-10"></span>Main menú </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
-                <span class="lawyers-online">
-                    <span class="icon-Group-1"></span>Lawyers Online </spn>
-                </button>
-            </li>
+            @if(\Request::route()->getName() === "howItWorks")
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                    <img src="/new-design/assets/image/home/menu.png" alt="" class="menu-icon"> Main menu </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                    <span class="lawyers-online">
+                        <img src="/new-design/assets/image/home/user.png" alt="" class="lawyers-online-icon"> Lawyers Online  </spn>
+                    </button>
+                </li>
+            @else 
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                    <img src="/new-design/assets/image/home/menu.png" alt="" class="menu-icon"> Main menu </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                    <span class="lawyers-online">
+                        <img src="/new-design/assets/image/home/user.png" alt="" class="lawyers-online-icon"> Lawyers Online  </spn>
+                    </button>
+                </li>
+            @endif
         </ul>
         <div class="all" id="lawyer-online-count">
-            <h4>Lawyers online ({{$onlineLawyers}})</h4>
+            <h4 class="lawyer-online-count-h4">Lawyers online ({{$onlineLawyers}})</h4>
             <div class="all-img">
-                <img src="new-design/assets/image/home/all.png" alt="">
-                <h4>All</h4>
+                <img src="/new-design/assets/image/home/all.png" alt="">
+                <h4 class="lawyer-online-count-h4">All</h4>
             </div>
         </div>
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            <div class="tab-pane fade {{\Request::route()->getName() === 'howItWorks' ? '' : 'show active'}}" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                 <ul class="mainmenu-list">
                 <li>
-                    <a class="active" href="/">
+                    <a class="{{\Request::route()->getName() === 'home' ? 'active' : ''}}" href="/">
                     <span class="icon-Vector-1"></span>Home </a>
                 </li>
                 <li>
-                    <a href="{{route('howItWorks')}}">
+                    <a class="{{\Request::route()->getName() === 'howItWorks' ? 'active' : ''}}" href="{{route('howItWorks')}}">
                     <span class="icon-Vector-2"></span>How It Works </a>
                 </li>
                 <li>
-                    <a href="{{route('lawyer.register-page')}}">
+                    <a class="{{\Request::route()->getName() === 'lawyer.register-page' ? 'active' : ''}}" href="{{route('lawyer.register-page')}}">
                     <span class="icon-Vector-3"></span>For Lawyers </a>
                 </li>
                 <li>
-                    <a href="{{route('question-answer')}}">
+                    <a class="{{\Request::route()->getName() === 'question-answer' ? 'active' : ''}}" href="{{route('question-answer')}}">
                     <span class="icon-Vector-4"></span>Q & A </a>
                 </li>
                 <li>
-                    <a href="{{route('testimonials')}}">
+                    <a class="{{\Request::route()->getName() === 'testimonials' ? 'active' : ''}}" href="{{route('testimonials')}}">
                     <span class="icon-Vector-5"></span>Testimonials </a>
                 </li>
                 <li>
@@ -48,45 +61,45 @@
                     <span class="icon-Vector-6"></span>Our Lawyers </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a class="{{\Request::route()->getName() === 'home' ? 'active' : ''}}" href="">
                     <span class="icon-Group-2"></span>Lawyers </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a class="{{\Request::route()->getName() === 'page-practice-area' ? 'active' : ''}}" href="{{route('page-practice-area')}}">
                     <span class="icon-Vector-7"></span>Practice Area </a>
                 </li>
                 <li>
-                    <a href="{{route('blogs-articles', 1)}}">
+                    <a class="{{\Request::route()->getName() === 'blogs-articles' ? 'active' : ''}}" href="{{route('blogs-articles', 1)}}">
                     <span class="icon-Vector-8"></span>Blogs & Articles </a>
                 </li>
                 <li>
-                    <a href="{{route('hire-a-lawyer')}}">
+                    <a class="{{\Request::route()->getName() === 'hire-a-lawyer' ? 'active' : ''}}" href="{{route('hire-a-lawyer')}}">
                     <span class="icon-Group-6"></span>Hire Lawyer </a>
                 </li>
                 <li>
-                    <a href="{{route('legal.article-list')}}">
+                    <a class="{{\Request::route()->getName() === 'legal.article-list' ? 'active' : ''}}" href="{{route('legal.article-list')}}">
                     <span class="icon-Vector-9"></span>Legal Articles </a>
                 </li>
                 <li>
-                    <a href="">Login</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Login</a>
                 </li>
                 </ul>
             </div>
-            <div class="tab-pane fade online-offline" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+            <div class="tab-pane fade online-offline {{\Request::route()->getName() === 'howItWorks' ? 'show active' : ''}}" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                 <div class="lawyers-online">
                     @foreach($lawyers as $k => $lawyer)
                         @if($lawyer->user->isOnline())
                             <div class="lawyers-online-card">
                                 <div class="online-card-profile">
-                                    <img src="/storage/{{$lawyer->profile_pic}}" style="height: 40px;border-radius: 20px;" alt="">
-                                    <img class="active-circle" src="new-design/assets/image/home/active-circle.png" alt="">
+                                    <img src="/storage/{{$lawyer->profile_pic}}" class="lawyer-online-prof-pic" style="height: 40px;border-radius: 20px;" alt="">
+                                    <img class="active-circle" src="/new-design/assets/image/home/active-circle.png" alt="">
                                     <div class="card-profile-designation">
-                                        <h4>{{$lawyer->user->name}}</h4>
-                                        <h5>{{$lawyer->emirates}}</h5>
+                                        <h4 class="lawyer-list-name">{{$lawyer->user->name}}</h4>
+                                        <h5 class="lawyer-list-emirate">{{$lawyer->emirates}}</h5>
                                     </div>
                                 </div>
                                 {{-- <div class="premium">
-                                    <img src="new-design/assets/image/home/Vector (10).png" alt="">
+                                    <img src="/new-design/assets/image/home/Vector (10).png" alt="">
                                     <h6>Premium</h6>
                                 </div> --}}
                             </div>
@@ -100,21 +113,21 @@
                 </div>
                 <div class="lawyers-offline">
                     <div class="lawyers-offline-card">
-                        <h4>Lawyers offline</h4>
+                        <h4 class="lawyer-online-count-h4">Lawyers offline</h4>
                     </div>
                     @foreach($lawyers as $k => $lawyer)
                         @if(!$lawyer->user->isOnline())
                             <div class="lawyers-online-card lawyers_ofline_card">
                                 <div class="online-card-profile">
-                                    <img src="/storage/{{$lawyer->profile_pic}}" style="height: 40px;border-radius: 20px;" alt="">
-                                    <img class="active-circle" src="new-design/assets/image/home/enable-circle.png" alt="">
+                                    <img src="/storage/{{$lawyer->profile_pic}}" class="lawyer-online-prof-pic" style="height: 40px;border-radius: 20px;" alt="">
+                                    <img class="active-circle" src="/new-design/assets/image/home/enable-circle.png" alt="">
                                     <div class="card-profile-designation">
-                                        <h4>{{$lawyer->user->name}}</h4>
-                                        <h5>{{$lawyer->emirates}}</h5>
+                                        <h4 class="lawyer-list-name">{{$lawyer->user->name}}</h4>
+                                        <h5 class="lawyer-list-emirate">{{$lawyer->emirates}}</h5>
                                     </div>
                                 </div>
                                 {{--<div class="premium">
-                                    <img src="new-design/assets/image/home/Vector (10).png" alt="">
+                                    <img src="/new-design/assets/image/home/Vector (10).png" alt="">
                                     <h6>Premium</h6>
                                 </div>--}}
                             </div>

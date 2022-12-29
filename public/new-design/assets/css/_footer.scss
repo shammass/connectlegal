@@ -2,6 +2,12 @@
     background: #208C84;
     padding: 50px 0px 0px 0px;
 
+    &.with-sidebar-always-open {
+        @media(min-width:991px) {
+            margin-left: 300px;
+        }
+    }
+
     @media(max-width:991px) {
         padding: 29px 0px 0px 0px;
     }

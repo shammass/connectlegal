@@ -2,22 +2,26 @@
 
 namespace App\Http\Controllers\Lawyer;
 
+use Alert;
 use App\Http\Controllers\Controller;
 use App\Models\ArbitrationArea;
 use App\Models\Lawyer;
 use App\Models\LawyerService;
 use App\Models\Services;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class LawyerServiceController extends Controller
 {
     public function index() {
         $services = LawyerService::whereLawyerId(auth()->user()->id)->get();
+        $areas = ArbitrationArea::pluck('area', 'id');
         $arbitrationArea = Lawyer::whereUserId(auth()->user()->id)->first();
         if(!$arbitrationArea->arbitration_area_id) {
             return redirect()->route('lawyer.profile')->with('error', 'Please add your arbitration area');
         }else {
-            return view('lawyer.services.index', compact('services', 'arbitrationArea'));
+            // return view('lawyer.services.index', compact('services', 'arbitrationArea'));
+            return view('lawyer.pages.services.list', compact('services', 'arbitrationArea', 'areas'));
         }
     }
 
@@ -26,24 +30,37 @@ class LawyerServiceController extends Controller
     }
 
     public function store(Request $request) {
-        $this->validate(request(), [
+        $validator = Validator::make($request->all(),[
+            'area'          => 'required',
             'title'         => 'required:unique:services',           
-            'description'   => 'required',           
+            'description'   => 'required',     
+            'fee'           => 'required'      
         ]);
+        if($validator->fails()) {
+            Alert::error('Error', 'Please go back to the form to view the errors');
+            return redirect()->route('lawyer.services')->withErrors($validator)->withInput();
+        }else {
+            $service = Services::create([
+                'arbitration_area_id'   => $request->area,
+                'title'                 => $request->title,
+                'description'           => $request->description,
+                'added_by'              => auth()->user()->id
+            ]);
 
-        $service = Services::create([
-            'arbitration_area_id'   => $request->area,
-            'title'                 => $request->title,
-            'description'           => $request->description,
-            'added_by'              => auth()->user()->id
-        ]);
-
-        LawyerService::create([
-            'service_id' => $service->id,
-            'lawyer_id'  => auth()->user()->id
-        ]);
-
-        return redirect()->route('lawyer.services')->with('success','Service added successfully');
+            LawyerService::create([
+                'service_id' => $service->id,
+                'lawyer_id'  => auth()->user()->id,
+                'lawyer_fee' => $request->fee
+            ]);
+            Alert::success('success', "Service added successfully");
+            return redirect()->route('lawyer.services');
+        }
+    }
+    
+    public function edit($id) {
+        $areas = ArbitrationArea::pluck('area', 'id');
+        $service = Services::whereId($id)->first();
+        return (string) view('lawyer.pages.services.edit', compact('service', 'areas'));
     }
 
     public function update(Request $request, $id) { 
@@ -54,18 +71,24 @@ class LawyerServiceController extends Controller
 
         Services::updateOrCreate(['id' => $id],
         [
+            'arbitration_area_id'   => $request->area,
             'title'                 => $request->title,
             'description'           => $request->description,   
         ]
         );
+        
+        $updateFee = LawyerService::whereServiceId($id)->first();
+        $updateFee->lawyer_fee = $request->fee;
+        $updateFee->save();
 
-        return redirect()->route('lawyer.services')->with('success','Service updated successfully');
+        Alert::success('success', "Service updated successfully");
+        return redirect()->route('lawyer.services');
     }
 
     public function delete($id) {
         Services::findOrFail($id)->delete();
-
-        return redirect()->route('lawyer.services')->with('success','Service deleted successfully');
+        Alert::success('success', "Service deleted successfully");
+        return redirect()->route('lawyer.services');
     }
 
     public function addFee(Request $request, $id) {
@@ -77,7 +100,7 @@ class LawyerServiceController extends Controller
             'lawyer_fee'  => $request->fee,
             ]
         );
-
-        return redirect()->route('lawyer.services', $request->service_id)->with('success','Added fee successfully');
+        Alert::success('success', "Added service fee successfully");
+        return redirect()->route('lawyer.services', $request->service_id);
     }
 }

@@ -1,10 +1,8 @@
 <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
-    <span style="" id="openNav">
-        <img class="open-btn" src="new-design/assets/image/home/hamburgor-white.png" alt="">
-    </span>
-    <a class="navbar-brand" href="#">Connect Legal</a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
+        <span style="" id="openNav"><img class="open-btn" src="/new-design/assets/image/home/hamburgor-white.png" alt=""></span>
+        <a class="navbar-brand" href="/">Connect Legal</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home</a>
             </li>
@@ -21,7 +19,10 @@
                 <a class="nav-link" href="{{route('testimonials')}}">Testimonials</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Practice Area</a>
+                <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('page-practice-area')}}">Practice Area</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Lawyers</a>
@@ -34,8 +35,8 @@
                 <li class="nav-item">
                     <div class="navlist-profile">
                         <div class="navlist-profile-img">
-                            <img src="new-design/assets/image/home/register3.png" alt="">
-                            <img class="active_circle" src="new-design/assets/image/home/active-circle.png" alt="">
+                            <img src="/new-design/assets/image/home/register3.png" alt="">
+                            <img class="active_circle" src="/new-design/assets/image/home/active-circle.png" alt="">
 
                         </div>
 
@@ -49,15 +50,24 @@
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button"
                                         data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="new-design/assets/image/home/white-dot.png" alt="">
+                                        <img src="/new-design/assets/image/home/white-dot.png" alt="">
                                     </button>
                                     @if(auth()->user()->user_type == 3)
                                         <ul class="dropdown-menu profile-dropdown">
-                                            <li><a class="dropdown-item" href="#"><img src="new-design/assets/image/home/Vector (19).png"
+                                            <li><a class="dropdown-item" href="#"><img src="/new-design/assets/image/home/Vector (19).png"
                                                         alt="">My Profile</a></li>
-                                            <li><a class="dropdown-item" href="#"><img src="new-design/assets/image/home/Vector (19).png"
+                                            <li><a class="dropdown-item" href="#"><img src="/new-design/assets/image/home/Vector (19).png"
                                                         alt="">Dashboard</a></li>
-                                            <li><a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"><img src="new-design/assets/image/home/Vector (19).png"
+                                            <li><a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"><img src="/new-design/assets/image/home/Vector (19).png"
+                                                        alt="">Log Out</a></li>
+                                        </ul>
+                                    @else 
+                                        <ul class="dropdown-menu profile-dropdown">
+                                            <li><a class="dropdown-item" href="#"><img src="/new-design/assets/image/home/Vector (19).png"
+                                                        alt="">My Profile</a></li>
+                                            <li><a class="dropdown-item" href="{{route('lawyer.dashboard')}}"><img src="/new-design/assets/image/home/Vector (19).png"
+                                                        alt="">Dashboard</a></li>
+                                            <li><a class="dropdown-item" href="{{route('logout')}}" onclick="return confirm('Are you sure you want to logout?')"><img src="/new-design/assets/image/home/Vector (19).png"
                                                         alt="">Log Out</a></li>
                                         </ul>
                                     @endif

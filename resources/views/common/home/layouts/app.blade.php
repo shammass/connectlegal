@@ -19,7 +19,7 @@
             @endphp
             @include('common.home.layouts.nav')
         </header>
-        <main>
+        <main class="always-open-content" id="always-open-content">
             <div class="fix-heights"></div>
             @include('sweetalert::alert')
             @yield('content')
@@ -37,7 +37,7 @@
             // Bind a function to a Event (the full Laravel class)
             channel.bind('App\\Events\\LawyerLoginLogout', function(data) {
                 if(data.type === "lawyerLoginLogout") {
-                    $.ajax({
+                        $.ajax({
                         method:"get",
                         url: "/online-offline-lawyers/nav",
                         success: function(res){
@@ -49,6 +49,8 @@
                     });
                 }
             }); 
+
+           
 
             function validateLogin(event) {
                 valid = true
@@ -71,6 +73,25 @@
                 }            
             }
 
+            if(window.innerWidth > 425) {
+                $('.slick').slick({
+                    dots: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    autoplay: false,
+                    autoplaySpeed: 2000,
+                    adaptiveHeight: true
+                });
+            }else {
+                $('.slick').slick({
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: false,
+                    autoplaySpeed: 2000,
+                });
+            }
+            
         </script>
         @stack('script')
     </body>

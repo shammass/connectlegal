@@ -8,7 +8,7 @@
                 Process for Legal Services
             </p>
         </div>
-        <div class="row">
+        <div class="col-md-12 row">
             <div class="col-md-4">
                 <div class="legal_services_card mt-top">
                     <div class="legal_services_card_wraper bglight">
@@ -16,7 +16,7 @@
                             <h2 class="text-green">1</h2>
                         </div>
                         <div class="card_description">
-                            <img src="new-design/assets/image/home/Frame.png" alt="">
+                            <img src="/new-design/assets/image/home/Frame.png" alt="">
                             <div class="">
                                 <p class="text-green">Find the best-suited lawyer for your query</p>
                                 <button class="btn btn-light text-green" type="btn">See more
@@ -43,7 +43,7 @@
                                 <h2 class="text-blue">2</h2>
                             </div>
                             <div class="card_description">
-                                <img src="new-design/assets/image/home/Vector (3).png" alt="">
+                                <img src="/new-design/assets/image/home/Vector (3).png" alt="">
                                 <div class="">
                                     <p class="text-blue">View Lawyer Profile</p>
                                     <button class="btn btn-dark text-blue" type="btn">
@@ -66,7 +66,7 @@
 
                         </div>
                         <div class="card_description">
-                            <img src="new-design/assets/image/home/Frame.png" alt="">
+                            <img src="/new-design/assets/image/home/Frame.png" alt="">
                             <div class="">
                                 <p>Book an appointment instantly</p>
                                 <button class="btn btn-yellow text-yellow" type="btn">See more<span><i

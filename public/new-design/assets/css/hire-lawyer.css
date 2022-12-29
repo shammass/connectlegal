@@ -1,0 +1,59 @@
+.hire-card {
+    background-color: #FFFFFF;
+}
+
+.see_more_btn {
+    /* position: absolute; */
+    width: 132px;
+    height: 37px;
+    /* left: 965px;
+    top: 1102px; */
+    background: rgba(194, 221, 228, 0.5);
+    border: none;
+}
+
+.hire-card:hover {
+    background-color: #E8F8F2;
+}
+
+.h-a-l {
+    margin-left: 2%!important;
+    width: 87%!important;
+}
+
+.h-n-l {
+    /* left: 58.3%!important; */
+}
+
+.h-btns {
+    margin-left: -3%!important;
+}
+
+.service-header {
+    margin-right: 5%;
+}
+
+.hire-img {
+    background: white;
+}
+/* .h-a-l3 {
+    left: 65.5%!important;
+}
+
+
+.h-n-l-descr {
+    margin-top: -23%!important;
+    left: 8%!important;
+}
+
+.h-buy {
+    margin-left: -8%!important;
+}
+
+.service-header {
+    margin-right: 5%;
+}
+
+.hire-img {
+    background: white;
+} */

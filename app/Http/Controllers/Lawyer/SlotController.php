@@ -14,7 +14,8 @@ class SlotController extends Controller
 {
     public function scheduledEvents() {
         $scheduledMeetings = SchduledMeeting::whereLawyerId(auth()->user()->id)->get();
-        return view('lawyer.meeting-slot.scheduled-events', compact('scheduledMeetings'));
+        // return view('lawyer.meeting-slot.scheduled-events', compact('scheduledMeetings'));
+        return view('lawyer.pages.scheduled-events.list', compact('scheduledMeetings'));
     }
 
     public function slots() {

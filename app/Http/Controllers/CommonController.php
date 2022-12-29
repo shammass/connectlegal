@@ -29,7 +29,8 @@ class CommonController extends Controller
 {
     public function howItWorks() {
         $testimonials = Testimonial::whereApproved(1)->latest()->take(3)->get();        
-        return view('common.how-it-works', compact('testimonials'));
+        // return view('common.how-it-works', compact('testimonials'));
+        return view('common.pages.how-it-works', compact('testimonials'));
     }
 
     public function storeForum(Request $request) {
@@ -84,16 +85,21 @@ class CommonController extends Controller
     public function questionAnswer() {
         $forums = Forum::whereIsVerified(1)->paginate(10);
         // return view('common.question-answer.list', compact('forums'));
+        return view('common.pages.question-answer.grid', compact('forums'));
+    }
+
+    public function questionAnswerListView() {
+        $forums = Forum::whereIsVerified(1)->paginate(10);
+        // return view('common.question-answer.list', compact('forums'));
         return view('common.pages.question-answer.list', compact('forums'));
     }
 
     public function testimonials() {
         $testimonials = Testimonial::whereApproved(1)
             ->orderBy('updated_at', 'DESC')
-            ->get();
-
+            ->paginate(10);
         // return view('common.testimonials', compact('testimonials'));
-        return view('common.pages.testimonials', compact('testimonials'));
+        return view('common.pages.testimonials.list', compact('testimonials'));
     }
 
     public function  bookAMeeting($id) {
@@ -244,12 +250,14 @@ class CommonController extends Controller
     
     public function index2() {
         $blogs = BlogsArticles::orderBy('created_at', 'DESC')->paginate(10);
-        return view('common.blogs.index2', compact('blogs'));
+        // return view('common.blogs.index2', compact('blogs'));
+        return view('common.pages.blogs.list', compact('blogs'));
     }
 
     public function blogDetails2($id) {
         $blog = BlogsArticles::whereId($id)->first();
-        return view('common.blogs.details2', compact('blog'));
+        // return view('common.blogs.details2', compact('blog'));
+        return view('common.pages.blogs.details', compact('blog'));
 
     }
 
@@ -321,7 +329,8 @@ class CommonController extends Controller
             return view('404');
         }
         $forumAnswers = ForumAnswers::whereForumId($forum->id)->get();
-        return view('common.question-answer.view', compact('forum', 'forumAnswers'));
+        // return view('common.question-answer.view', compact('forum', 'forumAnswers'));
+        return view('common.pages.question-answer.detail', compact('forum', 'forumAnswers'));
     }
 
     public function rate(Request $request, $answerId) {
@@ -374,10 +383,14 @@ class CommonController extends Controller
         return (string) view('common.law-article.category-filter',  compact('articles')); 
     }
 
-    public function ourLawyers() {
-        $lawyers = Lawyer::whereIsVerified(1)->paginate(2);
+    public function ourLawyers(Request $request) {
+        $lawyers = Lawyer::whereIsVerified(1)->paginate(8);
         $arbitrationAreas = ArbitrationArea::pluck('area', 'id');
-        return view('common.our-lawyers.index', compact('lawyers', 'arbitrationAreas'));
+        if ($request->ajax()) {            
+            return (string) view('common.pages.our-lawyers.loaded-list', compact('lawyers'));
+        }
+        // return view('common.our-lawyers.index', compact('lawyers', 'arbitrationAreas'));
+        return view('common.pages.our-lawyers.list', compact('lawyers', 'arbitrationAreas'));
     }
 
     public function lawyerDetail($lawyerId) {
@@ -470,5 +483,13 @@ class CommonController extends Controller
         }
 
         return (string) view('common.our-lawyers.filtered', compact('lawyers'));
+    }
+
+    public function pagePracticeArea() {
+        return view('common.pages.practice-area.list');
+    }
+
+    public function pagePracticeAreaDetails() {
+        return view('common.pages.practice-area.detail');
     }
 }

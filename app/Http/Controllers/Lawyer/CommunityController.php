@@ -27,7 +27,8 @@ class CommunityController extends Controller
             ['is_verified', 1]
         ])->get();
 
-        return view('lawyer.community.community', compact('posts', 'lawyers'));
+        // return view('lawyer.community.community', compact('posts', 'lawyers'));
+        return view('lawyer.pages.community.feed', compact('posts', 'lawyers'));
     }
 
     public function allLawyers() {

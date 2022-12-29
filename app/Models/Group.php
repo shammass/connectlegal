@@ -28,4 +28,14 @@ class Group extends Model
         $lawyer =  Lawyer::whereUserId($id)->first();
         return $lawyer->profile_pic;
     }
+
+    public function unseenMsg($groupId) {
+        $unseenMsg = ChatNotification::where([
+            'to_user' => auth()->user()->id,
+            'group_id' => $groupId,
+            'seen'  => 0
+        ])->count();
+
+        return $unseenMsg;
+    }
 }

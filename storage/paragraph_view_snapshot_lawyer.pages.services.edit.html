@@ -1,0 +1,26 @@
+<form action="http://127.0.0.1:8000/lawyer/update/service/9" method="POST">
+    <input type="hidden" name="_token" value="0MFv8JmVUmHrLzeIbkaeLVuWFhcMsV6xQ9uDKa1m">    <div class="form-group row" style="margin-top: 15px;margin-bottom: 15px;">  
+        <select class="form-control" placeholder="Arbitration Area" name="area" style="border-radius: 15px;">
+            <option value="">Arbitration Area</option>
+                            <option value="1" selected>Legal</option>
+                            <option value="2" >Some random</option>
+                    </select>
+          
+    </div>
+    <div class="form-group row" style="margin-top: 15px;margin-bottom: 15px;">
+    <input type="text" class="form-control" id="title" placeholder="Title of the service" name="title" value="something" style="border-radius: 15px;">
+          
+    </div>
+    <div class="form-group row" style="margin-top: 15px;margin-bottom: 15px;">  
+        <textarea name="description" id="" cols="10" rows="3" class="form-control" placeholder="Description" style="border-radius: 15px;">s</textarea>
+          
+    </div>
+    <div class="form-group row" style="margin-top: 15px;margin-bottom: 15px;">  
+        <span class="my-fee">MY FEE:</span>
+        <input type="text" class="my-fee-input" placeholder="10 AED" name="fee" value="">
+         
+    </div>
+    <div>
+        <button type="submit" class="btn btn-danger create-group" data-bs-dismiss="modal">Post Service</button>
+    </div>
+</form>

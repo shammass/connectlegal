@@ -1,14 +1,18 @@
 @if ($paginator->hasPages())
     <div>
-        <p class="small text-muted">
-            {!! __('Showing') !!}
-            <span class="fw-semibold">{{ $paginator->firstItem() }}</span>
-            {!! __('to') !!}
-            <span class="fw-semibold">{{ $paginator->lastItem() }}</span>
-            {!! __('of') !!}
-            <span class="fw-semibold">{{ $paginator->total() }}</span>
-            {!! __('results') !!}
-        </p>
+        @if(\Request::route()->getName() != "lawyer.community.groups")
+            <p class="small text-muted">
+                {!! __('Showing') !!}
+                <span class="fw-semibold">{{ $paginator->firstItem() }}</span>
+                {!! __('to') !!}
+                <span class="fw-semibold">{{ $paginator->lastItem() }}</span>
+                {!! __('of') !!}
+                <span class="fw-semibold">{{ $paginator->total() }}</span>
+                {!! __('results') !!}
+            </p>
+        @else 
+                <br>
+        @endif
     </div>
     <div class="question-answer-card-pagination">
         <nav aria-label="Page navigation example">
@@ -16,15 +20,15 @@
                 @if ($paginator->onFirstPage())
                     <li class="page-item disabled">
                         <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true"><img style=""
-                                    src="new-design/assets/image/question-answer/previous.png" alt=""></span>
+                            <span aria-hidden="true"><img style="width:10px"
+                                    src="/new-design/assets/image/question-answer/previous.png" alt=""></span>
                         </a>
                     </li>
                 @else 
                     <li class="page-item">
                         <a class="page-link" href="{{ $paginator->previousPageUrl() }}" aria-label="Previous">
-                            <span aria-hidden="true"><img style=""
-                                    src="new-design/assets/image/question-answer/previous.png" alt=""></span>
+                            <span aria-hidden="true"><img style="width:10px"
+                                    src="/new-design/assets/image/question-answer/previous.png" alt=""></span>
                         </a>
                     </li>
                 @endif
@@ -46,14 +50,14 @@
                     <li class="page-item">
                         <a class="page-link" href="{{ $paginator->nextPageUrl() }}" aria-label="Next">
                             <span aria-hidden="true"><img style="width:10px"
-                                    src="new-design/assets/image/question-answer/next.png" alt=""></span>
+                                    src="/new-design/assets/image/question-answer/next.png" alt=""></span>
                         </a>
                     </li>
                 @else 
                     <li class="page-item disabled">
                         <a class="page-link" href="#" aria-label="Next">
                             <span aria-hidden="true"><img style="width:10px"
-                                    src="new-design/assets/image/question-answer/next.png" alt=""></span>
+                                    src="/new-design/assets/image/question-answer/next.png" alt=""></span>
                         </a>
                     </li>
                 @endif

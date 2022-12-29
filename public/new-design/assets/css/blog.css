@@ -1,0 +1,128 @@
+.breadcrumb-item {
+    color: #156075;
+}
+
+.font-bold {
+    font-family: "Poppins-Bold"!important;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    float: none!important;
+}
+
+@media only screen and (max-width: 600px) {
+    .bg-color {
+        background: #C2DDE4;
+        height: 182px!important;
+        padding: 4%!important;
+        margin-bottom: 23%;
+    }
+
+    .banner-image {
+        margin-top: -40%!important;
+        padding: 1rem!important;
+    }
+
+    .b-d-date {
+        margin-top: -8.7%!important;
+    }
+
+    .footer {
+        margin-top: 0%!important;
+    }
+
+    .b-d-date-parent {
+        margin-left: -9.8%!important;
+    }
+} 
+
+
+@media only screen and (min-width: 600px) {
+    .bg-color {
+        background: #C2DDE4;
+        height: 300px!important;
+        margin-bottom: 18%!important;
+    }
+
+    .banner-image {
+        margin-top: -40%!important;
+        padding: 1rem!important;
+    }
+
+    .b-d-date {
+        margin-top: -4.5%!important;
+    }
+
+    .footer {
+        margin-top: 0%!important;
+    }
+
+    .main-banner {
+        margin-top: -4%;
+    }
+} 
+
+
+@media only screen and (min-width: 768px) {
+    .bg-color {
+        background: #C2DDE4;
+        height: 300px!important;
+        margin-bottom: 22%!important;
+    }
+
+    .banner-image {
+        margin-top: -37%!important;
+    }
+    
+    .blog-title {
+        margin-left: -3%!important;
+    }
+} 
+
+@media only screen and (min-width: 992px) {    
+    .bg-color {
+        background: #C2DDE4;
+        /* height: 415px!important; */
+    }
+    
+    .banner-image {
+        margin-top: -37%!important;
+        position: relative;
+    }
+    
+    .r-a {
+        font-size: 20px;
+        color: #156075;
+    }
+
+    .b-d-date {        
+        margin-top: -2.9%!important;
+    }
+
+    .main-banner {
+        margin-top: -4%;
+    }
+
+    .banner-bg {
+        margin-bottom: 0%!important;
+    }
+
+    .b-d-date-parent {
+        margin-left: 2.2%!important;
+    }
+} 
+
+@media only screen and (min-width: 1200px) {
+    .banner-bg {
+        margin-bottom: 0%!important;
+    }
+
+    .bg-color {
+        background: #C2DDE4;
+        height: 415px!important;
+    }
+
+    .b-d-date-parent {
+        margin-left: 7.2%!important;
+    }
+}

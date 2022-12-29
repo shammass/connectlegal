@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Common;
 
+use Alert;
 use App\Events\LawyerLoginLogout;
 use App\Http\Controllers\Controller;
 use App\Traits\SendMailTrait;
@@ -31,7 +32,8 @@ class LoginController extends Controller
     }
 
     public function register() {        
-        return view('lawyer.register');
+        // return view('lawyer.register');
+        return view('lawyer.pages.register');
     }
 
     public function registerLawyer(Request $request) {
@@ -43,7 +45,6 @@ class LoginController extends Controller
             'contact_number'    =>          ['required', 'numeric'],
             'position'          =>          ['required', 'string', 'max:255'],
             'linkedin'          =>          ['required', 'string', 'max:255'],
-            'calendly_link'     =>          ['required', 'string', 'max:255'],
         ]);
             
         $user = User::create([
@@ -74,8 +75,8 @@ class LoginController extends Controller
         $response = $this->sendEmail($request->email, 'Registration Successful');
         
         // $response->success() && var_dump($response->getData());
-
-        return redirect('/')->with('success','Your registration was successful. Please check your email');
+        Alert::success('Success', 'Your registration was successful. Please check your email');
+        return redirect('/');
     }
     
     public function userLogin(Request $request) {
@@ -98,7 +99,8 @@ class LoginController extends Controller
             if($user) {
                 if (Hash::check($request->password, $user->password)) {
                     if($user->user_type == 1) {
-                        return redirect()->route('home')->with('error','Login Fail, please check your credentials!');
+                        Alert::error('Login Failed', 'Please check your credentials');
+                        return redirect()->route('home');
                     }
                     if($user->user_type == 2) {
                         $checkIsVerifiedUser = Lawyer::whereUserId($user->id)->first();
@@ -108,17 +110,20 @@ class LoginController extends Controller
                             event(new LawyerLoginLogout(auth()->user()->id, 'lawyerLoginLogout'));
                             return redirect(RouteServiceProvider::LAWYER_HOME);
                         }else {
-                            return redirect()->route('home')->with('error','You are not yet verified by admin');
+                            Alert::error('Not Verified', 'You are not yet verified by the admin');
+                            return redirect()->route('home');
                         }
                     }else {
                         Auth::login($user);
                         return redirect(RouteServiceProvider::HOME);            
                     }
                 }else {
-                    return redirect()->route('home')->with('error','Login Fail, please check your password!');
+                    Alert::error('Login Failed', 'Please check your password');
+                    return redirect()->route('home');
                 }
             }else {
-                return redirect()->route('home')->with('error','Login Fail, please check your email!');
+                Alert::error('Login Failed', 'There is no existing user with given Email ID');
+                return redirect()->route('home');
             }
         // }
     }
@@ -138,13 +143,15 @@ class LoginController extends Controller
         ])->first();
         if($user) {
             if (!Hash::check($request->password, $user->password)) {
-                return redirect()->route('admin.login')->with('error','Login Fail, please check your password!');    
+                Alert::error('Login Failed', 'Please check your password');
+                return redirect()->route('admin.login');    
             }else {
                 Auth::login($user);
                 return redirect(RouteServiceProvider::ADMIN_HOME);
             }
         }else {
-            return redirect()->route('admin.login')->with('error','Login Fail, please check your email!');
+            Alert::error('Login Failed', 'Please check your email address');
+            return redirect()->route('admin.login');
         }
     }
 

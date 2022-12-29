@@ -1,0 +1,237 @@
+
+.for-lawyers-page {
+    background: #F4FEFA;
+    margin-bottom: 0px;
+    padding-left: 93px;
+    padding-right: 90px;
+    min-height: calc(100vh - 389px);
+    @media(max-width:1500px) {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    @media(max-width:1104px) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    @media(max-width:767px) {
+        background: #FFFFFF;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .for-lawyers-header {
+        padding-top: 87px;
+        padding-bottom:  110px;
+        position: relative;
+        display: flex;
+        font-family: 'Poppins';
+        font-style: normal;
+        /* identical to box height */
+        align-items: baseline;
+
+        color: #191919;
+        .header-content {
+            padding-top: 61px;
+            padding-right: 38px;
+            h1 {
+                font-weight: 600;
+                font-size: 48px;
+                line-height: 72px;
+                color: #191919;
+                span {
+                    padding-left: 14px;
+                    color: #208C84
+                }
+            }
+            p {
+                margin-top: 20px;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 35px;
+                /* or 175% */
+    
+                text-align: justify;
+    
+                color: #191919;
+                display: block;
+                .line-break {
+                    display: block;
+                    height: 44px;
+                }
+            }
+        }
+        .form-content {
+            min-width: 592px;
+            background: #FFFFFF;
+            border: 0.5px solid rgba(32, 140, 132, 0.5);
+            padding: 45px 35px 50px;
+            font-family: 'Poppins-Regular';
+            font-style: normal;
+            .form-area-wrapper {
+                padding: 0 0px 66px;
+                h4 {
+                    
+                    
+                    font-weight: 600;
+                    font-size: 32px;
+                    line-height: 48px;
+                    /* identical to box height */
+
+
+                    color: #191919;
+                    margin-bottom: 22px;
+                }
+                select, input {
+                    margin-bottom: 27px;
+                    font-family: 'Poppins-Light';
+                    width: 100%;
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 35px;
+                    /* identical to box height, or 175% */
+
+
+                    color: #787878;
+                    border: none;
+                    padding: 16px 25px;
+                    border-bottom: 1px solid #191919;
+                    &.sidekick-input {
+                        width: 111px;
+                    }
+                    &.hero-input {
+                        margin-left: 13px;
+                        width: calc(100% - 124px);
+                    }
+                }
+            }
+            .form-area-submit {
+                padding: 0;
+                button {
+                    width: 177px;
+                    height: 68px;
+
+                    /* Main */
+
+                    background: #208C84;
+                    border-radius: 0;
+                    font-family: 'Poppins-Regular';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 35px;
+                    /* identical to box height, or 175% */
+
+
+                    color: #FFFFFF;
+                }
+            }
+        }
+        @media(max-width:1400px){
+            display: block;
+            .header-content {
+                h1 {
+                    width: 100%;
+                }
+            }
+            .form-content {
+                margin-top: 60px;
+            }
+        }
+        @media (max-width:767px) {
+            padding-top: 59px;
+            .header-content {
+                padding-right: 0px;
+                padding-top: 0px;
+                h1 {
+                    font-weight: 600;
+                    font-size: 40px;
+                    line-height: 60px;
+
+                    color: #191919;
+                }
+                p {
+                    margin-top: 8px;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 28px;
+                    color: #191919;
+                    .line-break {
+                        display: block;
+                        height: 16px;
+                    }
+                }
+            }
+            .form-content {
+                min-width: auto;
+                width: 100%;
+                padding: 27px 20px 50px;
+                .form-area-wrapper {
+                    padding-bottom: 44px;
+                    h4 {
+                        font-weight: 600;
+                        font-size: 24px;
+                        line-height: 36px;
+                        /* identical to box height */
+
+
+                        color: #191919;
+                        padding-bottom: 0;
+                    }
+                    input, select {
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 35px;
+                        /* identical to box height, or 219% */
+
+
+                        color: #787878;
+                        padding-top: 14px;
+                        padding: 14px 13px 16px;
+                        margin-bottom: 12px;
+                        &.sidekick-input {
+                            width: 67px;
+                        }
+                        &.hero-input {
+                            margin-left: 13px;
+                            width: calc(100% - 76px);
+                        }
+                    }
+                }
+                .form-area-submit {
+                    padding: 0;
+                    margin-top: -23px;
+                    button {
+                        width: 125px;
+                        height: 48px;
+
+                        /* Main */
+
+                        background: #208C84;
+                    }
+                }
+            }
+        }
+        @media(max-width: 368px) {
+            .header-content {
+                h1 {
+                    font-size: 24px;
+                }
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .md-hide {
+        @media(max-width: 767px) {
+            display: none !important;
+        }
+    }
+
+    .sm-hide {
+        @media(min-width: 768px) {
+            display: none !important;
+        }
+    }
+}

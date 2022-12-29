@@ -1,10 +1,10 @@
-<footer class="footer">
+<footer class="footer with-sidebar-always-open">
     <div class="container-fluid">
         <div class="inner-footer-wraper">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-3">
-                    <img class="footer-logo-md" src="new-design/assets/image/home/connect-legal-footer-logo.png" alt="">
-                    <img class="footer-logo-sm" src="new-design/assets/image/home/cl_logo 9.png" alt="">
+                    <img class="footer-logo-md" src="/new-design/assets/image/home/connect-legal-footer-logo.png" alt="">
+                    <img class="footer-logo-sm" src="/new-design/assets/image/home/cl_logo 9.png" alt="">
                 </div>
                 <div class="col-6 col-sm-6 col-md-2">
                     <div class="footer-list">
@@ -86,16 +86,16 @@
             <div class="copy-right">
                 <div class="row">
                     <div class="col-6 col-sm-6 col-md-4 order-fsm1">
-                        <img src="new-design/assets/image/home/copyright-logo.png" alt="">
+                        <img src="/new-design/assets/image/home/copyright-logo.png" alt="">
                     </div>
                     <div class="col-12 col-sm-12 col-md-4 order-fsm3">
                         <p>© 2021 Litho is Proudly Powered by ThemeZaa</p>
                     </div>
                     <div class="col-6 col-sm-6 col-md-4 order-fsm2">
                         <div class="social-link">
-                        <img src="new-design/assets/image/home/Vector (7).png" alt="">
-                        <img src="new-design/assets/image/home/Vector (8).png" alt="">
-                        <img src="new-design/assets/image/home/Vector (9).png" alt="">
+                        <img src="/new-design/assets/image/home/Vector (7).png" alt="">
+                        <img src="/new-design/assets/image/home/Vector (8).png" alt="">
+                        <img src="/new-design/assets/image/home/Vector (9).png" alt="">
                         </div>
                     </div>
                 </div>
@@ -108,23 +108,28 @@
 <!-- scrips -->
 
 <!-- jQuery -->
-<script src="lib/jquery.min.js"></script>
+<script src="/lib/jquery.min.js"></script>
 <script src="//js.pusher.com/3.1/pusher.min.js"></script>
 <!-- popper.min -->
-<script src="lib/popper.min.js"></script>
+<script src="/lib/popper.min.js"></script>
 
 <!-- Plugins -->
-<script src="lib/bootstrap.min.js"></script>
+<script src="/lib/bootstrap.min.js"></script>
 
-<script src="lib/swiper.min.js"></script>
+<script src="/lib/swiper.min.js"></script>
 
-<script src="lib/owl.carousel.min.js"></script>
+<script src="/lib/owl.carousel.min.js"></script>
 
-<script src="lib/wow.min.js"></script>
+<script src="/lib/wow.min.js"></script>
 
-<script src="lib/jquery.waypoints.min.js"></script>
+<script src="/lib/jquery.waypoints.min.js"></script>
 
-<script src="lib/jquery.counterup.min.js"></script>
+<script src="/lib/jquery.counterup.min.js"></script>
+<!-- Slick slider js -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.1.2/js/star-rating.min.js" integrity="sha512-BjVoLC9Qjuh4uR64WRzkwGnbJ+05UxQZphP2n7TJE/b0D/onZ/vkhKTWpelfV6+8sLtQTUqvZQbvvGnzRZniTQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <!-- custom scripts -->
-<script src="new-design/assets/js/main.js"></script>
+<script src="/new-design/assets/js/main.js"></script>
