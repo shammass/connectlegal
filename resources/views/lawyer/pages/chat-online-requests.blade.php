@@ -4,12 +4,14 @@
         <div id="dashboard" class="px-3 py-5 dashboard font-Poppins-regular">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-header" style="background-color: #E0EDF1;color:#156075;">
-                            <h5 class="card-title text-center">Chat Online Requests</h5>
+                    <div class="card card-list">
+                        <div class="row" style="display: flex;">
+                            <div class="col-12" id="feed">
+                                <span class="list-header">Chat Online Requests</span>                                                
+                            </div>
                         </div>
                         <div class="card-body">
-                            <table id="myTable">
+                            <table id="myTable" class="row-border">
                                 <thead>
                                     <tr style="color:#156075;">
                                         <th style="text-align: center;">Name</th>
@@ -20,7 +22,7 @@
                                         <th style="text-align: center;"></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="table-border-bottom-0">
                                     @foreach($onlineRequests as $k => $request)
                                         <tr style="text-align: center;">
                                             <td>{{$request->user->name}}</td>

@@ -3,7 +3,7 @@
     <head>
         @include('common.home.layouts.header')
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100">
         <header>
             @php 
                 $lawyers = App\Models\Lawyer::whereIsVerified(1)->get();
@@ -19,11 +19,21 @@
             @endphp
             @include('common.home.layouts.nav')
         </header>
-        <main class="always-open-content" id="always-open-content">
-            <div class="fix-heights"></div>
-            @include('sweetalert::alert')
-            @yield('content')
-        </main>
+
+        @if(\Request::route()->getName() === 'home')
+            <main>
+                <div class="fix-heights"></div>
+                @include('sweetalert::alert')
+                @yield('content')
+            </main>
+        @else 
+            <main class="always-open-content" id="always-open-content">
+                <div class="fix-heights"></div>
+                @include('sweetalert::alert')
+                @yield('content')
+            </main>
+        @endif
+
         @include('common.home.layouts.footer')        
         <script>
             Pusher.logToConsole = true;
@@ -50,7 +60,9 @@
                 }
             }); 
 
-           
+            function closeDropdown(id) {
+                $("#eldrpdwn-"+id).dropdown("toggle");
+            }
 
             function validateLogin(event) {
                 valid = true

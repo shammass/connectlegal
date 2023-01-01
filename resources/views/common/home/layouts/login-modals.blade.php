@@ -57,7 +57,7 @@
                                                 id="pwd" placeholder="Password">
                                         </div>
                                         <div class="forgot-password">
-                                            <a href="{{route('forgot.password.get')}}" type="submit" class="btn">Forgot password?</a>
+                                            <a href="#" type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#forgotPwd">Forgot password?</a>
                                         </div>
                                         <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}" style="margin-bottom: 2%;"></div>
                                         @error('g-recaptcha-response')
@@ -225,4 +225,33 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="modal fade" id="forgotPwd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">      
+      <div class="modal-body">
+        <div class="row col-12 col-md-12 p-3">
+            <span class="r-p-text">Reset Password</span>
+            <p>Enter your email, and we'll send you the link to reset your password</p>
+            <div class="form-content mt-4 p-2">
+                <form action="{{ route('forgot.password.post') }}" method="POST">
+                    @csrf()
+                    <div class="form-area-wrapper mb-4">
+                        <div class="form-input-wrapper">
+                            <input type="text" class="form-control" placeholder="E-Mail Address" value="{{ old('email') }}" name="email">
+                            @if ($errors->has('email'))
+                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto mt-3">
+                        <button class="btn btn-primary" type="submit" style="background-color: #208C84;">Send Email</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>      
+    </div>
+  </div>
 </div>

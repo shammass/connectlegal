@@ -51,42 +51,56 @@
             </div>
             {{ $forums->links() }}                     
         </div>
-        <div class="row col-xs-10 col-12 col-sm-12 col-md-10 col-xl-10 p-a-ask-lawyer mb-5 m-auto">
-            <div class="col-11 col-md-6 col-xl-6 p-a-ask-lawyer-form w-md-auto">
-                <span class="p-a-l-f-s-else">Looking for something else? <img src="/new-design/assets/image/practice-area/hangout.png" alt="" class="p-a-hangout-img"></span>
+        <div class="row col-xs-10 col-12 col-sm-12 col-md-10 col-xl-10 ask-lawyer-main mb-5 p-5">
+            <div class="col-12 col-md-6 col-xl-7 ask-lawyer-form w-md-auto">
+                <!-- <span class="p-a-l-f-s-else"><img src="/new-design/assets/image/practice-area/hangout.png" alt="" class="p-a-hangout-img"></span> -->
+                <div class="row p-1">
+                    <div class="col-10 col-sm-10 looking-else">Looking for something else? </div>
+                    <div class="col-2 col-sm-2"><img src="/new-design/assets/image/practice-area/hangout.png" alt="" class="hangout-img"></div>
+                </div>
                 <form action="">
                     @csrf()
-                    <textarea name="" class="form-control p-a-textarea" id="" cols="5" rows="6" placeholder="Describe your legal issues here"></textarea>
+                    <textarea name="" class="form-control p-a-textarea" id="" cols="3" rows="6" placeholder="Describe your legal issues here"></textarea>
                 </form>
-                <div class="row">
-                    <div class="col-4"><img src="/new-design/assets/image/practice-area/question.png" alt="" class="p-a-p-a-q-img"><span class="p-a-p-a-q-text">Post a question</span></div>
-                    <div class="col-4"><img src="/new-design/assets/image/practice-area/chat.png" alt="" class="p-a-p-a-q-img"><span class="p-a-p-a-q-text">Chat Online</span></div>
-                    <div class="col-4 p-a-form-btn"><div class="p-a-h-l-btn"><img src="/new-design/assets/image/practice-area/hire.png" alt="" class="p-a-p-a-q-img p-a-h-img"><span class="p-a-p-a-q-text p-a-p-a-q-text2">Hire a Lawyer</span></div></div>
-                </div>
+                <div class="row p-2">
+                    <div class="col-4 col-md-4 d-flex justify-content-evenly bg-white">
+                        <span class="advice-txt"><img src="/new-design/assets/image/practice-area/question.png" alt="" class="advice-btns"> Post a question</span>
+                    </div>    
+                    <div class="col-4 col-md-4 d-flex justify-content-evenly bg-white">
+                        <span class="advice-txt"><img src="/new-design/assets/image/practice-area/chat.png" alt="" class="advice-btns"> Chat Online</span>
+                    </div>    
+                    <div class="col-4 col-md-4 d-flex justify-content-evenly bg-gray">
+                        <span class="advice-txt"><img src="/new-design/assets/image/practice-area/hire.png" alt="" class="advice-btns"> Hire a Lawyer</span>
+                    </div>    
+                </div>            
             </div>
-            <div class="row">
-                <div class="p-a-lawyers">
-                    <img src="/new-design/assets/image/home/areyou-lawyer2.png" alt="" class="p-a-lawyer1">
-                    <span class="p-a-l-name1">Arundati</span>
-                    <small class="p-a-l-loc1">UAE, Abu Dhabi</small>
+            <div class="col-12 col-md-6 col-xl-5 lawyers-section">
+                <div class="row d-flex col-xl-11">
+                    <div class="lawyers">
+                        <img src="/new-design/assets/image/home/areyou-lawyer2.png" alt="" class="p-a-lawyer1">
+                        <span class="p-a-l-name1">Arundati</span>
+                        <small class="p-a-l-loc1">UAE, Abu Dhabi</small>
+                    </div>
+                    <div class="lawyers">
+                        <img src="/new-design/assets/image/home/areyou-lawyer3.png" alt="" class="p-a-lawyer1">
+                        <span class="p-a-l-name1">Rashid Ali</span>
+                        <small class="p-a-l-loc1">UAE, Qatar</small>
+                    </div>
+                    <div class="lawyers lawyer-3">
+                        <img src="/new-design/assets/image/home/areyou-lawyer3.png" alt="" class="p-a-lawyer1">
+                        <span class="p-a-l-name1">Michelle</span>
+                        <small class="p-a-l-loc1">UAE, Abu Dhabi</small>
+                    </div>
                 </div>
-                <div class="p-a-lawyers">
-                    <img src="/new-design/assets/image/home/areyou-lawyer3.png" alt="" class="p-a-lawyer1">
-                    <span class="p-a-l-name1">Rashid Ali</span>
-                    <small class="p-a-l-loc1">UAE, Qatar</small>
-                </div>
-                <div class="p-a-lawyers3">
-                    <img src="/new-design/assets/image/home/areyou-lawyer1.png" alt="" class="p-a-lawyer1">
-                    <span class="p-a-l-name1">Michelle</span>
-                    <small class="p-a-l-loc1">UAE, Abu Dhabi</small>
-                </div>
-            </div>
-            <div class="row">
-                <span class="p-a-n-l h-n-l">Need a Lawyer?</span>
-                <span class="p-a-n-l-descr">Hire lawyers online. Buy fixed-fee legal services or submit your request and get multiple competitive offers from qualified lawyers.</span>                    
-                <div class="row h-btns">
-                    <span><img src="/new-design/assets/image/practice-area/buy.png" alt="" class="p-a-buy"> <span class="p-a-buy-service-text">Buy Service</span></span>
-                    <span><img src="/new-design/assets/image/practice-area/quote.png" alt="" class="p-a-quote"> <span class="p-a-quote-service-text">Get Quote</span></span>
+                <div class="row d-flex col-xl-12 single-lawyer mt-2 m-auto">   
+                    <div class="col-xl-8 buy-quote-sec">
+                        <span class="need-lawyer">Need a Lawyer?</span>
+                        <p class="need-lawyer-descr">Hire lawyers online. Buy fixed-fee legal services or submit your request and get multiple competitive offers from qualified lawyers.</p>
+                        <div class="row mt-3">
+                            <span class="col-6 col-md-6"><img src="/new-design/assets/image/practice-area/buy.png" alt="" class="buy-img buy-quote"> <span class="">Buy Service</span></span>
+                            <span class="col-6 col-md-6"><img src="/new-design/assets/image/practice-area/quote.png" alt="" class="quote-img buy-quote"> <span class="">Get Quote</span></span>
+                        </div>
+                    </div>                
                 </div>
             </div>
         </div>

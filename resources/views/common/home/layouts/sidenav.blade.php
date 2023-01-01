@@ -1,8 +1,8 @@
-<div id="mySidenav" class="sidenav add-width">
+<div id="mySidenav" class="sidenav">
     <div class="sidenav-wraper">
         <img id="closeNav" class="side-nav-logo" src="/new-design/assets/image/home/side-nav-logo.png" alt="">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
-            @if(\Request::route()->getName() === "howItWorks")
+            @if(\Request::route()->getName() === "howItWorks" || \Request::route()->getName() === "lawyer.register-page")
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
                     <img src="/new-design/assets/image/home/menu.png" alt="" class="menu-icon"> Main menu </button>
@@ -34,7 +34,15 @@
             </div>
         </div>
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade {{\Request::route()->getName() === 'howItWorks' ? '' : 'show active'}}" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            @if(\Request::route()->getName() === 'howItWorks' || 
+                \Request::route()->getName() === "lawyer.register-page" ||
+                \Request::route()->getName() === "reset.password.get" ||
+                \Request::route()->getName() === "forgot.password.get")
+
+                <div class="tab-pane fade" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            @else 
+                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            @endif
                 <ul class="mainmenu-list">
                 <li>
                     <a class="{{\Request::route()->getName() === 'home' ? 'active' : ''}}" href="/">
@@ -85,11 +93,43 @@
                 </li>
                 </ul>
             </div>
-            <div class="tab-pane fade online-offline {{\Request::route()->getName() === 'howItWorks' ? 'show active' : ''}}" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+            @if(\Request::route()->getName() === 'howItWorks' || 
+                \Request::route()->getName() === "lawyer.register-page" ||
+                \Request::route()->getName() === "reset.password.get" ||
+                \Request::route()->getName() === "forgot.password.get")
+                <div class="tab-pane fade online-offline show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+            @else 
+                <div class="tab-pane fade online-offline" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+            @endif
                 <div class="lawyers-online">
                     @foreach($lawyers as $k => $lawyer)
                         @if($lawyer->user->isOnline())
-                            <div class="lawyers-online-card">
+                            <div class="lawyers-online-card dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                <ul class="dropdown-menu dropdown-menu-lg-end popup-menu">
+                                    <div class="row mb-4 m-auto">
+                                        <div class="col-6 col-md-6">
+                                            <img src="/storage/{{$lawyer->profile_pic}}" class="rounded-circle" style="width: 60px;height: 60px;" alt="Avatar">
+                                        </div>
+                                        <div class="col-6 col-md-6 lawyer-name">
+                                            <span>{{$lawyer->user->name}}</span><br><br><span>{{$lawyer->emirates}}</span>
+                                        </div>
+                                    </div>
+                                    <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/practice-area/question.png" alt="" class="popup-img"></span> Post a Question</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/practice-area/chat.png" alt="" class="popup-img"></span> Chat Online</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    @if($lawyer->isReadyWithSlot($lawyer->user->id))
+                                        <li><a class="dropdown-item" href="{{route('book-a-meeting', $lawyer->id)}}"><span class="popup-img-bg"><img src="/new-design/assets/image/home/meeting.png" alt="" class="popup-img"></span> Book a Meeting</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                    @endif
+                                    <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/practice-area/hire.png" alt="" class="popup-img"></span> Hire the Lawyer</a></li>
+                                    <li><hr class="dropdown-divider"></li>                                    
+                                    <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/home/prof.png" alt="" class="popup-img"></span> Open Profile</a></li>
+                                    <li><hr class="dropdown-divider"></li>    
+                                    <div class="text-center">
+                                        <button type="button" class="btn btn-outline-dark">Cancel</button>          
+                                    </div>                   
+                                </ul>
                                 <div class="online-card-profile">
                                     <img src="/storage/{{$lawyer->profile_pic}}" class="lawyer-online-prof-pic" style="height: 40px;border-radius: 20px;" alt="">
                                     <img class="active-circle" src="/new-design/assets/image/home/active-circle.png" alt="">
@@ -117,7 +157,7 @@
                     </div>
                     @foreach($lawyers as $k => $lawyer)
                         @if(!$lawyer->user->isOnline())
-                            <div class="lawyers-online-card lawyers_ofline_card">
+                            <div class="lawyers-online-card lawyers_ofline_card dropdown-toggle" id="eldrpdwn-{{$k}}" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">                                
                                 <div class="online-card-profile">
                                     <img src="/storage/{{$lawyer->profile_pic}}" class="lawyer-online-prof-pic" style="height: 40px;border-radius: 20px;" alt="">
                                     <img class="active-circle" src="/new-design/assets/image/home/enable-circle.png" alt="">
@@ -130,7 +170,32 @@
                                     <img src="/new-design/assets/image/home/Vector (10).png" alt="">
                                     <h6>Premium</h6>
                                 </div>--}}
-                            </div>
+                            </div>       
+                            <ul class="dropdown-menu dropdown-menu-lg-end popup-menu">
+                                <div class="row mb-4 m-auto">
+                                    <div class="col-6 col-md-6">
+                                        <img src="/storage/{{$lawyer->profile_pic}}" class="rounded-circle" style="width: 60px;height: 60px;" alt="Avatar">
+                                    </div>
+                                    <div class="col-6 col-md-6 lawyer-name">
+                                        <span>{{$lawyer->user->name}}</span><br><br><span>{{$lawyer->emirates}}</span>
+                                    </div>
+                                </div>
+                                <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/practice-area/question.png" alt="" class="popup-img"></span> Post a Question</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/practice-area/chat.png" alt="" class="popup-img"></span> Chat Online</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                @if($lawyer->isReadyWithSlot($lawyer->user->id))
+                                    <li><a class="dropdown-item" href="{{route('book-a-meeting', $lawyer->id)}}"><span class="popup-img-bg"><img src="/new-design/assets/image/home/meeting.png" alt="" class="popup-img"></span> Book a Meeting</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                @endif
+                                <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/practice-area/hire.png" alt="" class="popup-img"></span> Hire the Lawyer</a></li>
+                                <li><hr class="dropdown-divider"></li>                                    
+                                <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/home/prof.png" alt="" class="popup-img"></span> Open Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>    
+                                <div class="text-center">
+                                    <button type="button" onclick="closeDropdown('{{$k}}')" class="btn btn-outline-dark">Cancel</button>          
+                                </div>                   
+                            </ul>                     
                         @endif
                     @endforeach                    
                 </div>

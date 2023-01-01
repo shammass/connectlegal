@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Http\Controllers\Controller;
 use App\Models\PasswordReset;
 use Illuminate\Http\Request; 
@@ -68,6 +69,7 @@ class ForgotPasswordController extends Controller
         ];
         $mj->post(Resources::$Email, ['body' => $body]);
 
+        Alert::success('Email Sent', 'Please check the email address '.$request->email.' for instructions to reset your password. if you dont have received any email, please check your spam folder.');
         return back()->with('message', 'We have e-mailed your password reset link!');
     }
     /**

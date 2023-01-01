@@ -25,7 +25,22 @@
 <link rel="stylesheet" href="/lawyer_lib/lib/style.css">
 <link rel="stylesheet" href="/lawyer_lib/lib/font-awesome-4.7.0/css/font-awesome.min.css">
 
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
+
+<!-- Slick slider css -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css"/>
+<link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://www.jonthornton.com/jquery-timepicker/jquery.timepicker.css" />  
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+
 <!-- Core Style Css -->
 <link rel="stylesheet" href="/new-design/lawyer/assets/css/main.min.css">
 <!-- For CAPTCHA -->
 <script src="https://www.google.com/recaptcha/api.js"></script>
+
+<link rel="stylesheet" href="/lawyer_lib/lib/slot.css">

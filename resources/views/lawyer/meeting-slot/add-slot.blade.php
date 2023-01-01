@@ -99,29 +99,29 @@
     <div class="card mb-4">
       <h5 class="card-header">Create Slots</h5>
       <div class="card-body">
-      <ul class="nav nav-tabs nav-fill" role="tablist">
-        <li class="nav-item">
-          <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#monday" aria-controls="monday" aria-selected="true"><i class="tf-icons bx bx-calendar"></i> Monday </button>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#tuesday" aria-controls="tuesday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Tuesday</button>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#wednesday" aria-controls="wednesday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Wednesday</button>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#thursday" aria-controls="thursday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Thursday</button>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#friday" aria-controls="friday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Friday</button>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#saturday" aria-controls="saturday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Saturday</button>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#sunday" aria-controls="sunday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Sunday</button>
-        </li>
-      </ul>
+        <ul class="nav nav-tabs nav-fill" role="tablist">
+          <li class="nav-item">
+            <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#monday" aria-controls="monday" aria-selected="true"><i class="tf-icons bx bx-calendar"></i> Monday </button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#tuesday" aria-controls="tuesday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Tuesday</button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#wednesday" aria-controls="wednesday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Wednesday</button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#thursday" aria-controls="thursday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Thursday</button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#friday" aria-controls="friday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Friday</button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#saturday" aria-controls="saturday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Saturday</button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#sunday" aria-controls="sunday" aria-selected="false"><i class="tf-icons bx bx-calendar"></i> Sunday</button>
+          </li>
+        </ul>
         <form action="{{route('lawyer.store-slots')}}" method="POST">
           @csrf()
           <div class="tab-content">
@@ -523,6 +523,7 @@
       });
   
       var timeOnlyExampleEl = document.getElementById(id);
+      debugger
       var timeOnlyDatepair = new Datepair(timeOnlyExampleEl, {
         'defaultTimeDelta': 15*60*1000, // milliseconds
       });

@@ -632,7 +632,7 @@ table.dataTable thead th {
   }
   
   .list-header {
-    width: 140px;
+    width: auto;
     height: 48px;
     font: 22px 'Poppins-Medium';
     font-style: normal;

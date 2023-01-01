@@ -125,7 +125,8 @@ class CommonController extends Controller
             }
     
             $daySlots = DaysSlot::whereSlotId($slot->id)->get();
-            return view('common.book-meeting',  compact('lawyer', 'daySlots', 'slot', 'unavailableDays'));
+            // return view('common.book-meeting',  compact('lawyer', 'daySlots', 'slot', 'unavailableDays'));
+            return view('common.pages.book-a-meeting',  compact('lawyer', 'daySlots', 'slot', 'unavailableDays'));
         }else {
             return view('common.book-no-meeting');
         }

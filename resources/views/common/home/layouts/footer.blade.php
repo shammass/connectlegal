@@ -1,4 +1,4 @@
-<footer class="footer with-sidebar-always-open">
+<footer class="footer with-sidebar-always-open mt-auto">
     <div class="container-fluid">
         <div class="inner-footer-wraper">
             <div class="row">
@@ -106,7 +106,7 @@
 
 
 <!-- scrips -->
-
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <!-- jQuery -->
 <script src="/lib/jquery.min.js"></script>
 <script src="//js.pusher.com/3.1/pusher.min.js"></script>
@@ -118,7 +118,17 @@
 
 <script src="/lib/swiper.min.js"></script>
 
-<script src="/lib/owl.carousel.min.js"></script>
+<!-- <script src="/lib/owl.carousel.min.js"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
+<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+    </script>
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
+          
+    </script>
 
 <script src="/lib/wow.min.js"></script>
 
@@ -126,8 +136,12 @@
 
 <script src="/lib/jquery.counterup.min.js"></script>
 <!-- Slick slider js -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script> -->
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.1.2/js/star-rating.min.js" integrity="sha512-BjVoLC9Qjuh4uR64WRzkwGnbJ+05UxQZphP2n7TJE/b0D/onZ/vkhKTWpelfV6+8sLtQTUqvZQbvvGnzRZniTQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

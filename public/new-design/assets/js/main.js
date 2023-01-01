@@ -18,7 +18,7 @@ $('.moreless-button').click(function() {
  
   $(document).ready(function() {
     $('#openNav').click(function(e){
-      if(window.innerWidth < 992) {
+      if(window.innerWidth < 992 || window.location.pathname === "/") {
         e.stopPropagation();
         $('#mySidenav').toggleClass('add-width');
       }
@@ -27,6 +27,18 @@ $('.moreless-button').click(function() {
         document.getElementById("always-open-content").style.marginLeft = "300px";
       }
     });
+
+    if(window.innerWidth > 992) { 
+      if(window.location.pathname === "/how-it-works" ||
+         window.location.pathname === "/lawyer/register" ||
+         window.location.toString().includes("/reset-password/") ||
+         window.location.toString().includes("/book-a-meeting/") ||
+         window.location.pathname === "/forgot-password" 
+         ) {
+        $('#mySidenav').addClass('fixed-width');
+      }
+    }
+
     $('#mySidenav').click(function(e){
         e.stopPropagation();
     });
@@ -35,12 +47,11 @@ $('.moreless-button').click(function() {
             $('#mySidenav').removeClass('add-width');
           }
       });
-    $('body,html').click(function(e){
-      if(window.innerWidth < 992) {
-        $('#mySidenav').removeClass('add-width');
-      }
-    });
+      $('body,html').click(function(e){
+          $('#mySidenav').removeClass('add-width');          
+      });
   });
+
 
 
   function closeNav() {
@@ -58,40 +69,7 @@ $(document).ready(function(){
     autoplay: true,
     autoplaySpeed: 2000,
   });
-  // $('.question-carousel').owlCarousel({
-  //   loop: true,
-  // items: 3,
-  //   autoplay: true,
-  //   autoplayTimeout: 2000,
-  //   autoplayHoverPause: true,
-  //   dots: true,
-  //   // center:true,
-  //   margin:10,
-  //    smartSpeed: 1500,
-  
-  
-  //   responsive: {
-  //       1200: {
-  //           items: 1,
-  //       },
-  //       992: {
-  //           items: 1,
-  //       },
-  //       768: {
-  //           items: 1,
-  //       },
-  //       100: {
-  //           items: 1,
-  //       },
-  //   },
-  // });
 });
-if(window.location.pathname === "/") {
-  $('#mySidenav').removeClass('add-width');
-  if(document.getElementById('always-open-content') != null) {
-    document.getElementById("always-open-content").style.marginLeft = "0";
-  }
-}
 
 if(window.location.pathname.includes("/question-answer/view")) {
   document.body.classList.add('green-bg');

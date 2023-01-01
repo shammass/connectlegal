@@ -250,6 +250,7 @@ Route::group(['middleware' => ['web']], function () {
             Route::get('/scheduled-events',                     [SlotController::class, 'scheduledEvents'])->name('lawyer.scheduled-events');
             Route::get('/slots',                                [SlotController::class, 'addSlots'])->name('lawyer.slots');
             Route::get('/add-slots',                            [SlotController::class, 'addSlots'])->name('lawyer.add-slots');
+            Route::post('/add-slot-service',                    [SlotController::class, 'addSlotService'])->name('lawyer.add-slot-service');
             Route::post('/update-timepicker',                   [SlotController::class, 'timepicker'])->name('lawyer.timepicker');
             Route::post('/store-slots',                         [SlotController::class, 'storeSlots'])->name('lawyer.store-slots');
             Route::post('/available-day',                       [SlotController::class, 'availableDay'])->name('lawyer.slot.available-day');

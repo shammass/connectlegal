@@ -126,3 +126,31 @@ window.onclick = function(event) {
 //   }
 // }
 
+if(window.innerWidth <= 600) {
+  $('.slider').slick({
+    dots: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 2000,
+    arrows: true,
+  });
+}else if(window.innerWidth <= 820) {
+  $('.slider').slick({
+    dots: false,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 2000,
+    arrows: true,
+  });
+}
+
+
+if(window.innerWidth <= 1024) {
+  $(".slot-desktop-view").attr('style', 'display: none!important');
+  $(".slot-mobile-view").attr('style', 'display: flex!important');
+}else {
+  $(".slot-desktop-view").attr('style', 'display: flex!important');
+  $(".slot-mobile-view").attr('style', 'display: none!important');
+}

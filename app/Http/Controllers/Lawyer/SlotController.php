@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\lawyer;
 
+use Alert;
 use App\Http\Controllers\Controller;
 use App\Models\DaysSlot;
 use App\Models\SchduledMeeting;
@@ -53,17 +54,19 @@ class SlotController extends Controller
                 'slot_id' => $slotData->id,
                 'day'     => 'Sunday'
             ])->get();
-            return view('lawyer.meeting-slot.edit-slot', compact('data', 'slotData'));
+            // return view('lawyer.meeting-slot.edit-slot', compact('data', 'slotData'));
+            return view('lawyer.pages.scheduled-events.edit-slot', compact('data', 'slotData'));
         }else {
-            return view('lawyer.meeting-slot.add-slot');
+            // return view('lawyer.meeting-slot.add-slot');
+            return view('lawyer.pages.scheduled-events.add-slot');
         }
     }
 
     public function storeSlots(Request $request) {
         // print_r($request->all());exit;
         $data = $request->all();
-        $this->deleteSlots(); //only when the slots existing //this is just for updating old data
-        $slotId = $this->slotStore($data['description'], $data['title']);
+        $this->deleteSlots($request->day); //only when the slots existing //this is just for updating old data
+        $slotId = $this->slotStore(null, null, 'slot');
         if(!empty($data['mon_strt_time'][0])) {                
             $this->storeDaysSlot(array_combine($data['mon_strt_time'], $data['mon_end_time']), $data['mon_amt'], $slotId,  "Monday");
         }
@@ -85,8 +88,8 @@ class SlotController extends Controller
         if(!empty($data['sun_strt_time'][0])) {    
             $this->storeDaysSlot(array_combine($data['sun_strt_time'], $data['sun_end_time']), $data['sun_amt'], $slotId, "Sunday");
         }
-
-        return redirect()->route('lawyer.slots')->with('success', 'Added slot successfully');
+        Alert::success('Success', 'Successfully added the slots');
+        return redirect()->route('lawyer.slots');
     }
 
     public function storeDaysSlot($data, $amounts, $slotId, $day) {
@@ -97,15 +100,30 @@ class SlotController extends Controller
                 'day'                   => $day,
                 'slot_start_time'       => $k,
                 'slot_end_time'         => $v,
-                'amount'                => $amounts[$i] ? (str_contains($amounts[$i], 'AED') ? $amounts[$i] : 'AED'.$amounts[$i]) : 'AED 20'
+                'amount'                => $amounts[$i] ? (str_contains($amounts[$i], 'AED') ? $amounts[$i] : $amounts[$i].' AED') : '20 AED'
             ]);
         }
     }
 
-    public function deleteSlots() {
+    public function addSlotService(Request $request) {
+        $request->validate([
+            'title'            => ['required', 'string','max:255'],
+            'description'      => ['required', 'string'],
+        ]);
+
+        $data = $request->all();
+        $this->slotStore($data['description'], $data['title'], 'service');
+        Alert::success('Success', 'Successfully added the slot service');
+        return redirect()->route('lawyer.slots');
+    }
+
+    public function deleteSlots($day) {
         $slot = Slot::whereLawyerId(auth()->user()->id)->first();
         if($slot) {
-            $deleteSlots = DaysSlot::whereSlotId($slot->id)->get();
+            $deleteSlots = DaysSlot::where([
+                'slot_id' => $slot->id,
+                'day'     => $day
+            ])->get();
             foreach($deleteSlots as $k => $slot) {
                 $slot->delete();
             }
@@ -114,7 +132,7 @@ class SlotController extends Controller
         return true;
     }
 
-    public function slotStore($descr, $title) {
+    public function slotStore($descr, $title, $from) {
         $isExisting = Slot::whereLawyerId(auth()->user()->id)->first();
         if(!$isExisting) {
             $slot = Slot::create([
@@ -124,9 +142,11 @@ class SlotController extends Controller
             ]);
             return $slot->id;
         }
-        $isExisting->description = $descr;
-        $isExisting->title       = $title;
-        $isExisting->save();
+        if($from != 'slot') {
+            $isExisting->description = $descr;
+            $isExisting->title       = $title;
+            $isExisting->save(); 
+        }
         
         return $isExisting->id;
     }
