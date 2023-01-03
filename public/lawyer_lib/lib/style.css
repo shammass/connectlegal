@@ -674,6 +674,17 @@ table.dataTable thead th {
 /* ---------------------------------------------------------------------1440:end */
 
 /* ---------------------------------------------------------------------375:start */
+@media screen and (max-width: 600px) {
+  .mob-nav-prof {
+    margin-top: -3%!important;
+    margin-right: -10%!important;
+  }
+
+  .mobile_prof_text {
+    text-align: left!important;
+  }
+}
+
 @media screen and (max-width: 375px) {
   .add-width-lawyer {
     width: 260px!important;

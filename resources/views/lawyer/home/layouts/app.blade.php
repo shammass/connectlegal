@@ -43,6 +43,7 @@
             <script src="https://www.jonthornton.com/jquery-timepicker/jquery.timepicker.js"></script>
             <script src="{{ asset('assets/timepicker/dist/datepair.js') }}"></script>
             <script src="{{ asset('assets/timepicker/dist/jquery.datepair.js') }}"></script>
+            <script src="//js.pusher.com/3.1/pusher.min.js"></script>
               
             
             <!-- custom scripts -->

@@ -154,3 +154,96 @@ if(window.innerWidth <= 1024) {
   $(".slot-desktop-view").attr('style', 'display: flex!important');
   $(".slot-mobile-view").attr('style', 'display: none!important');
 }
+
+
+
+
+
+
+
+function showFile(){
+  var filenameData = document.getElementById('fileUpload');
+  if (filenameData.style.display === "none") {
+      filenameData.style.display = "flex";
+  } else {
+      filenameData.style.display = "none";
+  }
+  scrollToBottom();
+}
+
+function showEmoji(){
+  var x = document.getElementById("emoji");
+  if (x.style.display === "none") {
+      x.style.display = "block";
+  } else {
+      x.style.display = "none";
+  }
+}
+
+const dropArea = document.querySelector(".drop_box"),
+button = dropArea.querySelector("button"),
+dragText = dropArea.querySelector("header"),
+input = dropArea.querySelector("input");
+let file;
+var filename;
+
+button.onclick = () => {
+  input.click();
+};
+
+input.addEventListener("change", function (e) {
+  var fileName = e.target.files[0].name;
+  var size = formatBytes(e.target.files[0].size)
+  document.getElementById("filehere").style.display = "block";
+  $("#filehere").append(fileName)
+  // let filedata = `
+  //     <form action="" method="post">
+  //     <div class="form" style="text-align: center;" id="file"> 
+  //     <img src="assets/image/dashboard/pdf.png" alt="" class="pdf">
+  //     <h6 style="font-size: 12px;">${fileName}</h6>
+  //     <br>
+  //     <h6 style="font-size: 12px;">${size}</h6>
+  //     </div>
+  //     </form>`;
+  //     dropArea.append = filedata;
+});
+ 
+function formatBytes(bytes, decimals = 2) {
+  if (!+bytes) return '0 Bytes'
+
+  const k = 1024
+  const dm = decimals < 0 ? 0 : decimals
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+
+  const i = Math.floor(Math.log(bytes) / Math.log(k))
+
+  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
+}
+
+
+function scrollToBottom() {
+  var objDiv = document.getElementById("fileUpload");
+  objDiv.scrollIntoView();
+}
+
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function injectEmojisToList(e) {
+  document.getElementById("fname").value += e.innerHTML;
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+      }
+      }
+  }
+}

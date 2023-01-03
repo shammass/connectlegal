@@ -1,0 +1,94 @@
+/* Dashboard styles */
+.card-darkgreen {
+    background-color: #C2DDE4;
+}
+
+.darkgreen-text {
+    color: #156075;
+}
+
+.card-lightgreen {
+    background-color: #C6EEE2;
+    color: #208C84;
+}
+
+.lightgreen-text {
+    color: #208C84;
+}
+
+.card-yellow {
+    background-color: #EDEEC6;
+}
+
+.float-right {
+    float: right;
+}
+
+.font-Poppins {
+    font-family: 'Poppins';
+}
+
+.bold-text {
+    font-family: "Poppins-Bold";
+}
+
+
+body {
+    font-family: 'Poppins-Regular';
+}
+
+.box-card-shadow {
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.05);
+}
+
+.question-card {
+    background-color: #208C84;
+}
+
+.card-border-radius{
+    border-radius: 1rem;
+}
+
+.todo {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.appointment2 {
+    width: 30px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .mobile-nav {
+        margin-left: 300%;
+        margin-top: -30%;
+    }
+
+    .mob-nav-prof {
+        margin-top: -3%!important;
+        margin-right: -10%!important;
+    }
+
+    .mob-nav-ham {
+        margin-top: -4%!important;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1200px) {
+    .desc-slot {
+        margin-right: -8%!important;
+    }           
+}

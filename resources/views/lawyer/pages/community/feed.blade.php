@@ -17,7 +17,7 @@
             <div class="col-7" style="padding-top: 2.5rem;">
                 <div>
                     <div class="card-body pull-right">
-                        <strong>All Lawyers</strong> 
+                        <strong onclick="allLawyers()">All Lawyers</strong> 
                     </div>
                 </div>
             </div>
@@ -163,7 +163,11 @@
 @endsection
 @push('script')
     <script>
-         
+        
+        function allLawyers() {
+            window.location.href = "/lawyer/community/all-lawyers";
+        }
+
         function showComment(id) {
             var isOpen = $("#cmntPost_"+id).val()
             if(isOpen == 0) {

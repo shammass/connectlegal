@@ -8,6 +8,8 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
+<meta name="id" content="{{ isset(request()->route()->parameters['id']) ? request()->route()->parameters['id'] : null }}">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- Title  -->
 <title>Legal Advice services Dubai, UAE-Speak to Lawyers online</title>
@@ -23,6 +25,7 @@
 <link rel="stylesheet" href="/lawyer_lib/lib/owl.carousel.min.css">
 <link rel="stylesheet" href="/lawyer_lib/lib/animate.min.css">
 <link rel="stylesheet" href="/lawyer_lib/lib/style.css">
+<link rel="stylesheet" href="/lawyer_lib/lib/chat.css">
 <link rel="stylesheet" href="/lawyer_lib/lib/font-awesome-4.7.0/css/font-awesome.min.css">
 
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">

@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
 use \Mailjet\Resources;
@@ -31,7 +32,7 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function register() {        
+    public function register() {     
         // return view('lawyer.register');
         return view('lawyer.pages.register');
     }
@@ -115,7 +116,8 @@ class LoginController extends Controller
                         }
                     }else {
                         Auth::login($user);
-                        return redirect(RouteServiceProvider::HOME);            
+                        // return redirect(RouteServiceProvider::HOME);   
+                        return Redirect::to(url()->previous());         
                     }
                 }else {
                     Alert::error('Login Failed', 'Please check your password');

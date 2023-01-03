@@ -42,18 +42,33 @@
                                 @forelse($daySlots as $k => $slot)
                                     @if($slot->isAvailable($slot->slot_id, $slot->day))
                                         <div class="slot_{{$slot->day}} allDays" style="display:none;">
-                                            <div class="d-flex mt-4">
-                                                <div class="col-2 col-md-2 col-xl-1 slot-calendar-img-section">
-                                                    <img src="/new-design/lawyer/assets/image/home/calendar.png" alt="" class="calendar-img">
-                                                </div>
-                                                <button type="button" class="col-md-4 mr-3 btn btn-outline-dark slot-time-amt" disabled>{{$slot->slot_start_time}}</button>
-                                                <div class="col-1 mt-2 time-devider">
-                                                    -
-                                                </div>
-                                                <button type="button" class="col-md-4 mr-3 btn btn-outline-dark slot-time-amt" disabled>{{$slot->slot_end_time}}</button>
-                                                <button type="button" class="col-md-4 mr-3 btn btn-outline-dark slot-time-amt" disabled>{{$slot->amount}}</button>
-                                                <button type="button" class="col-md-4 mr-3 btn btn-outline-dark slot-time-amt" style="background-color: #208C84;color:white;border:none;">Schedule</button>
-                                            </div>                                
+                                            <form method="POST" id="paymentForm" action="{{ route('schedule.meeting') }}">
+                                                @csrf
+                                                @php 
+                                                    $prodName = $slot->slot->lawyer_id.'-'.$slot->id.'-'.$slot->amount;
+                                                @endphp
+                                                <input type="hidden" name="product_name" value="{{$prodName}}">
+                                                <input type="hidden" name="amount" value="{{$slot->amount}}">
+                                                <input type="hidden" name="daySlotId" value="{{$slot->id}}"> 
+                                                <input type="hidden" name="lawyerUserId" value="{{$lawyer->user_id}}"> 
+                                                <input type="hidden" name="date" class="dateVal" value="0">       
+                                                <div class="d-flex mt-4">
+                                                    <div class="col-2 col-md-2 col-xl-1 slot-calendar-img-section">
+                                                        <img src="/new-design/lawyer/assets/image/home/calendar.png" alt="" class="calendar-img">
+                                                    </div>
+                                                    <button type="button" class="col-md-4 mr-3 btn btn-outline-dark slot-time-amt" disabled>{{$slot->slot_start_time}}</button>
+                                                    <div class="col-1 mt-2 time-devider">
+                                                        -
+                                                    </div>
+                                                    <button type="button" class="col-md-4 mr-3 btn btn-outline-dark slot-time-amt" disabled>{{$slot->slot_end_time}}</button>
+                                                    <button type="button" class="col-md-4 mr-3 btn btn-outline-dark slot-time-amt" disabled>{{$slot->amount}}</button>
+                                                    @if(auth()->user())
+                                                        <button type="submit" class="col-md-4 mr-3 btn btn-outline-dark slot-time-amt" style="background-color: #208C84;color:white;border:none;" data-bs-toggle="modal" data-bs-target="#paymentForm">Schedule</button>
+                                                    @else 
+                                                        <button type="button" class="col-md-4 mr-3 btn btn-outline-dark slot-time-amt" style="background-color: #208C84;color:white;border:none;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Schedule</button>
+                                                    @endif
+                                                </div>                                
+                                            </form>
                                         </div>
                                     @endif
                                 @empty

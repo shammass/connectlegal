@@ -176,10 +176,10 @@ class MessagesController extends Controller
      * @param string $fileName
      * @return \Symfony\Component\HttpFoundation\StreamedResponse|void
      */
-    public function download($fileName)
+    public function download($fileName, $ogName)
     {
         if (Chatify::storage()->exists(config('chatify.attachments.folder') . '/' . $fileName)) {
-            return Chatify::storage()->download(config('chatify.attachments.folder') . '/' . $fileName);
+            return Chatify::storage()->download(config('chatify.attachments.folder') . '/' . $fileName, $ogName);
         } else {
             return abort(404, "Sorry, File does not exist in our server or may have been deleted!");
         }

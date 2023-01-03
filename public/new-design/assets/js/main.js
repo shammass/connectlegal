@@ -8,6 +8,9 @@ $('.moreless-button').click(function() {
   })
 
   
+  if(window.innerWidth > 1023) {
+    document.getElementById("mobile-nav-profile").style.display = "none";
+  }
 
   $(".always-open-content").click(function() {
     if($("#mySidenav").hasClass('add-width') && window.location.pathname != "/how-it-works") {
@@ -24,13 +27,14 @@ $('.moreless-button').click(function() {
       }
       $('#mySidenav').addClass('add-width');
       if(document.getElementById('always-open-content') != null) {
-        document.getElementById("always-open-content").style.marginLeft = "300px";
+        // document.getElementById("always-open-content").style.marginLeft = "300px";
       }
     });
 
     if(window.innerWidth > 992) { 
       if(window.location.pathname === "/how-it-works" ||
          window.location.pathname === "/lawyer/register" ||
+         window.location.pathname === "/dashboard" ||
          window.location.toString().includes("/reset-password/") ||
          window.location.toString().includes("/book-a-meeting/") ||
          window.location.pathname === "/forgot-password" 
@@ -120,3 +124,11 @@ if(window.innerWidth < 992) {
 }
 
   
+
+
+
+
+
+
+
+

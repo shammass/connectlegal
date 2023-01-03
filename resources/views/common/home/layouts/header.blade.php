@@ -50,6 +50,9 @@
 <link rel="stylesheet" href="/new-design/assets/css/blog.css">
 <link rel="stylesheet" href="/new-design/assets/css/home.css">
 <link rel="stylesheet" href="/new-design/assets/css/common.css">
+<link rel="stylesheet" href="/new-design/assets/css/dashboard.css">
+<link rel="stylesheet" href="/new-design/assets/css/chat.css">
+<link rel="stylesheet" href="/new-design/assets/css/all-lawyers.css">
 
 <!-- For CAPTCHA -->
 <script src="https://www.google.com/recaptcha/api.js"></script>

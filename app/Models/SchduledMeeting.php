@@ -15,6 +15,7 @@ class SchduledMeeting extends Model
         'lawyer_id',
         'zoom_id',
         'payment_id',
+        'checkout_id', //From Stripe
     ];
 
     public function daysSlot() {

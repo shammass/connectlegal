@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
-        <span style="" id="openNav"><img class="open-btn" src="/new-design/assets/image/home/hamburgor-white.png" alt=""></span>
-        <a class="navbar-brand" href="/">Connect Legal</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+    <span style="" id="openNav" class="mob-nav-ham"><img class="open-btn" src="/new-design/assets/image/home/hamburgor-white.png" alt=""></span>
+    <a class="navbar-brand" href="/">Connect Legal</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home</a>
             </li>
@@ -56,7 +56,7 @@
                                         <ul class="dropdown-menu profile-dropdown">
                                             <li><a class="dropdown-item" href="#"><img src="/new-design/assets/image/home/Vector (19).png"
                                                         alt="">My Profile</a></li>
-                                            <li><a class="dropdown-item" href="#"><img src="/new-design/assets/image/home/Vector (19).png"
+                                            <li><a class="dropdown-item" href="{{route('user.dashboard')}}"><img src="/new-design/assets/image/home/Vector (19).png"
                                                         alt="">Dashboard</a></li>
                                             <li><a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"><img src="/new-design/assets/image/home/Vector (19).png"
                                                         alt="">Log Out</a></li>
@@ -80,6 +80,16 @@
             @endif
         </ul>
     </div>
+    <li class="nav-item dropdown mob-nav-prof" id="mobile-nav-profile">
+        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="/new-design/assets/image/home/register3.png" class="w-50" alt="">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">My Profile</a></li>
+            <li><a class="dropdown-item" href="{{route('user.dashboard')}}">Dashboard</a></li>
+            <li><a class="dropdown-item" href="{{route('user.logout')}}">Logout</a></li>
+        </ul>
+    </li>
 </nav>
 @include('common.home.layouts.sidenav')
 @include('common.home.layouts.login-modals')

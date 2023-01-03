@@ -51,7 +51,8 @@
                                                     @if($request->complete)
                                                         <a href="/online-chat/{{$request->user_id}}" target="_blank">Chat History</a>
                                                     @else 
-                                                        <a href="/online-chat/{{$request->user_id}}" target="_blank">Chat Here</a>                                
+                                                        {{--<a href="/online-chat/{{$request->user_id}}" target="_blank">Chat Here</a> --}}                               
+                                                        <a href="{{route('lawyer.chat-with-user', $request->user_id)}}" target="_blank">Chat Here</a>                                
                                                     @endif
                                                 @else 
                                                     -

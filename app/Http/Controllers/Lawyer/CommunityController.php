@@ -36,7 +36,8 @@ class CommunityController extends Controller
             ['is_verified', 1],
             ['user_id', '!=', auth()->user()->id]
         ])->get();
-        return view('lawyer.community.all-lawyers', compact('lawyers'));
+        // return view('lawyer.community.all-lawyers', compact('lawyers'));
+        return view('lawyer.pages.community.all-lawyers', compact('lawyers'));
     }
 
 }

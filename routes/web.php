@@ -26,6 +26,7 @@ use App\Http\Controllers\Lawyer\CommunityController;
 use App\Http\Controllers\Lawyer\DashboardController as LawyerDashboardController;
 use App\Http\Controllers\Lawyer\GroupController;
 use App\Http\Controllers\Common\HomeController;
+use App\Http\Controllers\Lawyer\ChatController;
 use App\Http\Controllers\Lawyer\LawArticleController;
 use App\Http\Controllers\Lawyer\LawyerServiceController;
 use App\Http\Controllers\Lawyer\PostController;
@@ -33,6 +34,7 @@ use App\Http\Controllers\Lawyer\QuestionAnswerController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\UserActivityController;
+use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\vendor\Chatify\MessagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -107,6 +109,8 @@ Route::get('zoom',     [MeetingController::class, 'store']);
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/user/logout',                         [LoginController::class, 'logout'])->name('user.logout');
     
+    Route::get('/dashboard',      [UserDashboardController::class, 'dashboard'])->name('user.dashboard');
+
     Route::post('/stripe-payment',      [StripeController::class, 'payment'])->name('stripe.payment');
     Route::post('/schedule-meeting',    [MeetingController::class, 'scheduleMeeting'])->name('schedule.meeting');
 
@@ -116,6 +120,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/my-activity',                         [UserActivityController::class, 'userActivty'])->name('user.activity');
 
     Route::post('online-chat/sendMessage',             [MessagesController::class, 'send'])->name('send.message');
+    
+    Route::post('chat-with-user/{toId}',               [ChatController::class, 'sendMsg'])->name('chat-with-user');
+    Route::post('/user/latest-group-chat',             [ChatController::class, 'userLatestMsg'])->name('user.latest-msg');
+    
 });
 
 #################                           ADMIN                  ###################################
@@ -299,7 +307,8 @@ Route::group(['middleware' => ['web']], function () {
             Route::get('/article/category/edit/{id}',           [LawArticleController::class, 'editCategory'])->name('lawyer.article.category.edit');
             Route::post('/article/category/update/{id}',        [LawArticleController::class, 'updateCategory'])->name('lawyer.article.category.update');
             Route::get('/article/category/delete/{id}',         [LawArticleController::class, 'deleteCategory'])->name('lawyer.article.category.delete');
-
+            
+            Route::get('/chat-with-user/{id}',         [ChatController::class, 'chatWithUser'])->name('lawyer.chat-with-user');
 
         });
     });
