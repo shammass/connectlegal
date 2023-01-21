@@ -1,205 +1,170 @@
-<div id="mySidenav" class="sidenav">
-    <div class="sidenav-wraper">
-        <img id="closeNav" class="side-nav-logo" src="/new-design/assets/image/home/side-nav-logo.png" alt="">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            @if(\Request::route()->getName() === "howItWorks" || \Request::route()->getName() === "lawyer.register-page")
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
-                    <img src="/new-design/assets/image/home/menu.png" alt="" class="menu-icon"> Main menu </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
-                    <span class="lawyers-online">
-                        <img src="/new-design/assets/image/home/user.png" alt="" class="lawyers-online-icon"> Lawyers Online  </spn>
-                    </button>
-                </li>
-            @else 
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
-                    <img src="/new-design/assets/image/home/menu.png" alt="" class="menu-icon"> Main menu </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
-                    <span class="lawyers-online">
-                        <img src="/new-design/assets/image/home/user.png" alt="" class="lawyers-online-icon"> Lawyers Online  </spn>
-                    </button>
-                </li>
-            @endif
+<div class="sidebar" id="mySidebar">
+    <div>
+        <button onclick="w3_close()" class="btn">
+            <img class="idek_button" src="../images/basicImages/cl_logo_1.png" alt=""/>
+        </button>
+    </div>
+    <div class="sidebar-menu" id="sidebar-menu-id">
+        <button class="sidebar-menu-btn btn black" onclick="showContent1()" id="sidebar-menu-btn1"><i class="fas fa-bars sidebar-menu-btn-icon"></i> Main Menu</button>
+        <button class="sidebar-menu-btn btn black" onclick="showContent2()" id="sidebar-menu-btn2"><span class="material-symbols-rounded sidebar-menu-btn-icon">account_circle</span> Lawyers Online</button>
+    </div>
+    <div class="sidebar-menu-green">
+        <button class="sidebar-menu-green-btn btn green"  id="sidebar-menu-green-btn1">Lawyers online (5)</button>
+        <button class="sidebar-menu-green-btn btn green"  id="sidebar-menu-green-btn2"><span class="material-symbols-rounded sidebar-menu-green-btn-icon">language</span> All</button>
+    </div>
+    <div id="content1">
+        <ul>
+            <li class=""><a href="/home" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">home</span> Home</a></li>
+            <li class=""><a href="#" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">assured_workload</span> How it works</a></li>
+            <li class=""><a href="#" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">groups</span> For lawyers</a></li>
+            <li class=""><a href="#" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">live_help</span> Q & A</a></li>
+            <li class=""><a href="#" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">workspace_premium</span> Testimonials</a></li>
+            <li class=""><a href="#" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">work</span> Our lawyers</a></li>
+            <li class=""><a href="#" class="nav-link-item link black"><i class="fas fa-user-tie fa-lg nav-link-icon"></i> Lawyers</a></li>
+            <li class=""><a href="#" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">balance</span> Practice Area</a></li>
+            <li class=""><a href="#" class="nav-link-item link black"><i class="far fa-newspaper fa-lg nav-link-icon"></i> Blogs & Articles</a></li>
+            <li class=""><a href="#" class="nav-link-item link black"><i class="far fa-id-card fa-lg nav-link-icon"></i> Hire Lawyer</a></li>
+            <li class=""><a href="#" class="nav-link-item link black"><i class="fas fa-gavel fa-lg nav-link-icon"></i> Legal Articles</a></li>
+            <li class=""><a onclick="openForm()" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">login</span> Login</a></li>
         </ul>
-        <div class="all" id="lawyer-online-count">
-            <h4 class="lawyer-online-count-h4">Lawyers online ({{$onlineLawyers}})</h4>
-            <div class="all-img">
-                <img src="/new-design/assets/image/home/all.png" alt="">
-                <h4 class="lawyer-online-count-h4">All</h4>
-            </div>
-        </div>
-        <div class="tab-content" id="myTabContent">
-            @if(\Request::route()->getName() === 'howItWorks' || 
-                \Request::route()->getName() === "lawyer.register-page" ||
-                \Request::route()->getName() === "reset.password.get" ||
-                \Request::route()->getName() === "forgot.password.get")
-
-                <div class="tab-pane fade" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-            @else 
-                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-            @endif
-                <ul class="mainmenu-list">
-                <li>
-                    <a class="{{\Request::route()->getName() === 'home' ? 'active' : ''}}" href="/">
-                    <span class="icon-Vector-1"></span>Home </a>
-                </li>
-                <li>
-                    <a class="{{\Request::route()->getName() === 'howItWorks' ? 'active' : ''}}" href="{{route('howItWorks')}}">
-                    <span class="icon-Vector-2"></span>How It Works </a>
-                </li>
-                <li>
-                    <a class="{{\Request::route()->getName() === 'lawyer.register-page' ? 'active' : ''}}" href="{{route('lawyer.register-page')}}">
-                    <span class="icon-Vector-3"></span>For Lawyers </a>
-                </li>
-                <li>
-                    <a class="{{\Request::route()->getName() === 'question-answer' ? 'active' : ''}}" href="{{route('question-answer')}}">
-                    <span class="icon-Vector-4"></span>Q & A </a>
-                </li>
-                <li>
-                    <a class="{{\Request::route()->getName() === 'testimonials' ? 'active' : ''}}" href="{{route('testimonials')}}">
-                    <span class="icon-Vector-5"></span>Testimonials </a>
-                </li>
-                <li>
-                    <a href="{{route('our-lawyers')}}">
-                    <span class="icon-Vector-6"></span>Our Lawyers </a>
-                </li>
-                <li>
-                    <a class="{{\Request::route()->getName() === 'home' ? 'active' : ''}}" href="">
-                    <span class="icon-Group-2"></span>Lawyers </a>
-                </li>
-                <li>
-                    <a class="{{\Request::route()->getName() === 'page-practice-area' ? 'active' : ''}}" href="{{route('page-practice-area')}}">
-                    <span class="icon-Vector-7"></span>Practice Area </a>
-                </li>
-                <li>
-                    <a class="{{\Request::route()->getName() === 'blogs-articles' ? 'active' : ''}}" href="{{route('blogs-articles', 1)}}">
-                    <span class="icon-Vector-8"></span>Blogs & Articles </a>
-                </li>
-                <li>
-                    <a class="{{\Request::route()->getName() === 'hire-a-lawyer' ? 'active' : ''}}" href="{{route('hire-a-lawyer')}}">
-                    <span class="icon-Group-6"></span>Hire Lawyer </a>
-                </li>
-                <li>
-                    <a class="{{\Request::route()->getName() === 'legal.article-list' ? 'active' : ''}}" href="{{route('legal.article-list')}}">
-                    <span class="icon-Vector-9"></span>Legal Articles </a>
-                </li>
-                <li>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Login</a>
-                </li>
-                </ul>
-            </div>
-            @if(\Request::route()->getName() === 'howItWorks' || 
-                \Request::route()->getName() === "lawyer.register-page" ||
-                \Request::route()->getName() === "reset.password.get" ||
-                \Request::route()->getName() === "forgot.password.get")
-                <div class="tab-pane fade online-offline show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-            @else 
-                <div class="tab-pane fade online-offline" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-            @endif
-                <div class="lawyers-online">
-                    @foreach($lawyers as $k => $lawyer)
-                        @if($lawyer->user->isOnline())
-                            <div class="lawyers-online-card dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                <ul class="dropdown-menu dropdown-menu-lg-end popup-menu">
-                                    <div class="row mb-4 m-auto">
-                                        <div class="col-6 col-md-6">
-                                            <img src="/storage/{{$lawyer->profile_pic}}" class="rounded-circle" style="width: 60px;height: 60px;" alt="Avatar">
-                                        </div>
-                                        <div class="col-6 col-md-6 lawyer-name">
-                                            <span>{{$lawyer->user->name}}</span><br><br><span>{{$lawyer->emirates}}</span>
-                                        </div>
-                                    </div>
-                                    <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/practice-area/question.png" alt="" class="popup-img"></span> Post a Question</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/practice-area/chat.png" alt="" class="popup-img"></span> Chat Online</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    @if($lawyer->isReadyWithSlot($lawyer->user->id))
-                                        <li><a class="dropdown-item" href="{{route('book-a-meeting', $lawyer->id)}}"><span class="popup-img-bg"><img src="/new-design/assets/image/home/meeting.png" alt="" class="popup-img"></span> Book a Meeting</a></li>
-                                        <li><hr class="dropdown-divider"></li>
-                                    @endif
-                                    <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/practice-area/hire.png" alt="" class="popup-img"></span> Hire the Lawyer</a></li>
-                                    <li><hr class="dropdown-divider"></li>                                    
-                                    <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/home/prof.png" alt="" class="popup-img"></span> Open Profile</a></li>
-                                    <li><hr class="dropdown-divider"></li>    
-                                    <div class="text-center">
-                                        <button type="button" class="btn btn-outline-dark">Cancel</button>          
-                                    </div>                   
-                                </ul>
-                                <div class="online-card-profile">
-                                    <img src="/storage/{{$lawyer->profile_pic}}" class="lawyer-online-prof-pic" style="height: 40px;border-radius: 20px;" alt="">
-                                    <img class="active-circle" src="/new-design/assets/image/home/active-circle.png" alt="">
-                                    <div class="card-profile-designation">
-                                        <h4 class="lawyer-list-name">{{$lawyer->user->name}}</h4>
-                                        <h5 class="lawyer-list-emirate">{{$lawyer->emirates}}</h5>
-                                    </div>
-                                </div>
-                                {{-- <div class="premium">
-                                    <img src="/new-design/assets/image/home/Vector (10).png" alt="">
-                                    <h6>Premium</h6>
-                                </div> --}}
-                            </div>
-                        @endif
-                    @endforeach
-                    @if($onlineLawyers < 1)
-                        <div class="lawyers-online-card">
-                            <p>No Lawyers Are Online</p>
-                        </div>
-                    @endif
-                </div>
-                <div class="lawyers-offline">
-                    <div class="lawyers-offline-card">
-                        <h4 class="lawyer-online-count-h4">Lawyers offline</h4>
+    </div>
+    <div id="content2">
+        <ul>
+            <li class="">
+                <a onclick="myAccFunc(1)" class="nav-link-item link black">
+                    <img src="../images/basicImages/s7-userProfile1.png" alt=""/>
+                    <div class="lawyer-sidebar">
+                        <strong>Kiran Khatun</strong>
+                        <p>UAE, Abu Dhabi</p>
                     </div>
-                    @foreach($lawyers as $k => $lawyer)
-                        @if(!$lawyer->user->isOnline())
-                            <div class="lawyers-online-card lawyers_ofline_card dropdown-toggle" id="eldrpdwn-{{$k}}" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">                                
-                                <div class="online-card-profile">
-                                    <img src="/storage/{{$lawyer->profile_pic}}" class="lawyer-online-prof-pic" style="height: 40px;border-radius: 20px;" alt="">
-                                    <img class="active-circle" src="/new-design/assets/image/home/enable-circle.png" alt="">
-                                    <div class="card-profile-designation">
-                                        <h4 class="lawyer-list-name">{{$lawyer->user->name}}</h4>
-                                        <h5 class="lawyer-list-emirate">{{$lawyer->emirates}}</h5>
-                                    </div>
-                                </div>
-                                {{--<div class="premium">
-                                    <img src="/new-design/assets/image/home/Vector (10).png" alt="">
-                                    <h6>Premium</h6>
-                                </div>--}}
-                            </div>       
-                            <ul class="dropdown-menu dropdown-menu-lg-end popup-menu">
-                                <div class="row mb-4 m-auto">
-                                    <div class="col-6 col-md-6">
-                                        <img src="/storage/{{$lawyer->profile_pic}}" class="rounded-circle" style="width: 60px;height: 60px;" alt="Avatar">
-                                    </div>
-                                    <div class="col-6 col-md-6 lawyer-name">
-                                        <span>{{$lawyer->user->name}}</span><br><br><span>{{$lawyer->emirates}}</span>
-                                    </div>
-                                </div>
-                                <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/practice-area/question.png" alt="" class="popup-img"></span> Post a Question</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/practice-area/chat.png" alt="" class="popup-img"></span> Chat Online</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                @if($lawyer->isReadyWithSlot($lawyer->user->id))
-                                    <li><a class="dropdown-item" href="{{route('book-a-meeting', $lawyer->id)}}"><span class="popup-img-bg"><img src="/new-design/assets/image/home/meeting.png" alt="" class="popup-img"></span> Book a Meeting</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                @endif
-                                <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/practice-area/hire.png" alt="" class="popup-img"></span> Hire the Lawyer</a></li>
-                                <li><hr class="dropdown-divider"></li>                                    
-                                <li><a class="dropdown-item" href="#"><span class="popup-img-bg"><img src="/new-design/assets/image/home/prof.png" alt="" class="popup-img"></span> Open Profile</a></li>
-                                <li><hr class="dropdown-divider"></li>    
-                                <div class="text-center">
-                                    <button type="button" onclick="closeDropdown('{{$k}}')" class="btn btn-outline-dark">Cancel</button>          
-                                </div>                   
-                            </ul>                     
-                        @endif
-                    @endforeach                    
-                </div>
+                </a>
+            </li>
+            <div id="demoAcc1" class="lawyer-options hidden-item">
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">post_add</span>&nbsp;&nbsp; Post a question</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">chat</span>&nbsp;&nbsp; Chat Online</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">phone_callback</span>&nbsp;&nbsp; Request a Callback</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">meeting_room</span>&nbsp;&nbsp; Book a Meeting</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">business_center</span>&nbsp;&nbsp; Hire the Lawyer</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">person</span>&nbsp;&nbsp; Open Profile</a>
             </div>
+            <li class="">
+                <a onclick="myAccFunc(2)" class="nav-link-item link black">
+                    <img src="../images/basicImages/s7-userProfile1.png" alt=""/>
+                    <div class="lawyer-sidebar">
+                        <strong>Kiran Khatun</strong>
+                        <p>UAE, Abu Dhabi</p>
+                    </div>
+                </a>
+            </li>
+            <div id="demoAcc2" class="lawyer-options hidden-item">
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">post_add</span>&nbsp;&nbsp; Post a question</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">chat</span>&nbsp;&nbsp; Chat Online</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">phone_callback</span>&nbsp;&nbsp; Request a Callback</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">meeting_room</span>&nbsp;&nbsp; Book a Meeting</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">business_center</span>&nbsp;&nbsp; Hire the Lawyer</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">person</span>&nbsp;&nbsp; Open Profile</a>
+            </div>
+            <li class="">
+                <a onclick="myAccFunc(3)" class="nav-link-item link black">
+                    <img src="../images/basicImages/s7-userProfile1.png" alt=""/>
+                    <div class="lawyer-sidebar">
+                        <strong>Kiran Khatun</strong>
+                        <p>UAE, Abu Dhabi</p>
+                    </div>
+                </a>
+            </li>
+            <div id="demoAcc3" class="lawyer-options hidden-item">
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">post_add</span>&nbsp;&nbsp; Post a question</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">chat</span>&nbsp;&nbsp; Chat Online</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">phone_callback</span>&nbsp;&nbsp; Request a Callback</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">meeting_room</span>&nbsp;&nbsp; Book a Meeting</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">business_center</span>&nbsp;&nbsp; Hire the Lawyer</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">person</span>&nbsp;&nbsp; Open Profile</a>
+            </div>
+            <li class="">
+                <a onclick="myAccFunc(4)" class="nav-link-item link black">
+                    <img src="../images/basicImages/s7-userProfile1.png" alt=""/>
+                    <div class="lawyer-sidebar">
+                        <strong>Kiran Khatun</strong>
+                        <p>UAE, Abu Dhabi</p>
+                    </div>
+                </a>
+            </li>
+            <div id="demoAcc4" class="lawyer-options hidden-item">
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">post_add</span>&nbsp;&nbsp; Post a question</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">chat</span>&nbsp;&nbsp; Chat Online</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">phone_callback</span>&nbsp;&nbsp; Request a Callback</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">meeting_room</span>&nbsp;&nbsp; Book a Meeting</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">business_center</span>&nbsp;&nbsp; Hire the Lawyer</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">person</span>&nbsp;&nbsp; Open Profile</a>
+            </div>
+            <li class="">
+                <a onclick="myAccFunc(5)" class="nav-link-item link black">
+                    <img src="../images/basicImages/s7-userProfile1.png" alt=""/>
+                    <div class="lawyer-sidebar">
+                        <strong>Kiran Khatun</strong>
+                        <p>UAE, Abu Dhabi</p>
+                    </div>
+                </a>
+            </li>
+            <div id="demoAcc5" class="lawyer-options hidden-item">
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">post_add</span>&nbsp;&nbsp; Post a question</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">chat</span>&nbsp;&nbsp; Chat Online</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">phone_callback</span>&nbsp;&nbsp; Request a Callback</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">meeting_room</span>&nbsp;&nbsp; Book a Meeting</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">business_center</span>&nbsp;&nbsp; Hire the Lawyer</a>
+                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">person</span>&nbsp;&nbsp; Open Profile</a>
+            </div>
+        </ul>
+        <div class="sidebar-menu-green">
+            <button class="sidebar-menu-green-btn btn green"  id="sidebar-menu-green-btn1">Lawyers offline</button>
         </div>
+        <ul>
+            <li class="">
+                <a href="#" class="nav-link-item link black offline">
+                    <img src="../images/basicImages/s7-userProfile1.png" alt=""/>
+                    <div class="lawyer-sidebar">
+                        <strong>Kiran Khatun</strong>
+                        <p>UAE, Abu Dhabi</p>
+                    </div>
+                </a>
+            </li>
+            <li class="">
+                <a href="#" class="nav-link-item link black offline">
+                    <img src="../images/basicImages/s7-userProfile1.png" alt=""/>
+                    <div class="lawyer-sidebar">
+                        <strong>Kiran Khatun</strong>
+                        <p>UAE, Abu Dhabi</p>
+                    </div>
+                </a>
+            </li>
+            <li class="">
+                <a href="#" class="nav-link-item link black offline">
+                    <img src="../images/basicImages/s7-userProfile1.png" alt=""/>
+                    <div class="lawyer-sidebar">
+                        <strong>Kiran Khatun</strong>
+                        <p>UAE, Abu Dhabi</p>
+                    </div>
+                </a>
+            </li>
+            <li class="">
+                <a href="#" class="nav-link-item link black offline">
+                    <img src="../images/basicImages/s7-userProfile1.png" alt=""/>
+                    <div class="lawyer-sidebar">
+                        <strong>Kiran Khatun</strong>
+                        <p>UAE, Abu Dhabi</p>
+                    </div>
+                </a>
+            </li>
+            <li class="">
+                <a href="#" class="nav-link-item link black offline">
+                    <img src="../images/basicImages/s7-userProfile1.png" alt=""/>
+                    <div class="lawyer-sidebar">
+                        <strong>Kiran Khatun</strong>
+                        <p>UAE, Abu Dhabi</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
     </div>
 </div>

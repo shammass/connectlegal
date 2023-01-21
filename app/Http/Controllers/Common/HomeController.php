@@ -11,6 +11,7 @@ class HomeController extends Controller
     public function home() {
         // return view('common.index');
         return view('common.home');
+        return view('common.home2');
     }
 
     public function onlineOfflineLawyers($section) {

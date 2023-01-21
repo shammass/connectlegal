@@ -1,95 +1,96 @@
-<nav class="navbar navbar-expand-lg custom-navbar fixed-top">
-    <span style="" id="openNav" class="mob-nav-ham"><img class="open-btn" src="/new-design/assets/image/home/hamburgor-white.png" alt=""></span>
-    <a class="navbar-brand" href="/">Connect Legal</a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home</a>
+<nav class="navbar-container">
+    <div class="navbar">
+        <div class="sidebar-and-logo">
+            <button class="sidebar-icon btn" onclick="w3_open()"><i class="fas fa-bars"></i></button>
+            <a href="/" class="navbar-logo link white">Connect Legal</a>
+        </div>
+        <ul class="nav-menu-desktop">
+            <li class="nav-item">
+                <a href="/" class="link white">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('howItWorks')}}"> How It Works</a>
+                <a href="/" class="link white">How it works</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('lawyer.register-page')}}">For Lawyers </a>
+                <a href="{{route('lawyer.register-page')}}" class="link white">For Lawyers</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('question-answer')}}">Q & A </a>
+                <a href="/" class="link white">Testimonials</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('testimonials')}}">Testimonials</a>
+                <a href="/" class="link white">Lawyers</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
+                <a href="/" class="link white">Practice Area</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('page-practice-area')}}">Practice Area</a>
+                <a href="/" class="link white">Blogs & Articles</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Lawyers</a>
-            </li>
-            @if(!auth()->user()) 
+            @if(!auth()->user())
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Login</a>
-                </li>
-            @else
-                <li class="nav-item">
-                    <div class="navlist-profile">
-                        <div class="navlist-profile-img">
-                            <img src="/new-design/assets/image/home/register3.png" alt="">
-                            <img class="active_circle" src="/new-design/assets/image/home/active-circle.png" alt="">
-
+                    <a class="link white" onclick="openForm()">Login</a>
+                </li> 
+            @else 
+                <div class="user-loggedIn" onclick="openOptions()">
+                    <div class="user-loggedIn-content">
+                        <div>
+                            <img class="user-img" src="/images/basicImages/user.png" alt="user" />
                         </div>
-
-                        <div class="navlist-profile-description">
-                            <div class="profile-description-inner">
-                                <h4>{{auth()->user()->name}}</h4>
-                                <!-- <h3>UAE, Dubai</h3> -->
-                            </div>
-
-                            <div class="profile-hamburgur">
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="/new-design/assets/image/home/white-dot.png" alt="">
-                                    </button>
-                                    @if(auth()->user()->user_type == 3)
-                                        <ul class="dropdown-menu profile-dropdown">
-                                            <li><a class="dropdown-item" href="#"><img src="/new-design/assets/image/home/Vector (19).png"
-                                                        alt="">My Profile</a></li>
-                                            <li><a class="dropdown-item" href="{{route('user.dashboard')}}"><img src="/new-design/assets/image/home/Vector (19).png"
-                                                        alt="">Dashboard</a></li>
-                                            <li><a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"><img src="/new-design/assets/image/home/Vector (19).png"
-                                                        alt="">Log Out</a></li>
-                                        </ul>
-                                    @else 
-                                        <ul class="dropdown-menu profile-dropdown">
-                                            <li><a class="dropdown-item" href="#"><img src="/new-design/assets/image/home/Vector (19).png"
-                                                        alt="">My Profile</a></li>
-                                            <li><a class="dropdown-item" href="{{route('lawyer.dashboard')}}"><img src="/new-design/assets/image/home/Vector (19).png"
-                                                        alt="">Dashboard</a></li>
-                                            <li><a class="dropdown-item" href="{{route('logout')}}" onclick="return confirm('Are you sure you want to logout?')"><img src="/new-design/assets/image/home/Vector (19).png"
-                                                        alt="">Log Out</a></li>
-                                        </ul>
-                                    @endif
-                                </div>
-
-                            </div>
+                        <div class="user-loggedIn-content-name">
+                            <h4 class="white user-loggedIn-content-username">Ranjit Devi</h4>
+                            <span class="white user-loggedIn-content-loc">UAE, Dubai</span>
                         </div>
                     </div>
-                </li>
+                    <div class="user-loggedIn-icon">
+                        <a class="link white">
+                            <span class="material-symbols-rounded loggedInIcon">
+                                more_vert
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="dropdown-content" id="userOptions">
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            account_circle
+                        </span>
+                        <p>My Profile</p>
+                    </a>
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            team_dashboard
+                        </span>
+                        <p>Dashboard</p>
+                    </a>
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            reviews
+                        </span>
+                        <p>Write Testimonials</p>
+                    </a>
+                    <a href="#">
+                        <span class="material-symbols-rounded">
+                            newspaper
+                        </span>
+                        <p>Blogs and Articles</p>
+                    </a>
+                    @if(auth()->user()->user_type == 3)
+                        <a href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')">
+                            <span class="material-symbols-rounded">
+                                logout
+                            </span>
+                            <p>Log Out</p>
+                        </a>
+                    @else 
+                        <a href="{{route('logout')}}" onclick="return confirm('Are you sure you want to logout?')">
+                            <span class="material-symbols-rounded">
+                                logout
+                            </span>
+                            <p>Log Out</p>
+                        </a>
+                    @endif
+                </div>
             @endif
         </ul>
     </div>
-    <li class="nav-item dropdown mob-nav-prof" id="mobile-nav-profile">
-        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="/new-design/assets/image/home/register3.png" class="w-50" alt="">
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">My Profile</a></li>
-            <li><a class="dropdown-item" href="{{route('user.dashboard')}}">Dashboard</a></li>
-            <li><a class="dropdown-item" href="{{route('user.logout')}}">Logout</a></li>
-        </ul>
-    </li>
 </nav>
-@include('common.home.layouts.sidenav')
-@include('common.home.layouts.login-modals')

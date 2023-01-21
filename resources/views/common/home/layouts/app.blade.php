@@ -3,36 +3,33 @@
     <head>
         @include('common.home.layouts.header')
     </head>
-    <body class="d-flex flex-column min-vh-100">
-        <header>
-            @php 
-                $lawyers = App\Models\Lawyer::whereIsVerified(1)->get();
-                $onlineLawyers = 0;
-                $offlineLawyers = 0;
-                foreach($lawyers as $k => $v) {
-                    if($v->user->isOnline()) {
-                        ++$onlineLawyers;
-                    }else {
-                        ++$offlineLawyers;
-                    }
+    <body>
+        @php 
+            $lawyers = App\Models\Lawyer::whereIsVerified(1)->get();
+            $onlineLawyers = 0;
+            $offlineLawyers = 0;
+            foreach($lawyers as $k => $v) {
+                if($v->user->isOnline()) {
+                    ++$onlineLawyers;
+                }else {
+                    ++$offlineLawyers;
                 }
-            @endphp
+            }
+        @endphp
+
+        @include('common.home.layouts.login-modals')
+        <header>
             @include('common.home.layouts.nav')
         </header>
+        @include('common.home.layouts.sidenav')
 
-        @if(\Request::route()->getName() === 'home')
-            <main>
-                <div class="fix-heights"></div>
-                @include('sweetalert::alert')
-                @yield('content')
-            </main>
-        @else 
-            <main class="always-open-content" id="always-open-content">
-                <div class="fix-heights"></div>
-                @include('sweetalert::alert')
-                @yield('content')
-            </main>
-        @endif
+
+
+        @include('sweetalert::alert')
+        @yield('content')
+
+
+
 
         @include('common.home.layouts.footer')        
         <script>
@@ -59,11 +56,7 @@
                     });
                 }
             }); 
-
-            function closeDropdown(id) {
-                $("#eldrpdwn-"+id).dropdown("toggle");
-            }
-
+            
             function validateLogin(event) {
                 valid = true
                 var email = $("#email").val()
@@ -83,28 +76,43 @@
                 if(!valid) {
                     event.preventDefault()
                 }            
-            }
+            }        
 
-            if(window.innerWidth > 425) {
-                $('.slick').slick({
-                    dots: true,
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    autoplay: false,
-                    autoplaySpeed: 2000,
-                    adaptiveHeight: true
-                });
-            }else {
-                $('.slick').slick({
-                    dots: true,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    autoplay: false,
-                    autoplaySpeed: 2000,
-                });
-            }
-            
+            function validateRegistration(event) {
+                valid = true
+                var name = $("#name").val()
+                var email = $("#email-reg").val()
+                var pwd = $("#password-reg").val()
+                $(".name-error").empty()
+                $(".email-error").empty()
+                $(".pwd-error").empty()
+                debugger
+                if(!name) {
+                    valid = false
+                    $(".name-error").append('Please enter your name');
+                }
+
+                if(!email) {
+                    valid = false
+                    $(".email-error").append('Please enter your email');
+                }
+                
+                if(!pwd) {
+                    valid = false
+                    $(".pwd-error").append('Please enter your password');
+                }else {
+                    if(pwd.length < 6) {                        
+                        $(".pwd-error").append('The password must be at least 6 characters');
+                    }
+                }
+                
+
+                if(!valid) {
+                    event.preventDefault()
+                }            
+            }                     
         </script>
+        
         @stack('script')
     </body>
 </html>

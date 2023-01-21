@@ -116,6 +116,7 @@ class LoginController extends Controller
                         }
                     }else {
                         Auth::login($user);
+                        Alert::success('Logged In', 'You are logged in successfully');
                         // return redirect(RouteServiceProvider::HOME);   
                         return Redirect::to(url()->previous());         
                     }

@@ -1,81 +1,18 @@
-<section class="legal_services">
-    <div class="container">
-        <div class="legal_services_card_header card-header-sm">
-            <h6 class="letterspace-title">PROCESS</h6>
-            <h5>3 STEPS FOR</h5>
-            <p>
-                <span>Appointment</span> 
-                Process for Legal Services
-            </p>
-        </div>
-        <div class="col-md-12 row">
-            <div class="col-md-4">
-                <div class="legal_services_card mt-top">
-                    <div class="legal_services_card_wraper bglight">
-                        <div class="card-number">
-                            <h2 class="text-green">1</h2>
-                        </div>
-                        <div class="card_description">
-                            <img src="/new-design/assets/image/home/Frame.png" alt="">
-                            <div class="">
-                                <p class="text-green">Find the best-suited lawyer for your query</p>
-                                <button class="btn btn-light text-green" type="btn">See more
-                                    <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                                </button>
-                            </div>
+<section class="section">
+        <div class="slideshow-container">
+            <div class="bg-l-green p-1">
+                <div class="mySlides">
+                    <div class="letsee">
+                        <div><img src="/images/basicImages/s3.png" style="width: 100%"/></div>
+                        <div class="myccontent">
+                            <p class='home-section3-features'>FEATURES</p>
+                            <span class='green title-text'>Ask & Book Appointments </span>
+                            <span class='title-text'>with Multiple Lawyers</span>
+                            <p class='p-text' style='padding-bottom: 2rem'>Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now, We work on a wide range of legal matters. Our legal Services.</p>
+                            <button class="contactnow white" onclick="opencontactnow()">Contact now <div class="h-100 bg-green"><i class="fas fa-arrow-right"></i></div></button>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="legal_services_card-test mrg-10">
-                    <div class="legal_services_card_header card-header-md">
-                        <h6 class="letterspace-title">PROCESS</h6>
-                        <h5>3 STEPS FOR</h5>
-                        <p>
-                            <span>Appointment</span> 
-                            Process for Legal Services
-                        </p>
-                    </div>
-                    <div class="legal_services_card">
-                        <div class="legal_services_card_wraper bgdark">
-                            <div class="card-number">
-                                <h2 class="text-blue">2</h2>
-                            </div>
-                            <div class="card_description">
-                                <img src="/new-design/assets/image/home/Vector (3).png" alt="">
-                                <div class="">
-                                    <p class="text-blue">View Lawyer Profile</p>
-                                    <button class="btn btn-dark text-blue" type="btn">
-                                        See more
-                                        <span>
-                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="legal_services_card mt-top">
-                    <div class="legal_services_card_wraper bgyellow">
-                        <div class="card-number">
-                            <h2 class="text-yellow">3</h2>
-
-                        </div>
-                        <div class="card_description">
-                            <img src="/new-design/assets/image/home/Frame.png" alt="">
-                            <div class="">
-                                <p>Book an appointment instantly</p>
-                                <button class="btn btn-yellow text-yellow" type="btn">See more<span><i
-                                            class="fa fa-angle-right" aria-hidden="true"></i></span></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+            </div>        
+        </div>            
+    </section>

@@ -1,55 +1,15 @@
-<section class="we-connect-clients" data-scroll-index="1">
-    <div class="container">
-        <div class="counter-section">
-            <div class="inner-wrapers">
-                <div class="row">
-                    <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                        <div class="counter-part">
-                            <h4>257</h4>
-                            <h5>Lawyers</h5>
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                        <div class="counter-part">
-                            <h4>22</h4>
-                            <h5>Law Firm Partner</h5>
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                        <div class="counter-part">
-                            <h4>4,700</h4>
-                            <h5>Solved Cases</h5>
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                        <div class="counter-part">
-                            <h4>2,014</h4>
-                            <h5>Since</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<section class="section-2 section">
+    <div class="section-2-container">
+        <div class="section-2-content section-2-item">
+            <h2 class="title-text">
+                <span style="color: #208C84">We connect clients and Legal Consultants </span>
+                <span>in one platform.</span>
+            </h2>
+            <p class="p-text">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now. We provide legal Services by connecting you with the Legal Consultants, Or you can even hire a Lawyer for your Legal issues. You can also read our blogs which provides some of the vital informations.</p>
+            <button class="contactnow white" onclick="opencontactnow()">Contact now <div class="h-100 bg-green"><i class="fas fa-arrow-right"></i></div></button>
         </div>
-        <div class="inner-wraper">
-            <div class="row">
-                <div class="col-md-6 order-smm-2">
-                    <h1>We connect clients and Legal Consultants 
-                        <span>in one platform.</span>
-                    </h1>
-                    <p>Connect with top Advocates or Legal consultants and chat with them all across UAE We provide a platform for legal advice seekers to obtain expert advice from highly qualified lawyers. Also, check out our latest blogs and articles and stay up-to-date with legal information.</p>
-                    <div class="contact-now-btn">
-                        <button type="btn" class="btn contact-now-button" data-bs-toggle="modal" data-bs-target="#log-inmodal">Register as user <span>
-                            <img src="/new-design/assets/image/home/left-white-arrow.png" alt="">
-                        </span>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-md-6 order-smm-1">
-                    <div class="connect-clients-img">
-                        <img src="/new-design/assets/image/home/weconnect-client-img.jpeg" alt="">
-                    </div>
-                </div>
-            </div>
+        <div class="section-2-item">
+            <img class="section-2-img" src="../images/basicImages/home-section2.png" alt=""/>
         </div>
     </div>
 </section>

@@ -1,51 +1,30 @@
-<section class="how-it-works">
-    <div class="container">
-        <div class="inner-wraper">
-            <div class="row">
-                <div class="col-10 col-sm-10 col-md-10 col-lg-5 col-xl-5">
-                    <div class="how-it-img howit-bg-img">
-                        <img src="/new-design/assets/image/home/how-it-work-img.jpeg" alt="">
-                        <div class="how-it-img-card img-card1">
-                            <h5>More of</h5>
-                            <h2>355</h2>
-                            <div class="lawyer-online-img">
-                                <h4>Lawyers Online</h4>
-                                <img src="/new-design/assets/image/home/how-it-work-icon1.png" alt="">
-                            </div>
-                        </div>
-
-                        <div class="how-it-img-card img-card2">
-                            <h5>More of</h5>
-                            <h2>355</h2>
-                            <div class="lawyer-online-img">
-                                <h4>Lawyers Online</h4>
-                                <img src="/new-design/assets/image/home/how-it-work-icon2.png" alt="">
-                            </div>
-                        </div>
-
-                        <div class="how-it-img-card img-card3">
-                            <h5>More of</h5>
-                            <h2>355</h2>
-                            <div class="lawyer-online-img">
-                                <h4>Lawyers Online</h4>
-                                <img src="/new-design/assets/image/home/how-it-work-icon3.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-7 col-xl-7">
-                    <div class="how-it-works-content">
-                        <!-- <h5 class="letterspace-title">HOW IT WORKS</h5> -->
-                        <h1>Having legal issues?</h1>
-                        <p>Drop your legal inquiry in the box below and get your query solved.</p>
-                        <div class="contact-now-btn">
-                            <button type="btn" class="btn contact-now-button" onclick="hireALawyer()">Hire a Lawyer <span><img
-                                        src="/new-design/assets/image/home/left-white-arrow.png" alt=""></span></button>
-
-                        </div>
-                    </div>
-                </div>
+<section class="">
+    <div class="letsee s5-main-div">
+        <div class="s5-main-div-item1">
+            <div class="whiteRec"></div>
+            <img src="/images/basicImages/s8-img.png" class="how-img"/>
+            <div class="blueCard">
+                <p class="moreof d-blue">More of</p>
+                <h1 class="threefivefive d-blue">355</h1>
+                <p class="finalText" style="color: #5B95A6;">Lawyers Online <i class="fas fa-user-tie" style="color: #5B95A6;"></i></p> 
             </div>
+            <div class="greenCard">
+                <p class="moreof green">More of</p>
+                <h1 class="threefivefive green">2,434</h1>
+                <p class="finalText" style="color: #3DC9A1;">Happy Customers <i class="fas fa-thumbs-up" style="color: #3DC9A1;"></i></p> 
+            </div>
+            <div class="yellowCard">
+                <p class="moreof brown">Rate of answer</p>
+                <h1 class="threefivefive brown">Quick</h1>
+                <p class="finalText" style="color: #95907F;">Best solution <i class="fas fa-envelope" style="color: #95907F;"></i></p> 
+            </div>
+        </div>
+        <div class="home-section-5-content">
+            <p class='home-section3-features'>HOW IT WORKS</p>
+            <span class='title-text'>Looking for a </span>
+            <span class='green title-text'>lawyer?</span>
+            <p class='p-text1' style='padding-bottom: 2rem'>Find duly licensed practicing lawyers or law firms in our unique lawyer directory. Select the one right for you by office location, practice area or language. Compare lawyers by their expertise and rating.</p>
+            <button class="contactnow white" onclick="opencontactnow()">Contact now <div class="h-100 bg-green"><i class="fas fa-arrow-right"></i></div></button>
         </div>
     </div>
 </section>

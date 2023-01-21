@@ -21,6 +21,7 @@ use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 
 use function PHPSTORM_META\map;
@@ -201,14 +202,25 @@ class CommonController extends Controller
     }
 
     public function userRegister(Request $request) {
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'user_type' => 3,            
+        $validator = Validator::make($request->all(),[
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:users',
+            'password' => 'required|string|min:6',
         ]);
-        Alert::success('Success', 'You have registered successfully. Please login!!');
-        return redirect()->route('home');
+        
+        if($validator->fails()) {
+            Alert::error('Error', 'Please go back to the form to view the errors');
+            return redirect()->route('home')->withErrors($validator);
+        }else {
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'user_type' => 3,            
+            ]);
+            Alert::success('Success', 'You have registered successfully. Please login!!');
+            return redirect()->route('home');
+        }
     }
 
     public function onlineChatRequests() {
