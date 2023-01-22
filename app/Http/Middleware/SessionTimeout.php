@@ -22,10 +22,15 @@ class SessionTimeOut
             if($k === "cookies") {
                 foreach($v as $j => $n) {
                     if($j === "laravel_session") {
-                        SessionUser::create([
-                            'session_id' => $n,
-                            'user_id'    => auth()->id()
-                        ]);
+                        if(auth()->id()) {
+                            $isCreated = SessionUser::whereUserId(auth()->id())->first();
+                            if(!$isCreated) {
+                                SessionUser::create([
+                                    'session_id' => $n,
+                                    'user_id'    => auth()->id()
+                                ]);
+                            }
+                        }
                     }
                 }
             }

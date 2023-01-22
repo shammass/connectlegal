@@ -102,6 +102,20 @@ function myAccFunc(number){
     }
 }
 
+function offlineLawyers(number){
+    debugger
+    var x = document.getElementById(`offLaw${number}`);
+    if (x.className.indexOf("show-item") == -1) {
+        x.className += "show-item";
+        x.previousElementSibling.style.backgroundColor = '#E8F8F2';
+    } else { 
+        x.className = x.className.replace("show-item", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-green", "");
+        x.previousElementSibling.style.backgroundColor = '#fff';
+    }
+}
+
 function openPostaQn(){
     closecontactnow();
     document.getElementById("openPostaQnPopup").style.display = 'block';

@@ -1,5 +1,2 @@
-<h4>Lawyers online ({{$onlineLawyers}})</h4>
-<div class="all-img">
-    <img src="/new-design/assets/image/home/all.png" alt="">
-    <h4>All</h4>
-</div>
+<button class="sidebar-menu-green-btn btn green"  id="sidebar-menu-green-btn1">Lawyers online ({{$onlineLawyers}})</button>
+<button class="sidebar-menu-green-btn btn green"  id="sidebar-menu-green-btn2"><span class="material-symbols-rounded sidebar-menu-green-btn-icon">language</span> All</button>
