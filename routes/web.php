@@ -53,6 +53,7 @@ Route::get('/online-offline-lawyers/{section}',             [HomeController::cla
 
 Route::get('forgot-password',           [ForgotPasswordController::class, 'showForgotPasswordForm'])->name('forgot.password.get');
 Route::post('forgot-password',          [ForgotPasswordController::class, 'submitForgotPasswordForm'])->name('forgot.password.post'); 
+Route::get('forgot-password/{email}',   [ForgotPasswordController::class, 'forgotPwdEmail'])->name('forgot.password.email'); 
 Route::get('reset-password/{token}',    [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password',           [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 

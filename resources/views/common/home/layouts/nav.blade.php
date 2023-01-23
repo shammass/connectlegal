@@ -9,7 +9,7 @@
                 <a href="/" class="link white">Home</a>
             </li>
             <li class="nav-item">
-                <a href="/" class="link white">How it works</a>
+                <a href="{{route('howItWorks')}}" class="link white">How it works</a>
             </li>
             <li class="nav-item">
                 <a href="{{route('lawyer.register-page')}}" class="link white">For Lawyers</a>

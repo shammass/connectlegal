@@ -28,11 +28,28 @@
     function hireALawyer() {
         window.location.href = "/hire-a-lawyer";
     }
-    var user = {{ Session::get('success') ?? $nothing }};
-    if(user) {
+    var success = true
+    var emailStatus = {{ Session::get('success') ?? $nothing }};
+    {{ Session::forget('success') }}
+    var email = "{{ Session::get('email') ?? $nothing }}";
+    if(emailStatus) {
+        $("#email_sent_to").text(email)
         sendResetPasswordLink()
+        {{ Session::forget('email_sent_to') }}
     }
-    console.log("This is javascript session"+ user);
+
+    function resendEmail() {
+        closeForgotPasswordConfirm()
+        $.ajax({
+            method:"get",
+            url: "/forgot-password/"+email,
+            success: function(res){
+                if(res === "success") {
+                    sendResetPasswordLink()
+                }
+            }
+        });
+    }
     // var pusher = new Pusher('a34a416e0fe588185c8e', {
     //     cluster: 'ap2'
     // });

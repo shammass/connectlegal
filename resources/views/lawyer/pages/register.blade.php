@@ -94,7 +94,6 @@
 @endsection
 @push('script')
     <script>
-        debugger
         w3_open_lawyer()
     </script>
 @endpush

@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Alert;
 use App\Http\Controllers\Controller;
 use App\Models\PasswordReset;
-use Illuminate\Http\Request; 
-use Carbon\Carbon; 
 use App\Models\User; 
-use Mail; 
+use Carbon\Carbon; 
 use Hash;
+use Illuminate\Http\Request; 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Mail; 
 use Mailjet\Resources;
 use Session;
   
@@ -30,15 +31,28 @@ class ForgotPasswordController extends Controller
      *
      * @return response()
      */
+    public function forgotPwdEmail($email) {
+        $this->sendForgotPasswordEmail($email);
+        return "success";
+    }
+
     public function submitForgotPasswordForm(Request $request) {
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'email' => 'required|email|exists:users',
         ]);
+        if($validator->fails()) {
+            Alert::error('Error', 'Please go back to the form to view the errors');
+            return redirect()->route('home')->withErrors($validator);
+        }
+        $this->sendForgotPasswordEmail($request->email);
+        return back();
+    }
 
+    public function sendForgotPasswordEmail($email) {
         $token = Str::random(64);
 
         PasswordReset::create([
-            'email' => $request->email, 
+            'email' => $email, 
             'token' => $token,
         ]);
 
@@ -56,7 +70,7 @@ class ForgotPasswordController extends Controller
                     ],
                     'To' => [
                         [
-                            'Email' => $request->email,
+                            'Email' => $email,
                             'Name' => "You"
                         ]
                     ],
@@ -69,9 +83,8 @@ class ForgotPasswordController extends Controller
             ]
         ];
         $mj->post(Resources::$Email, ['body' => $body]);
-        Session::put('success', 'Success');
-        // Alert::success('Email Sent', 'Please check the email address '.$request->email.' for instructions to reset your password. if you dont have received any email, please check your spam folder.');
-        return back()->with('message', 'We have e-mailed your password reset link!');
+        Session::put('success', 'success');
+        Session::put('email', $email);
     }
     /**
      * Write code on Method

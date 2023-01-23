@@ -10,7 +10,7 @@ document.addEventListener('click', handleClickOutside, true);
 
 var form = document.getElementById("forgotPasswordCheck");
 
-function handleForm(event) { event.preventDefault(); } 
+function handleForm(event) {  } 
 
 form.addEventListener('submit', handleForm);
 
@@ -150,4 +150,17 @@ function closeForgotPasswordConfirm()
     document.getElementById("forgotPasswordConfirm").style.display = 'none';
 }
 
+function howitworksPopup(){
+    document.getElementById("howitworksPopup").style.display = 'flex';
+}
+
+function ClosehowitworksPopup(){
+
+    var iframe = document.getElementById("howitworkVid").contentWindow;
+    func = 'pauseVideo';
+    iframe.postMessage('{"event":"command","func":"'+ func +'", "args":""}', '*');
+
+
+    document.getElementById("howitworksPopup").style.display = 'none';
+}
 

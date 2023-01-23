@@ -73,8 +73,8 @@
                     <form class="forgotPassword-form" action="{{ route('forgot.password.post') }}" method="POST" id="forgotPasswordCheck">
                         @csrf()
                         <input placeholder="email@domain.com" value="{{ old('email') }}" name="email" id="reset-email" required>
-                        @if ($errors->has('email'))
-                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                        @if($errors->has('email'))
+                            <span class="text-danger" style="color:red;">{{ $errors->first('email') }}</span>
                         @endif
                         <span class="reset-email-error" style="color:red;"></span>
                         <div>
@@ -95,9 +95,9 @@
             <div class="loginPopup-content">
                 <div class="forgotPassword-content">
                     <h1>Email Sent</h1>
-                    <p>Please check the email address email@domain.com for instructions to reset your password.</p>
+                    <p>Please check the email address <b><span id="email_sent_to"></span></b> for instructions to reset your password.</p>
                     <br>
-                    <p>if you dont have received any email, please check your spam folder or request a <a href="#" class="green">resend email here.</a></p>
+                    <p>if you dont have received any email, please check your spam folder or request a <a href="#" onclick="resendEmail()" class="green">resend email here.</a></p>
                     <div>
                         <button class="s9-signup" onclick="closeForgotPasswordConfirm()">Close</button>
                     </div>
@@ -270,6 +270,19 @@
                         <button type="submit">Submit</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="forgotPasswordPopup" id="howitworksPopup">
+        <div class="howitworksPopup-container">
+            <div class="loginPopup-btns">
+                <div><button class="loginPopup-closebtn" onclick="ClosehowitworksPopup()">X</button></div>
+            </div>
+            <div class="howitworksPopup-container-vid">
+                <iframe id="howitworkVid" style="border: none; width: 100%; height:100%"
+                    src="https://www.youtube.com/embed/n_dZNLr2cME?enablejsapi=1">
+                </iframe>
             </div>
         </div>
     </div>
