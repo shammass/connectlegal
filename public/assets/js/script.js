@@ -164,3 +164,36 @@ function ClosehowitworksPopup(){
     document.getElementById("howitworksPopup").style.display = 'none';
 }
 
+
+function focusQnA(){
+    document.getElementById("qnaText").focus();
+}
+
+function changeQnAView(viewType) {
+    if (viewType === 'list') {
+        document.getElementById('qna-view-icon-list').classList.add('qna-view-icon-active');
+        document.getElementById('qna-view-icon-grid').classList.remove('qna-view-icon-active');
+
+        document.getElementById('qa-grid-view').style.display = 'none';
+        document.getElementById('qa-list-view').style.display = 'grid';
+    }
+
+    else{
+        document.getElementById('qna-view-icon-grid').classList.add('qna-view-icon-active');
+        document.getElementById('qna-view-icon-list').classList.remove('qna-view-icon-active');
+
+        document.getElementById('qa-grid-view').style.display = 'grid';
+        document.getElementById('qa-list-view').style.display = 'none';
+    }
+}
+
+function QnAPage(page) {
+
+    var current = document.getElementsByClassName("qna-pagination-active");
+    console.log(current);
+    for (var a = 0; a < current.length; a++){
+        current[0].className = current[0].className.replace(" qna-pagination-active", "");
+    }
+
+    document.getElementById(`qna-pagination-btn${page}`).classList.add('qna-pagination-active');
+}
