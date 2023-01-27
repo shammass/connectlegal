@@ -1,111 +1,94 @@
 @extends('common.home.layouts.app')
 @section('content')
-        <div class="fix-height"></div>
-        <section class="blog-page" data-scroll-index="0">
-            <div class="container-fluid">
-                <div class="inner-content-wraper">
-                    <div class="row">
-                        <div class="col-12 p-0">
-                            <div class="blog-header d-flex justify-content-between">
-                                <div>
-                                    <h1>THE BLOG</h1>
-                                    <p>Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now.</p>
-                                </div>
-                                <img src="/new-design/assets/image/blog/blog_header.png" alt="blog image">
-                            </div>
-                        </div>
+    <section class="registerLawyer_main">
+        <div class="blogs-section1 bg-l-blue">
+            <div style="position: relative;">
+                <div class="blog-img"><img style="width: 100%" src="../images/basicImages/blogs.png" alt=""/></div>
+                <div class="blogs-section1-titlePart">
+                    <h1 class="blogs-h1">THE BLOG</h1>
+                    <p class="blogs-section1-p">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now. </p>
+                </div>
+                <div class="blogs-section1-main-grid">
+                    <div class="blogs-section1-main-grid-item1">
+                        <img style="width: 100%;" src="../images/basicImages/blog-s1-img1.png" alt=""/>
+                        <p class="d-blue blog-s1-p">30/Nov/2025</p>
+                        <h4 class="d-blue" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
+                        <p class="d-blue blog-s1-p1" style="padding-top: 0.5rem">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now. </p>
                     </div>
-                    <div class="row blog-header-content">
-                        <div class="d-flex flex-wrap justify-content-between">
-                            <div class="blog-header-content-left">
-                                <div class="blog-card full">
-                                    <img src="/new-design/assets/image/blog/blog_image.png" >
-                                    <div class="blog-card-content">
-                                        <p class="blog-card-content-time">30/Nov/2025</p>
-                                        <h4>This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                                        <p class="blog-card-content-desc">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now.</p>
-                                    </div>
-                                </div>
+                    <div class="blogs-section1-main-grid-item2">
+                        <div>
+                            <div>
+                                <img style="width: 100%;" src="../images/basicImages/blog-s1-img2.png" alt=""/>
                             </div>
                             <div>
-                                <div class="blog-card">
-                                    <img src="/new-design/assets/image/blog/blog_image.png" >
-                                    <div class="blog-card-content">
-                                        <p class="blog-card-content-time">30/Nov/2025</p>
-                                        <h4>This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                                        <p class="blog-card-content-desc">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now.</p>
-                                    </div>
-                                </div>
-                                <div class="blog-card">
-                                    <img src="/new-design/assets/image/blog/blog_image.png" >
-                                    <div class="blog-card-content">
-                                        <p class="blog-card-content-time">30/Nov/2025</p>
-                                        <h4>This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                                        <p class="blog-card-content-desc">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now.</p>
-                                    </div>
-                                </div>
-                                <div class="blog-card">
-                                    <img src="/new-design/assets/image/blog/blog_image.png" >
-                                    <div class="blog-card-content">
-                                        <p class="blog-card-content-time">30/Nov/2025</p>
-                                        <h4>This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                                        <p class="blog-card-content-desc">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now.</p>
-                                    </div>
-                                </div>
+                                <p class="d-blue blog-s1-p" style="padding-top: 0.5rem">30/Nov/2025</p>
+                                <h4 class="d-blue" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
                             </div>
-                            
-                            
+                        </div>
+                        <div>
+                            <div>
+                                <img style="width: 100%;" src="../images/basicImages/blog-s1-img3.png" alt=""/>
+                            </div>
+                            <div>
+                                <p class="d-blue blog-s1-p" style="padding-top: 0.5rem">30/Nov/2025</p>
+                                <h4 class="d-blue" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img style="width: 100%;" src="../images/basicImages/blog-s1-img4.png" alt=""/>
+                            </div>
+                            <div>
+                                <p class="d-blue blog-s1-p" style="padding-top: 0.5rem">30/Nov/2025</p>
+                                <h4 class="d-blue" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="blogs-section2">
+            <div class="blogs-section2-topic">
+                <p class="d-blue">RELATED ARTICLES</p>
+                <div class="blogs-section2-topic-btns">
+                    <!-- <button>Relevant</button>
+                    <button>Date</button> -->
 
+                    <!-- <input type="date" id="birthday" name="birthday"> -->
+                </div>
             </div>
-        </section>
-        <section class="articles-page">
-            <div class="articles-content-header">
-                <h3>RELATED ARTICLES</h3>
+            <div class="blogs-section2-grid">
                 <div>
-                    <select name="" id="">
-                        <option value="relevant">Relevant</option>
-                    </select>
-                    <select name="" id="">
-                        <option value="date">Date</option>
-                    </select>
+                    <img style="width: 100%" src="../images/basicImages/blog-s2-img1.png" alt=""/>
+                    <p class="d-blue">30/Nov/2025</p>
+                    <h4 class="d-blue">This is a lorem ipsum title here and will be remplaced for the final text</h4>
+                    <p>Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now. </p>
+                </div>
+                <div>
+                    <img style="width: 100%" src="../images/basicImages/blog-s2-img2.png" alt=""/>
+                    <p class="d-blue">30/Nov/2025</p>
+                    <h4 class="d-blue">This is a lorem ipsum title here and will be remplaced for the final text</h4>
+                    <p>Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now. </p>
+                </div>
+                <div>
+                    <img style="width: 100%" src="../images/basicImages/blog-s2-img3.png" alt=""/>
+                    <p class="d-blue">30/Nov/2025</p>
+                    <h4 class="d-blue">This is a lorem ipsum title here and will be remplaced for the final text</h4>
+                    <p>Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now. </p>
+                </div>
+                <div>
+                    <img style="width: 100%" src="../images/basicImages/blog-s2-img4.png" alt=""/>
+                    <p class="d-blue">30/Nov/2025</p>
+                    <h4 class="d-blue">This is a lorem ipsum title here and will be remplaced for the final text</h4>
+                    <p>Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now. </p>
                 </div>
             </div>
-            <div class="articles-content-main">
-                <div class="blog-card with-articles">
-                    <img src="/new-design/assets/image/blog/blog_image.png" >
-                    <div class="blog-card-content">
-                        <p class="blog-card-content-time">30/Nov/2025</p>
-                        <h4>This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                        <p class="blog-card-content-desc">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now.</p>
-                    </div>
-                </div>
-                <div class="blog-card with-articles">
-                    <img src="/new-design/assets/image/blog/blog_image.png" >
-                    <div class="blog-card-content">
-                        <p class="blog-card-content-time">30/Nov/2025</p>
-                        <h4>This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                        <p class="blog-card-content-desc">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now.</p>
-                    </div>
-                </div>
-                <div class="blog-card with-articles">
-                    <img src="/new-design/assets/image/blog/blog_image.png" >
-                    <div class="blog-card-content">
-                        <p class="blog-card-content-time">30/Nov/2025</p>
-                        <h4>This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                        <p class="blog-card-content-desc">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now.</p>
-                    </div>
-                </div>
-                <div class="blog-card with-articles">
-                    <img src="/new-design/assets/image/blog/blog_image.png" >
-                    <div class="blog-card-content">
-                        <p class="blog-card-content-time">30/Nov/2025</p>
-                        <h4>This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                        <p class="blog-card-content-desc">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 @endsection
+
+@push('script')
+    <script>
+        w3_open_lawyer()
+    </script>
+@endpush

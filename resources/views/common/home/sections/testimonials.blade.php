@@ -1,4 +1,4 @@
-<section class="section home-section7">
+<section class="home-section7">
     <div class="home-section7-grid-container">
         <div class="home-section7-grid-item1">
             <div class="s7-testimonials">

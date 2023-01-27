@@ -1,4 +1,4 @@
-<section class="section" id="home-section4">
+<section class="" id="home-section4">
     <div class="home-section4-container">
         <p class='home-section3-features'>PROCESS</p>
         <div class="home-section4-title">

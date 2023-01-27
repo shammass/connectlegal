@@ -1,4 +1,4 @@
-<section class="section home-section-6">
+<section class="home-section-6">
     <div class="home-section-6-container">
         <div class="home-section-6-container-item1">
             <h1 class="s6-boxItem-1">PRO Services</h1>

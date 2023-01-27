@@ -24,7 +24,7 @@
                 <a href="/" class="link white">Practice Area</a>
             </li>
             <li class="nav-item">
-                <a href="/" class="link white">Blogs & Articles</a>
+                <a href="{{ route('blogs-articles', 1) }}" class="link white">Blogs & Articles</a>
             </li>
             @if(!auth()->user())
                 <li class="nav-item">
