@@ -31,12 +31,13 @@ function closecontactnow(){
 }
 
 function openForm() {
-w3_close();
-document.getElementById("myForm1").style.display = "block";
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    w3_close();
+    document.getElementById("myForm1").style.display = "block";
 }
 
-function openLogin(){
-
+function openLogin() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
     document.getElementById("myForm1").style.display = 'block';
@@ -44,8 +45,7 @@ function openLogin(){
     document.getElementById("myForm3").style.display = 'none';
 }
 
-function openRegister(){
-
+function openRegister() {
     document.getElementById("myForm1").style.display = 'none';
     document.getElementById("myForm2").style.display = 'block';
     document.getElementById("myForm3").style.display = 'none';
@@ -64,26 +64,22 @@ function w3_open() {
 function w3_close() {
   document.getElementById("mySidebar").style.left = '-300%';
 }
-function showContent1() {
 
+function showContent1() {
     document.getElementById("content1").style.display = 'block';
     document.getElementById("content2").style.display = 'none';
-
     document.getElementById("sidebar-menu-btn1").style.color= '#208C84';
     document.getElementById("sidebar-menu-btn2").style.color= 'black';
 }
 
 function showContent2() {
-
     document.getElementById("content1").style.display = 'none';
     document.getElementById("content2").style.display = 'block';
-    
     document.getElementById("sidebar-menu-btn2").style.color= '#208C84';
     document.getElementById("sidebar-menu-btn1").style.color= 'black';
 }
 
-function openSignUpUser(){
-
+function openSignUpUser() {
     document.getElementById("myForm1").style.display = 'none';
     document.getElementById("myForm2").style.display = 'none';
     document.getElementById("myForm3").style.display = 'block';
