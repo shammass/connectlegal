@@ -2,18 +2,18 @@
     <div class="home-section4-container">
         <p class='home-section3-features'>PROCESS</p>
         <div class="home-section4-title">
-            <span class="s4-t">3 STEPS FOR Appointment </span>
-            <span class="green s4-t">Process for Legal Services</span>
+            <span class="title-text1 bigSize">3 STEPS FOR Appointment </span>
+            <span class="green title-text1 bigSize">Process for Legal Services</span>
         </div>
         <div class="s4-grid-container">
             <div class="s4-grid-1">
                 <div class="s4-box green2">
                     <div class="s4-grid-container-container">
-                        <div>
+                        <div class="s4-1-firstItem">
                             <p class="s4-index green1">1</p>
                         </div>
                         <div>
-                            <img src="/images/basicImages/Frame-small.png" alt="" class="s4-img-1"></img>
+                            <img src="/images/basicImages/Frame.png" alt="" class="s4-img-1"></img>
                         </div>
                         <div>
                             <div class='s4-p green1'>
@@ -29,7 +29,7 @@
             <div class="s4-grid-2">
                 <div class='s4-box blue2'>
                     <div class="s4-grid-container-container">
-                        <div>
+                        <div class="s4-1-firstItem">
                             <p class="s4-index d-blue">2</p>
                         </div>
                         <div>
@@ -49,7 +49,7 @@
             <div class="s4-grid-3">
                 <div class='s4-box yellow2'>
                     <div class="s4-grid-container-container">
-                        <div>
+                        <div class="s4-1-firstItem">
                             <p class="s4-index brown1">3</p>
                         </div>
                         <div>
@@ -155,9 +155,9 @@
         </div>
         <div class="home-section-5-content">
             <p class='home-section3-features'>BEST LAWYERS IN UAE FOR LEGAL SERVICES ONLINE</p>
-            <span class='green title-text'>Find legal Services </span>
-            <span class='title-text'>with one click and get your Legal Advice.</span>
-            <p style="padding: 2rem 0">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now, We work on a wide range of legal matters. Our legal Services from the Legal staff is here to assist you with proper guidance...
+            <span class='green title-text1'>Find legal Services </span>
+            <span class='title-text1'>with one click and get your Legal Advice.</span>
+            <p class="p-text2" style="padding: 2rem 0">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now, We work on a wide range of legal matters. Our legal Services from the Legal staff is here to assist you with proper guidance...
             <a href="#" class="green">(read more)</a></p>
 
             <div class="home-section-5-content-container">

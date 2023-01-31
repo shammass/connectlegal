@@ -1,4 +1,4 @@
-<section class="section-2 section">
+<section class="section-2">
     <div class="section-2-container">
         <div class="section-2-content section-2-item">
             <h2 class="title-text">
@@ -9,7 +9,7 @@
             <button class="contactnow white" onclick="opencontactnow()">Contact now <div class="h-100 bg-green"><i class="fas fa-arrow-right"></i></div></button>
         </div>
         <div class="section-2-item">
-            <img class="section-2-img" src="../images/basicImages/home-section2.png" alt=""/>
+            <img class="section-2-img" src="/images/basicImages/home-section2.png" alt=""/>
         </div>
     </div>
 </section>

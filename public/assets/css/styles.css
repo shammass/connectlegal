@@ -172,9 +172,9 @@ padding-left: 1rem;
 }
 
 .main{
-    margin-top: 5rem;
+    margin-top: 4rem;
     background-image: linear-gradient(270deg, rgba(9, 63, 56, 0) 19.32%, #02201C 100%),url('/images/basicImages/bg.png');
-    background-size: cover;
+    background-size: contain;
     width: 100%;
     /* height: 180vh; */
     display: flex;
@@ -195,12 +195,14 @@ padding-left: 1rem;
 	align-items: center;
 	justify-content: space-between;
     padding: 1rem;
+    padding-right: 3rem;
+    padding-left: 1.5rem;
 }
 
 .navbar-logo{
     margin-left: 1rem;
     justify-self: start;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
@@ -226,7 +228,7 @@ padding-left: 1rem;
 }
 
 .sidebar-icon{
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
@@ -264,7 +266,7 @@ padding-left: 1rem;
     grid-gap: 1.5rem;
     list-style: none;
     text-align: center;
-    font-weight: 500;
+    font-weight: 400;
     justify-content: end;
     padding-left: 6rem;
     /* margin-right: 1rem; */
@@ -460,28 +462,29 @@ footer{
 }
 
 .section1-content{
-    padding: 4rem 4rem 8rem 4rem;
+    padding: 5rem 5rem 7rem 5rem;
     display: grid;
     grid-template-columns: 1fr 0.75fr;
-    column-gap: 2rem;
+    column-gap: 6rem;
 }
 
 .section1-content-item1-img{
     padding: 2rem 0;
+    /* max-width: 450px; */
     /* width: 560px;
     height: 85px; */
 }
 .section1-content-item1-h{
     font-weight: 600;
     font-size: 3rem;
-    line-height: 5rem;
+    /* line-height: 5rem; */
 }
 
 
 .section1-content-item1-p{
     font-weight: 400;
     font-size: 1.125rem;
-    line-height: 2rem;
+    /* line-height: 2rem; */
     padding-bottom: 2rem;
 }
 
@@ -489,7 +492,7 @@ footer{
     /* background-color: red; */
     display: grid;
     grid-template-columns: 100%;
-    gap: 2rem;
+    gap: 1rem;
     /* width: 100%; */
 }
 
@@ -515,9 +518,10 @@ footer{
 
 .section1-content-item2-box{
     display: grid;
+    width: 100%;
     grid-template-columns: auto auto;
-    padding: 2rem 0;
     transition: transform .2s;
+    box-sizing: content-box;
     
 }
 
@@ -526,41 +530,38 @@ footer{
 }
 
 .boxShadow-green{
-    box-shadow: 5px 5px #3DC9A1;
+    box-shadow: 3px 3px #3DC9A1;
 }
 
 .boxShadow-blue{
-    box-shadow: 5px 5px #156075;
+    box-shadow: 3px 3px #156075;
 }
 
 .boxShadow-brown{
-    box-shadow: 5px 5px #3F3309;
+    box-shadow: 3px 3px #3F3309;
 }
 
 .boxShadow-m-green{
-    box-shadow: 5px 5px #208C84;
+    box-shadow: 3px 3px #208C84;
 }
 
 .section1-content-item2-box-img{
-    margin: auto 0;
-    padding: 0 3rem;
+    /* padding-right: 3rem; */
+    margin: 2rem 3rem;
 }
 
 .section1-content-item2-box-content{
-    /* margin: auto 15rem auto 0; */
-    padding-right: 2rem;
+    margin: auto 0;
+    padding-right: 3rem;
 }
 
 .section1-content-item2-box-content h4{
     font-weight: 600;
-    font-size: 22px;
-    line-height: 33px;
+    font-size: 1rem;
 }
 
 .section1-content-item2-box-content p{
     font-weight: 400;
-    font-size: 20px;
-    line-height: 30px;
 }
 
 .contactnow{
@@ -646,14 +647,14 @@ footer{
     justify-content: center;
     padding-top: 1.5rem;
     position: absolute;
-    bottom: -5rem;
+    bottom: -3rem;
     left: 10%;
     width: 80%;
     /* top: 110vh; */
 }
 
 .main-stat-board{
-    padding: 1rem 2rem;
+    padding: 1rem 5rem;
     background-color: #F4FEFA;
     border-radius: 10px;
 }
@@ -661,39 +662,40 @@ footer{
 .main-stat-grid{
     display: grid;
     grid-template-columns: repeat(4, auto);
-    column-gap: 4rem;
+    column-gap: 6rem;
 }
 
 .main-stat-text{
     font-weight: 600;
-    font-size: 4rem;
-    line-height: 6rem;
+    font-size: 3rem;
+    /* line-height: 3.5rem; */
     color: #208C84;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .main-stat-p{
     font-weight: 600;
-    font-size: 1.5rem;
-    line-height: 2.25rem;
-    display: flex;
+    font-size: 1.25rem;
+    /* line-height: 2.25rem; */
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: center; */
 }
 
 .section-2{
     /* background-color: blue; */
-    padding: 6rem 4rem 4rem 4rem;
+    padding: 6rem 10rem 4rem 10rem;
 }
 
 .section-2-container{
     height: 100%;
     /* background-color: red; */
+    gap: 2rem;
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: 1fr 0.8fr;
 }
 
 .section-2-img{
@@ -704,16 +706,32 @@ footer{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
-    font-size: 2.5rem;
-    line-height: 3.75rem;
+    font-size: 2rem;
+    /* line-height: 3.75rem; */
+}
+
+.title-text1{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.25rem;
+    /* line-height: 3.75rem; */
 }
 
 .p-text{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 1.5rem;
-    line-height: 2.5rem;
+    font-size: 1.125rem;
+    /* line-height: 2.5rem; */
+}
+
+.p-text2{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    /* line-height: 2.5rem; */
 }
 
 .p-text1{
@@ -724,12 +742,17 @@ footer{
     line-height: 2.5rem;
 }
 
+.section-2-content{
+    margin: auto 0;
+    padding: 2rem 0;
+}
+
 .section-2-content p{
     padding: 2rem 0;
 }
 
 .section-2-item{
-    padding: 2rem;
+    /* padding: 2rem; */
 }
 
 .section-3-grid{
@@ -742,7 +765,7 @@ footer{
 
 /* Slideshow container */
 .slideshow-container {
-    padding: 4rem;
+    padding: 4rem 8rem;
     
 }
 
@@ -789,6 +812,13 @@ footer{
   padding: 2rem 4rem;
 }
 
+.letsee1{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    column-gap: 2rem;
+    padding: 4rem 6rem;
+}
+
 .s5-main-div-item1{
     position: relative; 
     width: 100%; 
@@ -831,7 +861,7 @@ footer{
 
 .yellowCard{
     position: absolute;
-    margin: 9rem 0;
+    margin: 12rem 0;
     bottom: 0;
     right: 0;
     padding: 1rem;
@@ -846,22 +876,22 @@ footer{
 
 .moreof{
     font-weight: 500;
-    font-size: 120%;
-    line-height: 130%;
+    font-size: 1rem;
+    /* line-height: 130%; */
 }
 
 .threefivefive{
     font-weight: 600;
     /* font-size: 70px; */
-    font-size: 370%;
+    font-size: 3.5rem;
     padding-right: 5rem;
 }
 
 .finalText{
     font-weight: 600;
-    font-size: 120%;
-    line-height: 36px;
-    padding-left: 1rem;
+    font-size: 1.125rem;
+    /* line-height: 36px; */
+    padding-left: 0.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -877,14 +907,14 @@ footer{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 1.375rem;
+    font-size: 1.0625rem;
     line-height: 2.3125rem;
     letter-spacing: 0.06em;
     color: #3DC9A1;
 }
 
 .p-1{
-    padding: 1rem;
+    padding: 2rem 1rem;
 }
 
 #home-section4{
@@ -903,23 +933,23 @@ footer{
 }
 
 .home-section4-title{
-    width: 38rem;
+    max-width: 28.5rem;
     text-align: center;
     padding-bottom: 1rem;
 }
 
 .s4-t{
     font-weight: 600;
-    font-size: 3rem;
-    line-height: 4rem;
+    font-size: 2rem;
+    /* line-height: 4rem; */
 }
 
 .s4-index{
     width: 100%;
     text-align: right;
     font-weight: 700;
-    font-size: 6rem;
-    line-height: 10rem;
+    font-size: 4.5rem;
+    /* line-height: 10rem; */
     /* color: #093F38; */
 }
 
@@ -928,14 +958,14 @@ footer{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 28px;
-    line-height: 42px;
+    font-size: 1.25rem;
+    /* line-height: 42px; */
     padding: 2rem 0rem;
 }
 
 .s4-img-1{
-    width: 10rem;
-    height: 10rem;
+    /* width: 10rem;
+    height: 10rem; */
 }
 
 .s4-grid-container{
@@ -1025,7 +1055,7 @@ footer{
     color: #000;
     border-radius: 0;
     font-family:'Poppins';
-    font-size: 1.25rem;
+    font-size: 1.0625rem;
     font-weight: 500;
     line-height: 2rem;
     display: flex;
@@ -1060,13 +1090,13 @@ footer{
 
 #home-section5{
     background-color: #E8F8F2;
-    padding: 3rem 1rem;
+    padding: 3rem 10rem;
 }
 
 .home-section5-grid{
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    margin: 0 4rem;
+    display: flex;
+    /* grid-template-columns: repeat(2, auto); */
+    /* margin: 0 4rem; */
 }
 
 .home-section-5-content{
@@ -1109,26 +1139,26 @@ footer{
     gap: 2rem;
     width: 100%;
     height: 100vh;
+    padding: 1rem 8rem;
 }
 
 .home-section-6-container div{
-    background-position: center;
+    background-position: top;
     background-size: contain;
     background-repeat: no-repeat;
-    min-height: 450px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: end;
     width: 50%;
-    padding: 4rem 8rem 2rem 2rem;
+    padding: 2rem;
+    padding-right: 5rem;
     box-sizing: content-box;
 }
 
 .home-section-6-container-item1{
     background-color: #C2DDE4;
     background-image: url('/images/basicImages/s6-bg1.png');
-    margin: 0 2rem;
-    /* padding: 8rem 4rem 2rem 2rem; */
 }
 
 .home-section-6-container div ul{
@@ -1137,31 +1167,32 @@ footer{
 
 .home-section-6-container div li{
     list-style: none;
-    line-height: 2rem;
+    line-height: 1.5rem;
+    font-size: 1rem;
 }
 
 .home-section-6-container-item1 li span{
     vertical-align: middle;
     color: #208C84;
+    padding-right: 0.5rem;
 }
 
 .home-section-6-container-item2{
     background-color: #EDEEC6;
     background-image: url('/images/basicImages/s6-bg2.png');
-    margin: 0 2rem;
-    /* padding: 3.5rem 4rem 2rem 2rem; */
 }
 
 .home-section-6-container-item2 li span{
     vertical-align: middle;
     color: #3F3309;
+    padding-right: 0.5rem;
 }
 
 .s6-boxItem-1{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
-    font-size: 3rem;
+    font-size: 2.25rem;
     color: #156075;
     padding-bottom: 1rem;
 }
@@ -1170,9 +1201,13 @@ footer{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
-    font-size: 3rem;
+    font-size: 2.25rem;
     color: #3F3309;
     padding-bottom: 1rem;
+}
+
+.s6-boxItem-1-p{
+    font-size: 1rem;
 }
 
 .home-section7{
@@ -1187,6 +1222,8 @@ footer{
     grid-template-columns: 33% 66%;
     width: 100%;
     height: 100%;
+    padding: 0 2rem;
+    padding-left: 6rem;
 }
 
 .home-section7-grid-item1{
@@ -1209,10 +1246,15 @@ footer{
 
 .home-section7-grid-item2{
     /* pl: '2rem', width: '100%', height: '100%', overflowY: 'hidden' */
-    padding-left: 2rem;
+    padding-left: 4rem;
     width: 100%;
     height: 100%;
     overflow-y: hidden;
+}
+
+.s5-title-text{
+    font-weight: 600;
+    font-size: 1.875rem;
 }
 
 .home-section7-grid-item2-container{
@@ -1267,8 +1309,8 @@ footer{
 .s7-qoutes-p{
     font-style: italic;
     font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.625rem;
+    font-size: 0.875rem;
+    /* line-height: 1.625rem; */
 }
 
 .s7-qoutes-rating{
@@ -1284,8 +1326,8 @@ footer{
 
 .s7-qoutes-rating-user-p{
     padding-left: 0.5rem;
-    font-size: 1.125rem;
-    line-height: 1.6875rem;
+    font-size: 0.9rem;
+    /* line-height: 1.6875rem; */
     margin: auto 0;
 }
 
@@ -1298,9 +1340,13 @@ footer{
 
 .s5-lawyer-sidebar{
     padding-left: 0.5rem;
-    font-size: 1.125rem;
-    line-height: 1.6875rem;
+    font-size: 1.0625rem;
+    /* line-height: 1.6875rem; */
     margin: auto 0;
+}
+
+.s5-lawyer-sidebar > p{
+    font-size: 1rem;
 }
 
 .s7-qoutes-ratings{
@@ -1315,8 +1361,8 @@ footer{
 
 .s7-qoutes-rating-user-span{
     font-weight: 400;
-    font-size: .8rem;
-    line-height: 1rem;
+    font-size: .5rem;
+    /* line-height: 1rem; */
     text-align: right;
 }
 
@@ -1326,7 +1372,7 @@ footer{
 
 .home-section9{
     background-color: #E5EAED;
-    padding: 2rem;
+    padding: 2rem 8rem;
 }
 
 /*  grid-area: 1 / 1 / span 1 / span 2; */
@@ -1340,6 +1386,7 @@ footer{
 .home-section-9-item1{
     background-color: #C2DDE4;
     padding: 2rem;
+    padding-top: 3rem;
 }
 
 .home-section-9-item2{
@@ -1350,29 +1397,28 @@ footer{
 .home-section-9-item3{
     background-color: #fff;
     grid-area: 2 / 1 / span 2 / span 2;
-    padding: 2rem;
 }
 
 .s9-block{
-    padding: 2rem;
-    display: block;
+    /* padding: 2rem;
+    display: block; */
 }
 
 .s9-block-h{
     font-weight: 700;
-    font-size: 2.5rem;
-    line-height: 3.75rem;
+    font-size: 2rem;
+    /* line-height: 3.75rem; */
 }
 
 #s9-block-h{
     font-size: 2.5rem;
-    line-height: 3.75rem;
+    /* line-height: 3.75rem; */
 }
 
 .s9-block-p{
     font-weight: 400;
-    font-size: 1.125rem;
-    line-height: 1.6875rem;
+    font-size: 0.9rem;
+    /* line-height: 1.6875rem; */
     padding: 1rem 0;
 }
 
@@ -1384,6 +1430,7 @@ footer{
 .s9-flex-p{
     padding-left: 1rem;
     width: 100%;
+    font-size: 1rem;
 }
 
 .s9-flex-icon{
@@ -1440,7 +1487,7 @@ footer{
     width: 100%;
     height: 100%;
     padding: 2rem;
-    padding-bottom: 8rem;
+    padding-bottom: 4rem;
     background-color: #C6EEE2;
     background-image: url('/images/basicImages/s9-bg.png');
     background-size:auto;
@@ -1467,8 +1514,8 @@ footer{
 
 .s9-grid-s1-h{
     font-weight: 700;
-    font-size: 40px;
-    line-height: 60px;
+    font-size: 2rem;
+    line-height: 4rem;
     color: #208C84;
 }
 
@@ -1481,9 +1528,15 @@ footer{
 
 .s9-grid-s1-p{
     font-weight: 400;
-    font-size: 18px;
-    line-height: 35px;
+    font-size: 0.9rem;
+    line-height: 2rem;
+    /* padding-top: 2rem; */
     padding-bottom: 1rem;
+    max-width: 325px;
+}
+
+.s9-grid-s1-button{
+    padding: 1rem 0;
 }
 
 .registernow{
@@ -1583,16 +1636,16 @@ footer{
 .s9-grid-s2-t{
     /* display: block; */
     font-weight: 600;
-    font-size: 40px;
-    line-height: 60px;
+    font-size: 2rem;
+    /* line-height: 60px; */
     text-align: center;
 }
 
 .s9-grid-s2-st{
     /* display: block; */
     font-weight: 400;
-    font-size: 15px;
-    line-height: 30px;
+    font-size: 0.75rem;
+    /* line-height: 30px; */
     text-align: center;
 }
 
@@ -1622,7 +1675,7 @@ footer{
     border: none;
     border-bottom: 1px solid #191919;
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1rem;
     padding: 0 1rem;
 }
 
@@ -1651,8 +1704,8 @@ footer{
 }
 
 .s9-form div{
-    font-size: 1.5rem;
-    padding: 1.5rem 0;
+    font-size: 0.8rem;
+    padding: 1rem 0;
 }
 
 .s9-signup{
@@ -2608,6 +2661,10 @@ details > p {
     padding: 0.5rem 0;
 }
 
+.home-section-5-img{
+    width: 100%;
+}
+
 @keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
@@ -3052,7 +3109,7 @@ details > p {
     }
 
     .main-stat{
-        bottom: -8rem;
+        bottom: -5rem;
     }
 
     .main-stat-grid{
@@ -3530,7 +3587,7 @@ details > p {
 
     #home-section5{
         background-color: #E8F8F2;
-        padding: 3rem 0;
+        padding: 3rem 1rem;
     }
     
     .home-section5-grid{
@@ -3566,6 +3623,7 @@ details > p {
     
     .home-section-6-container{
         display: grid;
+        padding: 0;
         /* flex-direction: column; */
         /* row-gap: 2rem; */
         grid-template-columns: 100%;
@@ -3574,8 +3632,8 @@ details > p {
     }
     
     .home-section-6-container div{
-        background-position: center;
-        background-size: contain;
+        /* background-position: center; */
+        /* background-size: contain; */
         background-repeat: no-repeat;
         /* min-height: 450px; */
         height: auto;
@@ -3652,7 +3710,8 @@ details > p {
     .main{
         min-height: 0;
         width: 100%;
-        background-image: linear-gradient(270deg, rgba(9, 63, 56, 0) 19.32%, #02201C 100%),url('/images/basicImages/bg-small.png');
+        background-image: linear-gradient(270deg, rgba(9, 63, 56, 0.42) 0%, #02201C 100%),url('/images/basicImages/bg-small.png');
+        background-size: cover;
     }
 
     .section1-content{
@@ -3698,9 +3757,9 @@ details > p {
     }
 
     .section1-content-item2-box-content h4{
-        font-size: 1.25rem;
+        /* font-size: 1.25rem;
         font-weight: 600;
-        line-height: 1.75rem;
+        line-height: 1.75rem; */
     }
     
     .section1-content-item2-box-content p{
@@ -3728,6 +3787,14 @@ details > p {
         font-size: 1.5rem;
         line-height: 2.25rem;
 
+    }
+
+    .title-text1{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2.25rem;
+        /* line-height: 3.75rem; */
     }
     
     .p-text{
@@ -3767,6 +3834,7 @@ details > p {
         /* Slideshow container */
     .slideshow-container {
         padding: 4rem 0;
+        padding-bottom: 2rem;
     }
 
     #home-section4{
@@ -4151,11 +4219,88 @@ details > p {
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
 
     /* .section{
         min-height: 140vh;
     } */
+
+    .section1-content-item1-img{
+        padding-right: 2rem;
+    }
+
+    .section1-content-item1-h{
+        font-size: 2.25rem;
+    }
+
+    .letsee1{
+        display: grid;
+        grid-template-columns: 100%;
+        column-gap: 2rem;
+        padding: 2rem 1rem;
+    }
+
+    .home-section7-grid-container{
+        display: grid;
+        grid-template-columns: 100%;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+
+    .section1-content-item2-box-img {
+        margin: 0;
+        padding: 1rem 2rem;
+    }
+
+    .section1-content-item1-p{
+        font-weight: 400;
+        font-size: 1rem;
+        padding-top: 1rem;
+        /* line-height: 27px; */
+    }
+
+    .main-stat-board{
+        padding: 1rem 2rem;
+    }
+    
+    .title-text{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+    
+    .home-section3-features {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .title-text1 {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+
+    .bigSize{
+        font-size: 2rem !important;
+    }
+
+    .p-text2 {
+        padding-top: 1rem;
+        font-size: 1rem;
+    }
+
+    .s4-grid-container-container{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+    .s4-1-firstItem{
+        grid-area: 1 / 1 / span 1 / span 2;
+    }
 
     footer{
         padding: 1rem;
@@ -4279,7 +4424,8 @@ details > p {
     }
 
     .section1-content{
-        padding-bottom: 8rem;
+        padding: 1rem;
+        padding-bottom: 10rem;
     }
     .sidebar{
         width: 280px;
@@ -4409,7 +4555,7 @@ details > p {
     }
 
     .yellowCard{
-        margin: 3rem 0;
+        margin: 1rem 0;
     }
 
     .home-section7{

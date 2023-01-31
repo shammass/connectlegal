@@ -1,8 +1,8 @@
 <section class="">
-    <div class="letsee s5-main-div">
+    <div class="letsee1 s5-main-div">
         <div class="s5-main-div-item1">
             <div class="whiteRec"></div>
-            <img src="/images/basicImages/s8-img.png" class="how-img"/>
+            <img src="../images/basicImages/s8-img.png" class="how-img"/>
             <div class="blueCard">
                 <p class="moreof d-blue">More of</p>
                 <h1 class="threefivefive d-blue">355</h1>
@@ -21,9 +21,9 @@
         </div>
         <div class="home-section-5-content">
             <p class='home-section3-features'>HOW IT WORKS</p>
-            <span class='title-text'>Looking for a </span>
-            <span class='green title-text'>lawyer?</span>
-            <p class='p-text1' style='padding-bottom: 2rem'>Find duly licensed practicing lawyers or law firms in our unique lawyer directory. Select the one right for you by office location, practice area or language. Compare lawyers by their expertise and rating.</p>
+            <span class='s5-title-text'>Looking for a </span>
+            <span class='green s5-title-text'>lawyer?</span>
+            <p class='p-text' style='padding-bottom: 2rem'>Find duly licensed practicing lawyers or law firms in our unique lawyer directory. Select the one right for you by office location, practice area or language. Compare lawyers by their expertise and rating.</p>
             <button class="contactnow white" onclick="opencontactnow()">Contact now <div class="h-100 bg-green"><i class="fas fa-arrow-right"></i></div></button>
         </div>
     </div>

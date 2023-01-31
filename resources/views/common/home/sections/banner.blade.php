@@ -1,7 +1,7 @@
 <section class="main">
     <div class="section1-content">
         <div class="section1-content-item1">
-            <div class="section1-content-item1-img"><img src="/images/basicImages/CL-logo1.png" alt=""/></div>
+            <div class="section1-content-item1-img"><img style="max-width: 400px" src="/images/basicImages/mainLogo.png" alt=""/></div>
             <div class="section1-content-item1-h">
                 <span style="color: #fff">Get </span>
                 <span style="color: rgba(61, 201, 161, 1)">Online Legal Support</span>
@@ -13,7 +13,7 @@
         <div class="section1-content-item2">
             <div class="section1-content-item2-box bg-l-green boxShadow-green green">
                 <div class="section1-content-item2-box-img">
-                    <img src="/images/basicImages/find_lawyer.png" alt=""/>
+                    <img style="max-width: 50px;" src="/images/basicImages/find_lawyer.png" alt=""/>
                 </div>
                 <div class="section1-content-item2-box-content">
                     <h4>Find a Lawyer</h4>
@@ -22,7 +22,7 @@
             </div>
             <div class="section1-content-item2-box bg-l-blue boxShadow-blue d-blue">
                 <div class="section1-content-item2-box-img">
-                    <img src="/images/basicImages/hire_lawyer.png" alt=""/>
+                    <img style="max-width: 50px;" src="/images/basicImages/hire_lawyer.png" alt=""/>
                 </div>
                 <div class="section1-content-item2-box-content">
                     <h4>Hire a Lawyer</h4>
@@ -31,7 +31,7 @@
             </div>                
             <div class="section1-content-item2-box bg-yellow boxShadow-brown brown">
                 <div class="section1-content-item2-box-img">
-                    <img src="/images/basicImages/lawyers_services.png" alt=""/>
+                    <img style="max-width: 50px;" src="/images/basicImages/lawyers_services.png" alt=""/>
                 </div>
                 <div class="section1-content-item2-box-content">
                     <h4>Lawyers Services</h4>
@@ -40,7 +40,7 @@
             </div>                
             <div class="section1-content-item2-box bg-green boxShadow-m-green white">
                 <div class="section1-content-item2-box-img">
-                    <img src="/images/basicImages/legal_blogs.png" alt=""/>
+                    <img style="max-width: 50px;" src="/images/basicImages/legal_blogs.png" alt=""/>
                 </div>
                 <div class="section1-content-item2-box-content">
                     <h4>Legal blogs & articles</h4>

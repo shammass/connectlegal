@@ -2,11 +2,12 @@
     <div class="home-section7-grid-container">
         <div class="home-section7-grid-item1">
             <div class="s7-testimonials">
-                <p class='home-section3-features'>TESTIMONIALS</p>
+                <p class='home-section3-features t-380'>TESTIMONIALS</p>
                 <img src="/images/basicImages/Quote.png" alt="" class="s7-quote"/>
-                <p class='green title-text s7-title'>What client's say?</p>
-                <p class='s7-p'>"We quickly had to get legal counsel, and luckily for us, we found the Connect Legal platform. The rapport and guidance was outstanding at all times, prompt, timely, and open for calls and quick updates".
+                <p class='green title-text1 s7-title'>What client's say?</p>
+                <p class='p-text'>"We quickly had to get legal counsel, and luckily for us, we found the Connect Legal platform. The rapport and guidance was outstanding at all times, prompt, timely, and open for calls and quick updates".
                 </p>
+                <br>
                 <a href="#" class="green">See more ></a>
             </div>
         </div>
