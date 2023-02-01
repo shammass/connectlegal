@@ -22,6 +22,7 @@ class Kernel extends HttpKernel
     \App\Http\Middleware\TrimStrings::class,
     \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     \JulioMotol\AuthTimeout\Middleware\AuthTimeoutMiddleware::class,
+    \App\Http\Middleware\NoCacheMiddleware::class,
   ];
 
   /**
