@@ -12,10 +12,10 @@
                         <div class="s4-1-firstItem">
                             <p class="s4-index green1">1</p>
                         </div>
-                        <div>
+                        <div class="s4-image">
                             <img src="/images/basicImages/Frame.png" alt="" class="s4-img-1"></img>
                         </div>
-                        <div>
+                        <div class="s4-p2">
                             <div class='s4-p green1'>
                                 <p>Search Best Lawyer for Online Consultation</p>
                             </div>
@@ -32,10 +32,10 @@
                         <div class="s4-1-firstItem">
                             <p class="s4-index d-blue">2</p>
                         </div>
-                        <div>
+                        <div class="s4-image">>
                             <img src="/images/basicImages/Frame2.png" alt="" class="s4-img-1"/>
                         </div>
-                        <div>
+                        <div class="s4-p2">
                             <div class='s4-p d-blue'>
                                 <p>View Lawyer Profile</p>
                             </div>
@@ -52,10 +52,10 @@
                         <div class="s4-1-firstItem">
                             <p class="s4-index brown1">3</p>
                         </div>
-                        <div>
+                        <div class="s4-image">
                             <img src="/images/basicImages/Frame3.png" alt="" class="s4-img-1"/>
                         </div>
-                        <div>
+                        <div class="s4-p2">
                             <div class='s4-p brown1'>
                                 <p>Get Instant Lawyer Appointment</p>
                             </div>

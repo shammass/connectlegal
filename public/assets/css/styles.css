@@ -174,7 +174,7 @@ padding-left: 1rem;
 .main{
     margin-top: 4rem;
     background-image: linear-gradient(270deg, rgba(9, 63, 56, 0) 19.32%, #02201C 100%),url('/images/basicImages/bg.png');
-    background-size: contain;
+    background-size: cover;
     width: 100%;
     /* height: 180vh; */
     display: flex;
@@ -715,7 +715,7 @@ footer{
     font-style: normal;
     font-weight: 600;
     font-size: 2.25rem;
-    /* line-height: 3.75rem; */
+    line-height: 3rem;
 }
 
 .p-text{
@@ -861,7 +861,7 @@ footer{
 
 .yellowCard{
     position: absolute;
-    margin: 12rem 0;
+    margin: 8rem 0;
     bottom: 0;
     right: 0;
     padding: 1rem;
@@ -918,10 +918,14 @@ footer{
 }
 
 #home-section4{
-    height: 140vh;
+    height: 120vh;
     width: auto;
-    padding: 3rem 6rem;
+    padding: 3rem 8rem;
     /* background-color: red; */
+}
+
+.s4-p2{
+    padding-bottom: 3rem;
 }
 
 .home-section4-container{
@@ -954,18 +958,21 @@ footer{
 }
 
 .s4-p {
-    height: 10rem;
+    /* height: 10rem; */
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     /* line-height: 42px; */
     padding: 2rem 0rem;
 }
 
+.s4-image{
+    max-width: 100px;
+}
+
 .s4-img-1{
-    /* width: 10rem;
-    height: 10rem; */
+    width: 100%;
 }
 
 .s4-grid-container{
@@ -1010,7 +1017,7 @@ footer{
 }
 
 .s4-box{
-    padding: 2rem;
+    padding: 0.5rem 2.5rem;
     transition: all 0.5s ease;
 }
 
@@ -1837,13 +1844,13 @@ footer{
 .loginPopup-item1{
     padding: 2rem;
     /* padding-bottom: 8rem; */
-    /* height: 400px; */
+    min-height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: #C6EEE2;
-    background-image: url('/images/basicImages/loginPopup.png');
-    background-size:auto;
+    background-image: url('/images/basicImages/loginmain.png');
+    background-size:contain;
     background-position: right top;
     background-repeat: no-repeat;
     border-radius: 10px;
@@ -2673,48 +2680,6 @@ details > p {
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
   .prev, .next,.text {font-size: 11px}
-}
-
-@media screen and (min-width: 1500px) {
-
-    .section{
-        height: 100vh;
-    }
-    .section1-content-item2-box{
-        grid-template-columns: 20% 80%;
-        padding: 2rem 0;
-        gap: 1rem;
-    }
-
-    .seemore1{
-        text-transform: none;
-        color: #000;
-        border-radius: 0;
-        font-family:'Poppins';
-        font-size: 1.5rem;
-        font-weight: 500;
-        line-height: 2rem;
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        border: 0;
-    }
-
-    .section1-content-item1-h{
-        font-weight: 600;
-        font-size: 64px;
-        line-height: 96px;
-        /* padding-top: 2rem; */
-    }
-    
-    
-    .section1-content-item1-p{
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 167.5%;
-        padding-bottom: 2rem;
-    }
-    
 }
 
 @media screen and (max-width: 1124px) {
@@ -4233,11 +4198,15 @@ details > p {
         font-size: 2.25rem;
     }
 
+    .how-img {
+        left: 1rem;
+    }
+
     .letsee1{
         display: grid;
         grid-template-columns: 100%;
         column-gap: 2rem;
-        padding: 2rem 1rem;
+        padding: 2rem;
     }
 
     .home-section7-grid-container{
@@ -4295,7 +4264,16 @@ details > p {
 
     .s4-grid-container-container{
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: 0.2fr 0.8fr;
+        column-gap: 1.5rem;
+    }
+
+    .s4-img-1 {
+        width: 100%;
+    }
+
+    .s4-p2 {
+        padding-bottom: 1rem;
     }
 
     .s4-1-firstItem{
@@ -4479,7 +4457,7 @@ details > p {
     
     .yellowCard{
         position: absolute;
-        bottom: 1rem;
+        bottom: 2.5rem;
         right: -1rem;
         padding: 1rem;
         background-color: #EDEEC6;
