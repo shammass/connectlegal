@@ -12,7 +12,7 @@
                     <div class="blogs-section1-main-grid-item1">
                         <img style="width: 100%;" src="../images/basicImages/blog-s1-img1.png" alt=""/>
                         <p class="d-blue blog-s1-p">30/Nov/2025</p>
-                        <h4 class="d-blue" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
+                        <h4 class="d-blue blog-s1-main-h4" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
                         <p class="d-blue blog-s1-p1" style="padding-top: 0.5rem">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now. </p>
                     </div>
                     <div class="blogs-section1-main-grid-item2">
@@ -21,8 +21,8 @@
                                 <img style="width: 100%;" src="../images/basicImages/blog-s1-img2.png" alt=""/>
                             </div>
                             <div>
-                                <p class="d-blue blog-s1-p" style="padding-top: 0.5rem">30/Nov/2025</p>
-                                <h4 class="d-blue" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
+                                <p class="d-blue blog-s1-p2" style="padding-top: 0.5rem">30/Nov/2025</p>
+                                <h4 class="d-blue blog-s1-h4" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
                             </div>
                         </div>
                         <div>
@@ -30,8 +30,8 @@
                                 <img style="width: 100%;" src="../images/basicImages/blog-s1-img3.png" alt=""/>
                             </div>
                             <div>
-                                <p class="d-blue blog-s1-p" style="padding-top: 0.5rem">30/Nov/2025</p>
-                                <h4 class="d-blue" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
+                                <p class="d-blue blog-s1-p2" style="padding-top: 0.5rem">30/Nov/2025</p>
+                                <h4 class="d-blue blog-s1-h4" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
                             </div>
                         </div>
                         <div>
@@ -39,8 +39,8 @@
                                 <img style="width: 100%;" src="../images/basicImages/blog-s1-img4.png" alt=""/>
                             </div>
                             <div>
-                                <p class="d-blue blog-s1-p" style="padding-top: 0.5rem">30/Nov/2025</p>
-                                <h4 class="d-blue" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
+                                <p class="d-blue blog-s1-p2" style="padding-top: 0.5rem">30/Nov/2025</p>
+                                <h4 class="d-blue blog-s1-h4" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
                             </div>
                         </div>
                     </div>

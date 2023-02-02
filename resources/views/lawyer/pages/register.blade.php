@@ -3,19 +3,19 @@
     <section class="registerLawyer_main">
         <div class="registerLawyer_content">
             <div>
-                <h1>For <span class="green">Lawyers</span></h1>
+                <h1 class="howitworks-h1">For <span class="green">Lawyers</span></h1>
                 <br>
-                <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
+                <p class="howitworks-p1" style="text-align: justify;">Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
                 <br>
-                <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
+                <p class="howitworks-p1" style="text-align: justify;">Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
                 <br>
-                <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
+                <p class="howitworks-p1" style="text-align: justify;">Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
                 <br>
-                <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
+                <p class="howitworks-p1" style="text-align: justify;">Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
                 <br>
-                <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
+                <p class="howitworks-p1" style="text-align: justify;">Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
                 <br>
-                <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
+                <p class="howitworks-p1" style="text-align: justify;">Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
             </div>
             <div>
                 <form class="lawyerRegisterForm" action="{{route('lawyer.register')}}" method="post">
@@ -36,6 +36,7 @@
                     <div>
                         <input type="text" placeholder="Your office address" name="office_address" value="{{ old('office_address') }}">
                     </div>
+                    <br><br>
                     <h2>Contact info</h2>
                     <div>                    
                         <select id="lawyer-title" name="pref">
