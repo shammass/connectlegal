@@ -20,6 +20,13 @@ return new class extends Migration
                 ->references('id')->on('users')   
                 ->onDelete('cascade');
         });
+
+        Schema::table('schduled_meetings', function (Blueprint $table) {
+            $table->unsignedBigInteger('zoom_id')->nullable();
+            $table->foreign('zoom_id')
+                ->references('id')->on('zooms')   
+                ->onDelete('cascade');
+        });
     }
 
     /**
@@ -33,6 +40,11 @@ return new class extends Migration
             $table->dropColumn('name');
             $table->dropForeign('user_id');
             $table->dropColumn('user_id');
+        });
+
+        Schema::table('schduled_meetings', function (Blueprint $table) {
+            $table->dropForeign('zoom_id');
+            $table->dropColumn('zoom_id');
         });
     }
 };

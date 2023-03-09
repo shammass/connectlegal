@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <style>
+            .tox-tinymce {
+                border: 1px solid #ccc;
+                padding: 15px;
+            }
+        </style>
         @include('lawyer.home.layouts.header')
     </head>
     <body>
@@ -45,6 +51,7 @@
             <script src="{{ asset('assets/timepicker/dist/jquery.datepair.js') }}"></script>
             <script src="//js.pusher.com/3.1/pusher.min.js"></script>
               
+            <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}"></script>
             
             <!-- custom scripts -->
             <script src="/new-design/lawyer/assets/js/main.js"></script>
@@ -53,6 +60,12 @@
             <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">            
             <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
             
+            <script>
+                tinymce.init({
+                    selector: '#mytextarea'
+                });
+
+            </script>
             
             @stack('script')
         </section>

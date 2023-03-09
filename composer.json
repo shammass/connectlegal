@@ -26,7 +26,8 @@
     "pusher/pusher-php-server": "^7.0",
     "razorpay/razorpay": "^2.8",
     "realrashid/sweet-alert": "^5.1",
-    "stripe/stripe-php": "^10.3"
+    "stripe/stripe-php": "^10.3",
+    "tinymce/tinymce": "^6.3"
   },
   "require-dev": {
     "fakerphp/faker": "^1.9.1",
