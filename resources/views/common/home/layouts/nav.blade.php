@@ -1,96 +1,84 @@
-<nav class="navbar-container">
-    <div class="navbar">
-        <div class="sidebar-and-logo">
-            <button class="sidebar-icon btn" onclick="w3_open()"><i class="fas fa-bars"></i></button>
-            <a href="/" class="navbar-logo link white">Connect Legal</a>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light main-menu">
+        <div id="mySidenav1" class="offcanvas offcanvas-start" data-bs-scroll="true"
+            data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling"
+            aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-body">
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
         </div>
-        <ul class="nav-menu-desktop">
-            <li class="nav-item">
-                <a href="/" class="link white">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="{{route('howItWorks')}}" class="link white">How it works</a>
-            </li>
-            <li class="nav-item">
-                <a href="{{route('lawyer.register-page')}}" class="link white">For Lawyers</a>
-            </li>
-            <li class="nav-item">
-                <a href="/" class="link white">Testimonials</a>
-            </li>
-            <li class="nav-item">
-                <a href="/" class="link white">Lawyers</a>
-            </li>
-            <li class="nav-item">
-                <a href="/" class="link white">Practice Area</a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ route('blogs-articles', 1) }}" class="link white">Blogs & Articles</a>
-            </li>
-            @if(!auth()->user())
+
+
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1"
+            id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdroped with scrolling
+                </h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <p>Try scrolling the rest of the page to see this option in action.</p>
+            </div>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="link white" onclick="openForm()">Login</a>
-                </li> 
-            @else 
-                <div class="user-loggedIn" onclick="openOptions()">
-                    <div class="user-loggedIn-content">
-                        <div>
-                            <img class="user-img" src="/images/basicImages/user.png" alt="user" />
-                        </div>
-                        <div class="user-loggedIn-content-name">
-                            <h4 class="white user-loggedIn-content-username">Ranjit Devi</h4>
-                            <span class="white user-loggedIn-content-loc">UAE, Dubai</span>
-                        </div>
-                    </div>
-                    <div class="user-loggedIn-icon">
-                        <a class="link white">
-                            <span class="material-symbols-rounded loggedInIcon">
-                                more_vert
-                            </span>
-                        </a>
-                    </div>
-                </div>
-                <div class="dropdown-content" id="userOptions">
-                    <a href="#">
-                        <span class="material-symbols-rounded">
-                            account_circle
-                        </span>
-                        <p>My Profile</p>
-                    </a>
-                    <a href="#">
-                        <span class="material-symbols-rounded">
-                            team_dashboard
-                        </span>
-                        <p>Dashboard</p>
-                    </a>
-                    <a href="#">
-                        <span class="material-symbols-rounded">
-                            reviews
-                        </span>
-                        <p>Write Testimonials</p>
-                    </a>
-                    <a href="#">
-                        <span class="material-symbols-rounded">
-                            newspaper
-                        </span>
-                        <p>Blogs and Articles</p>
-                    </a>
-                    @if(auth()->user()->user_type == 3)
-                        <a href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')">
-                            <span class="material-symbols-rounded">
-                                logout
-                            </span>
-                            <p>Log Out</p>
-                        </a>
-                    @else 
-                        <a href="{{route('logout')}}" onclick="return confirm('Are you sure you want to logout?')">
-                            <span class="material-symbols-rounded">
-                                logout
-                            </span>
-                            <p>Log Out</p>
-                        </a>
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('howItWorks')}}">How It Works</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('lawyer.register-page')}}">For Lawyers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('question-answer')}}">Q & A</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('testimonials')}}">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('hire-a-lawyer')}}">Hire Lawyer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="lawyer.html">Lawyers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="practice-area.html">Practice Area</a>
+                </li>
+                @if(auth()->user())                      
+                    @if(auth()->user()->user_type == 2)
+                        <li class="nav-item">
+                            <a href="{{route('logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
+                        </li>
+                    @elseif(auth()->user()->user_type == 3)
+                        <!-- <li class="nav-item">
+                            <a href="{{route('online-chat.requests')}}" class="nav-link" style="color: white;">Online Chat Requests</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a href="{{route('user.logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
+                        </li>
                     @endif
-                </div>
-            @endif
-        </ul>
-    </div>
-</nav>
+                @else 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('user.login')}}">Login</a>
+                    </li>                    
+                @endif
+            </ul>
+        </div>
+    </nav>
+</div>
+
+
+

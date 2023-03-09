@@ -11,6 +11,7 @@ class Forum extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        'user_id',
         'name',
         'email',
         'message',

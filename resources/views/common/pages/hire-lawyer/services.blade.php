@@ -1,97 +1,162 @@
 @extends('common.home.layouts.app')
 @section('content')
-    <div class="fix-height"></div>
-    <section class="question-answers">
-        <div class="container-fluid">        
-            <div class="row col-md-10 mt-2 m-auto">
-                <div class="service-header">
-                    <div class="row g-1 question-answers-header">
-                        <div class="title">
-                            <h1>Hire a Lawyer</h1>
-                            <img src="/new-design/assets/image/hire-lawyer/hire-bag.png" class="hire-img" alt="">
-                        </div>
-                        <div class="change-the-view">
-                            <div class="result-for">
-                                <h5>8766 results: </h5>
-                            </div>
-                            <div class="change-the-view-inner">
-                                <h4>Change the view:</h4>
-                                <button class="btn" type="btn"><img src="/new-design/assets/image/question-answer/view1.png" alt=""></button>
-                                <button class="btn" type="btn"><img src="/new-design/assets/image/question-answer/view2.png" alt=""></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="question-answer-body">
-                    <div class="row g-3 gx-4 d-flex justify-content-center mt-2">
-                        @foreach($services as $k => $service)
-                            <div class="col-11 col-md-5">
-                                <div class="question-answer-card hire-card">
-                                    <h6 style="text-align: left;">{{$service->arbitration->area}}</h6>
-                                    <h4>{{$service->title}}</h4>
-                                    <p>{{$service->description}}</p>
-                                    <div class="card-footer">
-                                        <h4 style="margin-top: 0px!important;">AED {{$service->getLowestFee($service->id)}}</h4>
-                                        <div class="views">
-                                            <button class="see_more_btn" onclick="serviceLawyers('{{$service->id}}')">See More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-            {{ $services->links() }}
-        </div>        
-        <div class="row col-xs-10 col-12 col-sm-12 col-md-10 col-xl-10 p-a-ask-lawyer mb-5 m-auto">
-            <div class="col-11 col-md-6 col-xl-5 p-a-ask-lawyer-form w-md-auto">
-                <span class="p-a-l-f-s-else">Looking for something else? <img src="/new-design/assets/image/practice-area/hangout.png" alt="" class="p-a-hangout-img"></span>
-                <form action="">
-                    @csrf()
-                    <textarea name="" class="form-control p-a-textarea" id="" cols="5" rows="6" placeholder="Describe your legal issues here"></textarea>
-                </form>
-                <div class="row">
-                    <div class="col-4"><img src="/new-design/assets/image/practice-area/question.png" alt="" class="p-a-p-a-q-img"><span class="p-a-p-a-q-text">Post a question</span></div>
-                    <div class="col-4"><img src="/new-design/assets/image/practice-area/chat.png" alt="" class="p-a-p-a-q-img"><span class="p-a-p-a-q-text">Chat Online</span></div>
-                    <div class="col-4 p-a-form-btn"><div class="p-a-h-l-btn"><img src="/new-design/assets/image/practice-area/hire.png" alt="" class="p-a-p-a-q-img p-a-h-img"><span class="p-a-p-a-q-text p-a-p-a-q-text2">Hire a Lawyer</span></div></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="p-a-lawyers">
-                    <img src="/new-design/assets/image/home/areyou-lawyer2.png" alt="" class="p-a-lawyer1">
-                    <span class="p-a-l-name1">Arundati</span>
-                    <small class="p-a-l-loc1">UAE, Abu Dhabi</small>
-                </div>
-                <div class="p-a-lawyers">
-                    <img src="/new-design/assets/image/home/areyou-lawyer3.png" alt="" class="p-a-lawyer1">
-                    <span class="p-a-l-name1">Rashid Ali</span>
-                    <small class="p-a-l-loc1">UAE, Qatar</small>
-                </div>
-                <div class="p-a-lawyers3">
-                    <img src="/new-design/assets/image/home/areyou-lawyer1.png" alt="" class="p-a-lawyer1">
-                    <span class="p-a-l-name1">Michelle</span>
-                    <small class="p-a-l-loc1">UAE, Abu Dhabi</small>
-                </div>
-            </div>
-            <div class="row">
-                <span class="p-a-n-l h-n-l">Need a Lawyer?</span>
-                <span class="p-a-n-l-descr">Hire lawyers online. Buy fixed-fee legal services or submit your request and get multiple competitive offers from qualified lawyers.</span>                    
-                <div class="row h-btns">
-                    <span><img src="/new-design/assets/image/practice-area/buy.png" alt="" class="p-a-buy"> <span class="p-a-buy-service-text">Buy Service</span></span>
-                    <span><img src="/new-design/assets/image/practice-area/quote.png" alt="" class="p-a-quote"> <span class="p-a-quote-service-text">Get Quote</span></span>
-                </div>
-            </div>
+<main class="bg-color  bg-f4fefa">
+      <div class="container py-5" id="content-flex">
+        <div class="row">
+          <div class="col-md-6 postn-icn">
+            <h1 class="moni"><span class="tst">Legal Services</span></h1>
+          </div>
+          <div class="col-md-6 text-end">
+            <img src="/new-design/assets/images/sotket.png" class="vctr"><br>
+          </div>
         </div>
+      </div>
+
+    <div id="hire_page">
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="text-right search-drop">
+              <div class="row">
+                <div class="col-md-8">
+                 <div class="searchfild">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="search" id="search" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <span class="input-group-text search-button" id="basic-addon2"><img src="/new-design/assets/images/search.png" alt=""></span>
+                  </div>
+                </div>
+                 </div>
+                <div class="col-md-2 col-6">
+                  <select class="department class-width-same" onchange="sortByCost(this)">
+                    <option value="ASC">Low to High</option>
+                    <option value="DESC">High to Low</option>
+                  </select>
+                </div>
+              </div>
+              <input type="hidden" id="sortedBy" value="{{$sort}}">
+              <input type="hidden" id="searchedVal" value="{{$search}}">
+              <input type="hidden" id="selectedArea" value="{{$area}}">
+            </div>
+
+            <div class="splaying">
+              <div class="row g-2">
+                <div class="col-sm-6 text-start">
+                  <a href="#" class="actor">{{$services->count()}} <span>results for:</span> </a>
+                  <div class="btn-group drop">
+                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      All Countries
+                    </button>
+                    <ul class="dropdown-menu" style="">
+                      <li><a class="dropdown-item" href="">UAE</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="btn-group drop">
+                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      @if($arbitrationArea) {{$arbitrationArea}} @else All areas of law @endif
+                    </button>
+                    <ul class="dropdown-menu">
+                      @foreach($areas as $k => $area)
+                        <li>
+                          <a class="dropdown-item" href="#" onclick="filterByArea('{{$k}}')">{{$area}} </a>
+                        </li>
+                      @endforeach
+                    </ul>
+                  </div>
+                  <a href="#" class="img-dott"> <img src="/new-design/assets/images/edit.png" alt=""> </a>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <div class="btn-group drop ">
+                    <button type="button" class="btn dropdown-toggle border-0" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      Change the view:
+                    </button>
+                    <ul class="dropdown-menu" style="">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Action 2</a></li>
+                    </ul>
+                  </div>
+                  <a href="#" class="img-dott"> <img src="/new-design/assets/images/there.png" alt=""> </a>
+                  <a href="#" class="img-dott"> <img src="/new-design/assets/images/dotts.png" alt=""> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <section id="heire">
+      <div class="container">
+        <div class="cardtype" id="search-results">
+          <div class="row g-4 mb-3">
+            @foreach($services as $k => $service)            
+              <div class="col-md-6" id="hover">
+                <div class="question-text bg-two">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="category">{{$service->arbitration->area}}</div>
+                    </div>
+                  </div>
+                  <h3>{{$service->title}}</h3>
+                  <p>{{$service->description}}</p>
+                  <div class="row align-items-center">
+                    <div class="col-md-6 col-6">
+                      <h1 class="aed-class">AED {{$service->getLawyerFee($service->id) + $service->getPlatformFee($service->id)}}</h1>
+                    </div>
+                    <div class="col-md-6 col-6 text-end">
+                      <a href="{{route('service.step-one', $service->id)}}" class="seebtn  bg-change">see more</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            @endforeach
+          </div>
+          {{ $services->links() }}
+        </div>
+      </div>
     </section>
+    @include('common.page-footer')
+  </main>
 @endsection
 
 @push('script')
     <script>
         function serviceLawyers(serviceId) {
-            window.location.href = "/service/lawyers/"+serviceId;
+          window.location.href = "/service/lawyers/" + serviceId;
         }
+
+        function sortByCost(sortBy) {
+          window.location.href = "/hire-a-lawyer/" + sortBy.value;
+        }
+
+        function filterByArea(areaId) {          
+          var sorted = $("#sortedBy").val();
+          var search = $("#searchedVal").val();
+          if(areaId && search) {
+            window.location.href = "/hire-a-lawyer/" + sorted + "/" + search + "/" + parseInt(areaId);
+          }else if(!search) {
+            window.location.href = "/hire-a-lawyer/" + sorted + "/" + parseInt(areaId);
+          }
+        }
+
+        $('.search-button').click(function() {
+          var sorted = $("#sortedBy").val();
+          var search = $("#search").val();
+          var areaId = $("#selectedArea").val();
+          if(areaId && search) {
+            window.location.href = "/hire-a-lawyer/" + sorted + "/" + search + "/" + parseInt(areaId);
+          }else if(!areaId) {
+            window.location.href = "/hire-a-lawyer/" + sorted + "/" + search;
+          }
+        });
+
+        $('#search').keydown(function(event) {
+            if (event.keyCode === 13) { // Enter key
+                event.preventDefault();
+                $('.search-button').click();
+            }
+        });
     </script>
 @endpush

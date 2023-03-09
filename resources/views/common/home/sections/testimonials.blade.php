@@ -1,156 +1,150 @@
-<section class="home-section7">
-    <div class="home-section7-grid-container">
-        <div class="home-section7-grid-item1">
-            <div class="s7-testimonials">
-                <p class='home-section3-features t-380'>TESTIMONIALS</p>
-                <img src="/images/basicImages/Quote.png" alt="" class="s7-quote"/>
-                <p class='green title-text1 s7-title'>What client's say?</p>
-                <p class='p-text'>"We quickly had to get legal counsel, and luckily for us, we found the Connect Legal platform. The rapport and guidance was outstanding at all times, prompt, timely, and open for calls and quick updates".
-                </p>
-                <br>
-                <a href="#" class="green">See more ></a>
+<section class="why-client">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="client-part">
+              <p class="test">TESTIMONIALS</p>
+              <h3>What<br> client’s say?</h3>
+              <img src="/new-design/assets/images/showmobile.png" alt="" class="d-block d-md-none">
+              <p class="font-we">"We quickly had to get legal counsel, and luckily for us, we found the Connect Legal
+                platform. The rapport and guidance was outstanding at all times, prompt, timely, and open for calls and
+                quick updates".</p>
+              <p><a href="#" class="see-more bg-fff">See more ></a></p>
             </div>
-        </div>
-        <div class="home-section7-grid-item2">
-            <div class="home-section7-grid-item2-container">
-                <div class="home-section7-grid-item2-container-item1">
-                    <div class="home-section7-grid-item2-container-item1-container">
-                        <div class="home-section7-grid-item2-container-item1-container-div" style="background-color: #3DC9A1; opacity: 0.2; border-radius: 2rem; height: 15rem;"></div>
-                        <div class="home-section7-grid-item2-container-item1-container-div" style="border-radius: 2rem 2rem 2rem 0">
-                            <div class="s7-qoutes">
-                                <p class="s7-qoutes-p">"We quickly had to get legal counsel, and luckily for us, we found the Connect Legal platform. The rapport and guidance was outstanding at all times, prompt”.</p>
-                                <div class="s7-qoutes-rating">
-                                    <div class="s7-qoutes-rating-user">
-                                    <div class="s7-qoutes-rating-user-img"><img src="/images/basicImages/s7-userProfile1.png" alt=""/></div>
-                                    <div class="s7-qoutes-rating-user-p">
-                                        <strong>Kiran Khatun</strong>
-                                        <p>CEO Company</p>
-                                    </div>
-                                    </div> 
-                                    <div class="s7-qoutes-ratings">
-                                    <div class="ratings">
-                                        <!-- <Rating name="read-only" value={testimonials[0].stars} readOnly icon={<StarRateRoundedIcon/>} emptyIcon={<StarRateRoundedIcon/>}/> -->
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                    </div>
-                                    <p class="s7-qoutes-rating-user-span">Since 2 months</p>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
-                        <div class="home-section7-grid-item2-container-item1-container-div" style="border-radius: 2rem 2rem 2rem 0">
-                            <div class="s7-qoutes">
-                                <p class="s7-qoutes-p">"We quickly had to get legal counsel, and luckily for us, we found the Connect Legal platform. The rapport and guidance was outstanding at all times, prompt”.</p>
-                                <div class="s7-qoutes-rating">
-                                    <div class="s7-qoutes-rating-user">
-                                    <div class="s7-qoutes-rating-user-img"><img src="/images/basicImages/s7-userProfile2.png" alt=""/></div>
-                                    <div class="s7-qoutes-rating-user-p">
-                                        <strong>Devdan Sharma</strong>
-                                        <p>CEO Company</p>
-                                    </div>
-                                    </div> 
-                                    <div class="s7-qoutes-ratings">
-                                    <div class="ratings">
-                                        <!-- <Rating name="read-only" value={testimonials[0].stars} readOnly icon={<StarRateRoundedIcon/>} emptyIcon={<StarRateRoundedIcon/>}/> -->
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                    </div>
-                                    <p class="s7-qoutes-rating-user-span">Since 2 months</p>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>                            
-                        <div class="home-section7-grid-item2-container-item1-container-div" style="border-radius: 2rem 2rem 2rem 0">
-                            <div class="s7-qoutes">
-                                <p class="s7-qoutes-p">"We quickly had to get legal counsel, and luckily for us, we found the Connect Legal platform. The rapport and guidance was outstanding at all times, prompt”.</p>
-                                <div class="s7-qoutes-rating">
-                                    <div class="s7-qoutes-rating-user">
-                                    <div class="s7-qoutes-rating-user-img"><img src="/images/basicImages/s7-userProfile3.png" alt=""/></div>
-                                    <div class="s7-qoutes-rating-user-p">
-                                        <strong>Liam Brown</strong>
-                                        <p>CEO Company</p>
-                                    </div>
-                                    </div> 
-                                    <div class="s7-qoutes-ratings">
-                                    <div class="ratings">
-                                        <!-- <Rating name="read-only" value={testimonials[0].stars} readOnly icon={<StarRateRoundedIcon/>} emptyIcon={<StarRateRoundedIcon/>}/> -->
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                    </div>
-                                    <p class="s7-qoutes-rating-user-span">Since 2 months</p>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
-                        <div class="home-section7-grid-item2-container-item1-container-div" style="background-color: #3DC9A1; opacity: 0.2; border-radius: 2rem; height: 15rem;"></div>
+          </div>
+          <div class="col-lg-8">
+            <div class="sp-l">
+              <div class="row">
+                <div class="col-6">
+                  <img src="/new-design/assets/images/rectangle-1.png" alt="rectangle-1" class="rectangle">
+                  <div class="test-round">
+                    <p class="we-quickly">"We quickly had to get legal counsel, and luckily for us, we found the Connect
+                      Legal platform. The rapport and guidance was outstanding at all times, prompt”.</p>
+                    <div class="row" id="client-part">
+                      <div class="col-2 m-p-0 ">
+                        <img src="/new-design/assets/images/legal-1.png" alt="legal-1" class="legal-1">
+                      </div>
+                      <div class="col-6 p-0">
+                        <p class="name">Arundhati Chawla</p>
+                        <p class="short-p">Dubai, UAE</p>
+                      </div>
+                      <div class="col-4 m-p-0 ">
+                        <ul class="star-part">
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                        <p class="text-right short-text">Since 2 months</p>
+                      </div>
                     </div>
+                  </div>
+
+
+                  <div class="test-round">
+                    <p class="we-quickly">"We quickly had to get legal counsel, and luckily for us, we found the Connect
+                      Legal platform. The rapport and guidance was outstanding at all times, prompt”.</p>
+                    <div class="row" id="client-part">
+                      <div class="col-2 m-p-0 ">
+                        <img src="/new-design/assets/images/legal-1.png" alt="legal-1" class="legal-1">
+                      </div>
+                      <div class="col-6 p-0">
+                        <p class="name">Arundhati Chawla</p>
+                        <p class="short-p">Dubai, UAE</p>
+                      </div>
+                      <div class="col-4 m-p-0 ">
+                        <ul class="star-part">
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                        <p class="text-right short-text">Since 2 months</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="test-round">
+                    <p class="we-quickly">"We quickly had to get legal counsel, and luckily for us, we found the Connect
+                      Legal platform. The rapport and guidance was outstanding at all times, prompt”.</p>
+                    <div class="row" id="client-part">
+                      <div class="col-2 m-p-0 ">
+                        <img src="/new-design/assets/images/legal-1.png" alt="legal-1" class="legal-1">
+                      </div>
+                      <div class="col-6 p-0">
+                        <p class="name">Arundhati Chawla</p>
+                        <p class="short-p">Dubai, UAE</p>
+                      </div>
+                      <div class="col-4 m-p-0 ">
+                        <ul class="star-part">
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                        <p class="text-right short-text">Since 2 months</p>
+                      </div>
+                    </div>
+                  </div>
+                  <img src="/new-design/assets/images/rectangle-2.png" alt="rectangle-2" class="rectangle-2">
                 </div>
-                <div class="home-section7-grid-item2-container-item2">
-                    <div class="home-section7-grid-item2-container-item1-container">
-                        <div class="home-section7-grid-item2-container-item1-container-div" style="background-color: #3DC9A1; opacity: 0.2; border-radius: 2rem; height: 15rem;"></div>
-                        <div class="home-section7-grid-item2-container-item1-container-div" style="border-radius: 2rem 2rem 2rem 0">
-                            <div class="s7-qoutes">
-                                <p class="s7-qoutes-p">"We quickly had to get legal counsel, and luckily for us, we found the Connect Legal platform. The rapport and guidance was outstanding at all times, prompt”.</p>
-                                <div class="s7-qoutes-rating">
-                                    <div class="s7-qoutes-rating-user">
-                                    <div class="s7-qoutes-rating-user-img"><img src="/images/basicImages/s7-userProfile4.png" alt=""/></div>
-                                    <div class="s7-qoutes-rating-user-p">
-                                        <strong>Ranji Khan</strong>
-                                        <p>CEO Company</p>
-                                    </div>
-                                    </div> 
-                                    <div class="s7-qoutes-ratings">
-                                    <div class="ratings">
-                                        <!-- <Rating name="read-only" value={testimonials[0].stars} readOnly icon={<StarRateRoundedIcon/>} emptyIcon={<StarRateRoundedIcon/>}/> -->
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                    </div>
-                                    <p class="s7-qoutes-rating-user-span">Since 2 months</p>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
-                        <div class="home-section7-grid-item2-container-item1-container-div" style="border-radius: 2rem 2rem 2rem 0">
-                            <div class="s7-qoutes">
-                                <p class="s7-qoutes-p">"We quickly had to get legal counsel, and luckily for us, we found the Connect Legal platform. The rapport and guidance was outstanding at all times, prompt”.</p>
-                                <div class="s7-qoutes-rating">
-                                    <div class="s7-qoutes-rating-user">
-                                    <div class="s7-qoutes-rating-user-img"><img src="/images/basicImages/s7-userProfile5.png" alt=""/></div>
-                                    <div class="s7-qoutes-rating-user-p">
-                                        <strong>Richard Evans</strong>
-                                        <p>CEO Company</p>
-                                    </div>
-                                    </div> 
-                                    <div class="s7-qoutes-ratings">
-                                    <div class="ratings">
-                                        <!-- <Rating name="read-only" value={testimonials[0].stars} readOnly icon={<StarRateRoundedIcon/>} emptyIcon={<StarRateRoundedIcon/>}/> -->
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                        <span class="fa fa-star" style="color: orange"></span>
-                                    </div>
-                                    <p class="s7-qoutes-rating-user-span">Since 2 months</p>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
-                        <div class="home-section7-grid-item2-container-item1-container-div" style="background-color: #3DC9A1; opacity: 0.2; border-radius: 2rem; height: 15rem;"></div>
+                <div class="col-6">
+                  <img src="/new-design/assets/images/rectangle-3.png" alt="rectangle-3" class="rectangle">
+                  <div class="test-round">
+                    <p class="we-quickly">"We quickly had to get legal counsel, and luckily for us, we found the Connect
+                      Legal platform. The rapport and guidance was outstanding at all times, prompt”.</p>
+                    <div class="row" id="client-part">
+                      <div class="col-2  m-p-0 ">
+                        <img src="/new-design/assets/images/legal-1.png" alt="legal-1" class="legal-1">
+                      </div>
+                      <div class="col-6 p-0">
+                        <p class="name">Arundhati Chawla</p>
+                        <p class="short-p">Dubai, UAE</p>
+                      </div>
+                      <div class="col-4  m-p-0 ">
+                        <ul class="star-part">
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                        <p class="text-right short-text">Since 2 months</p>
+                      </div>
                     </div>
-                </div>                    
+                  </div>
+
+                  <div class="test-round">
+                    <p class="we-quickly">"We quickly had to get legal counsel, and luckily for us, we found the Connect
+                      Legal platform. The rapport and guidance was outstanding at all times, prompt”.</p>
+                    <div class="row" id="client-part">
+                      <div class="col-2  m-p-0 ">
+                        <img src="/new-design/assets/images/legal-1.png" alt="legal-1" class="legal-1">
+                      </div>
+                      <div class="col-6 p-0">
+                        <p class="name">Arundhati Chawla</p>
+                        <p class="short-p">Dubai, UAE</p>
+                      </div>
+                      <div class="col-4  m-p-0 ">
+                        <ul class="star-part">
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                          <li><i class="fa-solid fa-star"></i></li>
+                        </ul>
+                        <p class="text-right short-text">Since 2 months</p>
+                      </div>
+                    </div>
+                  </div>
+                  <img src="/new-design/assets/images/rectangle-3.png" alt="rectangle-3" class="rectangle-2">
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>

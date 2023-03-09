@@ -16,22 +16,23 @@
                 }
             }
         @endphp
-
-        @include('common.home.layouts.login-modals')
-        <header>
-            @include('common.home.layouts.nav')
-        </header>
-        @include('common.home.layouts.sidenav')
-
-
-
-        @include('sweetalert::alert')
-        @yield('content')
-
-
-
-
-        @include('common.home.layouts.footer')        
+        <div class="main_div">
+            @if(Route::currentRouteName() != "home")
+                @include('common.home.layouts.sidenav')
+            @endif
+            <div id="main">
+                @if(Route::currentRouteName() === "home")
+                    @include('common.home.layouts.nav-home')
+                @else
+                    <header class="top-header">
+                        @include('common.home.layouts.nav')
+                    </header>
+                @endif
+                @include('sweetalert::alert')
+                @yield('content')
+                @include('common.home.layouts.footer')        
+            </div>
+        </div>
         <script>
             Pusher.logToConsole = true;
 

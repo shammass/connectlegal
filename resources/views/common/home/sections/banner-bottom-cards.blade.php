@@ -1,15 +1,21 @@
-<section class="section-2">
-    <div class="section-2-container">
-        <div class="section-2-content section-2-item">
-            <h2 class="title-text">
-                <span style="color: #208C84">We connect clients and Legal Consultants </span>
-                <span>in one platform.</span>
-            </h2>
-            <p class="p-text">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now. We provide legal Services by connecting you with the Legal Consultants, Or you can even hire a Lawyer for your Legal issues. You can also read our blogs which provides some of the vital informations.</p>
-            <button class="contactnow white" onclick="opencontactnow()">Contact now <div class="h-100 bg-green"><i class="fas fa-arrow-right"></i></div></button>
+<section class="about-part bg-F4FEFA">
+      <div class="container">
+        <div class="row reverse-mobile">
+          <div class="col-lg-7 col-md-12">
+            <h2 class="font-45 mb-4"><span class="span-color-dark">We connect clients and Legal Consultants </span>in
+              one platform.</h2>
+            <p class="font-24 mb-4">Make an appointment with Advocates and Legal consultancy, Today! or chat with a
+              lawyer online for free in Dubai and across UAE now. We provide legal Services by connecting you with the
+              Legal Consultants, Or you can even hire a Lawyer for your Legal issues. You can also read our blogs which
+              provides some of the vital informations.</p>
+            <div class="btn-group mt-3 hov-zoom m-max-w" role="group" aria-label="Basic example">
+              <a class="btn btn-208C84">Learn More</a>
+              <a class="btn btn-3cc7a0"><i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-12">
+            <img src="/new-design/assets/images/about-img.png" alt="about-img" class="about-img">
+          </div>
         </div>
-        <div class="section-2-item">
-            <img class="section-2-img" src="/images/basicImages/home-section2.png" alt=""/>
-        </div>
-    </div>
-</section>
+      </div>
+    </section>

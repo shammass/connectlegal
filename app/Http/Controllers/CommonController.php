@@ -23,9 +23,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-
-use function PHPSTORM_META\map;
-
 class CommonController extends Controller
 {
     public function howItWorks() {
@@ -36,14 +33,20 @@ class CommonController extends Controller
 
     public function storeForum(Request $request) {
         $request->validate([
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'qa_email' => ['required', 'string', 'email', 'max:255'],
+            'qa_name' => ['required', 'string'],
+            'mobile' => ['required', 'string'],
             'message' => ['required', 'string'],
         ]);
 
         Forum::create([
-            'email' => $request->email,
-            'message' => $request->message
+            'name' => $request->qa_name,
+            'email' => $request->qa_email,
+            'mobile' => $request->mobile,
+            'message' => $request->message,
+            'user_id' => auth()->user() ? auth()->user()->id : null
         ]);
+
         Alert::success('Success', 'Your query has been sent successfully!');
         return redirect()->route('home');
     }
@@ -52,6 +55,7 @@ class CommonController extends Controller
         $request->validate([
             'contact_name'      => ['required', 'string', 'max:255'],
             'contact_email'     => ['required', 'string', 'email', 'max:255'],
+            'contact_mobile'    => ['required', 'string'],
             'contact_subject'   => ['required', 'string'],
             'contact_message'   => ['required', 'string'],
         ]);
@@ -59,10 +63,11 @@ class CommonController extends Controller
         ContactUs::create([
             'name'      => $request->contact_name,
             'email'     => $request->contact_email,
-            'contact'   => $request->contact,
+            'contact'   => $request->contact_mobile,
             'subject'   => $request->contact_subject,
             'message'   => $request->contact_message
         ]);
+        
         Alert::success('Success', 'Your query has been sent successfully!');
         return redirect()->route('howItWorks');
     }
@@ -197,28 +202,6 @@ class CommonController extends Controller
     
             dispatch($job);
             Alert::success('Success', 'Your query has been sent successfully!');
-            return redirect()->route('home');
-        }
-    }
-
-    public function userRegister(Request $request) {
-        $validator = Validator::make($request->all(),[
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|min:6',
-        ]);
-        
-        if($validator->fails()) {
-            Alert::error('Error', 'Please go back to the form to view the errors');
-            return redirect()->route('home')->withErrors($validator);
-        }else {
-            User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'user_type' => 3,            
-            ]);
-            Alert::success('Success', 'You have registered successfully. Please login!!');
             return redirect()->route('home');
         }
     }

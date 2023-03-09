@@ -1,58 +1,52 @@
-<ul>
-    @foreach($lawyers as $k => $lawyer)
-        @if($lawyer->user->isOnline())
-            <li class="">
-                <a onclick="myAccFunc('{{$k}}')" class="nav-link-item link black">
-                    <img src="/storage/{{$lawyer->profile_pic}}" style="width: 60px;height: 60px;border-radius: 30px;" alt=""/>
-                    <div class="lawyer-sidebar">
-                        <strong>{{$lawyer->user->name}}</strong>
-                        <p>{{$lawyer->emirates}}</p>
+@foreach($lawyers as $k => $lawyer)
+    @if($lawyer->user->isOnline())
+        <div class="user-online-g sp-r-l" data-bs-toggle="modal" data-bs-target="#lawyers_profile_{{$lawyer->id}}">
+            <a href="#">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="/storage/{{$lawyer->profile_pic}}" alt="legal-1" class="legal-1">
                     </div>
-                </a>
-            </li>
-            <div id="demoAcc{{$k}}" class="lawyer-options hidden-item">
-                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">post_add</span>&nbsp;&nbsp; Post a question</a>
-                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">chat</span>&nbsp;&nbsp; Chat Online</a>
-                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">phone_callback</span>&nbsp;&nbsp; Request a Callback</a>
-                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">meeting_room</span>&nbsp;&nbsp; Book a Meeting</a>
-                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">business_center</span>&nbsp;&nbsp; Hire the Lawyer</a>
-                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">person</span>&nbsp;&nbsp; Open Profile</a>
-            </div>
-        @endif
-    @endforeach
-    @if($onlineLawyers < 1)
-        <li class="">
-            <a class="nav-link-item link black">
-                <div class="lawyer-sidebar">
-                    <strong>No Lawyers Are Online</strong>
+                    <div class="col-7">
+                        <p class="name-uaser">{{$lawyer->user->name}}</p>
+                        <p class="short-mes">{{$lawyer->emirates}}</p>
+                    </div>
+                    <!-- <div class="col-2"><img src="/new-design/assets/images/prem.png" alt="prem"></div> -->
                 </div>
             </a>
-        </li>
+        </div>
     @endif
-</ul>
-<div class="sidebar-menu-green">
-    <button class="sidebar-menu-green-btn btn green"  id="sidebar-menu-green-btn1">Lawyers offline</button>
-</div>
-<ul>
-    @foreach($lawyers as $k => $lawyer)
-        @if(!$lawyer->user->isOnline())
-            <li class="">
-                <a onclick="offlineLawyers('{{$k}}')" class="nav-link-item link black offline">
-                    <img src="/storage/{{$lawyer->profile_pic}}" style="width: 60px;height: 60px;border-radius: 30px;" alt=""/>
-                    <div class="lawyer-sidebar">
-                        <strong>{{$lawyer->user->name}}</strong>
-                        <p>{{$lawyer->emirates}}</p>
-                    </div>
-                </a>
-            </li>
-            <div id="offLaw{{$k}}" class="lawyer-options hidden-item">
-                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">post_add</span>&nbsp;&nbsp; Post a question</a>
-                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">chat</span>&nbsp;&nbsp; Chat Online</a>
-                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">phone_callback</span>&nbsp;&nbsp; Request a Callback</a>
-                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">meeting_room</span>&nbsp;&nbsp; Book a Meeting</a>
-                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">business_center</span>&nbsp;&nbsp; Hire the Lawyer</a>
-                <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">person</span>&nbsp;&nbsp; Open Profile</a>
+@endforeach
+@if($onlineLawyers < 1) 
+    <div class="user-online-g sp-r-l ">
+        <a href="#">
+            <div class="row">
+                <div class="col-7">
+                    <p class="name-uaser">No Lawyers Are Online</p>
+                </div>
+                <!-- <div class="col-2"><img src="/new-design/assets/images/prem.png" alt="prem"></div> -->
             </div>
-        @endif
-    @endforeach
-</ul>
+        </a>
+    </div>
+@endif
+
+
+<div class="offline-lawyers">
+    <p>Lawyers offline</p>
+</div>
+@foreach($lawyers as $k => $lawyer)
+    @if(!$lawyer->user->isOnline())
+        <div class="user-online-g sp-r-l">
+            <a href="#">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="/storage/{{$lawyer->profile_pic}}" alt="question-1" class="legal-1">
+                    </div>
+                    <div class="col-9">
+                        <p class="name-uaser">{{$lawyer->user->name}}</p>
+                        <p class="short-mes">{{$lawyer->emirates}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    @endif
+@endforeach

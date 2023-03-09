@@ -25,6 +25,11 @@ class Services extends Model
         return $this->belongsTo(User::class, 'added_by');
     }  
 
+    public function getAddress($lawyerUserId) {
+        $lawyer = Lawyer::whereUserId($lawyerUserId)->first();
+        return $lawyer->office_address ?? $lawyer->emirates;
+    }
+
     public function getLawyerFee($id) {
         $lawService = LawyerService::whereServiceId($id)->first();
         return $lawService ? $lawService->lawyer_fee : null;

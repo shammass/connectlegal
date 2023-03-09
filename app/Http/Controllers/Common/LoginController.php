@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Validator;
 use \Mailjet\Resources;
 
 class LoginController extends Controller
@@ -26,6 +27,40 @@ class LoginController extends Controller
 
     public function unauthenticated() {
         return view('lawyer.layouts.unauthenticated');
+    }
+
+    public function loginPage() {
+        return view('common.pages.auth.login');
+    }
+    
+    public function registerAs() {
+        return view('common.pages.auth.register');
+    }
+
+    public function registerAsUser() {
+        return view('common.pages.auth.register-as-user');
+    }
+
+    public function userRegister(Request $request) {
+        $validator = Validator::make($request->all(),[
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:users',
+            'password' => 'required|string|min:6',
+        ]);
+        
+        if($validator->fails()) {
+            Alert::error('Error', 'Please go back to the form to view the errors');
+            return Redirect::to(url()->previous())->withErrors($validator);
+        }else {
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'user_type' => 3,            
+            ]);
+            Alert::success('Success', 'You have registered successfully. Please login!!');
+            return redirect()->route('home');
+        }
     }
 
     public function login() {
@@ -81,9 +116,11 @@ class LoginController extends Controller
     }
     
     public function userLogin(Request $request) {
-        // $request->validate([
+        $request->validate([
         //     'g-recaptcha-response' => 'required|string',
-        // ]);
+                'email'     => 'required|string|email',
+                'password'  => 'required',
+        ]);
         
         // $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
         //     'secret' => config('services.recaptcha.secret_key'),
@@ -101,7 +138,7 @@ class LoginController extends Controller
                 if (Hash::check($request->password, $user->password)) {
                     if($user->user_type == 1) {
                         Alert::error('Login Failed', 'Please check your credentials');
-                        return redirect()->route('home');
+                        return redirect()->route('user.login');
                     }
                     if($user->user_type == 2) {
                         $checkIsVerifiedUser = Lawyer::whereUserId($user->id)->first();
@@ -112,21 +149,21 @@ class LoginController extends Controller
                             return redirect(RouteServiceProvider::LAWYER_HOME);
                         }else {
                             Alert::error('Not Verified', 'You are not yet verified by the admin');
-                            return redirect()->route('home');
+                            return redirect()->route('user.login');
                         }
                     }else {
                         Auth::login($user);
                         Alert::success('Logged In', 'You are logged in successfully');
-                        // return redirect(RouteServiceProvider::HOME);   
-                        return Redirect::to(url()->previous());         
+                        return redirect(RouteServiceProvider::HOME);   
+                        // return Redirect::to(url()->previous());         
                     }
                 }else {
                     Alert::error('Login Failed', 'Please check your password');
-                    return redirect()->route('home');
+                    return redirect()->route('user.login');
                 }
             }else {
                 Alert::error('Login Failed', 'There is no existing user with given Email ID');
-                return redirect()->route('home');
+                return redirect()->route('user.login');
             }
         // }
     }

@@ -57,7 +57,11 @@ Route::get('forgot-password/{email}',   [ForgotPasswordController::class, 'forgo
 Route::get('reset-password/{token}',    [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password',           [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
-Route::post('/login',                                       [LoginController::class, 'userLogin'])->name('login');
+Route::get('/login',                                        [LoginController::class, 'loginPage'])->name('user.login');
+Route::get('/register-as',                                  [LoginController::class, 'registerAs'])->name('user.register-as');
+Route::get('/user-register',                                [LoginController::class, 'registerAsUser'])->name('user.register-page');
+Route::post('user-registeration',                           [LoginController::class, 'userRegister'])->name('user.register');
+Route::post('/login-user',                                  [LoginController::class, 'userLogin'])->name('login');
 
 Route::get('/how-it-works',             [CommonController::class, 'howItWorks'])->name('howItWorks');
 Route::post('/forum',                   [CommonController::class, 'storeForum'])->name('store.forum');
@@ -68,8 +72,8 @@ Route::get('/book-a-meeting/{id}',      [CommonController::class, 'bookAMeeting'
 
 #Page practice area
 Route::get('/page-practice-area',               [CommonController::class, 'pagePracticeArea'])->name('page-practice-area');
-Route::get('/page-practice-area/details',       [CommonController::class, 'pagePracticeAreaDetails'])->name('page-practice-area');
-Route::get('/page-practice-area/details/1',       [CommonController::class, 'pagePracticeAreaDetails'])->name('page-practice-area');
+// Route::get('/page-practice-area/details',       [CommonController::class, 'pagePracticeAreaDetails'])->name('page-practice-area');
+// Route::get('/page-practice-area/details/1',       [CommonController::class, 'pagePracticeAreaDetails'])->name('page-practice-area');
 
 #Q&A
 Route::get('/question-answers',                  [CommonController::class, 'questionAnswer'])->name('question-answer');
@@ -86,12 +90,20 @@ Route::get('blogs-articles/{page}',             [CommonController::class, 'index
 Route::get('blogs-articles-details/{id}',       [CommonController::class, 'blogDetails2'])->name('blogs-article-details');
 
 Route::post('callback',                         [CommonController::class, 'callback'])->name('callback');
-Route::post('user-register',                    [CommonController::class, 'userRegister'])->name('user.register');
 
-Route::get('hire-a-lawyer',                 [HireLawyerController::class, 'hireALawyer'])->name('hire-a-lawyer');
-Route::get('service/lawyers/{id}',          [HireLawyerController::class, 'serviceLawyers'])->name('service.lawyers');
-Route::get('lawyer-services/{id}',          [HireLawyerController::class, 'lawyerServices'])->name('lawyer.services.list');
-Route::post('request-for-quotes/store',     [HireLawyerController::class, 'requestForQuotes'])->name('request-for-quotes');
+Route::get('/hire-a-lawyer/{sort?}/{search?}/{area?}',          [HireLawyerController::class, 'hireALawyer'])->name('hire-a-lawyer');
+Route::get('service-step-1/{service_id}',                       [HireLawyerController::class, 'serviceStepOne'])->name('service.step-one');
+Route::get('service-step-2/{service_id}',                       [HireLawyerController::class, 'serviceStepTwo'])->name('service.step-two');
+Route::get('service-step-3/{service_id}',                       [HireLawyerController::class, 'serviceStepThree'])->name('service.step-three');
+Route::post('service-payment',                                  [HireLawyerController::class, 'servicePayment'])->name('service.payment');
+Route::get('service-step-5/{meeting_id}',                       [HireLawyerController::class, 'servicePaymentCompleted'])->name('service.payment.completed');
+Route::get('/generate-invoice/{meeting_id}',                    [HireLawyerController::class, 'generateInvoice'])->name('generate-invoice');
+Route::get('/services-search',                                  [HireLawyerController::class, 'search'])->name('services.search');
+Route::get('/services-filter/{area_id}',                        [HireLawyerController::class, 'filterByArea'])->name('services.filter-by-area');
+// Route::get('/download-invoice',                 [HireLawyerController::class, 'servicePaymentCompleted'])->name('generate-invoice');
+Route::get('service/lawyers/{id}',              [HireLawyerController::class, 'serviceLawyers'])->name('service.lawyers');
+Route::get('lawyer-services/{id}',              [HireLawyerController::class, 'lawyerServices'])->name('lawyer.services.list');
+Route::post('request-for-quotes/store',         [HireLawyerController::class, 'requestForQuotes'])->name('request-for-quotes');
 
 Route::get('legal-articles',                        [CommonController::class, 'articleList'])->name('legal.article-list');
 Route::get('legal-articles/{id}',                   [CommonController::class, 'articleDetails'])->name('legal.article-details');

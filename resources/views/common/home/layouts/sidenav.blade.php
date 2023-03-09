@@ -1,91 +1,203 @@
-<div class="sidebar" id="mySidebar">
-    <div>
-        <button onclick="w3_close()" class="btn">
-            <img class="idek_button" src="/images/basicImages/cl_logo_1.png" alt=""/>
-        </button>
-    </div>
-    <div class="sidebar-menu" id="sidebar-menu-id">
-        <button class="sidebar-menu-btn btn black" onclick="showContent1()" id="sidebar-menu-btn1"><i class="fas fa-bars sidebar-menu-btn-icon"></i> Main Menu</button>
-        <button class="sidebar-menu-btn btn black" onclick="showContent2()" id="sidebar-menu-btn2"><span class="material-symbols-rounded sidebar-menu-btn-icon">account_circle</span> Lawyers Online</button>
-    </div>
-    <div class="sidebar-menu-green" id="lawyer-online-count">
-        <button class="sidebar-menu-green-btn btn green"  id="sidebar-menu-green-btn1">Lawyers online ({{$onlineLawyers}})</button>
-        <button class="sidebar-menu-green-btn btn green"  id="sidebar-menu-green-btn2"><span class="material-symbols-rounded sidebar-menu-green-btn-icon">language</span> All</button>
-    </div>
-    <div id="content1">
-        <ul>
-            <li class=""><a href="/home" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">home</span> Home</a></li>
-            <li class=""><a href="{{route('howItWorks')}}" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">assured_workload</span> How it works</a></li>
-            <li class=""><a href="{{route('lawyer.register-page')}}" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">groups</span> For lawyers</a></li>
-            <li class=""><a href="{{ route('question-answer') }}" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">live_help</span> Q & A</a></li>
-            <li class=""><a href="#" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">workspace_premium</span> Testimonials</a></li>
-            <li class=""><a href="#" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">work</span> Our lawyers</a></li>
-            <li class=""><a href="#" class="nav-link-item link black"><i class="fas fa-user-tie fa-lg nav-link-icon"></i> Lawyers</a></li>
-            <li class=""><a href="#" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">balance</span> Practice Area</a></li>
-            <li class=""><a href="#" class="nav-link-item link black"><i class="far fa-newspaper fa-lg nav-link-icon"></i> Blogs & Articles</a></li>
-            <li class=""><a href="#" class="nav-link-item link black"><i class="far fa-id-card fa-lg nav-link-icon"></i> Hire Lawyer</a></li>
-            <li class=""><a href="#" class="nav-link-item link black"><i class="fas fa-gavel fa-lg nav-link-icon"></i> Legal Articles</a></li>
-            <li class=""><a onclick="openForm()" class="nav-link-item link black"><span class="material-symbols-rounded nav-link-icon">login</span> Login</a></li>
-        </ul>
-    </div>
-    <div id="content2" class="online-offline">
-        <ul>
-            @foreach($lawyers as $k => $lawyer)
-                @if($lawyer->user->isOnline())
-                    <li class="">
-                        <a onclick="myAccFunc('{{$k}}')" class="nav-link-item link black">
-                            <img src="/storage/{{$lawyer->profile_pic}}" style="width: 60px;height: 60px;border-radius: 30px;" alt=""/>
-                            <div class="lawyer-sidebar">
-                                <strong>{{$lawyer->user->name}}</strong>
-                                <p>{{$lawyer->emirates}}</p>
-                            </div>
-                        </a>
+<div id="mySidenav" class="sidenav m-none-menu">
+        <div class="offcanvas-body">
+            <div class="menu-part">
+                <p class="close-top">X</p>
+              <img src="/new-design/assets/images/off-logo.png" alt="off-logo" class="off-logo">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                            type="button" role="tab" aria-controls="home" aria-selected="true"><i
+                                class="fa-solid fa-bars color-smae"></i> Main menú</button>
                     </li>
-                    <div id="demoAcc{{$k}}" class="lawyer-options hidden-item">
-                        <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">post_add</span>&nbsp;&nbsp; Post a question</a>
-                        <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">chat</span>&nbsp;&nbsp; Chat Online</a>
-                        <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">phone_callback</span>&nbsp;&nbsp; Request a Callback</a>
-                        <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">meeting_room</span>&nbsp;&nbsp; Book a Meeting</a>
-                        <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">business_center</span>&nbsp;&nbsp; Hire the Lawyer</a>
-                        <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">person</span>&nbsp;&nbsp; Open Profile</a>
-                    </div>
-                @endif
-            @endforeach
-            @if($onlineLawyers < 1)
-                <li class="">
-                    <a class="nav-link-item link black">
-                        <div class="lawyer-sidebar">
-                            <strong>No Lawyers Are Online</strong>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                            type="button" role="tab" aria-controls="profile" aria-selected="false"><i
+                                class="fa-solid fa-user"></i> Lawyers Online</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="bg-E8F8F2 sp-r-l online-a">
+                            <div class="row ">
+                                <div class="col-9"><a href="#">Lawyers online (5)</a></div>
+                                <div class="col-3 text-right"><a href="#"><i class="fa-solid fa-globe"></i>
+                                        All</a></div>
+                            </div>
                         </div>
-                    </a>
-                </li>
-            @endif
-        </ul>
-        <div class="sidebar-menu-green">
-            <button class="sidebar-menu-green-btn btn green"  id="sidebar-menu-green-btn1">Lawyers offline</button>
-        </div>
-        <ul>
-            @foreach($lawyers as $k => $lawyer)
-                @if(!$lawyer->user->isOnline())
-                    <li class="">
-                        <a onclick="offlineLawyers('{{$k}}')" class="nav-link-item link black offline">
-                            <img src="/storage/{{$lawyer->profile_pic}}" style="width: 60px;height: 60px;border-radius: 30px;" alt=""/>
-                            <div class="lawyer-sidebar">
-                                <strong>{{$lawyer->user->name}}</strong>
-                                <p>{{$lawyer->emirates}}</p>
-                            </div>
-                        </a>
-                    </li>
-                    <div id="offLaw{{$k}}" class="lawyer-options hidden-item">
-                        <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">post_add</span>&nbsp;&nbsp; Post a question</a>
-                        <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">chat</span>&nbsp;&nbsp; Chat Online</a>
-                        <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">phone_callback</span>&nbsp;&nbsp; Request a Callback</a>
-                        <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">meeting_room</span>&nbsp;&nbsp; Book a Meeting</a>
-                        <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">business_center</span>&nbsp;&nbsp; Hire the Lawyer</a>
-                        <a href="#" class="nav-link-item link black"><span class="material-symbols-rounded circle-grey">person</span>&nbsp;&nbsp; Open Profile</a>
+    
+                        <ul class="menu-left">
+                            <li><a href="/" class="active-nav"><i class="fa-solid fa-house-user"></i>
+                                    Home</a>
+                            </li>
+                            <li><a href="{{route('howItWorks')}}"><i class="fa-solid fa-landmark"></i> How It
+                                    Works</a></li>
+                            <li><a href="{{route('lawyer.register-page')}}"><i class="fa-solid fa-users"></i> For Lawyers</a></li>
+                            <li><a href="{{route('question-answer')}}"><i class="fa-solid fa-question"></i>
+                                    Q&A</a></li>
+                            <li><a href="{{route('testimonials')}}"><i class="fa-solid fa-star"></i>
+                                    Testimonials</a></li>
+                            <li><a href="{{route('our-lawyers')}}"><i class="fa-solid fa-bag-shopping"></i> Our
+                                    Lawyers</a></li>
+                            <li><a href="layer.html"><i class="fa-solid fa-user"></i> Lawyers</a></li>
+                            <li><a href="practice-area.html"><i class="fa-solid fa-scale-balanced"></i>
+                                    Practice Area</a></li>
+                            <li><a href="{{route('blogs-articles', 1)}}"><i class="fa-solid fa-book"></i> Blogs & Articles</a>
+                            </li>
+                            <li><a href="{{route('hire-a-lawyer')}}"><i class="fa-solid fa-address-card"></i>
+                                    Hire Lawyer</a></li>
+                            <li><a href="#"><i class="fa-solid fa-gavel"></i> Legal Articles</a></li>
+                            @if(auth()->user())                      
+                                @if(auth()->user()->user_type == 2)
+                                    <li class="nav-item">
+                                        <a href="{{route('logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
+                                    </li>
+                                @elseif(auth()->user()->user_type == 3)
+                                    <!-- <li class="nav-item">
+                                        <a href="{{route('online-chat.requests')}}" class="nav-link" style="color: white;">Online Chat Requests</a>
+                                    </li> -->
+                                    <li class="nav-item">
+                                        <a href="{{route('user.logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
+                                    </li>
+                                @endif
+                            @else
+                                <li>
+                                    <a href="{{route('user.login')}}"><i class="fa-solid fa-right-from-bracket"></i> Login</a>
+                                </li>
+                            @endif
+                        </ul>
                     </div>
-                @endif
-            @endforeach
-        </ul>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="bg-E8F8F2 sp-r-l online-a">
+                            <div class="row ">
+                                <div class="col-9"><a href="#">Lawyers online (5)</a></div>
+                                <div class="col-3 text-right"><a href="#"><i class="fa-solid fa-globe"></i>
+                                        All</a></div>
+                            </div>
+                        </div>
+    
+                        <div class="user-online-g sp-r-l ">
+                            <a href="#">
+                                <div class="row align-items-center">
+                                    <div class="col-3">
+                                        <div class="legal-1">
+                                            <img src="/new-design/assets/images/legal-1.png" alt="legal-1">
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <p class="name-uaser">Madhur Yadav</p>
+                                        <p class="short-mes">Dubai, UAE</p>
+                                    </div>
+                                    <div class="col-2 p-0"><img src="/new-design/assets/images/prem.png" alt="prem"></div>
+                                </div>
+                            </a>
+                        </div>
+    
+                        <div class="user-online-g sp-r-l">
+                            <a href="#">
+                                <div class="row align-items-center">
+                                    <div class="col-3">
+                                        <div class="legal-1">
+                                            <img src="/new-design/assets/images/legal-1.png" alt="legal-1">
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <p class="name-uaser">Madhur Yadav</p>
+                                        <p class="short-mes">Dubai, UAE</p>
+                                    </div>
+                                    <div class="col-2 p-0"><img src="/new-design/assets/images/prem.png" alt="prem"></div>
+                                </div>
+                            </a>
+                        </div>
+    
+                        <div class="user-online-g sp-r-l">
+                            <a href="#">
+                                <div class="row align-items-center">
+                                    <div class="col-3">
+                                        <div class="legal-1">
+                                            <img src="/new-design/assets/images/legal-1.png" alt="legal-1">
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <p class="name-uaser">Arundhati Chawla</p>
+                                        <p class="short-mes">Dubai, UAE</p>
+                                    </div>
+    
+                                </div>
+                            </a>
+                        </div>
+                        <div class="user-online-g sp-r-l">
+                            <a href="#">
+                                <div class="row align-items-center">
+                                    <div class="col-3">
+                                        <div class="legal-1">
+                                            <img src="/new-design/assets/images/legal-1.png" alt="legal-1">
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <p class="name-uaser">Arundhati Chawla</p>
+                                        <p class="short-mes">Dubai, UAE</p>
+                                    </div>
+    
+                                </div>
+                            </a>
+                        </div>
+                        <div class="user-online-g sp-r-l">
+                            <a href="#">
+                                <div class="row align-items-center">
+                                    <div class="col-3">
+                                        <div class="legal-1">
+                                            <img src="/new-design/assets/images/legal-1.png" alt="legal-1">
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <p class="name-uaser">Arundhati Chawla</p>
+                                        <p class="short-mes">Dubai, UAE</p>
+                                    </div>
+    
+                                </div>
+                            </a>
+                        </div>
+                        <div class="offline-lawyers">
+                            <p>Lawyers offline</p>
+                        </div>
+                        <div class="user-online-g sp-r-l">
+                            <a href="#">
+                                <div class="row align-items-center">
+                                    <div class="col-3">
+                                        <div class="legal-1">
+                                            <img src="/new-design/assets/images/legal-1.png" alt="legal-1">
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <p class="name-uaser">Arundhati Chawla</p>
+                                        <p class="short-mes">Dubai, UAE</p>
+                                    </div>
+    
+                                </div>
+                            </a>
+                        </div>
+    
+                        <div class="user-online-g sp-r-l">
+                            <a href="#">
+                                <div class="row align-items-center">
+                                    <div class="col-3">
+                                        <div class="legal-1">
+                                            <img src="/new-design/assets/images/legal-1.png" alt="legal-1">
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <p class="name-uaser">Arundhati Chawla</p>
+                                        <p class="short-mes">Dubai, UAE</p>
+                                    </div>
+    
+                                </div>
+                            </a>
+                        </div>
+    
+    
+                    </div>
+                </div>
+    
+            </div>
+        </div>
     </div>
-</div>
