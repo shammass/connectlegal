@@ -60,7 +60,7 @@
     </section>
     <section>
         <div class="modal" id="createService" style="top: 25%;">
-            <div class="modal-dialog  modal-md">
+            <div class="modal-dialog  modal-lg">
                 <div class="modal-content">
                     <div class="modal-body row" style="margin:5px">   
                         <h5><img src="/new-design/lawyer/assets/image/bag.png" alt="" class="service-popup-header"><span class="service-popup-title"> Service</span></h5>    
@@ -84,7 +84,13 @@
                                 @enderror  
                             </div>
                             <div class="form-group row" style="margin-top: 15px;margin-bottom: 15px;">  
-                                <textarea name="description" id="" cols="10" rows="3" class="form-control" placeholder="Description" style="border-radius: 15px;">{{old('description')}}</textarea>
+                                <textarea name="short_descr" cols="10" rows="3" class="form-control" placeholder="Short Description" style="border-radius: 15px;">{{old('short_descr')}}</textarea>
+                                @error('short_descr')
+                                    <span class="error-msg" style="color:red;margin-top:2%;">{{ $message }}</span>
+                                @enderror  
+                            </div>
+                            <div class="form-group row" style="margin-top: 15px;margin-bottom: 15px;">  
+                                <textarea name="description" id="richText" cols="10" rows="3" class="form-control" placeholder="Description" style="border-radius: 15px;">{{old('description')}}</textarea>
                                 @error('description')
                                     <span class="error-msg" style="color:red;margin-top:2%;">{{ $message }}</span>
                                 @enderror  
@@ -104,8 +110,8 @@
                 </div>
             </div>
         </div>
-        <div class="modal" id="editService" style="top: 25%;">
-            <div class="modal-dialog  modal-md">
+        <div class="modal" id="editService">
+            <div class="modal-dialog  modal-lg">
                 <div class="modal-content">
                     <div class="modal-body row" style="margin:5px">   
                         <h5><img src="/new-design/lawyer/assets/image/bag.png" alt="" class="service-popup-header"><span class="service-popup-title"> Service</span></h5>    

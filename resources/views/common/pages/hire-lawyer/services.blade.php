@@ -100,7 +100,7 @@
                     </div>
                   </div>
                   <h3>{{$service->title}}</h3>
-                  <p>{{$service->description}}</p>
+                  <p>{{ $service->short_descr }}</p>
                   <div class="row align-items-center">
                     <div class="col-md-6 col-6">
                       <h1 class="aed-class">AED {{$service->getLawyerFee($service->id) + $service->getPlatformFee($service->id)}}</h1>

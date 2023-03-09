@@ -12,6 +12,7 @@ class Services extends Model
     protected $fillable = [
         'arbitration_area_id',
         'title',
+        'short_descr',
         'description',
         'approved', //by default "No"
         'added_by',

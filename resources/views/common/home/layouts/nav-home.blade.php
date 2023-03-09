@@ -17,7 +17,7 @@
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
                                 type="button" role="tab" aria-controls="home" aria-selected="true"><i
-                                    class="fa-solid fa-bars"></i> Main menú</button>
+                                    class="fa-solid fa-bars"></i> Main menu</button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
@@ -89,11 +89,6 @@
                                                 </div>
                                             </a>                                            
                                         </div>
-                                        
-
-                                        
-
-
                                     @endif
                                 @endforeach
                                 @if($onlineLawyers < 1) 

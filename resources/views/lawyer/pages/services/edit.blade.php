@@ -18,7 +18,13 @@
         @enderror  
     </div>
     <div class="form-group row" style="margin-top: 15px;margin-bottom: 15px;">  
-        <textarea name="description" id="" cols="10" rows="3" class="form-control" placeholder="Description" style="border-radius: 15px;">{{$service->description}}</textarea>
+        <textarea name="short_descr" cols="10" rows="3" class="form-control" placeholder="Short Description" style="border-radius: 15px;">{{$service->short_descr}}</textarea>
+        @error('short_descr')
+            <span class="error-msg" style="color:red;margin-top:2%;">{{ $message }}</span>
+        @enderror  
+    </div>
+    <div class="form-group row" style="margin-top: 15px;margin-bottom: 15px;">  
+        <textarea name="description" id="mytextarea" cols="10" rows="3" class="form-control" placeholder="Description" style="border-radius: 15px;">{{$service->description}}</textarea>
         @error('description')
             <span class="error-msg" style="color:red;margin-top:2%;">{{ $message }}</span>
         @enderror  
@@ -34,3 +40,11 @@
         <button type="submit" class="btn btn-danger create-service" data-bs-dismiss="modal">Update Service</button>
     </div>
 </form>
+
+<script>
+    tinymce.init({
+        selector: '#mytextarea',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    });
+</script>

@@ -63,4 +63,15 @@ class Lawyer extends Model
             return false;
         }
     }
+
+    public function lowestAmountOfferingForThisCategory($userId, $arbitrationAreaId) {
+        $lowestAmount = Services::join('lawyer_services', 'services.id', '=', 'lawyer_services.service_id')
+        ->where('services.arbitration_area_id', $arbitrationAreaId)
+        ->where('services.added_by', $userId)
+        ->selectRaw('MIN(lawyer_services.lawyer_fee + lawyer_services.platform_fee) as min_amount')
+        ->pluck('min_amount')
+        ->first();
+
+        return $lowestAmount;
+    }
 }

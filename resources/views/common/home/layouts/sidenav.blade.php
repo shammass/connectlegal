@@ -7,7 +7,7 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
                             type="button" role="tab" aria-controls="home" aria-selected="true"><i
-                                class="fa-solid fa-bars color-smae"></i> Main menú</button>
+                                class="fa-solid fa-bars color-smae"></i> Main menu</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
@@ -19,7 +19,7 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="bg-E8F8F2 sp-r-l online-a">
                             <div class="row ">
-                                <div class="col-9"><a href="#">Lawyers online (5)</a></div>
+                                <div class="col-9"><a href="#">Lawyers online ({{$onlineLawyers}})</a></div>
                                 <div class="col-3 text-right"><a href="#"><i class="fa-solid fa-globe"></i>
                                         All</a></div>
                             </div>
@@ -69,130 +69,62 @@
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="bg-E8F8F2 sp-r-l online-a">
                             <div class="row ">
-                                <div class="col-9"><a href="#">Lawyers online (5)</a></div>
+                                <div class="col-9"><a href="#">Lawyers online ({{$onlineLawyers}})</a></div>
                                 <div class="col-3 text-right"><a href="#"><i class="fa-solid fa-globe"></i>
                                         All</a></div>
                             </div>
                         </div>
     
-                        <div class="user-online-g sp-r-l ">
-                            <a href="#">
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <div class="legal-1">
-                                            <img src="/new-design/assets/images/legal-1.png" alt="legal-1">
+                        @foreach($lawyers as $k => $lawyer)
+                            @if($lawyer->user->isOnline())
+                                <div class="user-online-g sp-r-l" data-bs-toggle="modal" data-bs-target="#lawyers_profile_{{$lawyer->id}}">
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <img src="/storage/{{$lawyer->profile_pic}}" alt="legal-1" class="legal-1">
+                                            </div>
+                                            <div class="col-7">
+                                                <p class="name-uaser">{{$lawyer->user->name}}</p>
+                                                <p class="short-mes">{{$lawyer->emirates}}</p>
+                                            </div>
+                                            <!-- <div class="col-2"><img src="/new-design/assets/images/prem.png" alt="prem"></div> -->
                                         </div>
-                                    </div>
-                                    <div class="col-7">
-                                        <p class="name-uaser">Madhur Yadav</p>
-                                        <p class="short-mes">Dubai, UAE</p>
-                                    </div>
-                                    <div class="col-2 p-0"><img src="/new-design/assets/images/prem.png" alt="prem"></div>
+                                    </a>                                            
                                 </div>
-                            </a>
-                        </div>
-    
-                        <div class="user-online-g sp-r-l">
-                            <a href="#">
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <div class="legal-1">
-                                            <img src="/new-design/assets/images/legal-1.png" alt="legal-1">
+                            @endif
+                        @endforeach
+                        @if($onlineLawyers < 1) 
+                            <div class="user-online-g sp-r-l ">
+                                <a href="#">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <p class="name-uaser">No Lawyers Are Online</p>
                                         </div>
+                                        <!-- <div class="col-2"><img src="/new-design/assets/images/prem.png" alt="prem"></div> -->
                                     </div>
-                                    <div class="col-7">
-                                        <p class="name-uaser">Madhur Yadav</p>
-                                        <p class="short-mes">Dubai, UAE</p>
-                                    </div>
-                                    <div class="col-2 p-0"><img src="/new-design/assets/images/prem.png" alt="prem"></div>
-                                </div>
-                            </a>
-                        </div>
-    
-                        <div class="user-online-g sp-r-l">
-                            <a href="#">
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <div class="legal-1">
-                                            <img src="/new-design/assets/images/legal-1.png" alt="legal-1">
-                                        </div>
-                                    </div>
-                                    <div class="col-9">
-                                        <p class="name-uaser">Arundhati Chawla</p>
-                                        <p class="short-mes">Dubai, UAE</p>
-                                    </div>
-    
-                                </div>
-                            </a>
-                        </div>
-                        <div class="user-online-g sp-r-l">
-                            <a href="#">
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <div class="legal-1">
-                                            <img src="/new-design/assets/images/legal-1.png" alt="legal-1">
-                                        </div>
-                                    </div>
-                                    <div class="col-9">
-                                        <p class="name-uaser">Arundhati Chawla</p>
-                                        <p class="short-mes">Dubai, UAE</p>
-                                    </div>
-    
-                                </div>
-                            </a>
-                        </div>
-                        <div class="user-online-g sp-r-l">
-                            <a href="#">
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <div class="legal-1">
-                                            <img src="/new-design/assets/images/legal-1.png" alt="legal-1">
-                                        </div>
-                                    </div>
-                                    <div class="col-9">
-                                        <p class="name-uaser">Arundhati Chawla</p>
-                                        <p class="short-mes">Dubai, UAE</p>
-                                    </div>
-    
-                                </div>
-                            </a>
-                        </div>
+                                </a>
+                            </div>
+                        @endif
                         <div class="offline-lawyers">
                             <p>Lawyers offline</p>
                         </div>
-                        <div class="user-online-g sp-r-l">
-                            <a href="#">
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <div class="legal-1">
-                                            <img src="/new-design/assets/images/legal-1.png" alt="legal-1">
+                        @foreach($lawyers as $k => $lawyer)
+                            @if(!$lawyer->user->isOnline())
+                                <div class="user-online-g sp-r-l">
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <img src="/storage/{{$lawyer->profile_pic}}" alt="question-1" class="legal-1">
+                                            </div>
+                                            <div class="col-9">
+                                                <p class="name-uaser">{{$lawyer->user->name}}</p>
+                                                <p class="short-mes">{{$lawyer->emirates}}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-9">
-                                        <p class="name-uaser">Arundhati Chawla</p>
-                                        <p class="short-mes">Dubai, UAE</p>
-                                    </div>
-    
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-    
-                        <div class="user-online-g sp-r-l">
-                            <a href="#">
-                                <div class="row align-items-center">
-                                    <div class="col-3">
-                                        <div class="legal-1">
-                                            <img src="/new-design/assets/images/legal-1.png" alt="legal-1">
-                                        </div>
-                                    </div>
-                                    <div class="col-9">
-                                        <p class="name-uaser">Arundhati Chawla</p>
-                                        <p class="short-mes">Dubai, UAE</p>
-                                    </div>
-    
-                                </div>
-                            </a>
-                        </div>
+                            @endif
+                        @endforeach
     
     
                     </div>

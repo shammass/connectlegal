@@ -20,12 +20,14 @@ class ServicesController extends Controller
     public function store(Request $request) {
         $this->validate(request(), [
             'title'         => 'required',           
+            'short_descr'   => 'required',           
             'description'   => 'required',           
         ]);
 
         Services::create([
             'arbitration_area_id'   => $request->area,
             'title'                 => $request->title,
+            'short_descr'           => $request->short_descr,
             'description'           => $request->description,
         ]);
 
@@ -34,7 +36,8 @@ class ServicesController extends Controller
 
     public function update(Request $request, $id) {
         $this->validate(request(), [
-            'title'         => 'required',           
+            'title'         => 'required',       
+            'short_descr'   => 'required',              
             'description'   => 'required',           
         ]);
 
@@ -42,6 +45,7 @@ class ServicesController extends Controller
         [
             'arbitration_area_id'   => $request->area,
             'title'                 => $request->title,
+            'short_descr'           => $request->short_descr,   
             'description'           => $request->description,   
         ]
         );

@@ -29,7 +29,7 @@
                         <tr style="text-align: center;">
                             <td>{{$service->arbitration->area}}</td>
                             <td>{{$service->title}}</td>
-                            <td>{{$service->description}}</td>
+                            <td>{!! substr($service->description, 0, 500) !!}...</td>
                             <td>{{$service->addedBy->name}}</td>
                             <td>{{$service->getLawyerFee($service->id)}}</td>
                             <td>{{$service->getPlatformFee($service->id)}}</td>

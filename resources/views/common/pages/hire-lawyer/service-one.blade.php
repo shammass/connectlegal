@@ -28,73 +28,13 @@
                                                     <img src="/new-design/assets/images/img2.png" alt="" class="img-responsive img-2"> -->
                                                 </div>
                                             </div>
-                                            <p>{{$service->description}}
+                                            <p>{{$service->short_descr}}
                                             </p>
                                         </div>
                                     </div>
                                     <div class="service-description">
                                         <h2 class="mt-3 mb-3">Service description</h2>
-                                        <p>Get advice about your real property related issue from an experienced UAE
-                                            lawyer
-                                            by
-                                            phone. Within a 15-minute phone call, the lawyer you hire can answer your
-                                            questions
-                                            and give you advice and guidance on topics like:</p>
-
-                                        <ul>
-                                            <li>tenant-landlord relations (tenancy contracts, non-payment of rent,
-                                                rental
-                                                disputes, eviction procedures, etc.),</li>
-                                            <li>sale and purchase of real property in the UAE (sale and purchase
-                                                agreements
-                                                SPA/MOU, deposits, reservation forms, property registration, etc.),</li>
-                                            <li>disputes with real estate developers (property handover, termination of
-                                                SPA,
-                                                compensation claims, etc.)</li>
-                                        </ul>
-                                        <p>This service is right for you if you are a tenant/landlord or buyer/seller of
-                                            the
-                                            real property in the UAE, and you need advice and guidance on preventing or
-                                            resolving legal issues in accordance with UAE laws.</p>
-
-                                        <h6 class="pt-5">What's included</h6>
-                                        <ul class="pt-0 pb-0">
-                                            <li>15-minute phone (or online) call with an attorney. Answers and advice.
-                                                The
-                                                lawyer will suggest options for you, based on their experience helping
-                                                other
-                                                people with similar issues.</li>
-                                            <li>Privacy. Everything you discuss with your lawyer is protected by
-                                                attorney-client
-                                                privilege.</li>
-                                        </ul>
-                                        <h6 class="pt-5">What's not included</h6>
-                                        <ul class="pt-0">
-                                            <li>Reviewing documents.</li>
-                                            <li>Long-distance telephone calls. If you are based outside the UAE then
-                                                probably
-                                                you will need to call the lawyer yourself, or agree on some other way of
-                                                voice
-                                                communication.</li>
-                                            <li>Privacy. Everything you discuss with your lawyer is protected by
-                                                attorney-client
-                                                privilege.</li>
-                                            <li>Any additional advice or work by the lawyer after the 15-minute advice
-                                                session.
-                                            </li>
-                                        </ul>
-                                        <p>Most people get the answers they need regarding their legal issues during the
-                                            call,
-                                            but if your case requires additional work – for example, you would like to
-                                            file
-                                            a
-                                            case with Rental Dispute Settlement Center or would like to negotiate
-                                            compensation
-                                            with the developer – you are welcome to talk to your lawyer about hiring
-                                            them
-                                            for
-                                            extra work.</p>
-                                        <hr>
+                                        {!! $service->description !!}
                                         <br>
                                         <div class="text-end">
                                             <a href="{{route('service.step-two', $service->id)}}" class="btnbynew">Buy Now</a>
@@ -222,7 +162,7 @@
 
                                                 </div>
                                                 <div class="col-2 p-0 ">
-                                                    <p class="aed">AED <br> <span>450</span></p>
+                                                    <p class="aed">AED <br> <span>{{$lawyer->lowestAmountOfferingForThisCategory($lawyer->user_id, $service->arbitration_area_id)}}</span></p>
                                                 </div>
                                             </div>
                                         </div>

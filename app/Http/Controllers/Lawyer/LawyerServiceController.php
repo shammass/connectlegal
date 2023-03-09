@@ -34,6 +34,7 @@ class LawyerServiceController extends Controller
             'area'          => 'required',
             'title'         => 'required:unique:services',           
             'description'   => 'required',     
+            'short_descr'   => 'required',  
             'fee'           => 'required'      
         ]);
         if($validator->fails()) {
@@ -43,6 +44,7 @@ class LawyerServiceController extends Controller
             $service = Services::create([
                 'arbitration_area_id'   => $request->area,
                 'title'                 => $request->title,
+                'short_descr'           => $request->short_descr,  
                 'description'           => $request->description,
                 'added_by'              => auth()->user()->id
             ]);
@@ -66,6 +68,7 @@ class LawyerServiceController extends Controller
     public function update(Request $request, $id) { 
         $this->validate(request(), [
             'title'         => 'required:unique:services,title,'.$id,           
+            'short_descr'   => 'required',           
             'description'   => 'required',           
         ]);
 
@@ -73,6 +76,7 @@ class LawyerServiceController extends Controller
         [
             'arbitration_area_id'   => $request->area,
             'title'                 => $request->title,
+            'short_descr'           => $request->short_descr,  
             'description'           => $request->description,   
         ]
         );
