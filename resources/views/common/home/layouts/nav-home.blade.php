@@ -159,10 +159,10 @@
                         <a class="nav-link" href="{{route('lawyer.register-page')}}">For Lawyers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{route('question-answer')}}">Q&A</a>
+                        <a class="nav-link" href="{{route('question-answer')}}">Q&A</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="clieant-testimonail.html">Testimonials</a>
+                        <a class="nav-link" href="{{route('testimonials')}}">Testimonials</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>

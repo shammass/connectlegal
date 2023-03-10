@@ -40,11 +40,15 @@ class ForgotPasswordController extends Controller
         $validator = Validator::make($request->all(),[
             'email' => 'required|email|exists:users',
         ]);
+
         if($validator->fails()) {
             Alert::error('Error', 'Please go back to the form to view the errors');
-            return redirect()->route('home')->withErrors($validator);
+            return redirect()->route('user.login')->withErrors($validator);
         }
+
         $this->sendForgotPasswordEmail($request->email);
+
+        // Alert::success('Success', 'We have sent an email with reset password link');
         return back();
     }
 
@@ -102,26 +106,26 @@ class ForgotPasswordController extends Controller
      */
     public function submitResetPasswordForm(Request $request) {
         $request->validate([
-            'email' => 'required|email|exists:users',
-            'password' => 'required|string|min:6|confirmed',
-            'password_confirmation' => 'required'
+            'new_password'              => 'required|string|min:8|confirmed',
+            'new_password_confirmation' => 'required'
         ]);
 
+
         $updatePassword = PasswordReset::where([
-                            'email' => $request->email, 
-                            'token' => $request->token
+                            'token' => $request->dummy
                             ])
                             ->first();
 
         if(!$updatePassword){
-            return back()->withInput()->with('error', 'Invalid token!');
+            Alert::error('Error', 'Invalid Token');
+            return back();
         }
 
-        $user = User::where('email', $request->email)
-                    ->update(['password' => Hash::make($request->password)]);
+        $user = User::where('email', $updatePassword->email)
+                    ->update(['password' => Hash::make($request->new_password)]);
 
-        PasswordReset::where(['email'=> $request->email])->delete();
-
-        return redirect('/')->with('message', 'Your password has been changed!');
+        PasswordReset::where(['email'=> $updatePassword->email])->delete();
+        Alert::success('Success', 'Your password has been updated. Please login');
+        return redirect()->route('user.login');
     }
 }

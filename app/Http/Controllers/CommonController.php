@@ -67,7 +67,7 @@ class CommonController extends Controller
             'subject'   => $request->contact_subject,
             'message'   => $request->contact_message
         ]);
-        
+
         Alert::success('Success', 'Your query has been sent successfully!');
         return redirect()->route('howItWorks');
     }
@@ -85,11 +85,13 @@ class CommonController extends Controller
             'message' => $request->message
         ]);
         Alert::success('Success', 'Your feedback has been sent successfully!');
-        return redirect()->route('howItWorks');
+        return redirect()->route('testimonials');
     }
 
     public function questionAnswer() {
-        $forums = Forum::whereIsVerified(1)->paginate(10);
+        $forums = Forum::whereIsVerified(1)
+        ->orderBy('updated_at', 'asc')
+        ->paginate(10);
         // return view('common.question-answer.list', compact('forums'));
         return view('common.pages.question-answer.grid', compact('forums'));
     }
