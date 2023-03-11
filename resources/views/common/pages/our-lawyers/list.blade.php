@@ -1,116 +1,256 @@
 @extends('common.home.layouts.app')
 @section('content')
-    <div class="fix-height"></div>
-    <section class="our-lawyers-page" data-scroll-index="0">
-        <div class="container-fluid">
-            <div class="inner-content-wraper">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="our-lawyers-header">
-                            <div class="header-content"> 
-                                <h1>Our<span>Lawyers</span></h1>
-                                <p>Our team of lawyers have experience with criminal law and crimes act, thus they can understand your unique requirements.</p>
-                            </div>
-                            <div class="header-content-image">
-                                <img src="/new-design/assets/image/our_lawyers/our_lawyers.png" >
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="our-lawyers-content col-sm-12">
-                        <div class="search-and-dropdown d-flex justify-content-end">
-                            <img src="/new-design/assets/image/our_lawyers/ri_search.png">
-                            <select name="" id="">
-                                <option value="relevant">Select Department</option>
-                            </select>
-                            <select name="" id="">
-                                <option value="date">Select Location</option>
-                            </select>
-                        </div>
-                        <div class="our-lawyers-content-header">
-                            <h3>Displaying  <span>1 - 10 of 10 layers</span></h3>
-                            <div class="d-flex our-lawyers-content-header-filter-container">
-                                <select name="" id="">
-                                    <option value="relevant">Relevant</option>
-                                </select>
-                                <select name="" id="">
-                                    <option value="date">Name A-Z</option>
-                                </select>
-                                <div class="our-lawyers-content-header-filter dash">
-                                    <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="8" height="2" fill="#208C84"/>
-                                        <rect y="4" width="8" height="2" fill="#208C84"/>
-                                        <rect y="8" width="8" height="2" fill="#208C84"/>
-                                        <rect x="10" width="8" height="2" fill="#208C84"/>
-                                        <rect x="10" y="4" width="8" height="2" fill="#208C84"/>
-                                        <rect x="10" y="8" width="8" height="2" fill="#208C84"/>
-                                    </svg>                                            
-                                </div>
-                                <div class="our-lawyers-content-header-filter dots">
-                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="2.5" cy="2.5" r="2.5" fill="#208C84"/>
-                                        <circle cx="2.5" cy="10.5" r="2.5" fill="#208C84"/>
-                                        <circle cx="10.5" cy="2.5" r="2.5" fill="#208C84"/>
-                                        <circle cx="10.5" cy="10.5" r="2.5" fill="#208C84"/>
-                                    </svg>                                            
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 d-flex flex-wrap custom-col">
-                                @foreach($lawyers as $k => $lawyer)
-                                    <div class="our-lawyers-card-wrapper left">
-                                        <div class="our-lawyers-card on-watch">
-                                            <div class="d-flex">
-                                                <div class="avatar-container">
-                                                    <img class="avatar" src="/new-design/assets/image/our_lawyers/dummy_dp.png" >
-                                                    <img class="crown" src="/new-design/assets/image/our_lawyers/avatar_crown.png" >
-                                                </div>
-                                                <div class="our-lawyers-card-content">
-                                                    <h4>{{$lawyer->user->name}}</h4>
-                                                    <div class="ratings">
-                                                        <div class="ratings-card">
-                                                            <img src="/new-design/assets/image/home/star.png" alt="">
-                                                            <img src="/new-design/assets/image/home/star.png" alt="">
-                                                            <img src="/new-design/assets/image/home/star.png" alt="">
-                                                            <img src="/new-design/assets/image/home/star.png" alt="">
-                                                            <img src="/new-design/assets/image/home/star.png" alt="">
-                                                        </div>
-                                                        <h5>(35 Reviews)</h5>
-                                                    </div>
-                                                    <div class="lawyer-location">
-                                                        <img src="/new-design/assets/image/our_lawyers/location.png">
-                                                        <p>{{$lawyer->emirates}}</p>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="our-lawyers-card-eye">
-                                                <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <circle cx="29.5" cy="29.5" r="29" fill="white" stroke="#3DC9A1"/>
-                                                    <path d="M30 18C21.8182 18 14.8309 23.1833 12 30.5C14.8309 37.8167 21.8182 43 30 43C38.1818 43 45.1691 37.8167 48 30.5C45.1691 23.1833 38.1818 18 30 18ZM30 38.8333C25.4836 38.8333 21.8182 35.1 21.8182 30.5C21.8182 25.9 25.4836 22.1667 30 22.1667C34.5164 22.1667 38.1818 25.9 38.1818 30.5C38.1818 35.1 34.5164 38.8333 30 38.8333ZM30 25.5C27.2836 25.5 25.0909 27.7333 25.0909 30.5C25.0909 33.2667 27.2836 35.5 30 35.5C32.7164 35.5 34.9091 33.2667 34.9091 30.5C34.9091 27.7333 32.7164 25.5 30 25.5Z" fill="#3DC9A1"/>
-                                                </svg>                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                            <div class="auto-load text-center">
-                                <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    x="0px" y="0px" height="60" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
-                                    <path fill="#000"
-                                        d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
-                                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s"
-                                            from="0 50 50" to="360 50 50" repeatCount="indefinite" />
-                                    </path>
-                                </svg>
-                            </div>
-                            <div class="col-12 load-more-testimonial" onclick="loadMoreLawyers()">
-                                <p>Load more testimonials</p>
-                            </div>
+    <section class="lawyers-part p-0 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 order-lg-0 order-last">
+                    <h1 class="font-64 br-dask m-mr-top">Our <br><span class="span-color-dark">Lawyers</span></h1>
+                    <p>Our team of lawyers have experience with criminal law and crimes act, thus they can understand your unique
+                        requirements.</p>
+                </div>
+                <div class="col-sm-4 order-lg-0 order-first text-lg-0 text-end">
+                    <img src="/new-design/assets/images/har.png" alt="har" class="har">
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-6 mt-5">
+                    <div class="searchfild">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="searchTerm" placeholder="Search..." aria-label="Recipient's username"
+                                aria-describedby="basic-addon2">
+                            <input type="hidden" id="selectedArea" value="{{$areaSelected}}">
+                            <span class="input-group-text" id="basic-addon2" onclick="getSearchedResult()"><img src="/new-design/assets/images/search.png" alt=""></span>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="text-right search-drop withsamesize department-width">
+                        <select class="department" onchange="filterByArea(this)">
+                            <option>Select Area</option>
+                            @foreach($arbitrationAreas as $k => $area)
+                                <option value="{{$k}}" {{$areaSelected == $k ? 'selected' : ''}}>{{$area}}</option>
+                            @endforeach
+                        </select>
+
+                        <select class="department" onchange="reload()">
+                            <option>Select Location</option>
+                            <option value="UAE" >UAE</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="splaying">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <!-- <p>Displaying <span class="span-color">1 - 8 lawyers</span></p> -->
+                    </div>
+                    <!-- <div class="col-sm-6 text-right">
+                        <div class="btn-group drop">
+                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Relevant <i class="fa-solid fa-sort"></i>
+                            </button>
+                            <ul class="dropdown-menu" style="">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Action 2</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group drop">
+                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Name A-Z <i class="fa-solid fa-sort"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Name </a></li>
+                                <li><a class="dropdown-item" href="#">Name 2</a></li>
+                            </ul>
+                        </div>
+
+                        <a href="#" class="dot4"><i class="fa-solid fa-bars"></i></a>
+                        <a href="#" class="dot4"><i class="fa-solid fa-arrows-to-dot"></i></a>
+
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="">
+                <div class="row">
+                    @foreach($lawyers as $k => $lawyer)
+                        <div class="col-lg-6 col-md-12 mt-4">
+                            <div class="law-box">
+                                <div class="row align-items-center">
+                                    <div class="col-3 text-center m-p-0 over-n">
+                                        <div class="sma-amse">
+                                            <img src="/storage/{{$lawyer->profile_pic}}" alt="Group">
+                                            <!-- <i class="fa-solid fa-crown crown-p"></i> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <h5>{{$lawyer->user->name}}</h5>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <ul class="star-part-2 fa-start-des">
+                                                    <li><i class="fa-solid fa-star"></i></li>
+                                                    <li><i class="fa-solid fa-star"></i></li>
+                                                    <li><i class="fa-solid fa-star"></i></li>
+                                                    <li><i class="fa-solid fa-star"></i></li>
+                                                    <li><i class="fa-solid fa-star"></i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-6 p-0">
+                                                <span class="rev-35">(35 Reviews)</span>
+                                            </div>
+                                        </div>
+                                        <p class="mt-2"><i class="fa-solid fa-location-dot"></i> {{$lawyer->emirates}}<br>{{$lawyer->position}}</p>
+                                    </div>
+                                    <div class="col-2 "  data-bs-toggle="modal" data-bs-target="#lawyer-profile-{{$lawyer->id}}">
+                                        <i class="fa-solid fa-eye eye-pri"></i>
+                                    </div>
+                                </div>
+                            </div>                    
+                        </div>
+
+                        <div class="modal fade popuphome videopopup" id="lawyer-profile-{{$lawyer->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content border-0">
+                                    <div class="modal-body">
+                                        <div class="puopclass overflowclass">
+                                            <div class="law-box1 prime">
+                                                <div class="row">
+                                                    <div class="col-md-3 col-3 text-center m-p-0 over-n">
+                                                        <div class="sma-amse">
+                                                            <img src="/storage/{{$lawyer->profile_pic}}" alt="Group">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-9" id="jaidev-text">
+                                                        <h5>{{ $lawyer->user->name }}</h5>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <ul class="star-part-2 fa-start-des">
+                                                                    <li><i class="fa-solid fa-star"></i></li>
+                                                                    <li><i class="fa-solid fa-star"></i></li>
+                                                                    <li><i class="fa-solid fa-star"></i></li>
+                                                                    <li><i class="fa-solid fa-star"></i></li>
+                                                                    <li><i class="fa-solid fa-star"></i></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-6 p-0">
+                                                                <span class="rev-35">(35 Reviews)</span>
+                                                            </div>
+                                                        </div>
+                                                        <p class="mt-2"><i class="fa-solid fa-location-dot"></i> {{$lawyer->emirates}} {{$lawyer->position}}</p>
+                                                    </div>
+                                                    <div class="col-md-3 col-12 mb-lg-0 mb-4">
+                                                        <div class="btn-hire" onclick="closePrevModal('{{$lawyer->id}}')" data-bs-toggle="modal" data-bs-target="#consult-{{$lawyer->id}}">
+                                                            <button class="btn1-hire">  <img src="/new-design/assets/images/Group1.png" alt=""> hire</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @if($lawyer->disclaimer)
+                                                <h6 class="mt-xl-5 mt-0"><strong>Description:</strong></h6>
+                                                <p>{{$lawyer->disclaimer}}</p>
+                                            @endif
+                                            <div class="row mb-4">
+                                                <div class="col-sm-4">
+                                                    <ul>
+                                                        <!-- <li><strong>Experience:</strong></li> -->
+                                                        <li><strong>Position:</strong></li>
+                                                        <li><strong> Expertise:</strong></li>
+                                                        <li><strong> Address:</strong></li>
+                                                        <li><strong>Lanuages:</strong></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <ul>
+                                                        <!-- <li>25 Years of experience</li> -->
+                                                        <li> {{$lawyer->position}}</li>
+                                                        <li> {{$lawyer->arbitration->area}}</li>
+                                                        <li> {{$lawyer->emirates}}</li>
+                                                        <li> {{$lawyer->getLanguages($lawyer->id)}}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <img src="/new-design/assets/images/pupvideo.png" alt="" class="img-responsive img-fluid">
+                                            <div class="text-end">
+                                                <button type="button" class=" mt-lg-5 mt-2 btn bg1" onclick="lawyerServices('{{$lawyer->user_id}}')">Lawyer Services</button>
+                                                @if(auth()->user())
+                                                    <button type="button" class=" mt-lg-5 mt-2 btn bg2" onclick="closeContactModal('{{$lawyer->user_id}}')" data-bs-toggle="modal" data-bs-target="#chat-request-{{$lawyer->id}}">Chat Request</button>
+                                                @else 
+                                                    <button type="button" class=" mt-lg-5 mt-2 btn bg2" onclick="login()">Chat Request</button>
+                                                @endif
+                                                <button type="button" class=" mt-lg-5 mt-2 btn bg3" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade popuphome" id="consult-{{$lawyer->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="puopclass">
+                                            <h3 class="text-center" data-bs-toggle="modal" data-bs-target="#lowyar1">Contact form</h3>
+                                            <form action="{{route('consult.lawyer')}}" method="post" onsubmit="return validateConsultForm(event, '{{$lawyer->id}}')">
+                                                @csrf()
+                                                <input type="text" name="name" id="name-{{$lawyer->id}}" placeholder="Name" class="form-control mb-2">
+                                                @error('name')
+                                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                                @enderror   
+                                                <input type="email" name="email" id="email-{{$lawyer->id}}" placeholder="Email Address" class="form-control mb-3">
+                                                @error('email')
+                                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                                @enderror   
+                                                <div class="input-group mb-3" id="mobile-div-{{$lawyer->id}}">
+                                                    <span class="input-group-text" id="basic-addon1"> <img src="/new-design/assets/images/phone.png" alt=""> </span>
+                                                    <input type="text" class="form-control left-bordr" name="mobile" id="mobile-{{$lawyer->id}}" placeholder="Phone Number" aria-label="Username"
+                                                        aria-describedby="basic-addon1">
+                                                </div>
+                                                @error('mobile')
+                                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                                @enderror   
+                                                <textarea class="form-control" name="message" id="msg-{{$lawyer->id}}" placeholder="Message" id="exampleFormControlTextarea1"
+                                                rows="3"></textarea>
+                                                <div class="text-end mt-lg-5 mt-3">
+                                                    <button type="submit" class="btn btn-submit">Submit</button>
+                                                </div>
+                                                @error('message')
+                                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                                @enderror   
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade popuphome" id="chat-request-{{$lawyer->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="puopclass">
+                                            <form action="{{route('send.chat.request')}}" method="post" onsubmit="return validateChatRqstForm(event, '{{$lawyer->id}}')">
+                                                @csrf()
+                                                <input type="hidden" name="lawyerId" value="{{$lawyer->id}}">
+                                                <h3 class="text-center" data-bs-toggle="modal" data-bs-target="#lowyar1">Chat Request</h3>
+                                                <input type="email" readonly name="" id="" placeholder="Email Address" class="form-control mb-3" value="{{auth()->user()->email}}">
+                                                <textarea class="form-control chat-rqst-form-{{$lawyer->id}}" placeholder="Add your query" name="description" id="exampleFormControlTextarea1"
+                                                rows="3"></textarea>
+                                                <div class="text-end mt-lg-5 mt-3">
+                                                    <button type="submit" class="btn btn-submit">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    {{$lawyers->links()}}
+                </dvi>
             </div>
         </div>
     </section>
@@ -138,5 +278,84 @@
                 }
             });
         }
+
+        function closePrevModal(id) {
+            $('#lawyer-profile-'+id).modal('hide');
+        }
+
+        function closeContactModal(id) {
+            $('#consult-'+id).modal('hide');
+        }
+
+        function lawyerServices(lawyerId) {
+            window.location.href = "/lawyer-services/"+lawyerId;
+        }
+
+        function reload() {
+            location.reload()
+        }
+
+        function login() {
+            window.location.href = "/login";
+        }
+
+        function filterByArea(area) {
+            window.location.href = "/our-lawyers/"+area.value
+        }
+
+        function getSearchedResult() {
+            var area = $("#selectedArea").val()
+            var search = $("#searchTerm").val()
+            if(area && search) {
+                window.location.href = "/our-lawyers/"+area+"/"+search;
+            }else {
+                window.location.href = "/our-lawyers/"+search;
+            }
+        }
+
+        function validateConsultForm(e, id) {
+            var valid = true;
+            $(".errors").empty()
+            var name = $("#name-"+id).val()
+            var email = $("#email-"+id).val()
+            var mobile = $("#mobile-"+id).val()
+            var msg = $("#msg-"+id).val()
+
+            if(!name) {
+                valid = false;
+                $("#name-"+id).after('<span class="errors" style="color:red;">This field is required</span>')
+            }
+            if(!email) {
+                valid = false;
+                $("#email-"+id).after('<span class="errors" style="color:red;">This field is required</span>')
+            }
+            if(!mobile) {
+                valid = false;
+                $("#mobile-div-"+id).after('<span class="errors" style="color:red;">This field is required</span>')
+            }
+            if(!msg) {
+                valid = false;
+                $("#msg-"+id).after('<span class="errors" style="color:red;">This field is required</span>')
+            }
+
+            if(!valid) {
+                e.preventDefault()
+            }
+        }
+
+        function validateChatRqstForm(e, id) {
+            var valid = true;
+            $(".cf-errors").empty()
+            var descr = $(".chat-rqst-form-"+id).val();
+            if(!descr) {
+                valid = false;
+                $(".chat-rqst-form-"+id).after('<span class="cf-errors" style="color:red;">This field is required</span>')
+            }
+
+            if(!valid) {
+                e.preventDefault()
+            }
+        }
+
     </script>
 @endpush

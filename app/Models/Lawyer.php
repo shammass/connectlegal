@@ -74,4 +74,22 @@ class Lawyer extends Model
 
         return $lowestAmount;
     }
+
+    public function getLanguages($lawyerId) {
+        $languageIds = Lawyer::whereId($lawyerId)->first();
+        $languages = $this->getLanguageNames($languageIds->language_ids);
+        $otherLang = explode(',', $languageIds->other_lang);
+        $allLang = array_merge($otherLang, $languages);
+        return implode(', ', $allLang);
+    }
+
+    public function getLanguageNames($languageIds) {
+        $explodedLanguageIds = explode(',', $languageIds);
+        $languages = Language::whereIn('id', $explodedLanguageIds)->get();
+        $langs = [];
+        foreach($languages as $k => $lang) {
+            $langs[] = $lang->language;
+        }
+        return $langs;
+    }
 }

@@ -19,6 +19,11 @@ class ForumAnswers extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function getPosition($userId) {
+        $position = Lawyer::whereUserId($userId)->first();
+        return $position->position;
+    }
+
     public function forum() {
         return $this->belongsTo(Forum::class);
     }
@@ -101,6 +106,11 @@ class ForumAnswers extends Model
         }
         
         return $rating ? $avg :  false;
+    }
+
+    public function getViews($forumId) {
+        $getViews = ForumAnswers::whereForumId($forumId)->first();
+        return $getViews->views;
     }
     
 }

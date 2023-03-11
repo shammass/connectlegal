@@ -28,8 +28,8 @@
                  </div>
                 <div class="col-md-2 col-6">
                   <select class="department class-width-same" onchange="sortByCost(this)">
-                    <option value="ASC">Low to High</option>
-                    <option value="DESC">High to Low</option>
+                    <option value="ASC" {{$sort === "ASC" ? 'selected' : ''}}>Low to High</option>
+                    <option value="DESC" {{$sort === "DESC" ? 'selected' : ''}}>High to Low</option>
                   </select>
                 </div>
               </div>

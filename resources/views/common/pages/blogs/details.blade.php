@@ -1,103 +1,98 @@
 @extends('common.home.layouts.app')
 @section('content')
-    <div class="fix-height"></div>
-    <section class="bog-details mb-5">
-        <div class="container-fluid">
-            <div class="row banner-bg">
-                <div class="bg-color position-relative p-5">
-                    <div class="row main-banner">
-                        <div class="col-10 col-md-10">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Blog</a></li>
-                                    <li class="breadcrumb-item active"><a href="#">Blog</a></li>
-                                </ol>
-                            </nav>
+<main class="bg-color" id="bg-back">
+        <div class="container py-5">
+            <div class="row" id="blog-catagary">
+                <div class="col-md-6 col-6">
+                    <h4><a href="{{route('blogs-articles', 1)}}" style="color:#156075">/ BLOG /</a> CATEGORY</h4>
+                </div>
+                <div class="col-md-6 col-6 text-end">
+                    <h4>{{date('d/M/Y', strtotime($blog->created_at));}}</h4>
+                </div>
+            </div>
+            <div class="banner">
+                <img src="{{$blog->image}}" class="b-bnr">
+            </div>
+            <div class="row">
+                <div class="col-1 d-none d-lg-block">
+                    <div class="line-con">
+                        <p class="sh">Share</p>
+                       <li><i class="fa-brands fa-twitter"></i></li>
+                       <li><i class="fa-brands fa-facebook-f"></i></li>
+                      <li><i class="fa-brands fa-linkedin-in"></i></li>
+                       <li><i class="fa-brands fa-instagram"></i></li>
+                    </div>
+                </div>
+                <div class="col-md-11">
+                    <div class="lorm">
+                        <h1 class="lrm mt-4">{!! $blog->title !!}
+                        </h1>
+                        {!! $blog->full_descr !!}
+                    </div>                    
+                </div>
+            </div>
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="line-con d-block d-lg-none">
+                               <li><i class="fa-brands fa-twitter"></i></li>
+                               <li><i class="fa-brands fa-facebook-f"></i></li>
+                              <li><i class="fa-brands fa-linkedin-in"></i></li>
+                               <li><i class="fa-brands fa-instagram"></i></li>
+                               <li class="sh">Share</li>
+                            </div>
                         </div>
-                        <div class="col-1 col-md-1 mt-2 b-d-date-parent">                        
-                            <span class="b-d-date" style="color:#156075;">30/10/2012</span>
+                    </div>
+                    <div class="dt-tm">
+                        <div class="col-md-6">
+                          <div class="dt-txt">
+                            <h5 class="rtd">RELATED ARTICLES</h5>
                         </div>
-                    </div>
-                    <div class="position-absoulte">
-                        <img src="/new-design/assets/image/blog/blog_detail.jpeg" alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-            <div class="row detail-section">
-                <div class="col-2 col-md-1 m-auto" id="desktop-view">
-                    <table style="height: 100px;">
-                        <tbody>
-                            <tr>
-                                <td class="align-baseline" style="color:#156075;"><span class="mb-3">Share</span></td>
-                            </tr>
-                            <tr>
-                                <td class="align-baseline"><i class="fa fa-twitter fa-2x mb-3" style="color: #156075;"></i></td>
-                            </tr>
-                            <tr>
-                                <td class="align-baseline"><i class="fa fa-facebook-f fa-2x mb-3" style="color: #156075;"></i></td>
-                            </tr>
-                            <tr>
-                                <td class="align-baseline"><i class="fa fa-linkedin fa-2x mb-3" style="color: #156075;"></i></td>
-                            </tr>
-                            <tr>
-                                <td class="align-baseline"><i class="fa fa-instagram fa-2x" style="color: #156075;"></i></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-10 col-md-10">
-                    <h1 class="font-bold blog-title" style="color: #156075;">Some title of the blog which will be too lengthy</h1>
-                    <p class="blog-title">somshhshhshshsh</p>                    
-                </div>        
-                <div class="row gx-1 justify-content-end d-flex" id="mobile-view">
-                    <div class="col-2" style="color:#156075;">Share</div>
-                    <div class="col-1"><i class="fa fa-twitter fa-1x mb-3" style="color: #156075;"></i></div>
-                    <div class="col-1"><i class="fa fa-facebook-f fa-1x mb-3" style="color: #156075;"></i></div>
-                    <div class="col-1"><i class="fa fa-linkedin fa-1x mb-3" style="color: #156075;"></i></div>
-                    <div class="col-1"><i class="fa fa-instagram fa-1x" style="color: #156075;"></i></div>
-                </div>        
-            </div>
-            
-            <div class="row p-md-5">
-                <span style="color:#156075;" class="mt-1 mb-1">RELATED ARTICLES</span>
-                <div class="col-sm-3 col-6 mb-4">
-                    <div class="card">
-                    <img src="/new-design/assets/image/blog/blog_image.png" >
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    </div>
+                        </div>
+                            <div class="col-md-6 text-md-end">
+                              <div class="btn-group drop">
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> 
+                                  Relevant <i class="fa-solid fa-sort"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="#">Name </a></li> 
+                                  <li><a class="dropdown-item" href="#">Name 2</a></li> 
+                                </ul>
+                              </div>
+                              <div class="btn-group drop">
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> 
+                                 Date <i class="fa-solid fa-sort"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="#">Name </a></li> 
+                                  <li><a class="dropdown-item" href="#">Name 2</a></li> 
+                                </ul>
+                              </div>
+                            </div>
+                        </div>
+
+                    <div class="row">
+                        @foreach($randomBlogs as $k => $blog)
+                            <div class="col-md-3 col-6" onclick="blogDetail('{{$blog->id}}')" style="cursor:pointer;">
+                                <img src="{{$blog->image}}" class="img-rltd">
+                                <p class="dt">{{date('d/M/Y', strtotime($blog->created_at))}}</p>
+                                <h1 class="h-rltd">{!! $blog->title !!}
+                                </h1>
+                                <p class="plt">{!! Illuminate\Support\Str::limit($blog->description, 100) !!}</p>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
-                <div class="col-sm-3 col-6">
-                    <div class="card">
-                    <img src="/new-design/assets/image/blog/blog_image.png" >
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-6">
-                    <div class="card">
-                    <img src="/new-design/assets/image/blog/blog_image.png" >
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-6">
-                    <div class="card">
-                    <img src="/new-design/assets/image/blog/blog_image.png" >
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
+    </main>
 
 @endsection
+
+@push('script')
+    <script>
+        function blogDetail(blogId) {
+            window.location.href = "/blogs-articles-details/"+blogId;
+        }
+    </script>
+@endpush

@@ -23,6 +23,10 @@ class SchduledMeeting extends Model
         return $this->belongsTo(DaysSlot::class, 'days_slot_id');
     }
 
+    public function service() {
+        return $this->belongsTo(Services::class, 'service_id');
+    }
+
     public function scheduledBy() {
         return $this->belongsTo(User::class, 'scheduled_by');
     }
@@ -39,5 +43,14 @@ class SchduledMeeting extends Model
         $column = $session == 15 ? "fifteen" : "thirty";
         $fees = SlotFees::whereLawyerId($lawyerId)->first();
         return $fees ? $fees->$column : 0;
+    }
+
+    public function getTotalAmount($lawyerId, $serviceId) {
+        $getTotalAmount = LawyerService::where([
+            'lawyer_id' => $lawyerId,
+            'service_id' => $serviceId
+        ])->first();
+
+        return $getTotalAmount->lawyer_fee + $getTotalAmount->platform_fee;
     }
 }

@@ -6,7 +6,10 @@ use Alert;
 use App\Models\DaysSlot;
 use App\Models\SchduledMeeting;
 use App\Models\ScheduleMeeting;
+use App\Models\Forum;
 use App\Models\User;
+use App\Models\ChatOnline;
+use App\Models\LawyerConsultation;
 use App\Traits\ZoomMeetingTrait;
 use DateTime;
 use Illuminate\Http\Request;
@@ -63,12 +66,34 @@ class UserDashboardController extends Controller
             Alert::success('Meeting Scheduled', 'Successfully scheduled the meeting');
             return redirect()->route('user.dashboard');       
         }else {
-            $bookedAppointments = SchduledMeeting::whereScheduledBy(auth()->user()->id)
-            ->whereNotNull('zoom_id')
+            $data['questions_asked'] = Forum::whereUserId(auth()->user()->id)
             ->latest()
             ->take(3)
             ->get();
-            return view('common.user.dashboard', compact('bookedAppointments'));
+
+            $data['lawyers_consulted_count'] = LawyerConsultation::whereUserId(auth()->user()->id)->count();            
+            $data['lawyers_consulted'] = LawyerConsultation::whereUserId(auth()->user()->id)
+            ->latest()
+            ->take(3)
+            ->get();
+
+            $data['service_purchased_count'] = SchduledMeeting::whereScheduledBy(auth()->user()->id)->count();   
+            $data['service_purchased'] = SchduledMeeting::whereScheduledBy(auth()->user()->id)
+            ->latest()
+            ->take(3)
+            ->get();
+
+            $data['chat_requests_count'] = ChatOnline::whereUserId(auth()->user()->id)->count();   
+            $data['chat_requests_completed_count'] = ChatOnline::whereUserId(auth()->user()->id)
+            ->whereComplete(1)
+            ->count();   
+            $data['chat_requests'] = ChatOnline::whereUserId(auth()->user()->id)
+            ->latest()
+            ->take(3)
+            ->get();
+
+
+            return view('common.user.dashboard', compact('data'));
         }
     }
 

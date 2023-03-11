@@ -78,7 +78,7 @@
                                         <div class="user-online-g sp-r-l" data-bs-toggle="modal" data-bs-target="#lawyers_profile_{{$lawyer->id}}">
                                             <a href="#">
                                                 <div class="row">
-                                                    <div class="col-3">
+                                                    <div class="col-3 img-class-same">
                                                         <img src="/storage/{{$lawyer->profile_pic}}" alt="legal-1" class="legal-1">
                                                     </div>
                                                     <div class="col-7">
@@ -113,7 +113,7 @@
                                         <div class="user-online-g sp-r-l">
                                             <a href="#">
                                                 <div class="row">
-                                                    <div class="col-3">
+                                                    <div class="col-3 img-class-same">
                                                         <img src="/storage/{{$lawyer->profile_pic}}" alt="question-1" class="legal-1">
                                                     </div>
                                                     <div class="col-9">

@@ -70,13 +70,16 @@ Route::post('/store-testimonial',       [CommonController::class, 'storeTestimon
 Route::get('/testimonials',             [CommonController::class, 'testimonials'])->name('testimonials');
 Route::get('/book-a-meeting/{id}',      [CommonController::class, 'bookAMeeting'])->name('book-a-meeting');
 
+
+Route::post('/consult-lawyer',              [CommonController::class, 'consultTheLawyer'])->name('consult.lawyer');
+
 #Page practice area
 Route::get('/page-practice-area',               [CommonController::class, 'pagePracticeArea'])->name('page-practice-area');
 // Route::get('/page-practice-area/details',       [CommonController::class, 'pagePracticeAreaDetails'])->name('page-practice-area');
 // Route::get('/page-practice-area/details/1',       [CommonController::class, 'pagePracticeAreaDetails'])->name('page-practice-area');
 
 #Q&A
-Route::get('/question-answers',                  [CommonController::class, 'questionAnswer'])->name('question-answer');
+Route::get('/question-answers/{sort?}',          [CommonController::class, 'questionAnswer'])->name('question-answer');
 Route::get('/question-answers/list',             [CommonController::class, 'questionAnswerListView'])->name('question-answer.list');
 Route::get('/question-answer/view/{slug}',       [CommonController::class, 'viewQA'])->name('question-answer.view');
 
@@ -91,24 +94,25 @@ Route::get('blogs-articles-details/{id}',       [CommonController::class, 'blogD
 
 Route::post('callback',                         [CommonController::class, 'callback'])->name('callback');
 
-Route::get('/hire-a-lawyer/{sort?}/{search?}/{area?}',          [HireLawyerController::class, 'hireALawyer'])->name('hire-a-lawyer');
-Route::get('service-step-1/{service_id}',                       [HireLawyerController::class, 'serviceStepOne'])->name('service.step-one');
-Route::get('service-step-2/{service_id}',                       [HireLawyerController::class, 'serviceStepTwo'])->name('service.step-two');
-Route::get('service-step-3/{service_id}',                       [HireLawyerController::class, 'serviceStepThree'])->name('service.step-three');
-Route::post('service-payment',                                  [HireLawyerController::class, 'servicePayment'])->name('service.payment');
-Route::get('service-step-5/{meeting_id}',                       [HireLawyerController::class, 'servicePaymentCompleted'])->name('service.payment.completed');
-Route::get('/generate-invoice/{meeting_id}',                    [HireLawyerController::class, 'generateInvoice'])->name('generate-invoice');
-Route::get('/services-search',                                  [HireLawyerController::class, 'search'])->name('services.search');
-Route::get('/services-filter/{area_id}',                        [HireLawyerController::class, 'filterByArea'])->name('services.filter-by-area');
+Route::get('/hire-a-lawyer/{sort?}/{search?}/{area?}',                      [HireLawyerController::class, 'hireALawyer'])->name('hire-a-lawyer');
+Route::get('/lawyer-services/{lawyerId}/{sort?}/{search?}/{area?}',         [HireLawyerController::class, 'LawyerServicesToHire'])->name('hire-a-lawyer.user');
+Route::get('service-step-1/{service_id}',                                   [HireLawyerController::class, 'serviceStepOne'])->name('service.step-one');
+Route::get('service-step-2/{service_id}',                                   [HireLawyerController::class, 'serviceStepTwo'])->name('service.step-two');
+Route::get('service-step-3/{service_id}',                                   [HireLawyerController::class, 'serviceStepThree'])->name('service.step-three');
+Route::post('service-payment',                                              [HireLawyerController::class, 'servicePayment'])->name('service.payment');
+Route::get('service-step-5/{meeting_id}',                                   [HireLawyerController::class, 'servicePaymentCompleted'])->name('service.payment.completed');
+Route::get('/generate-invoice/{meeting_id}',                                [HireLawyerController::class, 'generateInvoice'])->name('generate-invoice');
+Route::get('/services-search',                                              [HireLawyerController::class, 'search'])->name('services.search');
+Route::get('/services-filter/{area_id}',                                    [HireLawyerController::class, 'filterByArea'])->name('services.filter-by-area');
 // Route::get('/download-invoice',                 [HireLawyerController::class, 'servicePaymentCompleted'])->name('generate-invoice');
-Route::get('service/lawyers/{id}',              [HireLawyerController::class, 'serviceLawyers'])->name('service.lawyers');
-Route::get('lawyer-services/{id}',              [HireLawyerController::class, 'lawyerServices'])->name('lawyer.services.list');
-Route::post('request-for-quotes/store',         [HireLawyerController::class, 'requestForQuotes'])->name('request-for-quotes');
+Route::get('service/lawyers/{id}',                                          [HireLawyerController::class, 'serviceLawyers'])->name('service.lawyers');
+Route::get('lawyer-services/{id}',                                          [HireLawyerController::class, 'lawyerServices'])->name('lawyer.services.list');
+Route::post('request-for-quotes/store',                                     [HireLawyerController::class, 'requestForQuotes'])->name('request-for-quotes');
 
 Route::get('legal-articles',                        [CommonController::class, 'articleList'])->name('legal.article-list');
 Route::get('legal-articles/{id}',                   [CommonController::class, 'articleDetails'])->name('legal.article-details');
 Route::get('filter-by-category',                    [CommonController::class, 'filterByCategory'])->name('legal.filter-by-category');
-Route::get('our-lawyers',                           [CommonController::class, 'ourLawyers'])->name('our-lawyers');
+Route::get('our-lawyers/{area?}/{search?}',         [CommonController::class, 'ourLawyers'])->name('our-lawyers');
 Route::get('our-lawyers/details/{id}',              [CommonController::class, 'lawyerDetail'])->name('our-lawyer.details');
 Route::get('filter-by-lawyer-name',                 [CommonController::class, 'filterByLawyerName'])->name('filter-by-lawyer-name');
 Route::get('filter-by-area',                        [CommonController::class, 'filterByArea'])->name('filter-by-area');
@@ -127,6 +131,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/stripe-payment',      [StripeController::class, 'payment'])->name('stripe.payment');
     Route::post('/schedule-meeting',    [MeetingController::class, 'scheduleMeeting'])->name('schedule.meeting');
 
+    Route::post('/send-chat-request',        [CommonController::class, 'sendChatRequest'])->name('send.chat.request');
+    
     Route::post('/question-answer/rate/{id}',        [CommonController::class, 'rate'])->name('question-answer.rate');
     Route::get('/chat/requests',                     [CommonController::class, 'onlineChatRequests'])->name('online-chat.requests');
 

@@ -1,94 +1,104 @@
 @extends('common.home.layouts.app')
 @section('content')
-    <section class="registerLawyer_main">
-        <div class="blogs-section1 bg-l-blue">
-            <div style="position: relative;">
-                <div class="blog-img"><img style="width: 100%" src="../images/basicImages/blogs.png" alt=""/></div>
-                <div class="blogs-section1-titlePart">
-                    <h1 class="blogs-h1">THE BLOG</h1>
-                    <p class="blogs-section1-p">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now. </p>
-                </div>
-                <div class="blogs-section1-main-grid">
-                    <div class="blogs-section1-main-grid-item1">
-                        <img style="width: 100%;" src="../images/basicImages/blog-s1-img1.png" alt=""/>
-                        <p class="d-blue blog-s1-p">30/Nov/2025</p>
-                        <h4 class="d-blue blog-s1-main-h4" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                        <p class="d-blue blog-s1-p1" style="padding-top: 0.5rem">Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now. </p>
+    <main>
+        <div class="open-width">
+            <section class="bg-1 bg-71b2c382 m-sp-same py-5" id="cover-padding">
+            <div class="container">
+                <div class="row potion">
+                    <div class="col-md-6">
+                        <h1 class="txt-bl">THE BLOG</h1>
+                        <p class="txt-bl-2">Make an appointment with Advocates and Legal consultancy, Today!
+                            or chat
+                            with a lawyer online for free in Dubai and across UAE now.</p>
                     </div>
-                    <div class="blogs-section1-main-grid-item2">
-                        <div>
-                            <div>
-                                <img style="width: 100%;" src="../images/basicImages/blog-s1-img2.png" alt=""/>
-                            </div>
-                            <div>
-                                <p class="d-blue blog-s1-p2" style="padding-top: 0.5rem">30/Nov/2025</p>
-                                <h4 class="d-blue blog-s1-h4" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <img style="width: 100%;" src="../images/basicImages/blog-s1-img3.png" alt=""/>
-                            </div>
-                            <div>
-                                <p class="d-blue blog-s1-p2" style="padding-top: 0.5rem">30/Nov/2025</p>
-                                <h4 class="d-blue blog-s1-h4" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <img style="width: 100%;" src="../images/basicImages/blog-s1-img4.png" alt=""/>
-                            </div>
-                            <div>
-                                <p class="d-blue blog-s1-p2" style="padding-top: 0.5rem">30/Nov/2025</p>
-                                <h4 class="d-blue blog-s1-h4" style="padding-top: 0.5rem">This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                            </div>
-                        </div>
+                    <div class="col-md-6 text-end">
+                        <img src="/new-design/assets/images/boxthere.png" class="icn">
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="blogs-section2">
-            <div class="blogs-section2-topic">
-                <p class="d-blue">RELATED ARTICLES</p>
-                <div class="blogs-section2-topic-btns">
-                    <!-- <button>Relevant</button>
-                    <button>Date</button> -->
 
-                    <!-- <input type="date" id="birthday" name="birthday"> -->
+                <div class="row py-lg-5" id="tab-sp ">
+                    @foreach($blogs as $k => $blog)
+                        @if($k == 0)
+                            <div class="col-md-6" onclick="blogDetail('{{$blog->id}}')" style="cursor:pointer;">
+                                <img src="{{$blog->image}}" class="rctngl"><br>
+                                <small class="mt-3">{{date('d/M/Y', strtotime($blog->created_at))}}</small>
+                                <h2 class="lorm-blg">{!! $blog->title !!}
+                                </h2>
+                                <p class="img-appoin sb-b">{!! Illuminate\Support\Str::limit($blog->description, 100) !!}</p>
+                            </div>
+                        @endif
+                    @endforeach
+                    <div class="col-md-6">
+                        <div class="row">
+                            @foreach($blogs as $k => $blog)
+                                @if($k > 0)
+                                    <div class="col-md-6 col-6" onclick="blogDetail('{{$blog->id}}')" style="cursor:pointer;">
+                                        <img src="{{$blog->image}}" class="rctnagl-136">
+                                    </div>
+                                    <div class="col-md-6 col-6">
+                                        <small>{{date('d/M/Y', strtotime($blog->created_at))}}</small>
+                                        <p class="col-txt">{!! $blog->title !!}</p>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="blogs-section2-grid">
-                <div>
-                    <img style="width: 100%" src="../images/basicImages/blog-s2-img1.png" alt=""/>
-                    <p class="d-blue">30/Nov/2025</p>
-                    <h4 class="d-blue">This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                    <p>Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now. </p>
+        </section>
+        <section class="m-sp-same">
+            <div class="container">
+                <div class="dt-tm">
+                    <div class="col-md-6">
+                        <div class="dt-txt">
+                            <h1 class="txt-rlt">RELATED ARTICLES</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="btn-group drop">
+                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Relevant <i class="fa-solid fa-sort"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Name </a></li>
+                                <li><a class="dropdown-item" href="#">Name 2</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group drop">
+                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Date <i class="fa-solid fa-sort"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Name </a></li>
+                                <li><a class="dropdown-item" href="#">Name 2</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <img style="width: 100%" src="../images/basicImages/blog-s2-img2.png" alt=""/>
-                    <p class="d-blue">30/Nov/2025</p>
-                    <h4 class="d-blue">This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                    <p>Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now. </p>
-                </div>
-                <div>
-                    <img style="width: 100%" src="../images/basicImages/blog-s2-img3.png" alt=""/>
-                    <p class="d-blue">30/Nov/2025</p>
-                    <h4 class="d-blue">This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                    <p>Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now. </p>
-                </div>
-                <div>
-                    <img style="width: 100%" src="../images/basicImages/blog-s2-img4.png" alt=""/>
-                    <p class="d-blue">30/Nov/2025</p>
-                    <h4 class="d-blue">This is a lorem ipsum title here and will be remplaced for the final text</h4>
-                    <p>Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free in Dubai and across UAE now. </p>
+                <div class="row">
+                    @foreach($randomBlogs as $k => $blog)
+                        <div class="col-md-3 col-6" onclick="blogDetail('{{$blog->id}}')" style="cursor:pointer;">
+                            <div class="img-class">
+                                <img src="{{$blog->image}}" class="pic">
+                                <p class="date">{{date('d/M/Y', strtotime($blog->created_at))}}</p>
+                                <p class="sec-txt">{!! $blog->title !!}
+                                </p>
+                                <p class="sec-txt-2">{!! Illuminate\Support\Str::limit($blog->description, 100) !!}</p>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 @endsection
 
 @push('script')
     <script>
-        w3_open_lawyer()
+        function blogDetail(blogId) {
+            window.location.href = "/blogs-articles-details/"+blogId;
+        }
     </script>
 @endpush

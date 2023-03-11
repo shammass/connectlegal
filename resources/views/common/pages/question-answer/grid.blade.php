@@ -61,11 +61,10 @@
                     </div>
                     <div class="col-md-6 text-end">
                         <div class="text-right search-drop withsamesize">
-                            <select class="department">
-                                <option>Sort by</option>
-                                <!-- <option>Department 2</option>
-                                <option>Department 3</option>
-                                <option>Department 4</option> -->
+                            <select class="department" onchange="sortBy(this)">
+                                <option value="desc">Sort by</option>
+                                <option value="desc" {{$sort === "desc" ? 'selected' : ''}}>Newest</option>
+                                <option value="asc" {{$sort === "asc" ? 'selected' : ''}}>Oldest</option>
                             </select>
                         </div>
                     </div>
@@ -82,15 +81,15 @@
                                     </ul>
                                 </div>
 
-                                <div class="btn-group drop">
+                                <!-- <div class="btn-group drop">
                                     <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     All areas of law
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#">All areas of law </a></li>
                                     </ul>
-                                </div>
-                                <a href="#" class="img-dott"> <img src="/new-design/assets/images/edit.png" alt=""> </a>
+                                </div> -->
+                                <!-- <a href="#" class="img-dott"> <img src="/new-design/assets/images/edit.png" alt=""> </a> -->
                             </div>
                             <div class="col-sm-6 text-right">
                                 <div class="main-tabs">
@@ -119,7 +118,7 @@
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
                 <div class="row g-4 mt-4">
                     @forelse($forums as $k => $forum)
-                        <div class=" col-sm-6 col-md-6 col-lg-6 col-xl-4">
+                        <div class=" col-sm-6 col-md-6 col-lg-6 col-xl-4" onclick="qaDetail('{{$forum->slug}}')" style="cursor:pointer;">
                             <div class="question-text position-relative">
                                 <div class="text-end dec">{{$forum->created_at->format('M d Y')}}</div>
                                 <h3>{{Str::limit($forum->title, 67)}}</h3>
@@ -211,6 +210,14 @@
             if(!valid) {
                 e.preventDefault()
             }
+        }
+
+        function sortBy(sort) {
+            window.location.href = "/question-answers/"+sort.value
+        }
+
+        function qaDetail(slug) {
+            window.location.href = "/question-answer/view/"+slug;
         }
     </script>
 @endpush

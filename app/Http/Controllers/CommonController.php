@@ -18,8 +18,12 @@ use App\Models\Lawyer;
 use App\Models\Rate;
 use App\Models\Slot;
 use App\Models\Testimonial;
+use App\Models\LawyerConsultation;
+use App\Models\Services;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Mail; 
+use Mailjet\Resources;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -88,12 +92,13 @@ class CommonController extends Controller
         return redirect()->route('testimonials');
     }
 
-    public function questionAnswer() {
+    public function questionAnswer($sort = null) {
+        $sort = $sort ?? 'desc';
         $forums = Forum::whereIsVerified(1)
-        ->orderBy('updated_at', 'asc')
+        ->orderBy('updated_at', $sort)
         ->paginate(10);
         // return view('common.question-answer.list', compact('forums'));
-        return view('common.pages.question-answer.grid', compact('forums'));
+        return view('common.pages.question-answer.grid', compact('forums', 'sort'));
     }
 
     public function questionAnswerListView() {
@@ -251,15 +256,22 @@ class CommonController extends Controller
     } 
     
     public function index2() {
-        $blogs = BlogsArticles::orderBy('created_at', 'DESC')->paginate(10);
+        // $blogs = BlogsArticles::orderBy('created_at', 'DESC')->paginate(10);
+        $blogs = BlogsArticles::orderBy('created_at', 'DESC')->take(4)->get();
+        $randomBlogs = BlogsArticles::inRandomOrder()
+        ->take(4)
+        ->get();
         // return view('common.blogs.index2', compact('blogs'));
-        return view('common.pages.blogs.list', compact('blogs'));
+        return view('common.pages.blogs.list', compact('blogs', 'randomBlogs'));
     }
 
     public function blogDetails2($id) {
         $blog = BlogsArticles::whereId($id)->first();
         // return view('common.blogs.details2', compact('blog'));
-        return view('common.pages.blogs.details', compact('blog'));
+        $randomBlogs = BlogsArticles::inRandomOrder()
+        ->take(4)
+        ->get();
+        return view('common.pages.blogs.details', compact('blog', 'randomBlogs'));
 
     }
 
@@ -331,8 +343,16 @@ class CommonController extends Controller
             return view('404');
         }
         $forumAnswers = ForumAnswers::whereForumId($forum->id)->get();
+        $randomLawyers = Lawyer::whereIsVerified(1)
+        ->inRandomOrder()
+        ->take(5)
+        ->get();
+        $randomServices = Services::whereApproved(1)
+        ->inRandomOrder()
+        ->take(4)
+        ->get();
         // return view('common.question-answer.view', compact('forum', 'forumAnswers'));
-        return view('common.pages.question-answer.detail', compact('forum', 'forumAnswers'));
+        return view('common.pages.question-answer.detail', compact('forum', 'forumAnswers', 'randomLawyers', 'randomServices'));
     }
 
     public function rate(Request $request, $answerId) {
@@ -385,14 +405,45 @@ class CommonController extends Controller
         return (string) view('common.law-article.category-filter',  compact('articles')); 
     }
 
-    public function ourLawyers(Request $request) {
-        $lawyers = Lawyer::whereIsVerified(1)->paginate(8);
+    public function ourLawyers(Request $request, $area = null, $search = null) {
+        //area - no search
+        //no-area - search
+        //no-area - no-search
+        //area - search
+        if($area) {
+            $tmpArea = $area;
+            $area = is_numeric($area) ? $area : null;
+            if(!$area && !$search) {
+                $search = $tmpArea;
+            }
+        }
+
+        $areaSelected = $area ?? null;
+        if($area && !$search) {
+            $lawyers = Lawyer::whereIsVerified(1)
+                ->whereArbitrationAreaId($area)
+                ->paginate(2);
+        }elseif(!$area && $search) {
+            $lawyers = Lawyer::join('users', 'users.id', '=', 'lawyers.user_id')
+                ->where('users.name', 'LIKE', '%'.$search.'%')
+                ->whereIsVerified(1)            
+                ->paginate(2);
+        }elseif(!$area && !$search) {            
+            $lawyers = Lawyer::whereIsVerified(1)->paginate(2);
+        }elseif($area && $search) {
+            $lawyers = Lawyer::join('users', 'users.id', '=', 'lawyers.user_id')
+                ->where('users.name', 'LIKE', '%'.$search.'%')
+                ->whereIsVerified(1)      
+                ->whereArbitrationAreaId($area)      
+                ->paginate(2);
+        }
+
         $arbitrationAreas = ArbitrationArea::pluck('area', 'id');
         if ($request->ajax()) {            
             return (string) view('common.pages.our-lawyers.loaded-list', compact('lawyers'));
         }
         // return view('common.our-lawyers.index', compact('lawyers', 'arbitrationAreas'));
-        return view('common.pages.our-lawyers.list', compact('lawyers', 'arbitrationAreas'));
+        return view('common.pages.our-lawyers.list', compact('lawyers', 'arbitrationAreas', 'areaSelected'));
     }
 
     public function lawyerDetail($lawyerId) {
@@ -493,5 +544,69 @@ class CommonController extends Controller
 
     public function pagePracticeAreaDetails() {
         return view('common.pages.practice-area.detail');
+    }
+
+    public function consultTheLawyer(Request $request) {
+        $validator = Validator::make($request->all(),[
+            'name'      => 'required',
+            'email'     => 'required|email',
+            'message'   => 'required',
+        ]);
+
+        if($validator->fails()) {
+            Alert::error('Error', 'Please go back to the form to view the errors');
+            return redirect()->back()->withErrors($validator);
+        }
+        $email = $request->email;
+        LawyerConsultation::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'message' => $request->message,
+            'lawyer_id' => $request->lawyerId,
+            'user_id' => auth()->user() ? auth()->user()->id : null,
+        ]);
+
+        $apikey = env('MJ_APIKEY_PUBLIC');
+        $apisecret = env('MJ_APIKEY_PRIVATE');
+
+        $mj = new \Mailjet\Client($apikey, $apisecret,true,['version' => 'v3.1']);
+        // $url = "https://127.0.0.1:8000/reset-password/".$token;
+        $body = [
+            'Messages' => [
+                [
+                    'From' => [
+                        'Email' => "s4shamma@gmail.com",
+                        'Name' => "Connect Legal"
+                    ],
+                    'To' => [
+                        [
+                            'Email' => $request->email,
+                            'Name' => "You"
+                        ]
+                    ],
+                    'Subject' => "Connect Legal: Reset Password",
+                    // 'TextPart' => "Greetings from Mailjet!",
+                    'HTMLPart' => "Hey there."
+                ]
+            ]
+        ];
+        $mj->post(Resources::$Email, ['body' => $body]);
+
+        Alert::success('Success', 'Your request has been submitted successfully');
+        return redirect()->back();
+    }
+
+    public function sendChatRequest(Request $request) {
+        // dd($request->all());
+        ChatOnline::create([
+            'lawyer_id' => $request->lawyerId,
+            'user_id'   => auth()->user()->id,
+            'comment'   => $request->description,
+            'any'       => 0,
+        ]);
+
+        Alert::success('Success', 'Your chat request has been submitted successfully');
+        return redirect()->back();
     }
 }
