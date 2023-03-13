@@ -345,11 +345,6 @@
                                                                     @foreach($usersAccepted as $k => $user)
                                                                         <a href="#" onclick="chatWithLawyer('{{$user->user_id}}')" class="d-flex">
                                                                             <div class="flex-shrink-0">
-                                                                                <!-- <img class="img-fluid"
-                                                                                    src=""
-                                                                                    style="width: 40px;height: 40px;border-radius: 20px;"
-                                                                                    alt="user img"> -->
-                                                                                <!-- <span class="active"></span> -->
                                                                             </div>
                                                                             <div class="flex-grow-1 ms-3">
                                                                                 <h3>{{$user->user->name}}</h3>
@@ -440,10 +435,8 @@
 
                                             <div class="modal-body chat-history">
                                                 <div class="msg-body appendLatestMsg" id="chat-text">
+                                                    <input type="hidden" name="to_id" id="to_id" value="{{$id}}">
                                                     @foreach($messages as $k => $message)
-                                                        @if($k == 0)
-                                                            <input type="hidden" name="to_id" id="to_id" value="{{$id}}">
-                                                        @endif
                                                         @if($message->from_id != auth()->user()->id)
                                                             <ul>
                                                                 <li class="row col-md-6 sender color-border">
