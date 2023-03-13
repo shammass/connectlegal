@@ -104,7 +104,7 @@ class ChatController extends Controller
         $msgId = $request->data;
         // $message = ChMessage::whereId($msgId['postComment'])->first();
         $getUserId = Chatify::getUserId($msgId['postComment']);
-        $message = Chatify::getLatestMsg($getUserId->to_id);
+        $message = $this->getLatestMsg($getUserId->to_id);
         Log::info("=========");
         Log::info($message);
         Log::info("=======");
@@ -128,6 +128,15 @@ class ChatController extends Controller
         }
         $latestMsg = (string) view('common.pages.chat.latest-user-chat',  compact('message', 'attachment'));        
         return $latestMsg;
+    }
+
+    public function getLatestMsg($userId) {
+        return Message::where('from_id', auth()->user()->id)
+        ->where('to_id', $userId)
+        ->orWhere('from_id', $userId)
+        ->where('to_id', auth()->user()->id)
+        ->latest()
+        ->first();
     }
     
 }
