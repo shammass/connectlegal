@@ -52,7 +52,7 @@
                     <a class="nav-link" href="{{route('hire-a-lawyer')}}">Legal Service</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="lawyer.html">Lawyers</a>
+                    <a class="nav-link" href="{{route('our-lawyers')}}">Our Lawyers</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="practice-area.html">Practice Area</a>

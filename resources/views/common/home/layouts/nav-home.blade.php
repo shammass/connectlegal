@@ -38,8 +38,7 @@
                         <li><a href="{{route('lawyer.register-page')}}"><i class="fa-solid fa-users"></i> For Lawyers</a></li>
                         <li><a href="{{route('question-answer')}}"><i class="fa-solid fa-question"></i> Q&A</a></li>
                         <li><a href="{{route('testimonials')}}"><i class="fa-solid fa-star"></i> Testimonials</a></li>
-                        <li><a href="l{{route('our-lawyers')}}"><i class="fa-solid fa-bag-shopping"></i> Our Lawyers</a></li>
-                        <li><a href="lawyer.html"><i class="fa-solid fa-user"></i> Lawyers</a></li>
+                        <li><a href="{{route('our-lawyers')}}"><i class="fa-solid fa-bag-shopping"></i> Our Lawyers</a></li>
                         <li><a href="practice-area.html"><i class="fa-solid fa-scale-balanced"></i> Practice Area</a></li>
                         <li><a href="{{route('blogs-articles', 1)}}"><i class="fa-solid fa-book"></i> Blogs & Articles</a></li>
                         <li><a href="{{route('hire-a-lawyer')}}"><i class="fa-solid fa-address-card"></i> Legal</a></li>

@@ -6,8 +6,7 @@
                 <div class="col-lg-7">
                     <div class="accodian-cover">
                         <h1 class="f-txt">How it works for <span class="clnt">Individuals</span></h1>
-                        <p class="txt-lorm">Lorem ipsum dolor sit amet consectetur adipiscing elit do eiusmod tempor
-                        incididunt ut labore et dolore magna ut enim ad minim veniam nostrud exercitation.</p>
+                        <p class="txt-lorm">g</p>
                         <div class="accordion ouraccordion" id="accordionExample">
                             <div class="accordion-item" id="accordionidclass">
                                 <h2 class="accordion-header" id="headingOne">

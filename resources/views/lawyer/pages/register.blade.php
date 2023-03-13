@@ -68,7 +68,10 @@
                             @error('contact_number')
                                     <span class="error-msg" style="color:red;">{{ $message }}</span>
                                 @enderror  
-                            <input type="text" placeholder="Your landline number" value="{{ old('landline') }}" name="landline">
+                            <input type="text" placeholder="Your MOJ Number" value="{{ old('moj_reg_no') }}" name="moj_reg_no">
+                            @error('moj_reg_no')
+                                <span class="error-msg" style="color:red;">{{ $message }}</span>
+                            @enderror  
                             <input type="text" placeholder="Your position (eg. Partner, associate, etc...)" value="{{ old('position') }}" name="position">
                             @error('position')
                                 <span class="error-msg" style="color:red;">{{ $message }}</span>

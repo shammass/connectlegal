@@ -5,7 +5,7 @@
 <p>To ensure the security of our platform and protect your account from unauthorized access, 
     Please click on the following link to verify your email address and complete the registration process:</p>
 
-<a href="http://127.0.0.1:8000/verify-email/{{$token}}">Click here to verify</a>
+<a href="https://dev.test.connectlegal.ae/verify-email/{{$token}}">Click here to verify</a>
 
 <p>Thank you for choosing Connect legal. We are here to assist you at every step of your legal journey.</p>
 

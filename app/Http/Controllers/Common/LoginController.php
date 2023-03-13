@@ -115,6 +115,7 @@ class LoginController extends Controller
             'contact_number'    =>          ['required', 'numeric'],
             'position'          =>          ['required', 'string', 'max:255'],
             'linkedin'          =>          ['required', 'string', 'max:255'],
+            'moj_reg_no'        =>          ['required', 'string', 'max:255'],
         ]);
             
         $user = User::create([
@@ -132,10 +133,9 @@ class LoginController extends Controller
             'emirates' => $request->emirate,
             'office_address' => $request->office_address,            
             'contact_number' => $request->contact_number,
-            'landline_number' => $request->landline_number,
+            'moj_reg_no' => $request->moj_reg_no,
             'position' => $request->position,
             'linkedin_profile' => $request->linkedin,
-            'calendly_link' => $request->calendly_link,
         ]);
 
         event(new Registered($user));
