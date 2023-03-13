@@ -119,7 +119,7 @@ class ChatController extends Controller
     }
 
     public function latestUsrMsg($toId) {
-        $message = Chatify::getLatestMsg($toId);
+        $message = $this->getLatestMsg($toId);
         $attachment = null;
         if($message) {
             if($message->attachment) {
