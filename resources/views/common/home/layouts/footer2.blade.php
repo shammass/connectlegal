@@ -140,29 +140,3 @@
 
 <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
 <script src="https://js.stripe.com/v3/"></script>
-
-<script>
-    $(document).ready(function () {
-        document.getElementById("mySidenav").style.width = "300px";
-        document.getElementById("main").style.marginLeft = "300px";
-        // $(".main-menu ul.navbar-nav li a").css("fontSize", "10px");
-        $(window).scroll(function () {
-            if ($(document).scrollTop() > 70) {
-                $(".top-header").addClass("head-fixed");
-            } else {
-                $(".top-header").removeClass("head-fixed");
-            }
-        });
-    });
-
-    $("#open_nav").click(function (e) {
-        e.preventDefault();
-        let w = document.getElementById("mySidenav").style.width;
-        if (w == '' || w == '0px') {
-            document.getElementById("mySidenav").style.width = "300px";
-            document.getElementById("main").style.marginLeft = "300px";
-            // $(".main-menu ul.navbar-nav li a").css("fontSize", "15px");
-            return false;
-        }
-    })
-</script>

@@ -30,7 +30,11 @@
                 @endif
                 @include('sweetalert::alert')
                 @yield('content')
-                @include('common.home.layouts.footer')        
+                @if(Route::currentRouteName() === "home")
+                    @include('common.home.layouts.footer2')      
+                @else 
+                    @include('common.home.layouts.footer')                      
+                @endif
             </div>
         </div>
         <script>
