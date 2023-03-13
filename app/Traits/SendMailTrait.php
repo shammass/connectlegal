@@ -2,13 +2,14 @@
 
 namespace App\Traits;
 use \Mailjet\Resources;
+use Illuminate\Support\Facades\View;
 
 trait SendMailTrait {
 
     public function sendEmail($toEmail, $subject) {
         $apikey = env('MJ_APIKEY_PUBLIC');
         $apisecret = env('MJ_APIKEY_PRIVATE');
-
+        $html = View::make('emails.lawyer-registered', ['email' =>  $request->email, 'name' => $request->name, 'token' => $token])->render();
         $mj = new \Mailjet\Client($apikey, $apisecret,true,['version' => 'v3.1']);
 
         $body = [
