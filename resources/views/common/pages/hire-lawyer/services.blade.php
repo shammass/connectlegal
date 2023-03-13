@@ -128,16 +128,16 @@
         }
 
         function sortByCost(sortBy) {
-          window.location.href = "/hire-a-lawyer/" + sortBy.value;
+          window.location.href = "/legal-services/" + sortBy.value;
         }
 
         function filterByArea(areaId) {          
           var sorted = $("#sortedBy").val();
           var search = $("#searchedVal").val();
           if(areaId && search) {
-            window.location.href = "/hire-a-lawyer/" + sorted + "/" + search + "/" + parseInt(areaId);
+            window.location.href = "/legal-services/" + sorted + "/" + search + "/" + parseInt(areaId);
           }else if(!search) {
-            window.location.href = "/hire-a-lawyer/" + sorted + "/" + parseInt(areaId);
+            window.location.href = "/legal-services/" + sorted + "/" + parseInt(areaId);
           }
         }
 
@@ -146,9 +146,9 @@
           var search = $("#search").val();
           var areaId = $("#selectedArea").val();
           if(areaId && search) {
-            window.location.href = "/hire-a-lawyer/" + sorted + "/" + search + "/" + parseInt(areaId);
+            window.location.href = "/legal-services/" + sorted + "/" + search + "/" + parseInt(areaId);
           }else if(!areaId) {
-            window.location.href = "/hire-a-lawyer/" + sorted + "/" + search;
+            window.location.href = "/legal-services/" + sorted + "/" + search;
           }
         });
 

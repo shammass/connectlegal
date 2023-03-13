@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Lawyer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Lawyer;
+use App\Models\Group;
+use App\Models\GroupMember;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -27,8 +29,15 @@ class CommunityController extends Controller
             ['is_verified', 1]
         ])->get();
 
+        $groupsByMe = Group::whereAdminId($user->id)
+        ->orderBy('created_at', 'DESC')
+        ->paginate(4, '*', 'groups-created-by-me');
+        
+        $groupsIamIn = GroupMember::whereMemberId($user->id)
+        ->orderBy('created_at', 'DESC')
+        ->paginate(4, '*', 'groups-im-in');
         // return view('lawyer.community.community', compact('posts', 'lawyers'));
-        return view('lawyer.pages.community.feed', compact('posts', 'lawyers'));
+        return view('lawyer.pages.community.feed', compact('posts', 'lawyers', 'groupsByMe', 'groupsIamIn'));
     }
 
     public function allLawyers() {

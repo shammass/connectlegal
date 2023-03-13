@@ -157,11 +157,11 @@
               </div>
 
               @foreach($data['chat_requests'] as $k => $chatRqst)
-                <div class="hover-ef">
+                <div class="hover-ef" onclick="chatWithLawyer('{{$chatRqst->lawyer->user_id}}')">
                     <div class=" mb-3">
                     <div class="row align-items-center" id="color-smae">
                         <div class="col-md-2  col-3 icon-center text-center">
-                            <img src="/storage/{{$chatRqst->lawyer->profile_pic}}" alt="banner-icon-1" class="online-class">
+                            <img src="/storage/{{$chatRqst->lawyer->profile_pic}}" style="width: 40px;height: 40px;border-radius: 20px;" alt="banner-icon-1" class="online-class">
                         </div>
                         <div class="col-md-7 col-7">
                         <h5 class="font-22"><strong>{{$chatRqst->lawyer->user->name}}</strong></h5>
@@ -182,3 +182,12 @@
       </div>
 
 @endsection
+
+@push('script')
+  <script>
+    function chatWithLawyer(lawyerId) {
+            window.location.href = "/online-chat/"+lawyerId;
+            $(".chatbox").addClass('showbox');
+        }
+  </script>
+@endpush

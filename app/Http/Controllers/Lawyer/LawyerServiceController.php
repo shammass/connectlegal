@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Validator;
 class LawyerServiceController extends Controller
 {
     public function index() {
-        $services = LawyerService::whereLawyerId(auth()->user()->id)->get();
+        $services = LawyerService::whereLawyerId(auth()->user()->id)->paginate(10);
         $areas = ArbitrationArea::pluck('area', 'id');
         $arbitrationArea = Lawyer::whereUserId(auth()->user()->id)->first();
         if(!$arbitrationArea->arbitration_area_id) {

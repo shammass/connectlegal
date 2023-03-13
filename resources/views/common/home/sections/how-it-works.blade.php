@@ -91,11 +91,9 @@
           </div>
           <div class="col-lg-7 col-md-12">
             <div class="text-slid">
-              <h2><span class="span-color-dark"> Register yourself</span> a legal service Provider Today!</h2>
+              <h2><span class="span-color-dark">Looking for a lawyer?</h2>
               <p class="font-20 mb-3">
-                Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for free
-                in Dubai and across UAE now, We work on a wide range of legal matters. Our legal Services from the Legal
-                staff is here to assist you with proper guidance... <a href="#" style="color:#3DC9A1;">(read more) </a>
+              Find duly licensed practicing lawyers or law firms in our unique lawyer directory. Select the right one for your needs by practice area or language. Compare lawyers by their expertise and rating.
               </p>
               <div class="btn-group mt-3 hov-zoom" role="group" aria-label="Basic example">
                 <a class="btn btn-208C84">Contact now</a>

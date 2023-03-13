@@ -117,5 +117,17 @@ class ChatController extends Controller
         $latestMsg = (string) view('common.pages.chat.latest-chat',  compact('message', 'attachment'));        
         return $latestMsg;
     }
+
+    public function latestUsrMsg($toId) {
+        $message = Chatify::getLatestMsg($toId);
+        $attachment = null;
+        if($message) {
+            if($message->attachment) {
+                $attachment = json_decode($message->attachment);                                                           
+            }
+        }
+        $latestMsg = (string) view('common.pages.chat.latest-user-chat',  compact('message', 'attachment'));        
+        return $latestMsg;
+    }
     
 }

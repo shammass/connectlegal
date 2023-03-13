@@ -82,7 +82,7 @@ h1.font-64 {
     font-weight: 600;
     font-size: 45px;
     line-height: 60px;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .banner-text p {
@@ -3220,9 +3220,9 @@ i.crown-p {
         font-size: 16px;
     }
 
-    .sp-r-l {
+    /*.sp-r-l {
         padding: 0 10px;
-    }
+    }*/
 
     h5.mon-txt-cvr {
         font-size: 16px;
@@ -6565,11 +6565,11 @@ i.fa-solid.fa-eye.eye-pri {
         padding: 30px 0px;
     }*/
 
-    img.off-logo {
+  /*  img.off-logo {
         width: 40%;
         padding: 0px 25px;
         padding-bottom: 30px;
-    }
+    }*/
 }
 
 @media(min-width:1200px) {
@@ -6909,3 +6909,227 @@ div#myTabContent {
     }
 }
 
+
+/*Start.......09-03-2023*/
+.providers-view {
+    transition: 0.6s;
+    max-width: 410px;
+    margin: 0 auto;
+}
+.providers-view:hover {
+    transform: scale(1.1); 
+}
+.offcanvas-body {
+    box-shadow: 2px 0px 10px rgb(0 0 0 / 15%);
+}
+ul.menu-left {
+    margin-bottom: 12px;
+}
+.hov-opacity {
+    opacity: 0.5;
+    transition: 0.5s;
+}
+.hov-opacity:hover {
+    opacity: 1;
+}
+
+.p-overl {
+    position: relative;
+}
+.offline-box {
+    position: absolute;
+    width: 15.44px;
+    height: 15.44px;
+    background: #FFFFFF;
+    border: 2px solid #3DC9A1;
+    bottom: 8px;
+    right: 2px;
+    border-radius: 100px;
+}
+.text-left ul li {
+    text-align: left;
+}
+ul.list-icon-text li a:hover {
+    color: #191919;
+}
+
+/**/
+
+ul#myTab li   i {
+    margin-right: 3px;
+}
+ul#myTab li i.color-smae {
+    font-size: 20px;
+    position: relative;
+    top: 3px;
+}
+ #offcanvasScrolling {
+    width: 300px;
+}
+.practice-area {
+    padding: 20px !important;
+}
+a.seebtn.bg-change {
+    position: relative;
+    top: -10px;
+}
+.why-client #client-part {
+    margin-top: 6px;
+}
+img.off-logo {
+    position: relative;
+    left: 10px;
+}
+
+#summary-law i.crown-p { 
+    top: unset;
+}
+.box-redi.card-summary img {
+    border-radius: 15px;
+}
+.law-box img {
+    border-radius: 150px;
+}
+
+@media (min-width:1700px) {
+div#myTabContent { 
+    height: 780px; 
+}
+
+
+
+
+}
+
+
+
+
+@media (max-width:1500px) {
+ul.list-icon-text li a { 
+    font-size: 14px;
+    line-height: 40px; 
+}
+ul.list-icon-text li a img {
+    width: 27px; 
+}
+.btn-border { 
+    margin-top: 20px;
+}
+.user-online-g #pills-tabContent { 
+    padding: 20px;
+}
+.btn-border { 
+    font-size: 16px; 
+    width: 150px;
+    height: 50px; 
+}
+.user-online-g 
+ .user-online-g.text-left {
+    margin-top: -35px;
+    margin-bottom: -25px;
+}
+.user-online-g .modal-popups .btn-close {
+    top: 25px;
+}
+.card-summary h5 {
+    padding-top: 1px !important;
+}
+#summary-law p.aed { 
+    margin-top: 2px;
+}
+
+
+}
+
+
+
+@media (max-width:981px) {
+.practice-area {
+    padding: 50px 0 !important;
+}
+
+
+ 
+}
+
+
+@media (max-width:767px) {
+.align-items-center .aed-class {
+    font-size: 18px;
+}
+a.seebtn.bg-change { 
+    top: 0;
+    padding: 14px 20px;
+}
+
+
+}
+
+@media(min-width:1200px) {
+    .lawyers-part {
+        padding: 20px !important;
+    }
+    
+    }
+
+    
+.form-part.form-e input {
+    padding: 20px 13px;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+h3.font-pop-title {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 60px;
+    color: #191919;
+}
+p.font-pop-pera {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 33px;
+    color: #191919;
+}
+button.btn-lgn.Send-email-btn {
+    margin-left: 0;
+}
+button.btn-lgn.Send-email-btn {
+    height: unset;
+    width: unset;
+    padding: 15px 50px;
+}
+p.font-pop-pera a {
+    color: #208C84;
+}
+button.btn-lgn.Send-email-btn.black {
+    border: 1px solid #000000;
+    background: #fff0;
+    color: #000;
+}
+
+@media (min-width:1200px) {
+#pills-tabContent.sp-xl {
+    padding: 45px;
+}
+
+}
+
+
+@media (max-width:980px) {
+h3.font-pop-title { 
+    font-size: 25px;
+    line-height: 40px; 
+}
+p.font-pop-pera { 
+    font-size: 15px;
+    line-height: 25px; 
+}
+.form-part.form-e input {
+    padding: 17px 13px;
+    font-size: 15px; 
+}
+button.btn-lgn.Send-email-btn { 
+    padding: 7px 29px;
+}
+
+}

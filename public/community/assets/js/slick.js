@@ -2621,14 +2621,14 @@
 
         if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
 
-            _.$prevArrow.hide();
-            _.$nextArrow.hide();
+            _.$prevArrow;
+            _.$nextArrow;
 
         }
 
         if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
 
-            _.$dots.hide();
+            _.$dots;
 
         }
 

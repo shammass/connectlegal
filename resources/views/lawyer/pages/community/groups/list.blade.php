@@ -1,137 +1,254 @@
 @extends('lawyer.home.layouts.app')
 @section('content')
-    <section>
-        <div class="py-5">
-            <div class="row" style="display: contents;">
-                <div class="col-6" id="feed" style="padding-top: 1.5rem;margin-left: 370px;">
-                    <h2 class="group-heading">Groups Created By Me</h2>                
-                </div>
-                <div class="col-3 create-group-btn-card" style="float:right;">
-                <button class="create-group-button" data-bs-toggle="modal" data-bs-target="#createGroup"><span style="vertical-align: text-bottom;">+ </span> <span style="font: 24px 'Poppins-Bold';"> Create Group</span></button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div id="group-list" class="px-3 dashboard font-Poppins-regular" style="margin-left: 370px;">
-            <div class="col-1" style="padding-top: 3.5rem;font-size:18px;">
-                <span>{{ $groupsByMe->count() }} results</span>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="row group-card-gap">
-                        @foreach($groupsByMe as $k => $group)
-                            <div class="col-5 py-2 group-card">
-                                <div class="d-flex">
-                                    <div class="col-1">
-                                        <div class="copy todo me-3 mt-3" style="background:#C6EEE2;border-radius:30px;">
-                                            <img src="/new-design/lawyer/assets/image/dashboard/groups.png" alt="meesage" style="width: 60%;">
-                                        </div>
+
+<div class="working-box">
+                <section class="lawyers-part-2 p-0">
+                    <div class="" id=" ">
+                        <div class="row align-items-center mt-lg-5" id="service-pages">
+                            <div class="col-md-6 col-6">
+                                <ul class="d-flex1">
+                                    <li class="p-0">
+                                        <h4 class="gng created-title">Groups created by me</h4>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-6 text-right">
+                                <div class="plus-icn-servie plue-cahne clone">
+                                    <div>
+                                        <img src="/new-design/assets/images/client/plus.png" class="pluus">
                                     </div>
-                                    <div class="col-9 group-name-card">
-                                        <span class="group-name">{{$group->group_name}}</span>
-                                        <p class="group-descr">{{$group->about}}</p>
-                                    </div>
-                                    <div class="col-2 group-chat-count-card">
-                                    <div class="group-chat-count me-3 mt-3">
-                                        {{$group->unseenMsg($group->id)}}
-                                    </div>
+                                    <div data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                                        <h1 class="addtst">Create Group</h1>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
-                        {{$groupsByMe->appends(Request::query(), 'groups-created-by-me')->links()}}
-                    </div>
-                </div>
-            </div>
-        </div>        
-    </section>
-    <section>
-        <div class="py-5">
-            <div class="row" style="display: contents;">
-                <div class="col-6" id="feed" style="padding-top: 1.5rem;margin-left: 370px;">
-                    <h2 class="group-heading">Groups I'm Part Of</h2>                
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div id="group-list" class="px-3 dashboard font-Poppins-regular" style="margin-left: 370px;margin-bottom:5%;">
-            <div class="col-1" style="padding-top: 3.5rem;font-size:18px;">
-                <span>{{ $groupsIamIn->count() }} results</span>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="row group-card-gap">
-                        @foreach($groupsIamIn as $k => $group)
-                            <div class="col-5 py-2 group-card" style="background-color: #E0EDF1!important;">
-                                <div class="d-flex">
-                                    <div class="col-1">
-                                        <div class="copy todo me-3 mt-3" style="background:#E0EDF1;border-radius:30px;">
-                                            <img src="/new-design/lawyer/assets/image/dashboard/Group_part.png" alt="meesage" style="width: 60%;">
+                            <div class="modal fade modal-popups" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg modal-dialog-centered" id="modal-login">
+                                            <div class="modal-content"> 
+                                                <div class="modal-header text-right"> 
+                                                    <button type="button" class="btn-close rounded" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-popup-des rounded" id="pills-tabContent">
+                                                        <div class="row">
+                                                            <div class="group-user">
+                                                                <div class="row">
+                                                                    <div class="col-sm-6 col-10">
+                                                                        <div class="group-george">
+                                                                            <div class="row">
+                                                                                <div class="col-md-3 col-3 pr-0 text-center">
+                                                                                    <img src="/storage/{{auth()->user()->getProfilePic(auth()->user()->id)}}" alt="question-2" class="img-user-pop" style="width: 90%;height: 65px;border-radius: 200px;">
+                                                                                </div>
+                                                                                <div class="col-md-9 col-9  ">
+                                                                                    <p class="font-24">{{auth()->user()->name}}</p>
+                                                                                    <p class="font-16"><i class="fa-solid fa-location-dot"></i> {{auth()->user()->getEmirates(auth()->user()->id)}}</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6 col-2">
+                                                                        <p class="right dot-three">...</p> 
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <form action="{{route('lawyer.community.group.store')}}" method="post">
+                                                            @csrf()
+                                                            <div class="eles group-invite">
+                                                                <input type="text" placeholder="Name of the Group" name="group">
+                                                                @error('group')
+                                                                    <span class="error-msg text-left" style="color:red;margin-top:2%;">{{ $message }}</span>
+                                                                @enderror  
+                                                                <div class="links-icons">
+                                                                    <textarea placeholder="About this group" name="about"></textarea>                                                                    
+                                                                </div>
+                                                                @error('about')
+                                                                    <span class="error-msg text-left" style="color:red;margin-top:2%;">{{ $message }}</span>
+                                                                @enderror  
+                                                                <select class=" col-md-12 chosen-select mt-3" multiple name="lawyers[]">
+                                                                    @foreach($lawyers as $k => $lawyer)
+                                                                        <option value="{{$lawyer->user_id}}" {{isset(old('lawyers')[$k]) ? (old('lawyers')[$k] == $lawyer->user_id ? 'selected' : '') : ''}}>{{$lawyer->user->name}}</option>
+                                                                    @endforeach
+                                                                </select>    
+                                                                @error('lawyers')
+                                                                    <span class="error-msg text-left" style="color:red;margin-top:2%;">{{ $message }}</span>
+                                                                @enderror                                                      
+                                                            </div>
+                                                            <div class="text-right mt-5 mb-3">
+                                                                <button type="submit" class="create-group">Create Group</button>
+                                                            </div> 
+                                                        </form>
+                                                    </div>
+                                                </div> 
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-9 group-name-card">
-                                        <span class="group-name">{{$group->group->group_name}}</span>
-                                        <p class="group-descr">{{$group->group->about}}</p>
-                                    </div>
-                                    <div class="col-2 group-chat-count-card">
-                                    <div class="group-chat-count me-3 mt-3" style="background:#156075!important">
-                                        {{$group->unseenMsg($group->group_id)}}
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                        {{$groupsIamIn->appends(Request::query(), 'groups-im-in')->links();}}
-                    </div>
-                </div>
-            </div>
-        </div>        
-    </section>
-    <section>
-        <div class="modal" id="createGroup" style="top: 25%;">
-            <div class="modal-dialog  modal-md">
-              <div class="modal-content">
-                <div class="modal-body row" style="margin:5px">       
-                    <form action="{{route('lawyer.community.group.store')}}" method="post">
-                        @csrf()
-                        <div class="form-group row" style="margin-top: 15px;margin-bottom: 15px;">
-                          <input type="text" class="form-control" id="group_name" placeholder="Group Name" name="group">
-                            @error('group')
-                                <span class="error-msg" style="color:red;margin-top:2%;">{{ $message }}</span>
-                            @enderror  
                         </div>
-                        <div class="form-group row" style="margin-top: 15px;margin-bottom: 15px;">  
-                            <select class="form-control" id="lawyer-multiselect" data-placeholder="Select Lawyer" multiple="multiple" name="lawyers[]">
-                                <option value="">Please select lawyers</option>
-                                @foreach($lawyers as $k => $lawyer)
-                                    <option value="{{$lawyer->user_id}}" {{isset(old('lawyers')[$k]) ? (old('lawyers')[$k] == $lawyer->user_id ? 'selected' : '') : ''}}>{{$lawyer->user->name}}</option>
-                                @endforeach
+                        <div class="row mt-lg-5 align-items-center">
+                    <div class="col-lg-6 col-md-2"></div>
+                    <div class="col-lg-6 col-md-10 text-right">
+                        <div class="text-right search-drop sp-top-select">
+                            <select class="department" onchange="sortBy(this)">
+                                <option value="desc">Sort by</option>
+                                <option value="desc" {{$sort === "desc" ? 'selected' : ''}}>Newest</option>
+                                <option value="asc" {{$sort === "asc" ? 'selected' : ''}}>Oldest</option>
                             </select>
-                            @error('lawyers')
-                                <span class="error-msg" style="color:red;margin-top:2%;">{{ $message }}</span>
-                            @enderror  
+                          </div>
+                    </div>
                         </div>
-                        <div class="form-group row" style="margin-top: 15px;margin-bottom: 15px;">  
-                            <textarea name="about" id="" cols="10" rows="3" class="form-control" placeholder="About"></textarea>
-                            @error('about')
-                                <span class="error-msg" style="color:red;margin-top:2%;">{{ $message }}</span>
-                            @enderror  
+                            <div class="row align-items-center mt-3">
+                                <div class="col-lg-6 col-md-4 col-3">
+                                    <h6 class="result"> <strong>{{ $groupsByMe->count() }}</strong> results</h6>
+                                </div>
+                            <div class="col-lg-6 col-md-8 col-9">
+                            <div class="icn-tdt d-flex justify-content-end align-items-center">
+                                <!-- <h4 class="chn">Change the view:</h4>
+                                <a href="#" class="dot4"><i class="fa-solid fa-bars"></i></a>
+                                <a href="#" class="dot4"><i class="fa-solid fa-arrows-to-dot"></i></a> -->
+                            </div>
+                           </div>
                         </div>
-                        <div>
-                            <button type="submit" class="btn btn-danger create-group" data-bs-dismiss="modal">Create Group</button>
+                        <div class="row p-3">
+                            @foreach($groupsByMe as $k => $group)
+                                <div class="col-lg-12 col-md-12 col-xl-6 mt-4" style="cursor:pointer;" onclick="groupChat('{{$group->id}}')">
+                                        <div class="grp">
+                                            <div id="group-div">
+                                            <div class="row ">
+                                        <div class="col-sm-2 col-2">
+                                            <div class="circle-color">
+                                            <img src="/new-design/user-dashboard/images/user1.png" class="prf">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-9 col-9">
+                                        <div class="list-text">
+                                            <h4 class="itm">{{$group->group_name}}</h4>
+                                            <p class="tnm">{{$group->about}}</p>
+                                        </div>
+                                        </div>
+                                        <div class="col-sm-1 col-1">
+                                            <h2 class="mth">{{$group->unseenMsg($group->id)}}</h2>
+                                        </div>
+                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            @endforeach
+                            {{$groupsByMe->appends(Request::query(), 'groups-created-by-me')->links()}}
                         </div>
-                      </form>
-                </div>
-          
-              </div>
+
+
+                        <div class="was-validated mt-5" id="pagination-class2">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <a class="page-link" href="javascript:void(0)" aria-label="Previous">
+                                            <span aria-hidden="true"> <img src="/new-design/user-dashboard/images/Vector (2).png" alt=""> </span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="javascript:void(0)" aria-label="Next">
+                                            <span aria-hidden="true"> <img src="/new-design/user-dashboard/images/Vector (3).png" alt=""> </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+
+
+
+                        <div class="row align-items-center" id="service-pages">
+                            <div class="col-md-6 col-6">
+                                <ul class="d-flex1 p-0">
+                                    <li class="p-0">
+                                        <h4>Groups I'm part</h4>
+                                    </li>
+                                </ul>  
+                            </div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 col-md-2 "></div>
+                            <div class="col-lg-6 col-md-10  text-right">
+                                <div class="text-right search-drop sp-top-select">
+                                    <select class="department" onchange="sortBy(this)">
+                                        <option value="desc2">Sort by</option>
+                                        <option value="desc2" {{$sort2 === "desc" ? 'selected' : ''}}>Newest</option>
+                                        <option value="asc2" {{$sort2 === "asc" ? 'selected' : ''}}>Oldest</option>
+                                    </select>
+                              
+                                  </div>
+                            </div>
+                                </div>
+
+                           <div class="row align-items-center mt-3">
+                                <div class="col-lg-6 col-md-4 col-3">
+                                <h6 class="result"> <strong>{{ $groupsIamIn->count() }}</strong> results</h6>
+                                </div>
+                           <div class="col-lg-6 col-md-8 col-9">
+                                <!-- <div class="icn-tdt d-flex justify-content-end  align-items-center">
+                                    <h4 class="chn">Change the view:</h4>
+                                    <a href="#" class="dot4"><i class="fa-solid fa-bars"></i></a>
+                                    <a href="#" class="dot4"><i class="fa-solid fa-arrows-to-dot"></i></a>
+                                </div> -->
+                           </div>
+                        </div>
+
+
+                        <div class="row mt-5 position-relative">
+                            @foreach($groupsIamIn as $k => $group)
+                                <div class="col-lg-12 col-md-12 col-xl-6 mt-4" style="cursor:pointer;" onclick="groupChat('{{$group->group_id}}')">
+                                    <div class="grp">
+                                        <div id="group-div1">
+                                        <div class="row ">
+                                    <div class="col-sm-2 col-2">
+                                        <div class="circle-color color-group">
+                                        <img src="/new-design/user-dashboard/images/userall.png" class="prf">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9 col-9">
+                                    <div class="list-text">
+                                        <h4 class="itm">{{$group->group->group_name}}</h4>
+                                        <p class="tnm">{{$group->group->about}}</p>
+                                    </div>
+                                    </div>
+                                    <div class="col-sm-1 col-1">
+                                        <h2 class="mth chngemah">{{$group->unseenMsg($group->group_id)}}</h2>
+                                    </div>
+                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach                         
+                        </div>
+                        <div class="was-validated" id="pagination-class2">
+                            {{$groupsIamIn->appends(Request::query(), 'groups-im-in')->links()}}
+                        </div>
+
+                      
+                    </div>
+                </section>
             </div>
-          </div>
-    </section>
+
 @endsection
 
 @push('script')
-<script>
-</script>
+    <script>
+        $(document).ready(function() {
+            $('.chosen-select').chosen({
+                search_contains: true,
+                placeholder_text_multiple: "Select the lawyers",
+            });
+        });
+
+        function sortBy(sort) {
+            window.location.href = "/lawyer/community/groups/"+sort.value;
+        }
+
+        function groupChat(groupId) {
+            window.location.href = "/lawyer/community/group/chat/"+groupId;
+        }
+
+    </script>
 @endpush

@@ -6,9 +6,7 @@
               <p class="test">TESTIMONIALS</p>
               <h3>What<br> client’s say?</h3>
               <img src="/new-design/assets/images/showmobile.png" alt="" class="d-block d-md-none">
-              <p class="font-we">"We quickly had to get legal counsel, and luckily for us, we found the Connect Legal
-                platform. The rapport and guidance was outstanding at all times, prompt, timely, and open for calls and
-                quick updates".</p>
+              <p class="font-we">"Have a look at what our clients have to say about our community of licensed and expert lawyers.".</p>
               <p><a href="#" class="see-more bg-fff">See more ></a></p>
             </div>
           </div>

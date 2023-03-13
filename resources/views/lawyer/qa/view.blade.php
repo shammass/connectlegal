@@ -1,13 +1,10 @@
-@extends('lawyer.layouts.navbar_content')
-
-@section('title', 'Question & Answer')
-
+@extends('lawyer.home.layouts.app')
 @section('content')
     @include('admin.layouts.flash-message')
-    <div class="row">
+    <div class="container p-5">
         <div class="col-md-12">
             <div class="card mb-4">
-                <h5 class="card-header">{{$forum->title}}</h5>
+                <h5 class="card-header" style="background:#208C84;color:white;">{{$forum->title}}</h5>
                 <div class="card-body">
                     <p>{{$forum->message}}</p>
                     <form action="{{route('lawyer.qa.answer', $forum->id)}}" method="post">
@@ -16,13 +13,13 @@
                             <input type="text" class="form-control" id="floatingInput" name="answer" placeholder="Your answer..." value="{{$forum->myAnswer($forum->id)}}" aria-describedby="floatingInputHelp" />
                             <label for="floatingInput">Answer</label>
                         </div>
-                        <button class="btn btn-primary mt-2" style="float: right;">Submit</button>
+                        <button class="btn btn-primary mt-2" style="float: right;background:#208C84;color:white;border:none;">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
         <div class="card">
-            <div class="card-header">All Lawyer Answers</div>
+            <div class="card-header" style="background:#208C84;color:white;">All Lawyer Answers</div>
             <div class="card-body">
                 @forelse($answers as $k => $answer)
                     <div class="form-floating mt-2">

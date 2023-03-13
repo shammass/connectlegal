@@ -7,6 +7,7 @@ use App\Events\LawyerLoginLogout;
 use App\Http\Controllers\Controller;
 use App\Traits\SendMailTrait;
 use App\Models\Lawyer;
+use App\Models\PasswordReset;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Cache;
@@ -19,7 +20,9 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
 use \Mailjet\Resources;
+use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
@@ -58,7 +61,38 @@ class LoginController extends Controller
                 'password' => Hash::make($request->password),
                 'user_type' => 3,            
             ]);
-            Alert::success('Success', 'You have registered successfully. Please login!!');
+            $token = Str::random(64);
+            PasswordReset::create([
+                'email' => $request->email, 
+                'token' => $token,
+            ]);
+            $apikey = env('MJ_APIKEY_PUBLIC');
+            $apisecret = env('MJ_APIKEY_PRIVATE');
+            $html = View::make('emails.verification-email', ['email' =>  $request->email, 'name' => $request->name, 'token' => $token])->render();
+            $mj = new \Mailjet\Client($apikey, $apisecret,true,['version' => 'v3.1']);
+            // $url = "https://127.0.0.1:8000/reset-password/".$token;
+            $body = [
+                'Messages' => [
+                    [
+                        'From' => [
+                            'Email' => "s4shamma@gmail.com",
+                            'Name' => "Connect Legal"
+                        ],
+                        'To' => [
+                            [
+                                'Email' => $request->email,
+                                'Name' => "You"
+                            ]
+                        ],
+                        'Subject' => "Verify Your Account on Connect Legal",
+                        // 'TextPart' => "Greetings from Mailjet!",
+                        'HTMLPart' => $html
+                    ]
+                ]
+            ];
+            $mj->post(Resources::$Email, ['body' => $body]);
+
+            Alert::success('Success', 'We have sent an verification mail to your given email address. Please verify it to login!!');
             return redirect()->route('home');
         }
     }
@@ -152,9 +186,11 @@ class LoginController extends Controller
                             return redirect()->route('user.login');
                         }
                     }else {
+                        if($user->email)
                         Auth::login($user);
                         Alert::success('Logged In', 'You are logged in successfully');
-                        return redirect(RouteServiceProvider::HOME);   
+                        // return redirect(RouteServiceProvider::HOME);   
+                        return redirect()->route('user.dashboard');
                         // return Redirect::to(url()->previous());         
                     }
                 }else {

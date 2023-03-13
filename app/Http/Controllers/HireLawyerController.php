@@ -74,29 +74,38 @@ class HireLawyerController extends Controller
         }
 
         if(!$search && !$area) {
-            $services = $this->justSortedServices($lawyerId, $sort);
+            $services = $this->justSortedServices($sort, $lawyerId);
         }elseif($search && !$area) {
-            $services = $this->searchedServices($lawyerId, $sort, $search);
+            $services = $this->searchedServices($sort, $search, $lawyerId);
         }elseif(!$search && $area) {
-            $services = $this->servicesBasedonSelectedArea($lawyerId, $sort, $area);
+            $services = $this->servicesBasedonSelectedArea($sort, $area, $lawyerId);
         }elseif($search && $area) {
-            $services = $this->searchedAndSelectedAreaServices($lawyerId, $sort, $search, $area);
+            $services = $this->searchedAndSelectedAreaServices($sort, $search, $area, $lawyerId);
         }
         // return view('common.hire-lawyer.service', compact('services'));
         return view('common.pages.hire-lawyer.lawyer-services', compact('services', 'areas', 'arbitrationArea', 'sort', 'search', 'area', 'lawyerId'));
     }
 
-    public function justSortedServices($lawyerId, $sort) {
-        $sorted = Services::select('services.*', DB::raw('(select sum(lawyer_fee + platform_fee) from lawyer_services where service_id=services.id) as total_amount'))
+    public function justSortedServices($sort, $lawyerId = null) {
+        if($lawyerId) {
+            $sorted = Services::select('services.*', DB::raw('(select sum(lawyer_fee + platform_fee) from lawyer_services where service_id=services.id) as total_amount'))
+            ->whereApproved(1)
+            ->whereAddedBy($lawyerId)
+            ->orderBy('total_amount', $sort)
+            ->paginate(2);
+        }else {
+            $sorted = Services::select('services.*', DB::raw('(select sum(lawyer_fee + platform_fee) from lawyer_services where service_id=services.id) as total_amount'))
                 ->whereApproved(1)
-                ->whereAddedBy($lawyerId)
                 ->orderBy('total_amount', $sort)
                 ->paginate(2);
+        }
+        
         return $sorted;
     }
 
-    public function searchedServices($lawyerId, $sort, $search) {
-        $searched = Services::query()
+    public function searchedServices($sort, $search, $lawyerId = null) {
+        if($lawyerId) {
+            $searched = Services::query()
                 ->select('services.*', DB::raw('(select sum(lawyer_fee + platform_fee) from lawyer_services where service_id=services.id) as total_amount'))
                 ->whereApproved(1)
                 ->whereAddedBy($lawyerId)
@@ -108,24 +117,49 @@ class HireLawyerController extends Controller
                 })
                 ->orderBy('total_amount', $sort)
                 ->paginate(2);
+        }else {
+            $searched = Services::query()
+                ->select('services.*', DB::raw('(select sum(lawyer_fee + platform_fee) from lawyer_services where service_id=services.id) as total_amount'))
+                ->whereApproved(1)
+                ->where(function ($query) use ($search) {
+                    $query->where('title', 'like', "%$search%")
+                        ->orWhereHas('arbitration', function ($query) use ($search) {
+                            $query->where('area', 'like', "%$search%");
+                        });
+                })
+                ->orderBy('total_amount', $sort)
+                ->paginate(2);
+        }
+        
         return $searched;
     }
 
-    public function servicesBasedonSelectedArea($lawyerId, $sort, $areaId) {
-        $area = ArbitrationArea::whereId($areaId)->first();
-        $selectedServices = Services::select('services.*', DB::raw('(select sum(lawyer_fee + platform_fee) from lawyer_services where service_id=services.id) as total_amount'))
-        ->whereApproved(1)
-        ->whereAddedBy($lawyerId)
-        ->whereArbitrationAreaId($areaId)
-        ->orderBy('total_amount', $sort)
-        ->paginate(2);
+    public function servicesBasedonSelectedArea($sort, $areaId, $lawyerId = null) {
+        if($lawyerId) {
+            $area = ArbitrationArea::whereId($areaId)->first();
+                $selectedServices = Services::select('services.*', DB::raw('(select sum(lawyer_fee + platform_fee) from lawyer_services where service_id=services.id) as total_amount'))
+                ->whereApproved(1)
+                ->whereAddedBy($lawyerId)
+                ->whereArbitrationAreaId($areaId)
+                ->orderBy('total_amount', $sort)
+                ->paginate(2);
+        }else {
+            $area = ArbitrationArea::whereId($areaId)->first();
+                $selectedServices = Services::select('services.*', DB::raw('(select sum(lawyer_fee + platform_fee) from lawyer_services where service_id=services.id) as total_amount'))
+                ->whereApproved(1)
+                ->whereArbitrationAreaId($areaId)
+                ->orderBy('total_amount', $sort)
+                ->paginate(2);
+        }
+        
         $arbitrationArea = $area->area;
         // return view('common.hire-lawyer.service', compact('services'));
         return $selectedServices;
     }
 
-    public function searchedAndSelectedAreaServices($lawyerId, $sort, $search, $areaId) {
-        $searched = Services::query()
+    public function searchedAndSelectedAreaServices($sort, $search, $areaId, $lawyerId = null) {
+        if($lawyerId) {
+            $searched = Services::query()
                 ->select('services.*', DB::raw('(select sum(lawyer_fee + platform_fee) from lawyer_services where service_id=services.id) as total_amount'))
                 ->whereApproved(1)
                 ->whereAddedBy($lawyerId)
@@ -138,6 +172,21 @@ class HireLawyerController extends Controller
                 })
                 ->orderBy('total_amount', $sort)
                 ->paginate(2);
+        }else {
+            $searched = Services::query()
+                ->select('services.*', DB::raw('(select sum(lawyer_fee + platform_fee) from lawyer_services where service_id=services.id) as total_amount'))
+                ->whereApproved(1)
+                ->whereArbitrationAreaId($areaId)
+                ->where(function ($query) use ($search) {
+                    $query->where('title', 'like', "%$search%")
+                        ->orWhereHas('arbitration', function ($query) use ($search) {
+                            $query->where('area', 'like', "%$search%");
+                        });
+                })
+                ->orderBy('total_amount', $sort)
+                ->paginate(2);
+        }
+        
         return $searched;
     }
 

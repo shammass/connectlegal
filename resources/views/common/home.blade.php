@@ -97,7 +97,11 @@
     });
 
     function hireALawyer() {
-        window.location.href = "/hire-a-lawyer";
+        window.location.href = "/legal-services";
+    }
+
+    function qaPage() {
+        window.location.href = "/question-answers/desc";
     }
 
     var success = true

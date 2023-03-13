@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Lawyer;
 
+use Alert;
 use App\Events\PostComment;
 use App\Events\PostRealtime;
 use App\Http\Controllers\Controller;
@@ -38,9 +39,11 @@ class PostController extends Controller
         ]);
         event(new PostComment($comment, 'comment'));
         if($request->page === "group") {
-            return redirect()->route('lawyer.community.group.feed', $request->group)->with('success','Your comment has been successfully added!');
+            Alert::success('Success', 'Your comment has been successfully added!');
+            return redirect()->route('lawyer.community.group.feed', $request->group);
         }else {
-            return redirect()->route('lawyer.community')->with('success','Your comment has been successfully added!');
+            Alert::success('Success', 'Your comment has been successfully added!');
+            return redirect()->route('lawyer.community');
         }
     }
 
@@ -52,13 +55,15 @@ class PostController extends Controller
     }
     
     public function updatedComment(Request $request) {
-        $comment = $request->data;
+        $rqstData = $request->data;
 
-        $comments = Comment::wherePostId($comment['postComment']['post_id'])
+        $comment = Comment::wherePostId($rqstData['postComment']['post_id'])
         ->orderBy('created_at', 'DESC')
-        ->get();
-        $finalComments = (string) view('lawyer.comment-updated',  compact('comments'));        
-        return ['comments' => $finalComments, 'count' => $comments->count()];
+        ->first();
+        $commentsCount = Comment::wherePostId($rqstData['postComment']['post_id'])->count();
+        $finalComments = (string) view('lawyer.comment-updated',  compact('comment'));        
+        $commentsCount = (string) view('lawyer.comments-count',  compact('commentsCount'));        
+        return ['comments' => $finalComments, 'count' => $commentsCount];
     }
 
 }

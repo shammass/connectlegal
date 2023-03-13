@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\vendor\Chatify;
 
+use Alert;
+use App\Events\UserMsg;
 use App\Models\ChatNotification;
 use App\Models\ChatOnline;
 use App\Models\ChMessage;
@@ -60,45 +62,124 @@ class MessagesController extends Controller
      * @param int $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index( $id = null) //$id = user id
+    public function index( $id = null) //$id = user id -> With whome the logged in user is texting
     {             
+        if(!$this->isLawyer()) {
+            $getLawyerId = Lawyer::whereUserId($id)->first();
+            $isRequestSent = ChatOnline::where([
+                'user_id' => auth()->user()->id,
+                'lawyer_id' => $getLawyerId->id
+            ])->first();
+    
+            if(!$isRequestSent) {
+                Alert::error("Error", "Oops!!!. You haven't sent chat request to this lawyer.");
+                return redirect()->back();
+            }else {
+                if($isRequestSent->status == 0) {
+                    Alert::error("Error", "Oops!!!. You chat request is not been accepted by the Lawyer.");
+                    return redirect()->back();
+                }
+            }
+        }
         // $expired = $this->isBothLawyer($id);
-        $user1 = User::whereId($id)->first();
-        $user2 = User::whereId(auth()->user()->id)->first();
-        $expired = false;
-        $completed = false;
-        $bothLawyers = false;
-        if($user1->user_type == 2 && $user2->user_type == 2) {
-            $bothLawyers = true;
+        // $user1 = User::whereId($id)->first();
+        // $user2 = User::whereId(auth()->user()->id)->first();
+        // $expired = false;
+        // $completed = false;
+        // $bothLawyers = false;
+        // if($user1->user_type == 2 && $user2->user_type == 2) {
+        //     $bothLawyers = true;
+        // }else {
+        //     $completed = $this->isCompleted($id, auth()->user()->id);
+        // }
+
+        // $routeName= FacadesRequest::route()->getName();
+        // if(auth()->user()->user_type != 2) {
+        //     $profilePic = Lawyer::whereUserId($id)->first();
+        //     $profilePic = $profilePic->profile_pic;
+        // }else {
+        //     $profilePic = null;
+        // }
+
+        // if($bothLawyers) {
+        //     $profilePic = Lawyer::whereUserId($id)->first();
+        //     if($profilePic)
+        //         $profilePic = $profilePic->profile_pic;
+        // }
+
+        // $type = in_array($routeName, ['user','group'])
+        //     ? $routeName
+        //     : 'user';
+        // return view('Chatify::pages.app', [
+        //     'id'                => $id ?? 0,
+        //     'expired'           => $expired,
+        //     'completed'         => $completed,
+        //     'profilePic'        => $profilePic,
+        //     'type'              => $type ?? 'user',
+        //     'messengerColor'    => Auth::user()->messenger_color ?? $this->messengerFallbackColor,
+        //     'dark_mode'         => Auth::user()->dark_mode < 1 ? 'light' : 'dark',
+        // ]);
+        $attachment = null;
+        $attachment_type = null;
+        $attachment_title = null;
+        $lawyerDetail = null;
+        $userDetail = null;
+        $acceptedLawyers = null;
+        $usersAccepted = null;
+
+        if($this->isLawyer()) {
+            $userDetail = User::whereId($id)->first();
         }else {
-            $completed = $this->isCompleted($id, auth()->user()->id);
+            $lawyerDetail = Lawyer::whereUserId($id)->first();
         }
 
-        $routeName= FacadesRequest::route()->getName();
-        if(auth()->user()->user_type != 2) {
-            $profilePic = Lawyer::whereUserId($id)->first();
-            $profilePic = $profilePic->profile_pic;
+        $msg = Message::where('from_id', Auth::user()->id)
+                        ->where('to_id', $id)
+                        ->orWhere('from_id', $id)
+                        ->where('to_id', Auth::user()->id)
+                        ->orderBy('updated_at', 'asc')
+                        ->get();
+
+        if($this->isLawyer()) {
+            $usersAccepted = ChatOnline::where([
+                'lawyer_id' => auth()->user()->getLawyerId(auth()->user()->id),
+                'status'  => 1
+            ])
+            ->groupBy('user_id')
+            ->selectRaw('MAX(id) as id, user_id')
+            ->get();
+
         }else {
-            $profilePic = null;
+            $acceptedLawyers = ChatOnline::where([
+                'user_id' => auth()->user()->id,
+                'status'  => 1
+            ])
+            ->groupBy('lawyer_id')
+            ->selectRaw('MAX(id) as id, lawyer_id')
+            ->get();
+        }
+        
+        
+        if(!$msg) {
+            return [];
         }
 
-        if($bothLawyers) {
-            $profilePic = Lawyer::whereUserId($id)->first();
-            if($profilePic)
-                $profilePic = $profilePic->profile_pic;
+        if (isset($msg->attachment)) {
+            $attachmentOBJ = json_decode($msg->attachment);
+            $attachment = $attachmentOBJ->new_name;
+            $attachment_title = htmlentities(trim($attachmentOBJ->old_name), ENT_QUOTES, 'UTF-8');
+
+            $ext = pathinfo($attachment, PATHINFO_EXTENSION);
+            $attachment_type = in_array($ext, $this->getAllowedImages()) ? 'image' : 'file';
         }
 
-        $type = in_array($routeName, ['user','group'])
-            ? $routeName
-            : 'user';
-        return view('Chatify::pages.app', [
-            'id'                => $id ?? 0,
-            'expired'           => $expired,
-            'completed'         => $completed,
-            'profilePic'        => $profilePic,
-            'type'              => $type ?? 'user',
-            'messengerColor'    => Auth::user()->messenger_color ?? $this->messengerFallbackColor,
-            'dark_mode'         => Auth::user()->dark_mode < 1 ? 'light' : 'dark',
+        return view('Chatify::pages.app',[
+            'id' => $id,
+            'messages' => $msg,
+            'acceptedLawyers' => $acceptedLawyers,
+            'usersAccepted' => $usersAccepted,
+            'lawyerDetail' => $lawyerDetail,
+            'userDetail' => $userDetail,
         ]);
     }
 
@@ -121,6 +202,11 @@ class MessagesController extends Controller
             ])->first();
         }
         return $requestStatus->complete;
+    }
+
+    public function isLawyer() {
+        $lawyer = Lawyer::whereUserId(auth()->user()->id)->first();
+        return $lawyer ? true : false;
     }
 
     public function isBothLawyer($id) {
@@ -265,7 +351,7 @@ class MessagesController extends Controller
                     ]);
                 }
             }
-    
+            event(new UserMsg($messageID, 'UserMsg', $request['to_id']));
             // send the response
             if(request()->ajax()) {
                 return Response::json([

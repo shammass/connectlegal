@@ -94,7 +94,7 @@ Route::get('blogs-articles-details/{id}',       [CommonController::class, 'blogD
 
 Route::post('callback',                         [CommonController::class, 'callback'])->name('callback');
 
-Route::get('/hire-a-lawyer/{sort?}/{search?}/{area?}',                      [HireLawyerController::class, 'hireALawyer'])->name('hire-a-lawyer');
+Route::get('/legal-services/{sort?}/{search?}/{area?}',                      [HireLawyerController::class, 'hireALawyer'])->name('hire-a-lawyer');
 Route::get('/lawyer-services/{lawyerId}/{sort?}/{search?}/{area?}',         [HireLawyerController::class, 'LawyerServicesToHire'])->name('hire-a-lawyer.user');
 Route::get('service-step-1/{service_id}',                                   [HireLawyerController::class, 'serviceStepOne'])->name('service.step-one');
 Route::get('service-step-2/{service_id}',                                   [HireLawyerController::class, 'serviceStepTwo'])->name('service.step-two');
@@ -120,6 +120,9 @@ Route::get('filter-by-area',                        [CommonController::class, 'f
 Route::get('zoom',     [MeetingController::class, 'store']);
 
 
+Route::get('/verify-email/{token}',     [CommonController::class, 'verify']);
+
+
 
 #################                           END USER                  ###################################
 
@@ -142,6 +145,7 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::post('chat-with-user/{toId}',               [ChatController::class, 'sendMsg'])->name('chat-with-user');
     Route::post('/user/latest-group-chat',             [ChatController::class, 'userLatestMsg'])->name('user.latest-msg');
+    Route::get('user-latest-msg/{toId}',               [ChatController::class, 'latestUsrMsg'])->name('latest.user-msg');
     
 });
 
@@ -268,13 +272,14 @@ Route::group(['middleware' => ['web']], function () {
             Route::get('/profile',                      [LawyerDashboardController::class, 'profile'])->name('lawyer.profile');
             Route::get('/my-activity',                  [LawyerDashboardController::class, 'myActivity'])->name('lawyer.my-activity');
             Route::post('/profile/update/{id}',         [LawyerDashboardController::class, 'updateProfile'])->name('lawyer.update_profile');
-            Route::post('/close-notification/{id}',     [LawyerDashboardController::class, 'closeNotification'])->name('lawyer.close-notification');
+            Route::get('/close-notification/{id}',      [LawyerDashboardController::class, 'closeNotification'])->name('lawyer.close-notification');
             
             Route::get('/online-chat-requests',                 [ChatOnlineRequestController::class, 'requests'])->name('lawyer.online-chat-requests');
             Route::post('/accept/chat-online-request/{id}',     [ChatOnlineRequestController::class, 'acceptRequest'])->name('lawyer.accept-request');
             Route::post('/complete/chat-online-request/{id}',   [ChatOnlineRequestController::class, 'completeRequest'])->name('lawyer.complete-request');
 
             Route::get('/scheduled-events',                     [SlotController::class, 'scheduledEvents'])->name('lawyer.scheduled-events');
+            Route::get('/consultation-requests',                [SlotController::class, 'consultationRqsts'])->name('lawyer.consultation-requests');
             Route::get('/slots',                                [SlotController::class, 'addSlots'])->name('lawyer.slots');
             Route::get('/add-slots',                            [SlotController::class, 'addSlots'])->name('lawyer.add-slots');
             Route::post('/add-slot-service',                    [SlotController::class, 'addSlotService'])->name('lawyer.add-slot-service');
@@ -297,7 +302,7 @@ Route::group(['middleware' => ['web']], function () {
             Route::post('/updated-post',                [PostController::class, 'updatedPost'])->name('lawyer.updated-post');
             Route::post('/updated-comment',             [PostController::class, 'updatedComment'])->name('lawyer.updated-comment');
             
-            Route::get('/community/groups',                                     [GroupController::class, 'groups'])->name('lawyer.community.groups');
+            Route::get('/community/groups/{sort?}',                             [GroupController::class, 'groups'])->name('lawyer.community.groups');
             Route::post('/community/group/store',                               [GroupController::class, 'store'])->name('lawyer.community.group.store');
             Route::get('/community/group/feed/{id}',                            [GroupController::class, 'groupFeed'])->name('lawyer.community.group.feed');
             Route::post('/community/create/group/post/{id}',                    [GroupController::class, 'storeGroupPost'])->name('lawyer.create.group.post');

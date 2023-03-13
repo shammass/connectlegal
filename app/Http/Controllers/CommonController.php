@@ -14,8 +14,9 @@ use App\Models\ForumAnswers;
 use App\Models\Language;
 use App\Models\LawArticle;
 use App\Models\LawCategory;
-use App\Models\Lawyer;
 use App\Models\Rate;
+use App\Models\PasswordReset;
+use App\Models\Lawyer;
 use App\Models\Slot;
 use App\Models\Testimonial;
 use App\Models\LawyerConsultation;
@@ -48,6 +49,7 @@ class CommonController extends Controller
             'email' => $request->qa_email,
             'mobile' => $request->mobile,
             'message' => $request->message,
+            'to_lawyer' => $request->lawyerId ?? null,
             'user_id' => auth()->user() ? auth()->user()->id : null
         ]);
 
@@ -598,7 +600,10 @@ class CommonController extends Controller
     }
 
     public function sendChatRequest(Request $request) {
-        // dd($request->all());
+        $request->validate([
+            'description'          =>  ['required'],
+        ]);
+        // dd($request->lawyerId);
         ChatOnline::create([
             'lawyer_id' => $request->lawyerId,
             'user_id'   => auth()->user()->id,
@@ -608,5 +613,25 @@ class CommonController extends Controller
 
         Alert::success('Success', 'Your chat request has been submitted successfully');
         return redirect()->back();
+    }
+
+    public function verify($token) {
+        $isExist = PasswordReset::where([
+            'token' => $token
+            ])
+            ->first();
+
+        if($isExist) {
+
+            $verify = User::whereEmail($isExist->email)->first();
+            $verify->email_verified_at = 1;
+            $verify->save();
+
+            // $deleteToken = PasswordReset::whereToken($token)->first();
+            // $deleteToken->delete();
+
+            Alert::success('Success', 'You have verified your account successfully. Please login');
+            return redirect()->route('home');
+        }
     }
 }

@@ -17,7 +17,7 @@ class QuestionAnswerController extends Controller
                 $ids[] = $forum->id;
             }
         } 
-        $forums = Forum::whereIn('id', $ids)->paginate(5);
+        $forums = Forum::whereIn('id', $ids)->paginate(10);
         return view('lawyer.qa.list', compact('forums'));
     }
 

@@ -3583,10 +3583,10 @@ a.add img {
     content: '';
     clear: both;
     position: absolute;
-    top: 45px;
-    left: 50px;
-    height: 12px;
-    width: 12px;
+    height: 16px;
+    right: 0;
+    bottom: 14px;
+    width: 16px;
     background: #00DB75;
     border-radius: 50%;
     border: 2px solid #fff;
@@ -5647,8 +5647,173 @@ ul.list-group {
 }
 
 
+/*Start........10-03-2023*/
+
+.flex-shrink-0 {
+    position: relative;
+}
+.active-on {
+    position: absolute;
+    height: 16px;
+    right: 0;
+    bottom: 0px;
+    width: 16px;
+    background: #00DB75;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+.modal-body.sp-top-0 {
+    margin-top: 0;
+}
+.color-there.color-four.bg-3DC9A1 {
+    background: #3DC9A1;
+}
+li.repaly.reply-two.bg-208C84 {
+    background: #208C84 !important;
+}
+
+.msg-body ul li.sender.color-border.line-3DC9A1 {
+    border: 1px solid #3DC9A1; 
+}
+.line-3DC9A1 span {
+    color: #3DC9A1 !important;
+}
+
+.dubai-popup strong {
+    font-weight: 700;
+}
+.modal-content.bg-over {
+    background: #fff0;
+}
 
 
 
 
+@media(max-width:1060px) {
+.left-menu-bar {
+    display: none;
+}
+center img.off-logo {
+    display: none;
+}
 
+}
+
+@media(max-width:991px) {
+.active-on { 
+    bottom:3px; 
+}
+
+
+}
+
+
+@media(max-width:767px) {
+ 
+.chatlist .modal-body.sp-top-0 {
+    padding-right: 0 !important;
+    padding: 0 2px;
+}
+.chat-list .flex-grow-1 p {
+    font-size: 14px !important;
+}
+
+}
+
+
+
+input.img-file {
+    position: absolute;
+    z-index: 4;
+    left: 60px;
+    width: 22px;
+    top: 31px;
+    opacity: 0;
+}
+img.postiotion-2.img-- {
+    top: 31px;
+}
+
+.filepond--drop-label {
+    color: #4c4e53;
+}
+
+.filepond--label-action {
+    text-decoration-color: #babdc0;
+}
+
+.filepond--panel-root {
+    border-radius: 2em;
+    background-color: #edf0f4;
+    height: 1em;
+}
+
+.filepond--item-panel {
+    background-color: #595e68;
+}
+
+.filepond--drip-blob {
+    background-color: #7f8a9a;
+}
+
+/* today woark */
+
+.upload-image img {
+    width: 100px;
+}
+
+.upload-image {
+    padding: 50px 0px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    width: 0;
+    border: none;
+    outline: none;
+    transition: width 0.5s ease-in-out;
+}
+
+.search-container input[type="text"].expand {
+    width: 70%;
+}
+
+button.collapse {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#pdf-file h3 {
+    text-align: left;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #FFFFFF;
+
+}
+
+#pdf-file p {
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding: 0px;
+
+}
+
+#bg-dark {
+    background-color: #1A7792;
+    border-radius: 15px;
+    padding: 10px;
+}

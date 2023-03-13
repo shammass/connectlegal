@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\DaysSlot;
 use App\Models\SchduledMeeting;
 use App\Models\ScheduleMeeting;
+use App\Models\LawyerConsultation;
 use App\Models\Slot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
@@ -198,6 +199,11 @@ class SlotController extends Controller
         $timeData = $request->timeData;
         // print_r($timeData['miniTime']);exit;
         return (string) view('lawyer.meeting-slot.timepicker', compact('timeData'));
+    }
+
+    public function consultationRqsts() {
+        $consultations = LawyerConsultation::whereLawyerId(auth()->user()->id)->paginate(10);
+        return view('lawyer.consultation.index', compact('consultations'));
     }
 }
 

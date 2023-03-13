@@ -17,7 +17,7 @@
                         @foreach($forumAnswers as $k => $answer)
                             <div class="single-box2">
                                 <div class="row align-items-center">
-                                    <div class="col-sm-1 col-1 img-class-same">
+                                    <div class="col-sm-1 col-1">
                                         <img src="/storage/{{$answer->getProfilePic($answer->lawyer_id)}}" class="qus">
                                     </div>
                                     <div class="col-md-5 col-5">

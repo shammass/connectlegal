@@ -39,4 +39,12 @@ class GroupMember extends Model
 
         return $unseenMsg;
     }
+
+    public function lastPost($groupId) {
+        $groupPost = Post::whereGroupId($groupId)
+        ->latest()
+        ->first();
+
+        return $groupPost ? $groupPost->created_at->diffForHumans() : 'No Post Yet';
+    }
 }

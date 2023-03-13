@@ -49,7 +49,7 @@
                     <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('hire-a-lawyer')}}">Hire Lawyer</a>
+                    <a class="nav-link" href="{{route('hire-a-lawyer')}}">Legal Service</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="lawyer.html">Lawyers</a>
@@ -67,8 +67,11 @@
                             <a href="{{route('online-chat.requests')}}" class="nav-link" style="color: white;">Online Chat Requests</a>
                         </li> -->
                         <li class="nav-item">
-                            <a href="{{route('user.logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
+                            <a class="nav-link" href="{{route('user.dashboard')}}">Dashboard</a>
                         </li>
+                        <!-- <li class="nav-item">
+                            <a href="{{route('user.logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
+                        </li> -->
                     @endif
                 @else 
                     <li class="nav-item">

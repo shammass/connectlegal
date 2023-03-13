@@ -1,355 +1,518 @@
 @extends('lawyer.home.layouts.app')
 @section('content')
-    <section #dashboard >
-        <div id="dashboard" class="px-3 py-5 dashboard font-Poppins-regular">
-            <div class="row">
-                <div class="col-8">
+<div class="working-box">
                     <div class="row">
-                        <div class="col-4 py-2">
-                            <div class="card card-darkgreen border-0 h-100 card-border-radius">
-                                <div class="card-body">
-                                    <div class="text-end">
-                                        <img src="/new-design/lawyer/assets/image/dashboard/question.png" alt="question" class="w-auto">
+                        <div class="col-xl-8 col-lg-12 mb-lg-0 mb-3">
+                            <div class="row g-4">
+                                <div class="col-lg-4 col-md-6 col-6">
+                                    <div class="booked">
+                                        <div class="text-right">
+                                            <img src="/new-design/user-dashboard/images/register/666.png" alt="">
+                                        </div>
+                                        <h5>{{$questionAnswered}}</h5>
+                                        <p>Questions Answered</p>
                                     </div>
-                                    <p class="h4 font-Poppins-regular fw-bold darkgreen-text">2,349</p>
-                                    <span class="font-Poppins-regular fw-bold darkgreen-text"><strong>Questions Answered</strong></span>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-6">
+                                    <div class="booked bg-C6EEE2">
+                                        <div class="text-right">
+                                            <img src="/new-design/user-dashboard/images/register/66.png" alt="">
+                                        </div>
+                                        <h5>4.7/5</h5>
+                                        <p>My Rating</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-6">
+                                    <div class="booked bg-EDEEC6 border-0">
+                                        <div class="text-right">
+                                            <img src="/new-design/user-dashboard/images/register/5.png" alt="">
+                                        </div>
+                                        <h6>Tips from <br>
+                                            Connect Legal</h6>
+                                        <a href="#">See more ></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-6 d-block d-lg-none">
+                                    <div class="booked bg-EDEEC6 border-0">
+                                        <div class="text-right">
+                                            <img src="/new-design/user-dashboard/images/register/666.png" alt="">
+                                        </div>
+                                        <h5>32</h5>
+                                        <p>Booked Appointments</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-4  py-2">
-                            <div class="card card-lightgreen border-0 h-100 card-border-radius">
-                                <div class="card-body">
-                                    <div class="text-end">
-                                        <img src="/new-design/lawyer/assets/image/dashboard/heart.png" alt="question" class="w-auto">
-                                    </div>
-                                    <p class="h4 font-Poppins-regular fw-bold lightgreen-text">4.7/5</p>
-                                    <p class="font-Poppins-regular fw-bold lightgreen-text">My Rating</p>
-                                </div>
+                            <div class="row">
+                                <div class="col-xl-8 col-lg-12 mt-4">
+                                    <div class="card-box">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <h3 class="sp-15">Chat Notifications </h3>
+                                            </div>
+                                            <div class="col-2 text-right  right-icons sp-15">
+                                                <i class="fa-solid fa-chart-column"></i>
+                                            </div>
+                                        </div>
+                                        <div class="hover-ef">
+                                            <div class="mb-3">
+                                                <div class="row" id="color-smae">
+                                                    @if($chatNotifications && isset($chatNotifications[0]))
+                                                        <div class="col-md-2 icon-center text-center col-3">
+                                                            <img src="/new-design/user-dashboard/images/onlie.png" alt="banner-icon-1" class="online-class1">
+                                                        </div>
+                                                        <div class="col-md-7 col-7" onclick="chatWithUser('{{$chatNotifications[0]->from_user}}')">
+                                                            <h5 class="font-22"><strong>{{$chatNotifications[0]->fromUser->name}}
+                                                            </strong></h5>
+                                                            <p class="font-20">{{$chatNotifications[0]->msg}}</p>
+                                                        </div>
+                                                        <div class="col-md-3 text-right  right-icons col-2">
+                                                            <p class="date-r">{{$chatNotifications[0]->getDateDescription($chatNotifications[0]->created_at)}}</p>
+                                                            <p class="time-r">{{date('g:i A', strtotime($chatNotifications[0]->created_at))}}</p>
+                                                            <div class="d-flex2">
+                                                                <img src="/new-design/user-dashboard/images/cheak-green.png" onclick="closeNotification('{{$chatNotifications[0]->id}}')" alt="">
+                                                                <img src="/new-design/user-dashboard/images/delete-red.png" onclick="closeNotification('{{$chatNotifications[0]->id}}')" alt="">
+                                                            </div>
+                                                        </div>
+                                                    @else 
+                                                        <div>
+                                                            <h6><center>No Notifications</center></h6>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                @foreach($chatNotifications as $k => $notification)
+                                    @if($k > 0)
+                                        <div class="hover-ef mt-3">
+                                            <div class="row" id="color-smae">
+                                                <div class="col-md-2 icon-center text-center col-3">
+                                                    <img src="/new-design/user-dashboard/images/onlie.png" alt="banner-icon-1" class="online-class1">
+                                                </div>
+                                                <div class="col-md-7 col-7" onclick="chatWithUser('{{$notification->from_user}}')">
+                                                    <h5 class="font-22"><strong>{{$notification->fromUser->name}}
+                                                    </strong></h5>
+                                                    <p class="font-20">{{$notification->msg}}</p>
+                                                </div>
+                                                <div class="col-md-3 text-right  right-icons col-2">
+                                                    <p class="date-r">{{$notification->getDateDescription($notification->created_at)}}</p>
+                                                    <p class="time-r">{{date('g:i A', strtotime($notification->created_at))}}</p>
+                                                    <div class="d-flex2">
+                                                    <img src="/new-design/user-dashboard/images/cheak-green.png" onclick="closeNotification('{{$notification->id}}')" alt="">
+                                                    <img src="/new-design/user-dashboard/images/delete-red.png" onclick="closeNotification('{{$notification->id}}')" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                                <p class="text-center Reques mt-3"><a href="#">View All Chat Notifications</a></p>
                             </div>
                         </div>
-                        <div class="col-4  py-2">
-                            <div class=" card card-yellow border-0 h-100 card-border-radius">
-                                <div class="card-body">
-                                    <div class="text-end">
-                                        <img src="/new-design/lawyer/assets/image/dashboard/info.png" alt="question" class="w-auto">
-                                    </div>
-                                    <p class="font-Poppins-regular fw-bold w-50 ">Tips from
-                                        Connect Legal</p>
-                                    <small class="font-Poppins-regular">See more ></small>
+                        <div class="col-xl-4 col-lg-12 mt-4">
+                            <div class="card-box border-0 p-0">
+                            <div class="booked bg-208C84-change" id="booked-new">
+                                <h4>New Questions</h4>
+                                <div class="row mb-3">
+                                <div class="col-2">
+                                    <h6 class="text-white">01</h6>
+                                </div>
+                                <div class="col-10">
+                                    <p>It is a long establishIt is a long established fact that a reader will be distracted?
+                                    </p>
+                                </div>
+                                </div>
+                                <div class="row mb-3">
+                                <div class="col-2">
+                                    <h6 class="text-white">02</h6>
+                                </div>
+                                <div class="col-10">
+                                    <p>It is a long establishIt is a long established fact that a reader will be distracted?
+                                    </p>
+                                </div>
+                                </div>
+                                <div class="row mb-3">
+                                <div class="col-2">
+                                    <h6 class="text-white">03</h6>
+                                </div>
+                                <div class="col-10">
+                                    <p>It is a long establishIt is a long established fact that a reader will be distracted?
+                                    </p>
+                                </div>
+                                </div>
+                                <div class="row mb-3">
+                                <div class="col-2">
+                                    <h6 class="text-white">03</h6>
+                                </div>
+                                <div class="col-10">
+                                    <p>It is a long establishIt is a long established fact that a reader will be distracted?
+                                    </p>
+                                </div>
+                                </div>
+                                <div class="row mb-3">
+                                <div class="col-2">
+                                    <h6 class="text-white">05</h6>
+                                </div>
+                                <div class="col-10">
+                                    <p>It is a long establishIt is a long established fact that a reader will be distracted?
+                                    </p>
+                                </div>
+                                </div>
+                                <div class="text-center">
+                                <a href="#" class="viwe_all text-white" style="font-weight: 600; font-size:14px;">View All</a>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Chat Notifications -->
-                        <div class="col-8  py-2">
-                            <div class="card border-0 h-100 box-card-shadow card-border-radius">
-                                <div class="card-body">
-                                    <p class="h4 fw-bold">Chat Notifications</p>
-                                    <div class="d-flex align-items-center notification_count">
-                                        <span class="notify_badge">3</span>
-                                        <img src="/new-design/lawyer/assets/image/home/Group 8.png" alt="" class="avatar">
-                                        <div class="card-profile">
-                                            <p class="h6 fw-bold mb-0">Rahmman Abdal</p>
-                                            <div class="text-secondary lh-base">It is a long establishIt is a long
-                                                established fact that a reader will be distracted by the readable....
-                                            </div>
-                                        </div>
-                                        <div class="chat-action text-end">
-                                            <div class="lh-base">Today 1:25 PM</div>
-                                            <div class="d-flex justify-content-end">
-                                                <img src="/new-design/lawyer/assets/image/dashboard/greenTick.png" alt="" class="me-2">
-                                                <img src="/new-design/lawyer/assets/image/dashboard/redDelete.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center notification_count">
-                                        <span class="notify_badge">3</span>
-                                        <img src="/new-design/lawyer/assets/image/home/Group 8.png" alt="" class="avatar">
-                                        <div class="card-profile">
-                                            <p class="h6 fw-bold mb-0">Rahmman Abdal</p>
-                                            <div class="text-secondary lh-base">It is a long establishIt is a long
-                                                established fact that a reader will be distracted by the readable....
-                                            </div>
-                                        </div>
-                                        <div class="chat-action text-end">
-                                            <div class="lh-base">Today 1:25 PM</div>
-                                            <div class="d-flex justify-content-end">
-                                                <img src="/new-design/lawyer/assets/image/dashboard/greyTick.png" alt="" class="me-2">
-                                                <img src="/new-design/lawyer/assets/image/dashboard/greyDelete.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center">
-                                        <img src="/new-design/lawyer/assets/image/home/Group 8.png" alt="" class="avatar">
-                                        <div class="card-profile">
-                                            <p class="h6 fw-bold mb-0">Rahmman Abdal</p>
-                                            <div class="text-secondary lh-base">It is a long establishIt is a long
-                                                established fact that a reader will be distracted by the readable....
-                                            </div>
-                                        </div>
-                                        <div class="chat-action text-end">
-                                            <div class="lh-base">Today 1:25 PM</div>
-                                            <div class="d-flex justify-content-end">
-                                                <img src="/new-design/lawyer/assets/image/dashboard/greyTick.png" alt="" class="me-2">
-                                                <img src="/new-design/lawyer/assets/image/dashboard/greyDelete.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="lightgreen-text font-Poppins-regular fw-bold text-center mt-4">View All</div>
-                                </div>
                             </div>
-                        </div>
-                        <!--New Questions  -->
-                        <div class="col-4 py-2">
-                            <div class="card border-0 h-100 box-card-shadow question-card card-border-radius">
-                                <div class="card-body" style="font-size: smaller;">
-                                    <p class="h4 fw-bold text-white font-Poppins-regular">New Questions</p>
-                                    <div class="d-flex text-white lh-base font-Poppins-regular mb-2">
-                                        <div class="pe-2">01</div>
-                                        <div>It is a long establishIt is a long established fact that a reader will be
-                                            distracted?
-                                        </div>
-                                    </div>
-                                    <div class="d-flex text-white lh-base font-Poppins-regular mb-2">
-                                        <div class="pe-2">02</div>
-                                        <div>It is a long establishIt is a long established fact that a reader will be
-                                            distracted?
-                                        </div>
-                                    </div>
-                                    <div class="d-flex text-white lh-base font-Poppins-regular mb-2">
-                                        <div class="pe-2">03</div>
-                                        <div>It is a long establishIt is a long established fact that a reader will be
-                                            distracted?
-                                        </div>
-                                    </div>
-                                    <div class="d-flex text-white lh-base font-Poppins-regular mb-2">
-                                        <div class="pe-2">04</div>
-                                        <div>It is a long establishIt is a long established fact that a reader will be
-                                            distracted?
-                                        </div>
-                                    </div>
-                                    <div class="d-flex text-white lh-base font-Poppins-regular mb-2">
-                                        <div class="pe-2">05</div>
-                                        <div>It is a long establishIt is a long established fact that a reader will be
-                                            distracted?
-                                        </div>
-                                    </div>
-                                    <div class="text-white font-Poppins-regular fw-bold text-center mt-4">View All</div>
-
-
-                                </div>
-                            </div>
-                        </div>
+                    </div>
                     </div>
                 </div>
-                <!-- Your To-Do List -->
-                <div class="col-3 py-2">
-                    <div class="card border-0 h-100 box-card-shadow card-border-radius">
-                        <div class="card-body">
-                            <p class="h4 fw-bold">Your To-Do List</p>
-                            <div class="d-flex align-items-center my-3">
-                                <div class="urgent todo me-3">
-                                    <img src="/new-design/lawyer/assets/image/dashboard/urgent.png" alt="meesage" class="w-auto">
-                                </div>
-                                <div>
-                                    <p class="h6 fw-bold">Send Message to Devi</p>
-                                    <div class="text-secondary">March 06 at 9:00 am</div>
-                                </div>
+                <div class="col-xl-4  col-lg-12 mb-lg-0 mb-3 mt-lg-0 mt-3">
+                    <div class="height-cover">
+                    <div class="bookedd" id="listbox">
+                        <h4>Your To-Do List</h4>
+                        <div class="row mb-3 align-items-center">
+                        <div class="col-3">
+                            <div class="color-1">
+                            <h6><img src="/new-design/user-dashboard/images/dashcopy/Group.png" alt=""></h6>
                             </div>
-                            <div class="d-flex align-items-center my-3">
-                                <div class="message todo me-3">
-                                    <img src="/new-design/lawyer/assets/image/dashboard/message.png" alt="meesage" class="w-auto">
-                                </div>
-                                <div>
-                                    <p class="h6 fw-bold">Send Message to Devi</p>
-                                    <div class="text-secondary">March 06 at 9:00 am</div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center my-3">
-                                <div class="copy todo me-3">
-                                    <img src="/new-design/lawyer/assets/image/dashboard/copy.png" alt="meesage" class="w-auto">
-                                </div>
-                                <div>
-                                    <p class="h6 fw-bold">Send Message to Devi</p>
-                                    <div class="text-secondary">March 06 at 9:00 am</div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center my-3">
-                                <div class="meeting todo me-3">
-                                    <img src="/new-design/lawyer/assets/image/dashboard/meeting.png" alt="meesage" class="w-auto">
-                                </div>
-                                <div>
-                                    <p class="h6 fw-bold">Send Message to Devi</p>
-                                    <div class="text-secondary">March 06 at 9:00 am</div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center my-3 ">
-                                <div class="message todo me-3">
-                                    <img src="/new-design/lawyer/assets/image/dashboard/message.png" alt="meesage" class="w-auto">
-                                </div>
-                                <div>
-                                    <p class="h6 fw-bold">Send Message to Devi</p>
-                                    <div class="text-secondary">March 06 at 9:00 am</div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center my-3">
-                                <div class="email todo me-3">
-                                    <img src="/new-design/lawyer/assets/image/dashboard/email.png" alt="meesage" class="w-auto">
-                                </div>
-                                <div>
-                                    <p class="h6 fw-bold">Send Message to Devi</p>
-                                    <div class="text-secondary">March 06 at 9:00 am</div>
-                                </div>
-                            </div>
-                            <div class="lightgreen-text font-Poppins-regular fw-bold text-center mt-4">View All</div>
-
-
                         </div>
+                        <div class="col-9">
+                            <span>Urgent Alejandro’s Call</span>
+                            <p>March 06 at 9:00 am
+                            </p>
+                        </div>
+                        </div>
+                        <div class="row mb-3 align-items-center">
+                        <div class="col-3">
+                            <div class="color-1 color-bg1">
+                            <h6> <img src="/new-design/user-dashboard/images/dashcopy/Vector (6).png" alt=""> </h6>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <span>Send Message to Devi</span>
+                            <p>March 06 at 9:00 am
+                            </p>
+                        </div>
+                        </div>
+                        <div class="row mb-3 align-items-center">
+                        <div class="col-3">
+                            <div class="color-1 color-bg2">
+                            <h6> <img src="/new-design/user-dashboard/images/dashcopy/Vector (7).png" alt=""></h6>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <span>Make Copy of VISA</span>
+                            <p>March 06 at 9:00 am
+                            </p>
+                        </div>
+                        </div>
+                        <div class="row mb-3 align-items-center">
+                        <div class="col-3">
+                            <div class="color-1 color-bg3">
+                            <h6> <img src="/new-design/user-dashboard/images/dashcopy/material-symbols_video-chat-rounded.png" alt=""> </h6>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <span>Meeting with Customer</span>
+                            <p>March 06 at 9:00 am
+                            </p>
+                        </div>
+                        </div>
+                        <div class="row mb-3 align-items-center">
+                        <div class="col-3">
+                            <div class="color-1">
+                            <h6> <img src="/new-design/user-dashboard/images/dashcopy/Vector (8).png" alt=""></h6>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <span>Send Message to Kate Jm</span>
+                            <p>March 06 at 9:00 am
+                            </p>
+                        </div>
+                        </div>
+                        <div class="row mb-3 align-items-center">
+                        <div class="col-3">
+                            <div class="color-1 color-bg5">
+                            <h6> <img src="/new-design/user-dashboard/images/dashcopy/ic_twotone-attach-email.png" alt=""></h6>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <span>Check email of Prabhjas</span>
+                            <p>March 06 at 9:00 am
+                            </p>
+                        </div>
+                        </div>
+                        <div class="text-center">
+                        <a href="#" class="viwe_all"> View All</a>
+                        </div>
+                    </div>
                     </div>
                 </div>
-                <!-- RECENT ARTICLES slider -->
-                <div class="col-8 py-2">
-                    <div class="w3-content w3-display-container position-relative box-card-shadow border-0  card-border-radius card pe-3">
-
-                        <div class="mySlides " style="width: 100%;">
-                            <div class="d-flex">
-                                <img src="/new-design/lawyer/assets/image/dashboard/RectangleCopy.png" class="image-slide">
-                                <div class="mx-3 position-relative py-3">
-                                    <div style="color:#3DC9A1" class="">RECENT ARTICLES</div>
-                                    <p class="h6 fw-bold my-3">VISA Inmigration to Dubai, UAE</p>
-                                    <div class="text-secondary lh-base">
-                                        It is a long established fact that a reader will be distracted by the readable
-                                        content of a page when looking at its layout. The point of using Lorem Ipsum is that
-                                        it has a more-or-less normal distribution of letters, as opposed to using 'Content
-                                        here, content here', making it look like readable English.
-
-                                    </div>
-                                    <div class="d-flex justify-content-between text-secondary w-100"
-                                        style="position:absolute;bottom:20px">
-                                        <div><b>Autor:</b> Alejandro M.</div>
-                                        <div> <b>Created: </b> 12 Dic 2022 - 12:56 pm</div>
-                                    </div>
+                </div>
+                <div class="row g-4">
+                <div class="col-xl-8 col-lg-12 mb-lg-0 mb-3" id="swiperdemoclass">
+                    <div class="swiper mySwiper d-none d-md-block">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                        <div class="row" id="border-class">
+                            <div class="col-md-4 p-0">
+                            <div class="img-swiper">
+                                <img src="/new-design/user-dashboard/images/baba.png" alt="">
+                            </div>
+                            </div>
+                            <div class="col-md-8">
+                            <div class="padding-cover">
+                                <span>RECENT ARTICLES</span>
+                                <h5>VISA Inmigration to Dubai, UAE</h5>
+                                <p>It is a long established fact that a reader will be
+                                distracted by the readable content of a page when looking
+                                at its layout. The point of using Lorem Ipsum is that it has a
+                                more-or-less normal distribution of letters, as opposed to using
+                                'Content here, content here', making it look like readable English.</p>
+                                <div class="row">
+                                <div class="col-sm-4">
+                                    <p> <strong>Autor:</strong> Alejandro M.</p>
+                                </div>
+                                <div class="col-sm-8">
+                                    <p> <strong></strong> 12 Dic 2022 - 12:56 pm</p>
+                                </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="mySlides card-border-radius" style="width: 100%;">
-                            <div class="d-flex">
-                                <img src="/new-design/lawyer/assets/image/dashboard/RectangleUrgent.png" class="image-slide">
-                                <div class="mx-3 position-relative py-3">
-                                    <div style="color:#3DC9A1" class="">RECENT ARTICLES</div>
-                                    <p class="h6 fw-bold my-3">VISA Inmigration to Dubai, UAE</p>
-                                    <div class="text-secondary lh-base">
-                                        It is a long established fact that a reader will be distracted by the readable
-                                        content of a page when looking at its layout. The point of using Lorem Ipsum is that
-                                        it has a more-or-less normal distribution of letters, as opposed to using 'Content
-                                        here, content here', making it look like readable English.
-
-                                    </div>
-                                    <div class="d-flex justify-content-between text-secondary w-100"
-                                        style="position:absolute;bottom:20px">
-                                        <div><b>Autor:</b> Alejandro M.</div>
-                                        <div> <b>Created: </b> 12 Dic 2022 - 12:56 pm</div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                        <div class="mySlides " style="width: 100%;">
-                            <div class="d-flex">
-                                <img src="/new-design/lawyer/assets/image/dashboard/RectangleEmail.png" class="image-slide">
-                                <div class="mx-3 position-relative py-3">
-                                    <div style="color:#3DC9A1" class="">RECENT ARTICLES</div>
-                                    <p class="h6 fw-bold my-3">VISA Inmigration to Dubai, UAE</p>
-                                    <div class="text-secondary lh-base">
-                                        It is a long established fact that a reader will be distracted by the readable
-                                        content of a page when looking at its layout. The point of using Lorem Ipsum is that
-                                        it has a more-or-less normal distribution of letters, as opposed to using 'Content
-                                        here, content here', making it look like readable English.
-
-                                    </div>
-                                    <div class="d-flex justify-content-between text-secondary w-100"
-                                        style="position:absolute;bottom:20px">
-                                        <div><b>Autor:</b> Alejandro M.</div>
-                                        <div> <b>Created: </b> 12 Dic 2022 - 12:56 pm</div>
-                                    </div>
+                        </div>
+                        <div class="swiper-slide">
+                        <div class="row" id="border-class">
+                            <div class="col-md-4 p-0">
+                            <div class="img-swiper">
+                                <img src="/new-design/user-dashboard/images/baba.png" alt="">
+                            </div>
+                            </div>
+                            <div class="col-md-8">
+                            <div class="padding-cover">
+                                <span>RECENT ARTICLES</span>
+                                <h5>VISA Inmigration to Dubai, UAE</h5>
+                                <p>It is a long established fact that a reader will be
+                                distracted by the readable content of a page when looking
+                                at its layout. The point of using Lorem Ipsum is that it has a
+                                more-or-less normal distribution of letters, as opposed to using
+                                'Content here, content here', making it look like readable English.</p>
+                                <div class="row">
+                                <div class="col-sm-4">
+                                    <p> <strong>Autor:</strong> Alejandro M.</p>
+                                </div>
+                                <div class="col-sm-8">
+                                    <p> <strong></strong> 12 Dic 2022 - 12:56 pm</p>
+                                </div>
                                 </div>
                             </div>
+                            </div>
                         </div>
+                        </div>
+                        <div class="swiper-slide">
+                        <div class="row" id="border-class">
+                            <div class="col-md-4 p-0">
+                            <div class="img-swiper">
+                                <img src="/new-design/user-dashboard/images/baba.png" alt="">
+                            </div>
+                            </div>
+                            <div class="col-md-8">
+                            <div class="padding-cover">
+                                <span>RECENT ARTICLES</span>
+                                <h5>VISA Inmigration to Dubai, UAE</h5>
+                                <p>It is a long established fact that a reader will be
+                                distracted by the readable content of a page when looking
+                                at its layout. The point of using Lorem Ipsum is that it has a
+                                more-or-less normal distribution of letters, as opposed to using
+                                'Content here, content here', making it look like readable English.</p>
+                                <div class="row">
+                                <div class="col-sm-4">
+                                    <p> <strong>Autor:</strong> Alejandro M.</p>
+                                </div>
+                                <div class="col-sm-8">
+                                    <p> <strong></strong> 12 Dic 2022 - 12:56 pm</p>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="swiper-slide">
+                        <div class="row" id="border-class">
+                            <div class="col-md-4 p-0">
+                            <div class="img-swiper">
+                                <img src="/new-design/user-dashboard/images/baba.png" alt="">
+                            </div>
+                            </div>
+                            <div class="col-md-8">
+                            <div class="padding-cover">
+                                <span>RECENT ARTICLES</span>
+                                <h5>VISA Inmigration to Dubai, UAE</h5>
+                                <p>It is a long established fact that a reader will be
+                                distracted by the readable content of a page when looking
+                                at its layout. The point of using Lorem Ipsum is that it has a
+                                more-or-less normal distribution of letters, as opposed to using
+                                'Content here, content here', making it look like readable English.</p>
+                                <div class="row">
+                                <div class="col-sm-4">
+                                    <p> <strong>Autor:</strong> Alejandro M.</p>
+                                </div>
+                                <div class="col-sm-8">
+                                    <p> <strong></strong> 12 Dic 2022 - 12:56 pm</p>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    </div>
 
-                        <div
-                            class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle slider-right">
-                            <span class="w3-badge demo w3-border w3-transparent w3-hover-white my-1"
-                                onclick="currentDiv(1)"></span>
-                            <span class="w3-badge demo w3-border w3-transparent w3-hover-white my-1"
-                                onclick="currentDiv(2)"></span>
-                            <span class="w3-badge demo w3-border w3-transparent w3-hover-white my-1"
-                                onclick="currentDiv(3)"></span>
+                    <div class="demo d-block d-md-none">
+                    <div class="container">
+                        <div class="row">
+                        <div class="col-md-12">
+                            <div id="testimonial-slider" class="owl-carousel">
+                            <div class="testimonial">
+                                <div class="row py-5">
+                                <div class="col-md-4 ">
+                                    <div class="img-swiper">
+                                    <img src="/new-design/user-dashboard/images/baba.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="padding-cover mt-lg-0 mt-4">
+                                    <span>RECENT ARTICLES</span>
+                                    <h5>VISA Inmigration to Dubai, UAE</h5>
+                                    <p>It is a long established fact that a reader will be
+                                        distracted by the readable content of a page when looking
+                                        at its layout. The point of using Lorem Ipsum is that it has a
+                                        more-or-less normal distribution of letters, as opposed to using
+                                        'Content here, content here', making it look like readable English.</p>
+                                    <div class="row">
+                                        <div class="col-md-4 col-12">
+                                        <p> <strong>Autor:</strong> Alejandro M.</p>
+                                        </div>
+                                        <div class="col-md-8 col-12">
+                                        <p> <strong></strong> 12 Dic 2022 - 12:56 pm</p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="testimonial">
+                                <div class="row py-5">
+                                <div class="col-md-4 ">
+                                    <div class="img-swiper">
+                                    <img src="/new-design/user-dashboard/images/baba.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="padding-cover mt-lg-0 mt-4">
+                                    <span>RECENT ARTICLES</span>
+                                    <h5>VISA Inmigration to Dubai, UAE</h5>
+                                    <p>It is a long established fact that a reader will be
+                                        distracted by the readable content of a page when looking
+                                        at its layout. The point of using Lorem Ipsum is that it has a
+                                        more-or-less normal distribution of letters, as opposed to using
+                                        'Content here, content here', making it look like readable English.</p>
+                                    <div class="row">
+                                        <div class="col-md-4 col-12">
+                                        <p> <strong>Autor:</strong> Alejandro M.</p>
+                                        </div>
+                                        <div class="col-md-8 col-12">
+                                        <p> <strong></strong> 12 Dic 2022 - 12:56 pm</p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="testimonial">
+                                <div class="row py-5">
+                                <div class="col-md-4 ">
+                                    <div class="img-swiper">
+                                    <img src="/new-design/user-dashboard/images/baba.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="padding-cover mt-lg-0 mt-4">
+                                    <span>RECENT ARTICLES</span>
+                                    <h5>VISA Inmigration to Dubai, UAE</h5>
+                                    <p>It is a long established fact that a reader will be
+                                        distracted by the readable content of a page when looking
+                                        at its layout. The point of using Lorem Ipsum is that it has a
+                                        more-or-less normal distribution of letters, as opposed to using
+                                        'Content here, content here', making it look like readable English.</p>
+                                    <div class="row">
+                                        <div class="col-md-4 col-12">
+                                        <p> <strong>Autor:</strong> Alejandro M.</p>
+                                        </div>
+                                        <div class="col-md-8 col-12">
+                                        <p> <strong></strong> 12 Dic 2022 - 12:56 pm</p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="testimonial">
+                                <div class="row py-5">
+                                <div class="col-md-4 ">
+                                    <div class="img-swiper">
+                                    <img src="/new-design/user-dashboard/images/baba.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="padding-cover mt-lg-0 mt-4">
+                                    <span>RECENT ARTICLES</span>
+                                    <h5>VISA Inmigration to Dubai, UAE</h5>
+                                    <p>It is a long established fact that a reader will be
+                                        distracted by the readable content of a page when looking
+                                        at its layout. The point of using Lorem Ipsum is that it has a
+                                        more-or-less normal distribution of letters, as opposed to using
+                                        'Content here, content here', making it look like readable English.</p>
+                                    <div class="row">
+                                        <div class="col-md-4 col-12">
+                                        <p> <strong>Autor:</strong> Alejandro M.</p>
+                                        </div>
+                                        <div class="col-md-8 col-12">
+                                        <p> <strong></strong> 12 Dic 2022 - 12:56 pm</p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
                         </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
-                <!-- Write your own article -->
-                <div class="col-3 py-2">
-                    <div class="card border-0 h-100 card-border-radius" style="background-color:#3DC9A1">
-                        <div class="card-body">
-                            <div class="editArticle">
-                                <img src="/new-design/lawyer/assets/image/dashboard/edit.png" alt="" class="w-auto">
-                            </div>
-                            <p class="h4 fw-bold">Write your own article</p>
-                            <p class="text-white">Write one article</p>
 
-                        </div>
+                <div class="col-lg-4 col-md-6 col-6 d-none d-xl-block">
+                    <div class="booked bg-EDEEC6 height-same border-0">
+                    <div class="text-start" id="booked-white">
+                        <img src="/new-design/user-dashboard/images/cheak1.png" alt="" class="img-responsive mb-3">
+                    <p>Write your own article</p>
+                    <span>Write one article</span>
                     </div>
+                </div>
+
                 </div>
             </div>
-        </div>
-        <!-- Slider scripts -->
-        <script>
-            var slideIndex = 1;
-            showDivs(slideIndex);
-
-            function currentDiv(n) {
-                showDivs(slideIndex = n);
-            }
-
-            function showDivs(n) {
-                var i;
-                var x = document.getElementsByClassName("mySlides");
-                var dots = document.getElementsByClassName("demo");
-                if (n > x.length) { slideIndex = 1 }
-                if (n < 1) { slideIndex = x.length }
-                for (i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" w3-white", "");
-                }
-                x[slideIndex - 1].style.display = "block";
-                dots[slideIndex - 1].className += " w3-white";
-            }
-        </script>
-    </section>
 @endsection
 @push('script')
     <script>
-        var slideIndex = 1;
-        showDivs(slideIndex);
-
-        function currentDiv(n) {
-            showDivs(slideIndex = n);
+        function chatWithUser(userId) {
+            window.open("/online-chat/"+userId, "_blank");    
         }
 
-        function showDivs(n) {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("demo");
-            if (n > x.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = x.length }
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" w3-white", "");
-            }
-            x[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " w3-white";
+        function closeNotification(notificationId) {
+            window.location.href = "/lawyer/close-notification/"+notificationId
         }
     </script>
 @endpush

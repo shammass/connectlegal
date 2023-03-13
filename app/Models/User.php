@@ -26,6 +26,7 @@ class User extends Authenticatable
         'prefix',
         'user_type',
         'messenger_color',
+        'email_verified_at',
     ];
 
     /**
@@ -77,4 +78,29 @@ class User extends Authenticatable
         $lawyer = Lawyer::whereUserId($userId)->first();
         return $lawyer->arbitration->area;
     }
+
+    public function latestMsg($userId) {
+        $latest = ChMessage::where('from_id', auth()->user()->id)
+                ->where('to_id', $userId)
+                ->orWhere('from_id', $userId)
+                ->where('to_id', auth()->user()->id)
+                ->latest()
+                ->first();
+        if($latest && strlen($latest->body) > 10) {
+            return substr($latest->body, 0, 10).'...';
+        }else {
+            return $latest ? substr($latest->body, 0, 10) : '-';
+        }
+        return null;
+    } 
+
+    public function latestMsgCreatedAt($userId) {
+        $latest = ChMessage::where('from_id', auth()->user()->id)
+                ->where('to_id', $userId)
+                ->orWhere('from_id', $userId)
+                ->where('to_id', auth()->user()->id)
+                ->latest()
+                ->first();
+        return $latest ? date('g:i A', strtotime($latest->created_at)) : '';
+    } 
 }

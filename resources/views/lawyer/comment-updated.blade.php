@@ -1,33 +1,26 @@
-@foreach($comments as $k => $comment)
-    <div class="main-comment">
-        <div class="media">
-            <a href="#" class="user-img popover-cls"
-                data-bs-toggle="popover" data-placement="right"
-                data-name="{{$comment->user->name}}"
-                data-img="/storage/{{$comment->getLawyerProfilePic($comment->user_id)}}" 
-                style="background-image: url(/storage/{{$comment->getLawyerProfilePic($comment->user_id)}});
-                        background-size: cover;
-                        background-position: center center;
-                        background-repeat: no-repeat;
-                        display: block;"
-                >
-                <img src="/storage/{{$comment->getLawyerProfilePic($comment->user_id)}}"
-                    class="img-fluid blur-up lazyload bg-img"
-                    alt="user"
-                    style="display:none;"
-                    >
-            </a>
-            <div class="media-body">
-                <a href="#">
-                    <h5>{{$comment->user->name}}</h5>
-                </a>
-                <p>
-                    {{$comment->comment}}
-                </p>
-            </div>
-            <div class="comment-time">
-                <h6>{{$comment->created_at->diffForHumans()}}</h6>
+<div class="row align-items-center mt-3">
+    <div class="col-sm-12">
+        <div class="user-nav">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row ">
+                        <div class="col-lg-1 col-md-2 col-2 p-0">
+                            <div class="round-user">
+                                <img src="/storage/{{$comment->getLawyerProfilePic($comment->user_id)}}"
+                                    alt="question-1" class="user-li">
+                                <!-- <span class="round"></span> -->
+                            </div>
+                        </div>
+                        <div class="col-lg-11 col-md-10 col-10 names color-change"
+                            id="color-chat">
+                            <p class="font-name"> {{$comment->user->name}}</p>
+                            <span class="font-ad">{{$comment->user->getEmirates($comment->user_id)}}</span>
+                            <span>{{$comment->created_at->diffForHumans()}}</span>
+                            <p>{{$comment->comment}}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-@endforeach
+</div>

@@ -143,7 +143,7 @@
                                                     </div>
                                                     <div class="col-md-3 col-12 mb-lg-0 mb-4">
                                                         <div class="btn-hire" onclick="closePrevModal('{{$lawyer->id}}')" data-bs-toggle="modal" data-bs-target="#consult-{{$lawyer->id}}">
-                                                            <button class="btn1-hire">  <img src="/new-design/assets/images/Group1.png" alt=""> hire</button>
+                                                            <button class="btn1-hire">  <img src="/new-design/assets/images/Group1.png" alt=""> Consult</button>
                                                         </div>
                                                     </div>
                                                 </div>

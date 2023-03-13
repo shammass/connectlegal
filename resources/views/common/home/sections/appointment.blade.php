@@ -143,8 +143,10 @@
                   <h4>FEATURES</h4>
                   <h2><span class="span-color-dark">Ask & Book Appointments</span> with Multiple Lawyers</h2>
                   <p class="font-20">
-                    Make an appointment with Advocates and Legal consultancy, Today! or chat with a lawyer online for
-                    free in Dubai and across UAE now, We work on a wide range of legal matters. Our legal Services.
+                    At Connect Legal, we understand that legal matters can be complex and overwhelming, and seeking professional assistance is essential. Our Platform will connect you to the top Legal Service Providers to cater to all your legal-related needs.
+                  </p>
+                  <p class="font-20">
+                  Contact us today to schedule your appointment and take the first step towards resolving your legal matter!
                   </p>
                   <div class="btn-group mt-3 hov-zoom" role="group" aria-label="Basic example">
                     <a class="btn btn-208C84">Contact now</a>

@@ -4,7 +4,7 @@
           <div class="col-lg-6 col-md-12">
             <div class="why-b">
               <h2>Why Register?</h2>
-              <p>Keep the history of all your chats, questions and callback requests. Adding a lorem ipsum here.</p>
+              <p>Register with Connect Legal and get access to a larger client base now! Register now and get access to our Legal services instantly!</p>
               <p><a href="#" class="circle-right"><i class="fa-solid fa-circle-right"></i></a></p>
             </div>
           </div>
@@ -52,10 +52,9 @@
                     <img src="/new-design/assets/images/legal--2.png" alt="legal--2" class="legal-2-">
                     <div class="you-a">
                       <h3>Are you a Lawyer?</h3>
-                      <p>Be found. Register with us and get new leads every day. Adding more lorem ipsum and will be
-                        remplaced for the final text.</p>
+                      <p>Be found. Register with us and get access to new leads every day.</p>
                       <div class="btn-group mt-3 hov-zoom" role="group" aria-label="Basic example">
-                        <a class="btn btn-208C84">Register</a>
+                        <a class="btn btn-208C84" href="{{route('lawyer.register-page')}}">Register</a>
                         <a class="btn btn-3cc7a0"><i class="fa-solid fa-arrow-right"></i></a>
                       </div>
                     </div>

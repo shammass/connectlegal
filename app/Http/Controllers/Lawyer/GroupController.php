@@ -18,15 +18,26 @@ use Str;
 
 class GroupController extends Controller
 {
-    public function groups() {
+    public function groups($sort = null) {
+        // sort = asc
+        $sort2 = 'desc';
+        if(!$sort) {
+            $sort = "desc";
+        }else {
+            if($sort === "desc2" || $sort === "asc2") {
+                $sort2 = $sort === "desc2" ? "desc" : "asc";
+                $sort = "desc";
+            }
+        }
+
         $user = auth()->user();
         $groupsByMe = Group::whereAdminId($user->id)
-        ->orderBy('created_at', 'DESC')
+        ->orderBy('updated_at', $sort)
         ->paginate(4, '*', 'groups-created-by-me');
         
         $groupsIamIn = GroupMember::whereMemberId($user->id)
-        ->orderBy('created_at', 'DESC')
-        ->paginate(4, '*', 'groups-im-in');
+        ->orderBy('updated_at', $sort2)
+        ->paginate(2, '*', 'groups-im-in');
         
         $lawyers = Lawyer::where([
             ['user_id', '!=', $user->id],
@@ -34,7 +45,7 @@ class GroupController extends Controller
         ])->get();
 
         // return view('lawyer.community.groups.index', compact('groupsByMe', 'groupsIamIn', 'lawyers'));
-        return view('lawyer.pages.community.groups.list', compact('groupsByMe', 'groupsIamIn', 'lawyers'));
+        return view('lawyer.pages.community.groups.list', compact('groupsByMe', 'groupsIamIn', 'lawyers', 'sort', 'sort2'));
     }
 
     public function store(Request $request) {
@@ -106,9 +117,24 @@ class GroupController extends Controller
 
     public function groupChat($groupId) {
         $groupMembers = GroupMember::whereGroupId($groupId)->get();
-        $group = Group::whereId($groupId)->first();
+        $groupDetail = Group::whereId($groupId)->first();
         $messages = GroupMessages::whereGroupId($groupId)->get();
-        return view('lawyer.community.groups.chat', compact('groupMembers', 'groupId', 'group', 'messages'));
+        
+        $allGroups = Group::whereIn('id', function ($query) {
+            // Find groups the user is a member of
+            $query->select('group_id')
+                ->from('group_members')
+                ->where('member_id', '=', auth()->user()->id);
+        })
+        ->orWhere('admin_id', '=', auth()->user()->id)
+        ->withCount(['members as member_count'])
+        ->with(['members' => function ($query) {
+            // Fetch group members for each group
+            $query->where('member_id', '=', auth()->user()->id);
+        }])
+        ->get();
+        
+        return view('lawyer.community.groups.chat', compact('groupMembers', 'groupId', 'groupDetail', 'messages', 'allGroups'));
     }
 
     public function sendGroupMessage(Request $request, $groupId) {

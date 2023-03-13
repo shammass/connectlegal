@@ -15,6 +15,12 @@ class Group extends Model
         'about',
         'active',
     ];
+    
+    
+    public function members()
+    {
+        return $this->hasMany(GroupMember::class);
+    }
 
     public function admin() {
         return $this->belongsTo(User::class, 'admin_id');
@@ -37,5 +43,32 @@ class Group extends Model
         ])->count();
 
         return $unseenMsg;
+    }
+
+    public function getLatestGroupMsg($groupId) {
+        $latestMsg = GroupMessages::whereGroupId($groupId)->latest()->first();
+        return $latestMsg ? $latestMsg->body : '-';
+    }
+
+    public function getLatestGroupMsgDate($groupId) {
+        $latestMsg = GroupMessages::whereGroupId($groupId)->latest()->first();
+        return $latestMsg ? $latestMsg->created_at->diffForHumans() : null;
+    }
+
+    public function lastPost($groupId) {
+        $groupPost = Post::whereGroupId($groupId)
+        ->latest()
+        ->first();
+
+        return $groupPost ? $groupPost->created_at->diffForHumans() : "No Posts Yet";
+    }
+
+    public function getMembers($groupId) {
+        $members = GroupMember::whereGroupId($groupId)->get();
+        $mem = [];
+        foreach($members as $k => $member) {
+            $mem[] = $member->member->name;
+        }
+        return implode(', ', $mem);
     }
 }
