@@ -131,7 +131,7 @@ class ChatController extends Controller
     }
 
     public function getLatestMsg($userId) {
-        return Message::where('from_id', auth()->user()->id)
+        return ChMessage::where('from_id', auth()->user()->id)
         ->where('to_id', $userId)
         ->orWhere('from_id', $userId)
         ->where('to_id', auth()->user()->id)
