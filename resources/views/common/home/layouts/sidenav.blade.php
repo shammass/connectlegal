@@ -302,7 +302,7 @@
                                                                     <ul>
                                                                         <!-- <li>25 Years of experience</li> -->
                                                                         <li> {{$lawyer->position}}</li>
-                                                                        <li> {{$lawyer->arbitration->area}}</li>
+                                                                        <li> {{$lawyer->arbitration ? $lawyer->arbitration->area : '-'}}</li>
                                                                         <li> {{$lawyer->emirates}}</li>
                                                                         <li> {{$lawyer->getLanguages($lawyer->id)}}</li>
                                                                     </ul>
