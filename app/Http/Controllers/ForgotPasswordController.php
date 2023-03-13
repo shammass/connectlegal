@@ -86,7 +86,7 @@ class ForgotPasswordController extends Controller
                 ]
             ]
         ];
-        $mj->post(Resources::$email, ['body' => $body]);
+        $mj->post(Resources::$Email, ['body' => $body]);
         Session::put('success', 'success');
         Session::put('email', $email);
     }
