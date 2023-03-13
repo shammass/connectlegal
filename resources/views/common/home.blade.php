@@ -104,6 +104,10 @@
         window.location.href = "/question-answers/desc";
     }
 
+    function legalBlogs() {
+        window.location.href = "/blogs-articles/1";
+    }
+
     var success = true
     var emailStatus = {{ Session::get('success') ?? $nothing }};
     
