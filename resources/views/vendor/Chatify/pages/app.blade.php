@@ -397,6 +397,13 @@
             }
         });
 
+        var input = document.getElementById("msgInput");
+input.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+      event.preventDefault();
+      sendMessage()
+  }
+});
 
         function sendMessage() {
             

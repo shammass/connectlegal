@@ -49,7 +49,7 @@
                     <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('hire-a-lawyer')}}">Legal Service</a>
+                    <a class="nav-link" href="{{route('hire-a-lawyer')}}">Lawyer Service</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('our-lawyers')}}">Our Lawyers</a>

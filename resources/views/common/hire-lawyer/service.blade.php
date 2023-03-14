@@ -5,12 +5,12 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 col-xl-8 col-lg-6">
-                    <h1 class="alt-font text-extra-dark-gray font-weight-500 no-margin-bottom text-center text-lg-start">Legal Services</h1>
+                    <h1 class="alt-font text-extra-dark-gray font-weight-500 no-margin-bottom text-center text-lg-start">Lawyer Services</h1>
                 </div>
                 <div class="col-12 col-xl-4 col-lg-6 breadcrumb justify-content-center justify-content-lg-end text-small alt-font md-margin-10px-top">
                     <ul class="xs-text-center">
                         <li><a href="/">Home</a></li>
-                        <li>Legal Services</li>
+                        <li>Lawyer Services</li>
                     </ul>
                 </div>
             </div>
@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12 text-center margin-seven-bottom">
-                    <h6 class="alt-font text-extra-dark-gray font-weight-500">Legal Services</h6>
+                    <h6 class="alt-font text-extra-dark-gray font-weight-500">Lawyer Services</h6>
                 </div>
             </div>
             <div class="row row-cols-2 row-cols-md-2 row-cols-sm-6">

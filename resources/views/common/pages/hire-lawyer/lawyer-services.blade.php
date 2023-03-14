@@ -4,7 +4,7 @@
       <div class="container py-5" id="content-flex">
         <div class="row">
           <div class="col-md-6 postn-icn">
-            <h1 class="moni"><span class="tst">Legal Services</span></h1>
+            <h1 class="moni"><span class="tst">Lawyer Services</span></h1>
           </div>
           <div class="col-md-6 text-end">
             <img src="/new-design/assets/images/sotket.png" class="vctr"><br>

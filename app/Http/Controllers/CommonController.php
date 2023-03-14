@@ -619,7 +619,7 @@ class CommonController extends Controller
         $html = View::make('emails.chat-request-to-lawyer', ['lawyerName' => $chatRequest->lawyer->user->name, 
                                                                 'userName' => auth()->user()->name,
                                                                 'area' => $chatRequest->lawyer->arbitration->area])->render();
-        $this->sendEmail($request->email, 'New Chat Request from '.auth()->user()->name.' on Connect Legal', $html);
+        $this->sendEmail($chatRequest->lawyer->user->email, 'New Chat Request from '.auth()->user()->name.' on Connect Legal', $html);
 
         Alert::success('Success', 'Your chat request has been submitted successfully');
         return redirect()->back();

@@ -44,7 +44,7 @@
                             <li><a href="{{route('blogs-articles', 1)}}"><i class="fa-solid fa-book"></i> Blogs & Articles</a>
                             </li>
                             <li><a href="{{route('hire-a-lawyer')}}"><i class="fa-solid fa-address-card"></i>
-                                Legal Service</a></li>
+                                Lawyer Service</a></li>
                             <li><a href="#"><i class="fa-solid fa-gavel"></i> Legal Articles</a></li>
                             @if(auth()->user())                      
                                 @if(auth()->user()->user_type == 2)

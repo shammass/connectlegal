@@ -216,7 +216,7 @@
                                     <li><a href="#"><i class="fa-solid fa-user"></i> Lawyers</a></li>
                                     <li><a href="#"><i class="fa-solid fa-scale-balanced"></i> Practice Area</a></li>
                                     <li><a href="#"><i class="fa-solid fa-book"></i> Blogs & Articles</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-address-card"></i>Legal Services</a></li>
+                                    <li><a href="#"><i class="fa-solid fa-address-card"></i>Lawyer Services</a></li>
                                     <li><a href="#"><i class="fa-solid fa-gavel"></i> Legal Articles</a></li>
                                     <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Login</a></li>
                                 </ul>
