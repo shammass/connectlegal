@@ -5219,7 +5219,14 @@ img.off-logo {
     right: -20px;
 }
 }
+.bk {
+    background: #C2DDE4;
+    border-radius: 15px;
+    padding: 31px;
+}
 
-
-
+.question-text.bg-1:hover {
+    background: #E8F8F2;
+    border: 1px solid #3DC9A1;
+}
 

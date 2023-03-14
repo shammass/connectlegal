@@ -4797,7 +4797,7 @@ h4.book-text.font-samll {
 
 @media(max-width:1366px) {
     .same-flex li {
-        font-size: 16px;
+        font-size: 15px;
     }
     .images img {
         width: 25px;
@@ -5817,3 +5817,4 @@ button.collapse {
     border-radius: 15px;
     padding: 10px;
 }
+

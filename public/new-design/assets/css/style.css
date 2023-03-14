@@ -244,7 +244,11 @@ span.counter-value {
 
 p.font-24 {
     font-weight: 400;
+<<<<<<< HEAD
     font-size: 24px;
+=======
+    font-size: 22px;
+>>>>>>> origin/connectlegal-binarydata
     line-height: 40.2px;
     color: #191919;
 }
@@ -3703,7 +3707,11 @@ i.crown-p {
 
 @media (min-width:1200px) {
     .lawyers-part ul.star-part-2 li {
+<<<<<<< HEAD
         font-size: 16px;
+=======
+        font-size: 13px;
+>>>>>>> origin/connectlegal-binarydata
     }
 
 
@@ -3784,7 +3792,13 @@ i.crown-p {
         padding: 0 2px;
     }
 
+<<<<<<< HEAD
 
+=======
+div#profile .legal-1 img { 
+    border-radius: 10px; 
+}
+>>>>>>> origin/connectlegal-binarydata
 
 }
 
@@ -5965,7 +5979,11 @@ div#staticBackdrop.bg-4d4d4d {
     position: fixed;
     top: 0;
     width: 100%;
+<<<<<<< HEAD
     z-index: 99999;
+=======
+    z-index: 999 ;
+>>>>>>> origin/connectlegal-binarydata
     width: -webkit-fill-available;
 }
 
@@ -6474,7 +6492,11 @@ ul.your-rating li p {
 }
 
 .form-control.class-height-smae::placeholder {
+<<<<<<< HEAD
     padding: 10px;
+=======
+    padding: 10px 0px 0px 0px;
+>>>>>>> origin/connectlegal-binarydata
     position: absolute;
 }
 
@@ -6522,10 +6544,18 @@ i.fa-solid.fa-eye.eye-pri {
         display: none;
     }
 
+<<<<<<< HEAD
     div#mySidenav {
         background: #fff;
         width: 100% !important;
     }
+=======
+   div#mySidenav {
+    background: #fff;
+    width: 100% !important;
+    max-width: 400px;
+}
+>>>>>>> origin/connectlegal-binarydata
 
     a.navbar-brand.menu-a {
         color: #fff;
@@ -6647,7 +6677,13 @@ i.fa-solid.fa-eye.eye-pri {
         padding: 0 0px;
     }
 
+<<<<<<< HEAD
 
+=======
+div#profile .legal-1 img {
+    border-radius: 10px;
+}
+>>>>>>> origin/connectlegal-binarydata
 
 
 }
@@ -6880,10 +6916,17 @@ main.bg-color.bg-f4fefa {
     padding: 50px 0px  0px 0px;
 }
 section#cover-padding {
+<<<<<<< HEAD
     padding: 0px 40px;
 }
 section.m-sp-same {
     padding: 0px 40px 100px 40px;
+=======
+    /* padding: 0px 40px; */
+}
+section.m-sp-same {
+    padding: 0px 0px 100px 0px;
+>>>>>>> origin/connectlegal-binarydata
 }
 section.practice-area.bg-grad-2.pb-0 {
     padding: 10px 0px;
@@ -7065,6 +7108,7 @@ a.seebtn.bg-change {
 
 }
 
+<<<<<<< HEAD
 @media(min-width:1200px) {
     .lawyers-part {
         padding: 20px !important;
@@ -7073,6 +7117,9 @@ a.seebtn.bg-change {
     }
 
     
+=======
+
+>>>>>>> origin/connectlegal-binarydata
 .form-part.form-e input {
     padding: 20px 13px;
     font-size: 20px;
@@ -7133,3 +7180,171 @@ button.btn-lgn.Send-email-btn {
 }
 
 }
+<<<<<<< HEAD
+=======
+
+
+/**/
+ .services-title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    color: #156075;
+}
+.sp-page {
+    padding: 25px;
+}
+
+@media (min-width:1600px) {
+div#myTabContent div#profile p.name-uaser {
+    font-size: 22px !important;
+}
+.crown-p.ccrr {
+    bottom: 16px !important;
+    right: 20px;
+}
+
+
+
+}
+
+@media (max-width:1500px) {
+#test-design h5.mon-txt-cvr {
+    line-height: 1.2;
+}
+#test-design h6.mon-cvr {
+    font-size: 10px;
+}
+#test-design .service-description p, li { 
+    font-size: 14px; 
+}
+#test-design p.font-15 {
+    font-size: 9px;
+}
+.crown-p.ccrr {
+    bottom: 11px !important;
+    right: 9px;
+}
+i.crown-p { 
+    bottom: 3px;
+    font-size: 27px;
+    right: 10px;
+}
+.single-box h5.content-single {
+    font-size: 29px; 
+    line-height: 40px;
+}
+#box-right-lowyar .rev-35 { 
+    font-size: 11px;
+    line-height: 22px; 
+}
+#box-right-lowyar i.crown-p { 
+    bottom: 3px;
+    font-size: 17px;
+    right: 12px;
+}
+.cards { 
+    padding: 8px; 
+}
+ .law-box p { 
+    font-size: 10px !important; 
+}
+
+
+
+}
+
+@media (max-width:1090px) {
+#box-right-lowyar .rev-35 {
+    font-size: 9px; 
+}    
+img.off-logo { 
+    max-width: 275px;
+}
+p.close-top { 
+    top: 20px; 
+}
+
+
+
+
+}
+
+@media (max-width:981px) {
+#offcanvasScrolling {
+    width: 350px;
+}
+.single-box h5.content-single {
+    font-size: 22px;
+    line-height: 25px;
+}
+
+}
+
+@media (max-width:767px) {
+.sp-page {
+    padding: 4px;
+}
+
+}
+
+@media (max-width:390px) {
+.single-box h5.content-single {
+    font-size: 20px;
+    line-height: 1.2;
+}
+#box-right-lowyar .rev-35 {
+    font-size: 8px;
+}
+}
+
+
+@media(min-width:1366px){
+    .steps {
+        height: 500px;
+        width: 90%;
+    }
+    .see-more.seechnage {
+        font-size: 18px;
+    }
+}
+
+section#cover-padding {
+    padding: 0px 80px;
+}
+section.m-sp-same {
+    padding: 0px 80px 50px;
+}
+.user-online-g img.legal-1 {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.menu-sidebar img.off-logo{
+    left: unset;
+}
+section#cover-padding {
+    padding: 0px 80px;
+}
+section.m-sp-same {
+    padding: 0px 80px 50px;
+}
+.practice-area {
+    padding: 50px 80px 50px !important;
+}
+a.next-step-btn.back {
+    padding: 6px;
+}
+a.next-step-btn {
+    padding: 6px 6px !importent;
+}
+main.bg-color.bg-f4fefa {
+    padding: 40px 80px 0px 80px;
+}
+.bg-f4fefa{
+    padding: 0px 80px;
+}
+main.bg-color.bg-f4fefa {
+    padding: 40px 80px 0px 80px;
+}
+>>>>>>> origin/connectlegal-binarydata
