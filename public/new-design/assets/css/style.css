@@ -7258,8 +7258,6 @@ a.next-step-btn {
     padding: 6px 6px;
 }
 
-
-
 @media(max-width:1366px){
     h1.moni {
         font-size: 40px !important;
@@ -7300,5 +7298,4 @@ a.next-step-btn {
         padding: 30px 15px;
     }
 }
-
 

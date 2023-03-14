@@ -1408,6 +1408,13 @@ ul.menu-left li a {
     color: #191919;
     text-decoration: none;
 }
+ul.menu-left li a.active-nav {
+    background: #E8F8F2;
+    border-left: solid 6px #208C84;
+    color: #208C84 !important;
+    font-weight: 600;
+    text-decoration: none;
+}
 
 ul.menu-left li a i {
     margin-right: 10px;
@@ -4816,7 +4823,7 @@ h4.book-text.font-samll {
         line-height: 18px;
     }
     p.time-r {
-        font-size: 12px;
+        font-size: 10px;
     }
     .d-flex2 img {
         height: 20px;
@@ -5794,4 +5801,26 @@ button.collapse {
     background-color: #1A7792;
     border-radius: 15px;
     padding: 10px;
+}
+i.fa-solid.fa-ellipsis-vertical.text-white {
+    position: absolute;
+    top: 21px;
+    right: -33px;
+}
+.moreoption .dropdown-menu[data-bs-popper] {
+    right: -61px;
+    top: 60px;
+}
+.names{
+    padding: 0 !important;
+}
+.main-menu ul.navbar-nav li a {
+    color: #fff !important;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 13px 10px !important;
+}
+.main-menu ul.navbar-nav li a {
+    line-height: 4px;
 }
