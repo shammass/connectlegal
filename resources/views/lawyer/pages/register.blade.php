@@ -1,22 +1,23 @@
 @extends('common.home.layouts.app')
 @section('content')
-    <section class="lawyers-part bg-f4fefa">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <h1 class="banner-heading">For <span class="span-color-dark">Lawyers</span></h1>
-                    <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
+    <div class="p-80">
+        <section class="lawyers-part bg-f4fefa pt-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <h1 class="banner-heading">For <span class="span-color-dark">Lawyers</span></h1>
+                        <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
 
 
-                    <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
+                        <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
 
-                    <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
-
-
-                    <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
+                        <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
 
 
-                    <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
+                        <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
+
+
+                        <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
 
 
                     <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
@@ -93,17 +94,26 @@
                             @error('password')
                                     <span class="error-msg" style="color:red;">{{ $message }}</span>
                                 @enderror
-                            <div class="text-right mar-top">
-                            <button class="submit-btn" type="submit">Submit</button>
+                                <input type="text" placeholder="Your linkedin profile URL" value="{{ old('linkedin') }}" name="linkedin"><br><br>
+                                @error('linkedin')
+                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                @enderror
+                                <input type="password" placeholder="Password"  name="password">
+                                @error('password')
+                                        <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                    @enderror
+                                <div class="text-right mar-top">
+                                <button class="submit-btn" type="submit">Submit</button>
+                                </div>
+                    
                             </div>
-                
-                        </div>
-                        </div>
-                    </form>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 @endsection
 @push('script')
     <script>
