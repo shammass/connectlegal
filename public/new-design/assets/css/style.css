@@ -7296,3 +7296,8 @@ main.bg-color.bg-f4fefa {
 main.bg-color.bg-f4fefa {
     padding: 40px 80px 0px 80px;
 }
+@media(max-width:991px){
+    .p-80 {
+        padding: 15px 15px;
+    }
+}
