@@ -236,7 +236,7 @@
                                                 @csrf()
                                                 <input type="hidden" name="lawyerId" value="{{$lawyer->id}}">
                                                 <h3 class="text-center" data-bs-toggle="modal" data-bs-target="#lowyar1">Chat Request</h3>
-                                                <input type="email" readonly name="" id="" placeholder="Email Address" class="form-control mb-3" value="{{auth()->user()->email}}">
+                                                <input type="email" readonly name="" id="" placeholder="Email Address" class="form-control mb-3" value="{{auth()->user() ? auth()->user()->email : null}}">
                                                 <textarea class="form-control chat-rqst-form-{{$lawyer->id}}" placeholder="Add your query" name="description" id="exampleFormControlTextarea1"
                                                 rows="3"></textarea>
                                                 <div class="text-end mt-lg-5 mt-3">
