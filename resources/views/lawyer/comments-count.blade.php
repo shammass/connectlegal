@@ -1,1 +1,0 @@
-<span>{{$commentsCount}} comments</span>
