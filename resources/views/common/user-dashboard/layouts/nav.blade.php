@@ -116,7 +116,7 @@
                                     <li><a href="{{route('question-answer')}}"><i class="fa-solid fa-question"></i> Testimonials</a></li>
                                     <li><a href="{{route('testimonials')}}"><i class="fa-solid fa-star"></i> Testimonials</a></li>
                                     <li><a href="{{route('our-lawyers')}}"><i class="fa-solid fa-bag-shopping"></i> Our Lawyers</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-user"></i> Lawyers</a></li>
+                                    <li><a href="#"><i class="fa-solid fa-user"></i> Lawyers</a></li>C
                                     <li><a href="#"><i class="fa-solid fa-scale-balanced"></i> Practice Area</a></li>
                                     <li><a href="{{route('blogs-articles', 1)}}"><i class="fa-solid fa-book"></i> Blogs & Articles</a></li>
                                     <li><a href="{{route('hire-a-lawyer')}}"><i class="fa-solid fa-address-card"></i> Legal Service</a></li>

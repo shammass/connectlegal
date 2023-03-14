@@ -25,6 +25,7 @@ use App\Models\User;
 use App\Traits\SendMailTrait;
 use Illuminate\Http\Request;
 use Mail; 
+use Illuminate\Support\Facades\View;
 use Mailjet\Resources;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
