@@ -29,9 +29,9 @@
                         <input type="text" placeholder="Law firm name" value="{{ old('lawfirm_name') }}" name="lawfirm_name">
                         <input type="text" placeholder="Law firm website URL" value="{{ old('lawfirm_website') }}" name="lawfirm_website">
                         <select id="lawyer-location" name="emirate">
-                                <option value="UAE" {{ old('emirate') === 'UAE' ? 'selected' : '' }}>UAE</option>
-                                <option value="Qatar" {{ old('emirate') === 'Qatar' ? 'selected' : '' }}>Qatar</option>
-                            </select>
+                            <option value="UAE" {{ old('emirate') === 'UAE' ? 'selected' : '' }}>UAE</option>
+                            <option value="Qatar" {{ old('emirate') === 'Qatar' ? 'selected' : '' }}>Qatar</option>
+                        </select>
                         <input type="text" placeholder="Your office address" name="office_address" value="{{ old('office_address') }}">
                         <br>
                         <div class="in-form">
@@ -58,18 +58,27 @@
                                     <span class="error-msg" style="color:red;">{{ $message }}</span>
                                 @enderror 
                             <div class="row">
-                            <div class="col-3">
-                                <input type="text" placeholder="+971" value="+971">
-                            </div>
-                            <div class="col-9">
-                            <input type="text" placeholder="Contact number" value="{{ old('contact_number') }}" name="contact_number">
-                            </div> 
+                                <div class="col-3">
+                                    <input type="text" placeholder="+971" value="+971">
+                                </div>
+                                <div class="col-9">
+                                    <input type="text" placeholder="Contact number" value="{{ old('contact_number') }}" name="contact_number">
+                                </div> 
                             </div>
                             @error('contact_number')
-                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
-                                @enderror  
+                                <span class="error-msg" style="color:red;">{{ $message }}</span>
+                            @enderror  
                             <input type="text" placeholder="Your MOJ Number" value="{{ old('moj_reg_no') }}" name="moj_reg_no">
                             @error('moj_reg_no')
+                                <span class="error-msg" style="color:red;">{{ $message }}</span>
+                            @enderror  
+                            <select id="area" name="area">
+                                <option value="">Select your practice area</option>
+                                @foreach($areas as $k => $area)
+                                    <option value="{{$k}}" {{ old('area') == $k ? 'selected' : '' }}>{{$area}}</option>
+                                @endforeach
+                            </select>
+                            @error('area')
                                 <span class="error-msg" style="color:red;">{{ $message }}</span>
                             @enderror  
                             <input type="text" placeholder="Your position (eg. Partner, associate, etc...)" value="{{ old('position') }}" name="position">

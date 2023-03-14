@@ -1,4 +1,4 @@
-@extends('common.user-dashboard.layouts.app')
+@extends('lawyer.home.layouts.app')
 @section('content')
     <section class="message-area">
                 <div class="container">
