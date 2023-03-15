@@ -94,14 +94,9 @@ Route::get('blogs-articles-details/{id}',       [CommonController::class, 'blogD
 
 Route::post('callback',                         [CommonController::class, 'callback'])->name('callback');
 
-Route::get('/legal-services/{sort?}/{search?}/{area?}',                      [HireLawyerController::class, 'hireALawyer'])->name('hire-a-lawyer');
+Route::get('/all-lawyer-services/{sort?}/{search?}/{area?}',                [HireLawyerController::class, 'hireALawyer'])->name('hire-a-lawyer');
 Route::get('/lawyer-services/{lawyerId}/{sort?}/{search?}/{area?}',         [HireLawyerController::class, 'LawyerServicesToHire'])->name('hire-a-lawyer.user');
-Route::get('service-step-1/{service_id}',                                   [HireLawyerController::class, 'serviceStepOne'])->name('service.step-one');
-Route::get('service-step-2/{service_id}',                                   [HireLawyerController::class, 'serviceStepTwo'])->name('service.step-two');
-Route::get('service-step-3/{service_id}',                                   [HireLawyerController::class, 'serviceStepThree'])->name('service.step-three');
-Route::post('service-payment',                                              [HireLawyerController::class, 'servicePayment'])->name('service.payment');
-Route::get('service-step-5/{meeting_id}',                                   [HireLawyerController::class, 'servicePaymentCompleted'])->name('service.payment.completed');
-Route::get('/generate-invoice/{meeting_id}',                                [HireLawyerController::class, 'generateInvoice'])->name('generate-invoice');
+
 Route::get('/services-search',                                              [HireLawyerController::class, 'search'])->name('services.search');
 Route::get('/services-filter/{area_id}',                                    [HireLawyerController::class, 'filterByArea'])->name('services.filter-by-area');
 // Route::get('/download-invoice',                 [HireLawyerController::class, 'servicePaymentCompleted'])->name('generate-invoice');
@@ -138,6 +133,9 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::post('/question-answer/rate/{id}',        [CommonController::class, 'rate'])->name('question-answer.rate');
     Route::get('/chat/requests',                     [CommonController::class, 'onlineChatRequests'])->name('online-chat.requests');
+    Route::get('/my-consultaion-requests',           [CommonController::class, 'consultationRequests'])->name('user.consultation-requests');
+    Route::get('/questions-asked',                   [CommonController::class, 'questionsAsked'])->name('user.questions-asked');
+    Route::get('/services-purchased',                [CommonController::class, 'servicesPurchased'])->name('user.services-purchased');
 
     Route::get('/my-activity',                         [UserActivityController::class, 'userActivty'])->name('user.activity');
 
@@ -146,6 +144,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('chat-with-user/{toId}',               [ChatController::class, 'sendMsg'])->name('chat-with-user');
     Route::post('/user/latest-group-chat',             [ChatController::class, 'userLatestMsg'])->name('user.latest-msg');
     Route::get('user-latest-msg/{toId}',               [ChatController::class, 'latestUsrMsg'])->name('latest.user-msg');
+
+
+    Route::get('service-step-1/{service_id}',                                   [HireLawyerController::class, 'serviceStepOne'])->name('service.step-one');
+    Route::get('service-step-2/{service_id}',                                   [HireLawyerController::class, 'serviceStepTwo'])->name('service.step-two');
+    Route::get('service-step-3/{service_id}',                                   [HireLawyerController::class, 'serviceStepThree'])->name('service.step-three');
+    Route::post('service-payment',                                              [HireLawyerController::class, 'servicePayment'])->name('service.payment');
+    Route::get('service-step-5/{meeting_id}',                                   [HireLawyerController::class, 'servicePaymentCompleted'])->name('service.payment.completed');
+    Route::get('/generate-invoice/{meeting_id}',                                [HireLawyerController::class, 'generateInvoice'])->name('generate-invoice');
     
 });
 

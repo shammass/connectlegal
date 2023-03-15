@@ -71,7 +71,7 @@
                     </div>
                 @endforeach
 
-              <p class="text-center Reques"><a href="#">View All Questions Asked</a></p>
+              <p class="text-center Reques"><a href="{{route('user.questions-asked')}}">View All Questions Asked</a></p>
             </div>
           </div>
 
@@ -102,7 +102,7 @@
                         </div>
                     </div>
                 @endforeach
-              <p class="text-center Reques"><a href="#">View All Service Purchased</a></p>
+              <p class="text-center Reques"><a href="{{route('user.services-purchased')}}">View All Service Purchased</a></p>
             </div>
           </div>
 
@@ -140,7 +140,7 @@
 
               
 
-              <p class="text-center Reques"><a href="#">View All Consulted Data</a></p>
+              <p class="text-center Reques"><a href="{{route('user.consultation-requests')}}">View All Consulted Data</a></p>
             </div>
           </div>
 
@@ -188,6 +188,10 @@
     function chatWithLawyer(lawyerId) {
             window.location.href = "/online-chat/"+lawyerId;
             $(".chatbox").addClass('showbox');
+        }
+
+        function questionsAsked() {
+          window.location.href = "/questions-asked"
         }
   </script>
 @endpush

@@ -37,7 +37,7 @@
                                         <!-- <a href="#comments" class="btn-reply text-medium-gray text-uppercase section-link">Reply</a> -->
                                         <div class="text-medium text-medium-gray margin-15px-bottom">{{$answer->created_at->format('d M Y')}}, {{date('g:i A', strtotime($answer->created_at))}}</div>
                                         <p class="w-85">{{$answer->answer}}</p>
-                                        <a href="{{route('lawyer.services.list', $answer->lawyer_id)}}" class="btn btn-info" style="float:right;margin-left:2%;">Lawyer Service</a>
+                                        <a href="{{route('lawyer.services.list', $answer->lawyer_id)}}" class="btn btn-info" style="float:right;margin-left:2%;">Lawyer Services</a>
                                         @if(auth()->user())
                                         @if(auth()->user()->user_type == 3 && !$answer->isRatedAlready($answer->id))
                                         <button class="btn btn-primary" style="float:right;" data-bs-toggle="modal" data-bs-target="#rateModal_{{$answer->id}}">Rate</button>

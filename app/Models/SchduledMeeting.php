@@ -51,6 +51,6 @@ class SchduledMeeting extends Model
             'service_id' => $serviceId
         ])->first();
 
-        return $getTotalAmount->lawyer_fee + $getTotalAmount->platform_fee;
+        return $getTotalAmount ? $getTotalAmount->lawyer_fee + $getTotalAmount->platform_fee : null;
     }
 }

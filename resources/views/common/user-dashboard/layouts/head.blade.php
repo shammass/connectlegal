@@ -11,7 +11,7 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!-- css File link  -->
   <link rel="stylesheet" type="text/css" href="/new-design/user-dashboard/css/style-dash.css">
-  <link rel="stylesheet" type="text/css" href="/new-design/user-dashboard/css/style-dash.css">
+  <link rel="stylesheet" type="text/css" href="/new-design/user-dashboard/css/responsive.css">
   <link rel="stylesheet" type="text/css" href="/new-design/user-dashboard/css/style.css">
   <!-- Google Font Poppins-->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;800;900&display=swap"

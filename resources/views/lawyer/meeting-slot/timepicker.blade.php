@@ -7,7 +7,6 @@
 @push('script')
     <script>
         $(document).ready(function() {
-            debugger
             var miniTime = $("#miniTime").val();
             var maxiTime = $("#maxiTime").val();
             var defTime = $("#defTime").val();

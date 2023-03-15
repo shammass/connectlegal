@@ -39,11 +39,14 @@ class QuestionAnswerController extends Controller
                 'forum_id'  => $id,
                 'answer'    => $request->answer
             ]);
-
-            $htmlPart = (string) view('lawyer.qa.email',  compact('queAns'));  
             $forum = Forum::whereId($id)->first();
+            $userName = $forum->name;
+            $lawyerName = auth()->user()->name;
+            $title = $forum->title;
+            $slug = $forum->slug;
+            $htmlPart = (string) view('lawyer.qa.email',  compact('userName', 'title', 'slug', 'lawyerName'));  
             $mail_data = [
-                'subject' => $forum->title,
+                'subject' => "Response to Your Forum Question on Connect Legal",
                 'htmlPart' => $htmlPart,
                 'email' => $queAns->forum->email,
             ];

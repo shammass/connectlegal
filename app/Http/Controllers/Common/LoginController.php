@@ -118,6 +118,7 @@ class LoginController extends Controller
             'linkedin'          =>          ['required'],
             'moj_reg_no'        =>          ['required'],
             'area'              =>          ['required'],
+            'profile_image'     =>          ['required'],
         ]);
         
         // print_r($request->all());exit;
@@ -129,7 +130,7 @@ class LoginController extends Controller
             'user_type' => 2,
         ]);
 
-        Lawyer::create([
+        $lawyer = Lawyer::create([
             'user_id' => $user->id,
             'law_firm_name' => $request->lawfirm_name,
             'law_firm_website' => $request->lawfirm_website,
@@ -142,6 +143,8 @@ class LoginController extends Controller
             'arbitration_area_id' => $request->area,
         ]);
 
+        $this->profilePic($lawyer, $request);
+
         event(new Registered($user));
         $html = View::make('emails.lawyer-registered', ['name' => $request->name])->render();
         $response = $this->sendEmail($request->email, 'Welcome to Connect Legal - Best tailor made  legal consultant platform in Middle East', $html);
@@ -150,6 +153,17 @@ class LoginController extends Controller
         // $response->success() && var_dump($response->getData());
         Alert::success('Success', 'Your registration was successful. Please check your email');
         return redirect('/');
+    }
+
+    public function profilePic($lawyer, $request) {
+        $imageDir = 'lawyer/profile_pic/' . $lawyer->id;
+
+        $image = $request->file('profile_image');
+        if ($request->hasFile('profile_image')) {
+            $lawyer->profile_pic = $image->store($imageDir);
+            $lawyer->save();
+        }
+        return true;
     }
     
     public function userLogin(Request $request) {

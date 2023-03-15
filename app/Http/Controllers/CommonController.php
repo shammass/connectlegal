@@ -18,6 +18,7 @@ use App\Models\Rate;
 use App\Models\PasswordReset;
 use App\Models\Lawyer;
 use App\Models\Slot;
+use App\Models\SchduledMeeting;
 use App\Models\Testimonial;
 use App\Models\LawyerConsultation;
 use App\Models\Services;
@@ -643,5 +644,27 @@ class CommonController extends Controller
             Alert::success('Success', 'You have verified your account successfully. Please login');
             return redirect()->route('home');
         }
+    }
+
+    public function consultationRequests() {
+        $consultations = LawyerConsultation::whereUserId(auth()->user()->id)->paginate(10);
+
+        return view('common.user-dashboard.consultation.index', compact('consultations'));
+    }
+
+    public function questionsAsked() {
+        $questions = Forum::whereUserId(auth()->user()->id)->paginate(10);
+
+        return view('common.user-dashboard.qa.index', compact('questions'));
+    }
+
+    public function servicesPurchased() {
+        $servicesPurchased = SchduledMeeting::whereScheduledBy(auth()->user()->id)->paginate(10);
+        return view('common.user-dashboard.services-purchased.index', compact('servicesPurchased'));
+        // Lawyer Name
+        // Service title
+        // Total Amount
+        // OrderId
+        // Date
     }
 }

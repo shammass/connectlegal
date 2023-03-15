@@ -91,7 +91,6 @@
                 $(".name-error").empty()
                 $(".email-error").empty()
                 $(".pwd-error").empty()
-                debugger
                 if(!name) {
                     valid = false
                     $(".name-error").append('Please enter your name');
@@ -229,7 +228,6 @@
             $(document).ready(function(){
 
                 $("section").click(function(){
-                    debugger
                 $(".menu-sidebar").removeClass('show');
                 $(".offcanvas offcanvas-start").css('visibilty','hidden','display','none');
                 });
@@ -245,6 +243,21 @@
 
                 //  })
                 });
+
+                function validateChatRqstForm(e) {
+                    var valid = true;
+                    $(".cf-errors").empty()
+                    var descr = $(".chat-rqst-form").val();
+                    if(!descr) {
+                        valid = false;
+                        $(".chat-rqst-form").after('<span class="cf-errors" style="color:red;">This field is required</span>')
+                    }
+
+                    if(!valid) {
+                        e.preventDefault()
+                    }
+                }
+
         </script>
         
         @stack('script')

@@ -183,31 +183,18 @@
                                                                 role="button" data-bs-toggle="dropdown"
                                                                 aria-expanded="false"><i
                                                                     class="fa-solid fa-ellipsis"></i></a>
-                                                            <!-- <ul class="dropdown-menu">
-                                                                <li><a class="dropdown-item" href="#"> <img
-                                                                            src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                                        Action</a>
-                                                                </li>
-                                                                <li><a class="dropdown-item" href="#"> <img
-                                                                            src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                                        Action</a>
-                                                                </li>
-                                                                <li><a class="dropdown-item" href="#"> <img
-                                                                            src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                                        Action</a>
-                                                                </li>
-                                                                <li><a class="dropdown-item" href="#"> <img
-                                                                            src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                                        Action</a>
-                                                                </li>
-                                                                <li><a class="dropdown-item" href="#"> <img
-                                                                            src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                                        Action</a>
-                                                                </li>
-                                                            </ul> -->
+                                                                <ul class="dropdown-menu">
+                                                                    <li data-bs-toggle="modal" data-bs-target="#consult-the-lawyer"><a class="dropdown-item" href="#"> <img
+                                                                                src="/new-design/user-dashboard/images/file-2.png" alt="">
+                                                                            Consult the Lawyer</a>
+                                                                    </li>
+                                                                    <li><a class="dropdown-item" href="{{route('hire-a-lawyer.user', $id)}}"> <img
+                                                                                src="/new-design/user-dashboard/images/file-2.png" alt="">
+                                                                            Lawyer Services</a>
+                                                                    </li>
+                                                                </ul>
                                                         </li>
-
-                                                    </ul>
+                                                     </ul>
 
                                                 </div>
                                             </div>
@@ -294,6 +281,52 @@
         </div>
     </section>
 
+    <div class="modal fade modal-popups" id="consult-the-lawyer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered modal-lg" id="modal-login">
+            <div class="modal-content"> 
+                <div class="modal-header text-right"> 
+                    <button type="button" class="btn-close rounded" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-popup-des rounded" id="pills-tabContent">
+                        <form action="{{route('consult.lawyer')}}" method="post" onsubmit="return validateConsultForm(event)">
+                            @csrf()
+                            <input type="hidden" name="lawyerId" value="{{$id}}">
+                            <h4 class="give-rating"> Contact Form</h4>                                                    
+                            <div class="eles group-invite area"> 
+                                <input type="text" name="name" id="name" placeholder="Name" class="mb-4" value="{{auth()->user() ? auth()->user()->name : ''}}">
+                                @error('name')
+                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                @enderror   
+                                <input type="email" name="email" id="email" placeholder="Email" class="mb-4" value="{{auth()->user() ? auth()->user()->email : ''}}">
+                                @error('email')
+                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                @enderror   
+                                <div class="input-group mb-3" id="mobile-div">
+                                    <span class="input-group-text" id="basic-addon1"> <img src="/new-design/assets/images/phone.png" alt=""> </span>
+                                    <input type="text" class="form-control left-bordr" name="mobile" id="mobile" placeholder="Phone Number" aria-label="Username"
+                                    aria-describedby="basic-addon1">
+                                </div> 
+                                @error('mobile')
+                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                @enderror   
+                                <div class="links-icons">
+                                    <textarea placeholder="Message" name="message" id="msg" class="description"></textarea> 
+                                </div>
+                                @error('message')
+                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                @enderror   
+                            </div> 
+                            <div class="text-right mb-3">
+                                <button class="btn-lgn" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @push('script')
@@ -324,6 +357,39 @@
         function chatWithLawyer(lawyerId) {
             window.location.href = "/online-chat/"+lawyerId;
             $(".chatbox").addClass('showbox');
+        }
+
+
+
+
+        function validateConsultForm(e) {
+            var valid = true;
+            $(".errors").empty()
+            var name = $("#name").val()
+            var email = $("#email").val()
+            var mobile = $("#mobile").val()
+            var msg = $("#msg").val()
+
+            if(!name) {
+                valid = false;
+                $("#name").after('<span class="errors" style="color:red;">This field is required</span>')
+            }
+            if(!email) {
+                valid = false;
+                $("#email").after('<span class="errors" style="color:red;">This field is required</span>')
+            }
+            if(!mobile) {
+                valid = false;
+                $("#mobile-div").after('<span class="errors" style="color:red;">This field is required</span>')
+            }
+            if(!msg) {
+                valid = false;
+                $("#msg").after('<span class="errors" style="color:red;">This field is required</span>')
+            }
+
+            if(!valid) {
+                e.preventDefault()
+            }
         }
 
     </script>
@@ -397,13 +463,13 @@
             }
         });
 
-        var input = document.getElementById("msgInput");
-input.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-      event.preventDefault();
-      sendMessage()
-  }
-});
+        var input = document.getElementById("msgField");
+            input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                sendMessage()
+            }
+        });
 
         function sendMessage() {
             

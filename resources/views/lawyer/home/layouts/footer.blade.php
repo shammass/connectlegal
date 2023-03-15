@@ -20,7 +20,7 @@
                     <div class="footer-list">
                         <h5> Customer desk</h5>
                         <ul>
-                            <li><a href="{{url('/legal-services')}}">Legal Services</a></li>
+                            <li><a href="{{url('/all-lawyer-services')}}">Legal Services</a></li>
                             <li><a href="#">PRO services</a></li>
                             <li><a href="#">Legal Translation services</a></li>
                             <li><a href="#">PRO Bono Services</a></li>

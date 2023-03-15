@@ -36,7 +36,12 @@
                         <input type="text" placeholder="Your office address" name="office_address" value="{{ old('office_address') }}">
                         <br>
                         <div class="in-form">
-                            <h3>Contact info</h3>
+                            <h3>Profile Image</h3>
+                            <input type="file" name="profile_image" value="Profile Image" placeholder="Your profile Image">
+                            @error('profile_image')
+                                <span class="error-msg" style="color:red;">{{ $message }}</span>
+                            @enderror
+                            <h3 class="mt-4">Contact info</h3>
                 
                             <div class="row">
                             <div class="col-3">
@@ -72,7 +77,7 @@
                             <input type="text" placeholder="Your MOJ Number" value="{{ old('moj_reg_no') }}" name="moj_reg_no">
                             @error('moj_reg_no')
                                 <span class="error-msg" style="color:red;">{{ $message }}</span>
-                            @enderror  
+                            @enderror
                             <select id="area" name="area">
                                 <option value="">Select your practice area</option>
                                 @foreach($areas as $k => $area)
@@ -81,7 +86,7 @@
                             </select>
                             @error('area')
                                 <span class="error-msg" style="color:red;">{{ $message }}</span>
-                            @enderror  
+                            @enderror                             
                             <input type="text" placeholder="Your position (eg. Partner, associate, etc...)" value="{{ old('position') }}" name="position">
                             @error('position')
                                 <span class="error-msg" style="color:red;">{{ $message }}</span>
@@ -92,19 +97,11 @@
                             @enderror
                             <input type="password" placeholder="Password"  name="password">
                             @error('password')
-                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
-                                @enderror
-                                <input type="text" placeholder="Your linkedin profile URL" value="{{ old('linkedin') }}" name="linkedin"><br><br>
-                                @error('linkedin')
-                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
-                                @enderror
-                                <input type="password" placeholder="Password"  name="password">
-                                @error('password')
-                                        <span class="error-msg" style="color:red;">{{ $message }}</span>
-                                    @enderror
-                                <div class="text-right mar-top">
-                                <button class="submit-btn" type="submit">Submit</button>
-                                </div>
+                                <span class="error-msg" style="color:red;">{{ $message }}</span>
+                            @enderror                            
+                            <div class="text-right mar-top">
+                            <button class="submit-btn" type="submit">Submit</button>
+                            </div>
                     
                             </div>
                             </div>

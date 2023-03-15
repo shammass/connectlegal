@@ -71,7 +71,7 @@
             <li><a href="{{route('lawyer.services')}}"><i class="fa-solid fa-bag-shopping"></i>Services</a></li>
             <li><a href="{{route('lawyer.community')}}"><i class="fa-solid fa-user"></i> Lawyer Community</a></li>
             <li><a href="{{route('lawyer.qa.list')}}"><i class="fa-solid fa-scale-balanced"></i>Question & Answer</a></li>
-            <li><a href="#"><i class="fa-solid fa-book"></i>Lawyer Articles</a></li>
+            <!-- <li><a href="#"><i class="fa-solid fa-book"></i>Lawyer Articles</a></li> -->
         </ul>
         </div>
 

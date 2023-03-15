@@ -17,4 +17,12 @@ class LawyerConsultation extends Model
         'user_id',
         'lawyer_id',
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function lawyer() {
+        return $this->belongsTo(User::class, 'lawyer_id');
+    }
 }

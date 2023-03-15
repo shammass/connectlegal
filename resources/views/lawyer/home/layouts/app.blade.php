@@ -207,7 +207,6 @@
                         'data':data
                     },
                     success: function(res){
-                        debugger
                         // $("#commentList_"+data.postComment.post_id).empty();
                         $("#commentList_"+data.postComment.post_id).prepend(res.comments);
                         $("#commentCounts_"+data.postComment.post_id).empty();

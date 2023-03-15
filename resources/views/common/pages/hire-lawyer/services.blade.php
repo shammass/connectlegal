@@ -104,7 +104,11 @@
                         <h1 class="aed-class">AED {{$service->getLawyerFee($service->id) + $service->getPlatformFee($service->id)}}</h1>
                       </div>
                       <div class="col-md-6 col-6 text-end">
-                        <a href="{{route('service.step-one', $service->id)}}" class="seebtn  bg-change">see more</a>
+                        @if(auth()->user())
+                          <a href="{{route('service.step-one', $service->id)}}" class="seebtn  bg-change">see more</a>
+                        @else 
+                          <a href="{{route('user.login')}}" class="seebtn  bg-change">see more</a>
+                        @endif
                       </div>
                     </div>
                   </div>
@@ -127,16 +131,16 @@
         }
 
         function sortByCost(sortBy) {
-          window.location.href = "/legal-services/" + sortBy.value;
+          window.location.href = "/all-lawyer-services/" + sortBy.value;
         }
 
         function filterByArea(areaId) {          
           var sorted = $("#sortedBy").val();
           var search = $("#searchedVal").val();
           if(areaId && search) {
-            window.location.href = "/legal-services/" + sorted + "/" + search + "/" + parseInt(areaId);
+            window.location.href = "/all-lawyer-services/" + sorted + "/" + search + "/" + parseInt(areaId);
           }else if(!search) {
-            window.location.href = "/legal-services/" + sorted + "/" + parseInt(areaId);
+            window.location.href = "/all-lawyer-services/" + sorted + "/" + parseInt(areaId);
           }
         }
 
@@ -145,9 +149,9 @@
           var search = $("#search").val();
           var areaId = $("#selectedArea").val();
           if(areaId && search) {
-            window.location.href = "/legal-services/" + sorted + "/" + search + "/" + parseInt(areaId);
+            window.location.href = "/all-lawyer-services/" + sorted + "/" + search + "/" + parseInt(areaId);
           }else if(!areaId) {
-            window.location.href = "/legal-services/" + sorted + "/" + search;
+            window.location.href = "/all-lawyer-services/" + sorted + "/" + search;
           }
         });
 

@@ -105,7 +105,7 @@
                                         </div>
                                     @endif
                                 @endforeach
-                                <p class="text-center Reques mt-3"><a href="#">View All Chat Notifications</a></p>
+                                <p class="text-center Reques mt-3"><a href="{{route('lawyer.online-chat-requests')}}">View All Chat Notifications</a></p>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-12 mt-4">

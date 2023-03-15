@@ -49,7 +49,7 @@
                     <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('hire-a-lawyer')}}">Lawyer Service</a>
+                    <a class="nav-link" href="{{route('hire-a-lawyer')}}">Lawyer Services</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('our-lawyers')}}">Our Lawyers</a>
@@ -57,21 +57,33 @@
                 <li class="nav-item">
                     <a class="nav-link" href="practice-area.html">Practice Area</a>
                 </li>
+                
+
                 @if(auth()->user())                      
                     @if(auth()->user()->user_type == 2)
-                        <li class="nav-item">
-                            <a href="{{route('logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
+                        <li class="navbar nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{auth()->user()->name}}</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="{{route('lawyer.dashboard')}}" class="nav-link" style="color: black!important;">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: black!important;">Logout</a>
+                                </li>
+                            </ul>
                         </li>
                     @elseif(auth()->user()->user_type == 3)
-                        <!-- <li class="nav-item">
-                            <a href="{{route('online-chat.requests')}}" class="nav-link" style="color: white;">Online Chat Requests</a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('user.dashboard')}}">Dashboard</a>
+                        <li class="navbar nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{auth()->user()->name}}</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="{{route('user.dashboard')}}" class="nav-link" style="color: black!important;">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('user.logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: black!important;">Logout</a>
+                                </li>
+                            </ul>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a href="{{route('user.logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
-                        </li> -->
                     @endif
                 @else 
                     <li class="nav-item">

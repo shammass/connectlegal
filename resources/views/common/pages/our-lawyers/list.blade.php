@@ -78,7 +78,7 @@
                     <div class="row">
                         @foreach($lawyers as $k => $lawyer)
                             <div class="col-lg-6 col-md-12 mt-4">
-                                <div class="law-box">
+                                <div class="law-box" id="lawBoxId">
                                     <div class="row align-items-center">
                                         <div class="col-3 text-center m-p-0 over-n">
                                             <div class="sma-amse">
@@ -104,14 +104,14 @@
                                             </div>
                                             <p class="mt-2"><i class="fa-solid fa-location-dot"></i> {{$lawyer->emirates}}<br>{{$lawyer->position}}</p>
                                         </div>
-                                        <div class="col-2 "  data-bs-toggle="modal" data-bs-target="#lawyer-profile-{{$lawyer->id}}">
+                                        <div class="col-2 "  data-bs-toggle="modal" data-bs-target="#lawyer-profile-modal-{{$lawyer->id}}">
                                             <i class="fa-solid fa-eye eye-pri"></i>
                                         </div>
                                     </div>
                                 </div>                    
                             </div>
 
-                            <div class="modal fade popuphome videopopup" id="lawyer-profile-{{$lawyer->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            <div class="modal fade popuphome videopopup" id="lawyer-profile-modal-{{$lawyer->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content border-0">
@@ -177,7 +177,7 @@
                                                 <div class="text-end">
                                                     <button type="button" class=" mt-lg-5 mt-2 btn bg1" onclick="lawyerServices('{{$lawyer->user_id}}')">Lawyer Services</button>
                                                     @if(auth()->user())
-                                                        <button type="button" class=" mt-lg-5 mt-2 btn bg2" onclick="closeContactModal('{{$lawyer->user_id}}')" data-bs-toggle="modal" data-bs-target="#chat-request-{{$lawyer->id}}">Chat Request</button>
+                                                        <button type="button" class=" mt-lg-5 mt-2 btn bg2" onclick="closeContactModal('{{$lawyer->user_id}}')" data-bs-toggle="modal" data-bs-target="#chat-request-modal-{{$lawyer->id}}">Chat Request</button>
                                                     @else 
                                                         <button type="button" class=" mt-lg-5 mt-2 btn bg2" onclick="login()">Chat Request</button>
                                                     @endif
@@ -228,22 +228,23 @@
                                 </div>
                             </div>
 
-                        <div class="modal fade popuphome" id="chat-request-{{$lawyer->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <div class="puopclass">
-                                            <form action="{{route('send.chat.request')}}" method="post" onsubmit="return validateChatRqstForm(event, '{{$lawyer->id}}')">
-                                                @csrf()
-                                                <input type="hidden" name="lawyerId" value="{{$lawyer->id}}">
-                                                <h3 class="text-center" data-bs-toggle="modal" data-bs-target="#lowyar1">Chat Request</h3>
-                                                <input type="email" readonly name="" id="" placeholder="Email Address" class="form-control mb-3" value="{{auth()->user() ? auth()->user()->email : null}}">
-                                                <textarea class="form-control chat-rqst-form-{{$lawyer->id}}" placeholder="Add your query" name="description" id="exampleFormControlTextarea1"
-                                                rows="3"></textarea>
-                                                <div class="text-end mt-lg-5 mt-3">
-                                                    <button type="submit" class="btn btn-submit">Submit</button>
-                                                </div>
-                                            </form>
+                            <div class="modal fade popuphome" id="chat-request-modal-{{$lawyer->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="puopclass">
+                                                <form action="{{route('send.chat.request')}}" method="post" onsubmit="return validateChatRqstForm(event, '{{$lawyer->id}}')">
+                                                    @csrf()
+                                                    <input type="hidden" name="lawyerId" value="{{$lawyer->id}}">
+                                                    <h3 class="text-center" data-bs-toggle="modal" data-bs-target="#lowyar1">Chat Request</h3>
+                                                    <input type="email" readonly name="" id="" placeholder="Email Address" class="form-control mb-3" value="{{auth()->user() ? auth()->user()->email : null}}">
+                                                    <textarea class="form-control chat-rqst-form-{{$lawyer->id}}" placeholder="Add your query" name="description" id="exampleFormControlTextarea1"
+                                                    rows="3"></textarea>
+                                                    <div class="text-end mt-lg-5 mt-3">
+                                                        <button type="submit" class="btn btn-submit">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -285,6 +286,7 @@
         }
 
         function closeContactModal(id) {
+            document.getElementById("lawBoxId").style.display = "none !important";
             $('#consult-'+id).modal('hide');
         }
 

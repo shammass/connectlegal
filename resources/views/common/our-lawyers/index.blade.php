@@ -46,9 +46,9 @@
                                             </a>
                                         </figure>
                                         <div class="media-body flex-grow-1">
-                                            <a href="blog-masonry.html" class="text-extra-small alt-font d-block margin-5px-bottom">{{$lawyer->emirates}}</a>
-                                            <a href="blog-post-layout-01.html" class="alt-font font-weight-500 text-extra-dark-gray margin-5px-bottom d-block line-height-22px">{{$lawyer->user->name}}</a>
-                                            <span class="text-extra-small alt-font"><a href="blog-masonry.html">{{$lawyer->arbitration->area}}</a></span>    
+                                            <a href="" class="text-extra-small alt-font d-block margin-5px-bottom">{{$lawyer->emirates}}</a>
+                                            <a href="" class="alt-font font-weight-500 text-extra-dark-gray margin-5px-bottom d-block line-height-22px">{{$lawyer->user->name}}</a>
+                                            <span class="text-extra-small alt-font"><a href="">{{$lawyer->arbitration->area}}</a></span>    
                                             <br>                                        
                                             <span class="text-extra-small alt-font"><a href="{{route('our-lawyer.details', $lawyer->id)}}" type="button" class="btn btn-primary" style="margin-top:38%;">View</a></span>                                            
                                         </div>

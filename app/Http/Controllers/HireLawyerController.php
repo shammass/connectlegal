@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 Use Alert;
+use App\Jobs\servicePurchaseCompleted;
 use App\Models\ArbitrationArea;
 use App\Models\LawyerService;
 use App\Models\Product;
@@ -248,10 +249,10 @@ class HireLawyerController extends Controller
             $priceData->save();
         }
 
-        HireLawyerContactInfo::create([
+        $lawyerContactInfo = HireLawyerContactInfo::create([
             'service_id' => $request->serviceId,
-            // 'user_id' => auth()->user()->id,
-            'user_id' => 1,
+            'user_id' => auth()->user()->id,
+            // 'user_id' => 1,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
@@ -261,14 +262,13 @@ class HireLawyerController extends Controller
         ]);
 
         // \Stripe\Stripe::setApiKey(env("STRIPE_SECRET"));
-        $domain = 'http://127.0.0.1:8000';
-        // $domain = 'https://dev.test.connectlegal.ae';
+        // $domain = 'http://127.0.0.1:8000';
+        $domain = 'https://dev.test.connectlegal.ae';
 
         $scheduleMeeting = SchduledMeeting::create([
-            'scheduled_by'      => 1,
-            // 'scheduled_by'      => auth()->user()->id,
+            'scheduled_by'      => auth()->user()->id,
             'service_id'        => $request->serviceId,
-            'lawyer_id'         => $request->lawyerUserId,
+            'lawyer_id'         => $request->lawyer_user_id,
         ]);
 
         $checkoutSession = $this->stripe->checkout->sessions->create([
@@ -283,6 +283,42 @@ class HireLawyerController extends Controller
 
         $scheduleMeeting->checkout_id = $checkoutSession->id;
         $scheduleMeeting->save();
+
+        $users = ["user", "lawyer"];
+
+        foreach($users as $k => $user) {
+            if($user == "user") {
+                $html = View::make('emails.after-purchase-to-user', ['name' => $lawyerContactInfo->name, 
+                                                                            'lawyerName' => $scheduleMeeting->lawyer->name,
+                                                                            'orderId' => $scheduleMeeting->id,
+                                                                            'shortDescr' => $scheduleMeeting->service->short_descr,
+                                                                            ])->render();
+                $mail_data = [
+                    'subject' => "Connect Legal - Successful Purchase of Legal Service",
+                    'htmlPart' => $html,
+                    'user_email' => $lawyerContactInfo->email
+                ];
+            }else {
+                $html = View::make('emails.after-purchase-to-lawyer', ['name' => $lawyerContactInfo->name, 
+                                                                            'lawyerName' => $scheduleMeeting->lawyer->name, 
+                                                                            'orderId' => $scheduleMeeting->id,
+                                                                            'shortDescr' => $scheduleMeeting->service->short_descr,
+                                                                            'serviceTitle' => $scheduleMeeting->service->title,
+                                                                            'mobileNumber' => $lawyerContactInfo->mobile,
+                                                                            'email' => $lawyerContactInfo->email,
+                                                                            ])->render();
+                $mail_data = [
+                    'subject' => "Connect legal - Service Purchase Notification",
+                    'htmlPart' => $html,
+                    'user_email' => auth()->user()->email
+                ];
+            }
+
+            $job = (new \App\Jobs\servicePurchaseCompleted($mail_data))
+                    ->delay(now()->addSeconds(2)); 
+    
+            dispatch($job);
+        }
 
         session(['checkoutId' => $checkoutSession->id, 'date' => $request->date]);
         return Redirect::to($checkoutSession->url);

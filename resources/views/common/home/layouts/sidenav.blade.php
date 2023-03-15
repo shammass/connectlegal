@@ -38,25 +38,28 @@
                                     Testimonials</a></li>
                             <li><a href="{{route('our-lawyers')}}"><i class="fa-solid fa-bag-shopping"></i> Our
                                     Lawyers</a></li>
-                            <li><a href="layer.html"><i class="fa-solid fa-user"></i> Lawyers</a></li>
+                            <!-- <li><a href="layer.html"><i class="fa-solid fa-user"></i> Lawyers</a></li> -->
                             <li><a href="practice-area.html"><i class="fa-solid fa-scale-balanced"></i>
                                     Practice Area</a></li>
                             <li><a href="{{route('blogs-articles', 1)}}"><i class="fa-solid fa-book"></i> Blogs & Articles</a>
                             </li>
                             <li><a href="{{route('hire-a-lawyer')}}"><i class="fa-solid fa-address-card"></i>
-                                Lawyer Service</a></li>
-                            <li><a href="#"><i class="fa-solid fa-gavel"></i> Legal Articles</a></li>
+                                Lawyer Services</a></li>
+                            <!-- <li><a href="#"><i class="fa-solid fa-gavel"></i> Legal Articles</a></li> -->
                             @if(auth()->user())                      
                                 @if(auth()->user()->user_type == 2)
+                                    <li>
+                                        <a href="{{route('lawyer.dashboard')}}"><i class="fa-solid fa-landmark"></i>Dashboard</a>
+                                    </li>
                                     <li class="nav-item">
-                                        <a href="{{route('logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
+                                        <a href="{{route('logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;"><i class="fa-solid fa-sign-out"></i>Logout</a>
                                     </li>
                                 @elseif(auth()->user()->user_type == 3)
-                                    <!-- <li class="nav-item">
-                                        <a href="{{route('online-chat.requests')}}" class="nav-link" style="color: white;">Online Chat Requests</a>
-                                    </li> -->
+                                    <li>
+                                        <a href="{{route('user.dashboard')}}"><i class="fa-solid fa-landmark"></i>Dashboard</a>
+                                    </li>
                                     <li class="nav-item">
-                                        <a href="{{route('user.logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
+                                        <a href="{{route('user.logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;"><i class="fa-solid fa-sign-out"></i>Logout</a>
                                     </li>
                                 @endif
                             @else

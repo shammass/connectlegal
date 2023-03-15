@@ -1,99 +1,3 @@
-<!-- <div class="row contaoner-fluid">
-    <section #navbar> 
-        <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
-            <span id="openNav" onclick="openNav()"><img class="open-btn" src="/new-design/assets/image/home/hamburgor-white.png" alt=""></span>
-            <a class="navbar-brand" id="navbar_brand_mobile" href="#">Connect Legal</a>
-            
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('howItWorks')}}"> How It Works</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('lawyer.register-page')}}">For Lawyers </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('question-answer')}}">Q & A </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('testimonials')}}">Testimonials</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Practice Area</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Lawyers</a>
-                    </li>
-                    @if(!auth()->user()) 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Login</a>
-                        </li>
-                    @else
-                        <li class="nav-item">
-                            <div class="navlist-profile">
-                                <div class="navlist-profile-img">
-                                    <img src="/new-design/assets/image/home/register3.png" alt="">
-                                    <img class="active_circle" src="/new-design/assets/image/home/active-circle.png" alt="">
-
-                                </div>
-
-                                <div class="navlist-profile-description">
-                                    <div class="profile-description-inner">
-                                        <h4>{{auth()->user()->name}}</h4>
-                                    </div>
-
-                                    <div class="profile-hamburgur">
-                                        <div class="dropdown">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                <img src="/new-design/assets/image/home/white-dot.png" alt="">
-                                            </button>
-                                            @if(auth()->user()->user_type == 3)
-                                                <ul class="dropdown-menu profile-dropdown">
-                                                    <li><a class="dropdown-item" href="#"><img src="/new-design/assets/image/home/Vector (19).png"
-                                                                alt="">My Profile</a></li>
-                                                    <li><a class="dropdown-item" href="#"><img src="/new-design/assets/image/home/Vector (19).png"
-                                                                alt="">Dashboard</a></li>
-                                                    <li><a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"><img src="/new-design/assets/image/home/Vector (19).png"
-                                                                alt="">Log Out</a></li>
-                                                </ul>
-                                            @else 
-                                                <ul class="dropdown-menu profile-dropdown">
-                                                    <li><a class="dropdown-item" href="#"><img src="/new-design/assets/image/home/Vector (19).png"
-                                                                alt="">My Profile</a></li>
-                                                    <li><a class="dropdown-item" href="{{route('lawyer.dashboard')}}"><img src="/new-design/assets/image/home/Vector (19).png"
-                                                                alt="">Dashboard</a></li>
-                                                    <li><a class="dropdown-item" href="{{route('logout')}}" onclick="return confirm('Are you sure you want to logout?')"><img src="/new-design/assets/image/home/Vector (19).png"
-                                                                alt="">Log Out</a></li>
-                                                </ul>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    @endif
-                </ul>
-            </div>
-            <div id="mobile-nav-profile">
-                <img src="/storage/{{auth()->user()->getProfilePic(auth()->user()->id)}}" onclick="myFunction()" alt="" class="mobile-prof-image dropbtn">
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="" class="mobile_prof_text"> <img src="/new-design/lawyer/assets/image/home/profile_icon.png" alt="" class="mobile_prof_icon"> My Profile</a>
-                    <a href="{{route('lawyer.dashboard')}}" class="mobile_prof_text"><img src="/new-design/lawyer/assets/image/home/dash.png" alt="" class="mobile_prof_icon"> Dashboard</a>
-                    <a href="{{route('logout')}}" class="mobile_prof_text"><img src="/new-design/lawyer/assets/image/home/logout.png" alt="" class="mobile_prof_icon"> Logout</a>
-                </div>                
-            </div>
-        </nav>
-    </section>
-</div> -->
-
-
 <div class="top-header">
                 <div class="row">
                     <div class="col-sm-9 d-none d-xl-block">
@@ -104,7 +8,7 @@
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                                     <li class="nav-item">
                                         <a class="nav-link" aria-current="page" href="/">Home</a>
                                     </li>
@@ -115,16 +19,22 @@
                                         <a class="nav-link" href="{{route('lawyer.register-page')}}">For Lawyers</a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{route('question-answer')}}">Q & A</a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{{route('testimonials')}}">Testimonials</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs &amp; Articles</a>
+                                        <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Lawyers</a>
+                                        <a class="nav-link" href="{{route('hire-a-lawyer')}}">Lawyer Services</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Practice Area</a>
+                                        <a class="nav-link" href="{{route('our-lawyers')}}">Our Lawyers</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="practice-area.html">Practice Area</a>
                                     </li>
                                 </ul>
                             </div>
@@ -206,19 +116,17 @@
                             </div>
                             <div class="offcanvas-body">
                                 <ul class="menu-left">
-                                    <li><a href="" class="active-nav"><i class="fa-solid fa-house-user"></i> Home</a>
-                                    </li>
-                                    <li><a href="#"><i class="fa-solid fa-landmark"></i> How It Works</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-users"></i> For Lawyers</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-question"></i> Testimonials</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-star"></i> Testimonials</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-bag-shopping"></i> Our Lawyers</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-user"></i> Lawyers</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-scale-balanced"></i> Practice Area</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-book"></i> Blogs & Articles</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-address-card"></i>Lawyer Services</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-gavel"></i> Legal Articles</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Login</a></li>
+                                    <li><a href="/" class="active-nav"><i class="fa-solid fa-house-user"></i> Home</a></li>
+                                    <li><a href="{{route('user.dashboard')}}"><i class="fa-solid fa-landmark"></i>Dashboard</a></li>
+                                    <li><a href="{{route('user.consultation-requests')}}"><i class="fa-solid fa-users"></i>Consultations</a></li>
+                                    <li><a href="{{route('user.questions-asked')}}"><i class="fa-solid fa-question"></i> Questions Asked</a></li>
+                                    <li><a href="{{route('online-chat.requests')}}"><i class="fa-solid fa-star"></i> Chat Online Requests</a></li>
+                                    <li><a href="{{route('user.services-purchased')}}"><i class="fa-solid fa-suitcase"></i> Services Purchased</a></li>
+                                    <li><a href="{{route('hire-a-lawyer')}}"><i class="fa-solid fa-scale-balanced"></i>Lawyer Services</a></li>
+                                    <li><a href="{{route('question-answer')}}"><i class="fa-solid fa-question"></i>Question & Answer</a></li>
+                                    @if(!auth()->user())
+                                        <li><a href="{{route('user.login')}}"><i class="fa-solid fa-sign-in"></i>Login</a></li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
