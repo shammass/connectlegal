@@ -13,6 +13,8 @@
 
 <hr>
 
+<p>A push notification will be sent to the Lawyer to ensure you receive the service. </p>
+
 <p>
     Please note: in case the Lawyer fails to provide the service purchased, you are entitled to a full refund on the service amount paid.
 </p>

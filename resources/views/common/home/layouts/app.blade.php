@@ -182,7 +182,8 @@
             function validateChatRqstForm(e, id) {
                 var valid = true;
                 $(".cf-errors").empty()
-                var descr = $(".chat-rqst-form-"+id).val();
+                var textarea = document.getElementsByClassName(".chat-rqst-form-"+id)[0];
+                var descr = textarea.value;
                 if(!descr) {
                     valid = false;
                     $(".chat-rqst-form-"+id).after('<span class="cf-errors" style="color:red;">This field is required</span>')
