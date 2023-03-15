@@ -244,7 +244,15 @@
                 //    $(".modal fade popuphome").show();
 
                 //  })
+            });
+            $(document).ready(function () {
+                $(".close-top").click(function () {
+                    $(".m-none-menu").hide();
                 });
+                $(".menu-a").click(function () {
+                    $(".m-none-menu").show();
+                });
+            });
         </script>
         
         @stack('script')

@@ -69,6 +69,16 @@
                                                             src="/new-design/user-dashboard/images/file-2.png" alt="">
                                                         Logout</a>
                                                 </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img
+                                                            src="/new-design/user-dashboard/images/file-2.png" alt="">
+                                                        demo1</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img
+                                                            src="/new-design/user-dashboard/images/file-2.png" alt="">
+                                                        demo2</a>
+                                                </li>
                                             </ul>
                                         </li>
 

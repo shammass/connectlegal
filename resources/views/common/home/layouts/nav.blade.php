@@ -1,4 +1,7 @@
-<div class="container-fluid">
+<div class="container-fluid" id="padding-0">
+    <a class="navbar-brand menu-a" href="#" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i
+            class="fa-solid fa-bars"></i> <span>Connect Legal</span></a>
     <nav class="navbar navbar-expand-lg navbar-light main-menu">
         <div id="mySidenav1" class="offcanvas offcanvas-start" data-bs-scroll="true"
             data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling"

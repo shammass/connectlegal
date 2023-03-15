@@ -56,14 +56,12 @@
 <!-- <script src="/lib/jquery.min.js"></script>  -->
 
 
-<footer class="footer-part">
+<footer class="footer-part p-80">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-4">
+        <!--     <div class="col-lg-3 col-md-4">
                 <img src="/new-design/assets/images/ft-logo.png" alt="ft-logo" class="ft-logo">
-            </div>
-            <div class="col-lg-9 col-md-12">
-                <div class="row">
+            </div> -->
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="ft-list">
                             <h5>About company</h5>
@@ -106,8 +104,6 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
         </div>
         <hr class="ft-line">
         <div class="row">
