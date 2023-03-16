@@ -243,22 +243,29 @@
                 //    $(".modal fade popuphome").show();
 
                 //  })
+            });
+            $(document).ready(function () {
+                $(".close-top").click(function () {
+                    $(".m-none-menu").hide();
                 });
+                $(".menu-a").click(function () {
+                    $(".m-none-menu").show();
+                });
+            });
 
-                function validateChatRqstForm(e) {
-                    var valid = true;
-                    $(".cf-errors").empty()
-                    var descr = $(".chat-rqst-form").val();
-                    if(!descr) {
-                        valid = false;
-                        $(".chat-rqst-form").after('<span class="cf-errors" style="color:red;">This field is required</span>')
-                    }
-
-                    if(!valid) {
-                        e.preventDefault()
-                    }
+            function validateChatRqstForm(e) {
+                var valid = true;
+                $(".cf-errors").empty()
+                var descr = $(".chat-rqst-form").val();
+                if(!descr) {
+                    valid = false;
+                    $(".chat-rqst-form").after('<span class="cf-errors" style="color:red;">This field is required</span>')
                 }
 
+                if(!valid) {
+                    e.preventDefault()
+                }
+            }
         </script>
         
         @stack('script')

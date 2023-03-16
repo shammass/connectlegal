@@ -105,7 +105,7 @@ label.form-label {
 
 .repairs::placeholder {
     font-family: Poppins;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 35px;
     letter-spacing: 0em;
@@ -142,7 +142,7 @@ label.form-label {
 }
 
 .form-control.repairs {
-    padding-top: 43px;
+    padding-top: 10px;
 }
 
 .f-txt {
@@ -238,7 +238,7 @@ i.fa-solid.fa-eye.view-icon {
 
 #accodian-class .accordion-body {
     font-family: Poppins;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 35px;
     letter-spacing: 0em;
@@ -257,7 +257,7 @@ i.fa-solid.fa-eye.view-icon {
     border: 1px solid #208C84;
     color: #fff;
     background:#208C84;
-    padding: 10px 40px;
+    padding: 10px 20px;
 }
 .Generatebtn.addclassstyle:hover{
     color: #fff;
@@ -280,25 +280,25 @@ i.fa-solid.fa-eye.view-icon {
 
 p.txt-lorm {
     font-family: Poppins;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 35px;
     letter-spacing: 0em;
     text-align: left;
     margin: 0px;
-    padding: 35px 0px;
+    padding: 15px 0px;
 }
 
 .form-horizontal-class {
     width: 100%;
-    padding: 50px;
+    padding: 25px;
     background: #FFFFFF;
     border: 0.5px solid rgba(32, 140, 132, 0.5);
 }
 
 .form-horizontal-class h2 {
     font-family: Poppins;
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 400;
     line-height: 48px;
     letter-spacing: 0em;
@@ -321,7 +321,7 @@ p.txt-lorm {
 
 .txtabdal {
     font-family: Poppins;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 30px;
     letter-spacing: 0em;
@@ -330,7 +330,7 @@ p.txt-lorm {
 
 .fast {
     font-family: Poppins;
-    font-size: 16px;
+    font-size: 14px;
     font-style: italic;
     font-weight: 300;
     line-height: 24px;
@@ -467,7 +467,7 @@ span.tst {
 }
 p.moni-app {
     font-family: Poppins;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 30px;
     letter-spacing: 0em;
@@ -498,7 +498,7 @@ img.imgv {
 
 h1.addtst {
     font-family: Poppins;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 40px;
     letter-spacing: 0em;
@@ -509,12 +509,12 @@ h1.addtst {
 
 img.plus {
     background: #c6efe2;
-    padding: 18px;
+    padding: 10px;
 }
 
 p.mon-txt {
     font-family: Poppins;
-    font-size: 16px;
+    font-size: 12px;
     font-style: italic;
     font-weight: 400;
     line-height: 27px;
@@ -596,7 +596,7 @@ i.fa-regular.fa-star {
 
 .btn-lst {
     font-family: Poppins;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 36px;
     letter-spacing: 0em;
@@ -671,14 +671,23 @@ select#positon {
         font-size: 25px;;
     }
     h5.mon-txt-cvr {
-        font-size: 12px;
+        font-size: 10px;
     }
     h6.mon-cvr {
-        font-size: 12px;
+        font-size: 10px;
     }
     .f-txt {
-        font-size: 35px;
+        font-size: 30px;
     }
+    .tst-mon {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #191919;
+    padding: 25px;
+}
 }
 
 @media(max-width:767px) {
@@ -766,14 +775,14 @@ select#positon {
 
 h1.txt-bl {
     font-weight: 600;
-    font-size: 80px;
-    line-height: 145px;
+    font-size: 60px;
+    line-height: 100px;
     color: #191919;
 }
 p.txt-bl-2 {
     font-weight: 400;
-   font-size: 24px;
-    line-height: 40.2px;
+   font-size: 16px;
+    line-height: 30.2px;
     color: #191919;
 }
 
@@ -784,7 +793,7 @@ img.icn {
 small {
     color: #156075;
     font-weight: 400;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 33.5px;
 }
 
@@ -854,7 +863,7 @@ button.btn-date {
 }
 
 p.date {
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 400;
     padding-top: 20px;
 }
@@ -862,7 +871,7 @@ p.date {
 p.sec-txt {
     color: #156075;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 p.sec-txt-2 {
@@ -1137,7 +1146,7 @@ div#postin {
 
 .question-text h3 {
     font-family: Poppins;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 500;
     line-height: 35px;
     letter-spacing: 0em;
@@ -1289,7 +1298,7 @@ div#hire_page .search-drop {
 }
 
 .aed-class {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 500;
     line-height: 35px;
     letter-spacing: 0em;
@@ -2012,7 +2021,7 @@ h1.moni {
     line-height: 96px; 
 }
 p.moni-app {
-    font-size: 24px;
+    font-size: 16px;
     line-height: 40.2px; 
 }
 .icn-bx { 
@@ -5232,14 +5241,22 @@ img.off-logo {
     height: 60px;
     border-radius: 50%;
 }
-
+.main-tabs {
+    position: absolute;
+    right: 82px;
+}
 
 @media (min-width:1366px) {
     .see-more.seechnage i {
         background: #3DC9A1;
         padding: 12px;
     }
+    .main-tabs {
+    position: absolute;
+    right: 82px;
+}
     .see-more.seechnage {
         font-size: 18px;
     }
 }
+

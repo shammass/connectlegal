@@ -9,76 +9,83 @@
                             <h1 class="f-txt">How it works for <span class="clnt">Individuals</span></h1>
                             <p class="txt-lorm">Lorem ipsum dolor sit amet consectetur adipiscing elit do eiusmod tempor
                             incididunt ut labore et dolore magna ut enim ad minim veniam nostrud exercitation.</p>
+
                             <div class="accordion ouraccordion" id="accordionExample">
-                                <div class="accordion-item" id="accordionidclass">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            LEGAL SERVICES
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                    data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Lorem ipsum dolor sit amet consectetur adipiscing elit do eiusmod tempor
-                                            incididunt ut labore et dolore magna ut enim ad minim veniam nostrud
-                                            exercitation.
-                                            <div class="mt-5 mb-5" id="twobtn1">
-                                                <a href="#" class="Generatebtn addclassstyle">View our Parnetrs Lawyers</a>
-                                                <a href="#" class="Generatebtn addclassstyle2">View Legal Services</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item" id="accordionidclass">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            PRO Services
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                    data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Lorem ipsum dolor sit amet consectetur adipiscing elit do eiusmod tempor
-                                            incididunt ut labore et dolore magna ut enim ad minim veniam nostrud
-                                            exercitation.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item" id="accordionidclass">
-                                    <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Legal Translation
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                    data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Lorem ipsum dolor sit amet consectetur adipiscing elit do eiusmod tempor
-                                            incididunt ut labore et dolore magna ut enim ad minim veniam nostrud
-                                            exercitation.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item" id="accordionidclass">
-                                    <h2 class="accordion-header" id="headingfour">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#headingfour" aria-expanded="false" aria-controls="collapseThree">
-                                            PRO Bono Services
-                                        </button>
-                                    </h2>
-                                    <div id="headingfour" class="accordion-collapse collapse" aria-labelledby="headingfour"
-                                    data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            Lorem ipsum dolor sit amet consectetur adipiscing elit do eiusmod tempor
+    <div class="accordion-item" id="accordionidclass">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                LEGAL SERVICES
+            </button>
+        </h2>
+
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit do eiusmod tempor
+                incididunt ut labore et dolore magna ut enim ad minim veniam nostrud
+                exercitation.
+                <div class="mt-5 mb-5" id="twobtn1">
+                    <a href="#" class="Generatebtn addclassstyle">View our Parnetrs Lawyers</a>
+                    <a href="#" class="Generatebtn addclassstyle2">View Legal Services</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item" id="accordionidclass">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                PRO Services
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit do eiusmod tempor
+                incididunt ut labore et dolore magna ut enim ad minim veniam nostrud
+                exercitation.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item" id="accordionidclass">
+        <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Legal Translation
+            </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit do eiusmod tempor
+                incididunt ut labore et dolore magna ut enim ad minim veniam nostrud
+                exercitation.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item" id="accordionidclass">
+        <h2 class="accordion-header" id="headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                PRO Bono Services
+            </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit do eiusmod tempor
+
                                             incididunt ut labore et dolore magna ut enim ad minim veniam nostrud
                                             exercitation.
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                     <div class="col-lg-5 mt-lg-0 mt-5">
@@ -210,6 +217,5 @@
             $(this).fadeOut();
             $("#video")[0].src = $("#video")[0].src.replace("?autoplay=1", "");
         });
-
     </script>
 @endpush

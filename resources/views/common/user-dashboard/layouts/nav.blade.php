@@ -56,21 +56,20 @@
                                         <p class="font-ad">{{auth()->user()->email}}</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-1 pl-0 ">
-                                <ul class="moreoption">
-                                    <li class="navbar nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#"
-                                            role="button" data-bs-toggle="dropdown"
-                                            aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical text-white"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img
-                                                        src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                    Logout</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                <div class="col-sm-1 pl-0 ">
+                                    <ul class="moreoption">
+                                        <li class="navbar nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#"
+                                                role="button" data-bs-toggle="dropdown"
+                                                aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical text-white"></i></a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img
+                                                            src="/new-design/user-dashboard/images/file-2.png" alt="">
+                                                        Logout</a>
+                                                </li>
+                                            </ul>
+                                        </li>
 
                                 </ul>
                             </div>

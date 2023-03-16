@@ -53,7 +53,7 @@ nav.main-menu a.navbar-brand {
 .main-menu ul.navbar-nav li a {
     color: #fff !important;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 20px;
     padding: 13px 10px !important;
 }
@@ -80,7 +80,7 @@ section {
 h1.font-64 {
     color: #fff;
     font-weight: 600;
-    font-size: 45px;
+    font-size: 35px;
     line-height: 60px;
     margin-top: 20px;
 }
@@ -457,7 +457,7 @@ a.answers {
 
 .text-slid .font-20 {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 33.5px;
     color: #191919;
 }
@@ -474,7 +474,7 @@ a.answers {
 
 .font-28 {
     font-weight: 700;
-    font-size: 28px;
+    font-size: 22px;
     line-height: 42px;
 }
 
@@ -1414,13 +1414,13 @@ a.circle-right i {
 }
 
 .why-b.Keep p {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 27px;
 }
 
 .why-b.Keep {
     background: #fff;
-    padding: 30px;
+    padding: 25px 30px;
 }
 
 .bg-E5EAED {
@@ -1607,8 +1607,8 @@ p.copy-right {
     margin: 0;
     color: #fff;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 35px;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 img.ft-logo {
@@ -1629,7 +1629,7 @@ ul.ft-list-a {
 
 ul.ft-list-a li a {
     font-weight: 400;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 25px;
     color: #FFFFFF;
     text-decoration: none;
@@ -2313,7 +2313,7 @@ ul.social li a {
     }
 
     p.font-15 {
-        font-size: 10px;
+        font-size: 8px;
         line-height: 15px;
     }
 
@@ -2917,9 +2917,14 @@ ul.menu-left li a {
     text-decoration: none;
 }
 
-ul.menu-left li a i {
+/*ul.menu-left li a i {
     margin-right: 10px;
+}*/
+ul.menu-left li a i {
+    width: 30px;
+    text-align: center;
 }
+
 
 .offcanvas ::-webkit-scrollbar {
     width: 1px !important;
@@ -3016,7 +3021,7 @@ div#profile p.short-mes {
 
 .lawyers-part p {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 35px;
     color: #191919;
 }
@@ -3266,7 +3271,7 @@ i.crown-p {
     }
 
     p.font-15 {
-        font-size: 10px;
+        font-size: 8px;
     }
 
     div#text-ten h4 {
@@ -3480,7 +3485,7 @@ i.crown-p {
 
 .banner-heading {
     font-weight: 600;
-    font-size: 48px;
+    font-size: 40px;
     line-height: 72px;
     color: #191919;
 }
@@ -3497,14 +3502,14 @@ i.crown-p {
 
 .firm-info h3 {
     font-weight: 600;
-    font-size: 32px;
+    font-size: 26px;
     line-height: 48px;
     color: #191919;
 }
 
 .firm-info input {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 35px;
     color: #787878;
     border: none;
@@ -3515,7 +3520,7 @@ i.crown-p {
 }
 
 #contact-five input::placeholder {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 35px;
     letter-spacing: 0em;
@@ -3531,7 +3536,7 @@ i.crown-p {
     width: 177px;
     height: 68px;
     background: #208C84;
-    font-size: 20px;
+    font-size: 12px;
     line-height: 35px;
     color: #FFFFFF;
     border: none;
@@ -3934,7 +3939,7 @@ img.tab-icon {
 
 .eles h4 {
     font-weight: 600;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 35px;
     color: #191919;
 }
@@ -3944,7 +3949,7 @@ img.tab-icon {
     border-radius: 15px;
     width: 100%;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 35px;
     color: #191919;
     height: 240px;
@@ -4021,7 +4026,7 @@ ul.post-1 li a img {
 
 .Hire h5 {
     font-weight: 700;
-    font-size: 32px;
+    font-size: 26px;
     line-height: 48px;
     color: #156075;
 }
@@ -4070,7 +4075,11 @@ ul.post-1.text-left {
 
 }
 
-
+@media(max-width:1366px){
+        h1.font-64.same-font {
+        font-size: 35px;
+    }
+}
 @media (max-width:991px) {
     .faq-box h6 {
         font-size: 40px;
@@ -4102,7 +4111,7 @@ ul.post-1.text-left {
     }
 
     h1.font-64.same-font {
-        font-size: 40px;
+        font-size: 35px;
         line-height: 47px;
         margin-top: 0;
     }
@@ -6270,11 +6279,11 @@ textarea.description {
 }
 
 select {
-    height: 53px;
+    height: 40px;
     border: 0.75px solid #85BACA;
     border-radius: 15px;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 14px;
     line-height: 20px;
     color: #191919;
     width: 100%;
@@ -6487,7 +6496,7 @@ ul.your-rating li p {
 
 .text-right.search-drop.withsamesize .department {
     width: 180px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     line-height: 23px;
     letter-spacing: 0em;
@@ -6985,7 +6994,9 @@ img.off-logo {
     position: relative;
     left: 10px;
 }
-
+#mySidenav img.off-logo {
+    left: 12px;
+}
 #summary-law i.crown-p { 
     top: unset;
 }
@@ -7257,8 +7268,9 @@ p.close-top {
     }
 }
 
-section#cover-padding {
-    padding: 0px 80px;
+/* 12-03-2023 */
+.p-80 {
+    padding: 60px 60px 0px;
 }
 section.m-sp-same {
     padding: 0px 80px 50px;
@@ -7271,27 +7283,53 @@ section.m-sp-same {
 .menu-sidebar img.off-logo{
     left: unset;
 }
-section#cover-padding {
-    padding: 0px 80px;
-}
-section.m-sp-same {
-    padding: 0px 80px 50px;
-}
-.practice-area {
-    padding: 50px 80px 50px !important;
-}
+/*img.off-logo.class-logo {
+    left: 12px;
+}*/
 a.next-step-btn.back {
     padding: 6px;
 }
 a.next-step-btn {
     padding: 6px 6px !important;
 }
-main.bg-color.bg-f4fefa {
-    padding: 40px 80px 0px 80px;
+
+@media(max-width:1366px){
+    h1.moni {
+        font-size: 30px !important;
+    }
+    .question-text h3 {
+        font-size: 20px !important;
+    }
 }
-.bg-f4fefa{
-    padding: 0px 80px;
-}
-main.bg-color.bg-f4fefa {
-    padding: 40px 80px 0px 80px;
+@media(max-width:991px){
+    .p-80 {
+        padding: 15px 15px;
+    }
+    .searchfild .input-group {
+        margin-top: 60px;
+    }
+    .w-tdh-commam select.department.class-width-same {
+        width: 100px !important;
+    }
+    h1.moni {
+        font-size: 30px !important;
+        line-height: 60px;
+    }
+    .seebtn {
+        padding: 15px 15px !important;
+    }
+    h1.moni {
+        padding-top: 100px !important;
+    }
+    #heire .question-text {
+        padding: 10px 10px 25px 10px !important;
+    }
+    .btnbynew {
+        font-size: 16px;
+        padding: 2px 15px;
+        width: unset;
+    }
+    section.m-sp-same.p-80 {
+        padding: 30px 15px;
+    }
 }

@@ -541,7 +541,7 @@ p.time-r {
 
 .card-box h3 {
     font-weight: 600;
-    font-size: 24px;
+    font-size: 18px;
     color: #191919;
 }
 
@@ -859,7 +859,7 @@ tbody.table-group-divider tr td {
     text-align: left; 
 }
 thead.thead-th th { 
-    text-align: center !important; 
+    text-align: left !important; 
 }
 .d-flex.time-class.plue {
     padding: 10px 10px;
@@ -928,7 +928,7 @@ div#pt-class {
 .table-group-divider th {
     font-size: 14px !important;  
     padding: 14px !important;
-    text-align: center;
+    text-align: left;
 }
 tbody.table-group-divider th {
     padding-left: 14px !important;

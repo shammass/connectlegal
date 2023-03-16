@@ -1,7 +1,7 @@
 @extends('common.home.layouts.app')
 @section('content')
-    <div class="p-80">
-        <section class="lawyers-part p-0 pb-5">
+    <div class=" lawyers-part p-80">
+        <section class=" p-0 pb-5">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8 order-lg-0 order-last">
@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="row align-items-center">
-                    <div class="col-md-6 mt-5">
+                    <div class="col-md-6 mt-lg-5">
                         <div class="searchfild">
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" id="searchTerm" placeholder="Search..." aria-label="Recipient's username"
