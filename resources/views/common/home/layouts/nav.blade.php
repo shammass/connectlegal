@@ -36,11 +36,11 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/">Home</a>
                 </li>
-<<<<<<< HEAD
+
                 <li class=" nav-item dropdown">
-=======
+
                 <li class="nav-item dropdown">
->>>>>>> 578a96ebeb441c9dabcae8da2332d23a67f323ff
+
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">How It Works</a>
                     <ul class="dropdown-menu">
                         <li class="nav-item">
