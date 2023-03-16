@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Lawyer;
 
 use App\Http\Controllers\Controller;
 use App\Models\ChatOnline;
-use App\Models\ChMessage;
+use App\Models\ChMessage as Message;
 use App\Models\Lawyer;
+use Chatify\Facades\ChatifyMessenger as Chatify;
 use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 
@@ -43,14 +44,14 @@ class ChatOnlineRequestController extends Controller
             ]);
             $messageID = mt_rand(9, 999999999) + time();
             
-            ChMessage::create([
-                'id' => $messageID,
-                'type' => 'user',
-                'from_id' => $isAcceptedAlready->user_id,
-                'to_id' => Auth::user()->id,
-                'body' =>  $isAcceptedAlready->comment
-            ]);
-
+            $message = new Message();
+            $message->id = $messageID;
+            $message->type = 'user';
+            $message->from_id = $isAcceptedAlready->user_id;
+            $message->to_id = auth()->user()->id;
+            $message->body = $isAcceptedAlready->comment;
+            $message->save();
+            
             $html = View::make('emails.chat-rqst-accepted', ['name' => $chatRequest->user->name, 
                                                             'lawyerName' => auth()->user()->name, 
                                                             'id' => auth()->user()->id

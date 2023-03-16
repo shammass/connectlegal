@@ -181,6 +181,7 @@
 
             function validateChatRqstForm(e, id) {
                 var valid = true;
+                debugger
                 $(".cf-errors").empty()
                 var textarea = document.getElementsByClassName(".chat-rqst-form-"+id)[0];
                 var descr = textarea.value;
@@ -253,19 +254,7 @@
                 });
             });
 
-            function validateChatRqstForm(e) {
-                var valid = true;
-                $(".cf-errors").empty()
-                var descr = $(".chat-rqst-form").val();
-                if(!descr) {
-                    valid = false;
-                    $(".chat-rqst-form").after('<span class="cf-errors" style="color:red;">This field is required</span>')
-                }
-
-                if(!valid) {
-                    e.preventDefault()
-                }
-            }
+            
         </script>
         
         @stack('script')

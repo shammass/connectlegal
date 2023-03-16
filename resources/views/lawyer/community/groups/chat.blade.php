@@ -155,8 +155,7 @@
                                                                     $attachment = json_decode($message->attachment); 
                                                                 @endphp
                                                                 <ul>
-                                                                    <a href="{{ route(config('chatify.attachments.download_route_name'), ['fileName'=>$attachment->new_name, 'ogName' => $attachment->old_name]) }}">
-                                                                        <li class="sender color-border">
+                                                                    <a href="/online-chat/download/{{$attachment->new_name}}/{{$attachment->old_name}}">                                                                        <li class="sender color-border">
                                                                             <div class="chat-left">
 
                                                                                 <div class="d-flex align-items-center" id="bg-dark">
@@ -202,8 +201,7 @@
                                                                     $attachment = json_decode($message->attachment); 
                                                                 @endphp
                                                                 <ul>
-                                                                    <a href="{{ route(config('chatify.attachments.download_route_name'), ['fileName'=>$attachment->new_name, 'ogName' => $attachment->old_name]) }}">
-                                                                        <li class="repaly reply-two">
+                                                                    <a href="/online-chat/download/{{$attachment->new_name}}/{{$attachment->old_name}}">                                                                        <li class="repaly reply-two">
                                                                             <div class="chat-left colorchane">
 
                                                                                 <div class="d-flex align-items-center" id="bg-dark">

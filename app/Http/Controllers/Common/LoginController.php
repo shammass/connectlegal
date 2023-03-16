@@ -165,47 +165,6 @@ class LoginController extends Controller
         }
         return true;
     }
-
-    // public function userLogin(Request $request) {
-        
-    //     //     // print_r($request->all());exit;
-    //         $user = User::whereEmail($request->email)->first();
-    //         if($user) {
-    //             if (Hash::check($request->password, $user->password)) {
-    //                 if($user->user_type == 1) {
-    //                     Alert::error('Login Failed', 'Please check your credentials');
-    //                     return redirect()->route('user.login');
-    //                 }
-    //                 if($user->user_type == 2) {
-    //                     $checkIsVerifiedUser = Lawyer::whereUserId($user->id)->first();
-    //                     if($checkIsVerifiedUser->is_verified) {
-    //                         Auth::login($user);
-    //                         Cache::put('user-is-online-' . Auth::user()->id, true);  
-    //                         event(new LawyerLoginLogout(auth()->user()->id, 'lawyerLoginLogout'));
-    //                         return redirect(RouteServiceProvider::LAWYER_HOME);
-    //                     }else {
-    //                         Alert::error('Not Verified', 'You are not yet verified by the admin');
-    //                         return redirect()->route('user.login');
-    //                     }
-    //                 }else {
-    //                     if($user->email)
-    //                     Auth::login($user);
-    //                     Alert::success('Logged In', 'You are logged in successfully');
-    //                     // return redirect(RouteServiceProvider::HOME);   
-    //                     return redirect()->route('user.dashboard');
-    //                     // return Redirect::to(url()->previous());         
-    //                 }
-    //             }else {
-    //                 Alert::error('Login Failed', 'Please check your password');
-    //                 return redirect()->route('user.login');
-    //             }
-    //         }else {
-    //             Alert::error('Login Failed', 'There is no existing user with given Email ID');
-    //             return redirect()->route('user.login');
-    //         }
-        
-    // }
-
     
     public function userLogin(Request $request) {
         $request->validate([

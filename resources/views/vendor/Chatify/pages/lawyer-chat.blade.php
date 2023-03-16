@@ -224,7 +224,7 @@
                                                                 $attachment = json_decode($message->attachment); 
                                                             @endphp
                                                             <ul>
-                                                                <a href="{{ route(config('chatify.attachments.download_route_name'), ['fileName'=>$attachment->new_name, 'ogName' => $attachment->old_name]) }}">
+                                                            <a href="/online-chat/download/{{$attachment->new_name}}/{{$attachment->old_name}}">
                                                                     <li class="sender color-border">
                                                                         <div class="chat-left">
 
@@ -274,7 +274,7 @@
                                                                 $attachment = json_decode($message->attachment); 
                                                             @endphp
                                                             <ul>
-                                                                <a href="{{ route(config('chatify.attachments.download_route_name'), ['fileName'=>$attachment->new_name, 'ogName' => $attachment->old_name]) }}">
+                                                            <a href="/online-chat/download/{{$attachment->new_name}}/{{$attachment->old_name}}">
                                                                     <li class="repaly reply-two">
                                                                         <div class="chat-left colorchane">
 
@@ -349,7 +349,11 @@
                                                         aria-label="message…" placeholder="Write message… ">
                                                     <img style="cursor: pointer;" id="emoji-picker"
                                                         src="/new-design/user-dashboard/images/file-snd.png" alt="" class="postiotion-1">
-                                                    <img src="/new-design/user-dashboard/images/filesnd.png" class="postiotion-2">
+                                                    <label>
+                                                        <input type="file" onchange="updateImagePreview()" multiple
+                                                            class="img-file"> <img src="/new-design/user-dashboard/images/filesnd.png"
+                                                            class="postiotion-2 img--">
+                                                    </label>
                                                     <button type="button" onclick="sendMessage()"><i class="fa fa-paper-plane"
                                                             aria-hidden="true"></i></button>
                                                 </form>
@@ -474,6 +478,50 @@
             }
         });
 
+        var pdfFile = null;
+        function updateImagePreview() {
+            $("#pdfName").empty()
+            $("#pdfSize").empty()
+            $(".upload-image").show();
+            var input = document.querySelector('input[type="file"]');
+            var preview = document.querySelector('#image-preview');
+            var file = input.files[0];
+            
+            if (file) {
+                $("#pdfName").append(file.name)
+                var fileSizeInMB = formatBytes(file.size)
+                $("#pdfSize").append(fileSizeInMB+" · PDF")
+                var reader = new FileReader();
+
+                reader.onloadend = function () {
+                    preview.src = reader.result;
+                    preview.style.display = 'block';
+                }
+
+                const messagesContainer = $(".chat-history");
+                scrollToBottom(messagesContainer);
+                pdfFile = file;
+                reader.readAsDataURL(file);
+            } else {
+                var uploadImage = document.querySelector('.upload-image');
+                uploadImage.style.display = 'none';
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        }
+
+        function formatBytes(bytes, decimals = 0) {
+            if (bytes === 0) return '0 Bytes';
+
+            const k = 1024;
+            const dm = decimals < 0 ? 0 : decimals;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+        }
+
         var input = document.getElementById("msgField");
             input.addEventListener("keypress", function(event) {
             if (event.key === "Enter") {
@@ -494,6 +542,9 @@
             $(".sending").css('display', 'block');
             $(".sending").css('text-align', 'center');
             var msg = $("#msgField").val().trim();
+            if(pdfFile) {
+                msg = "file"
+            }
             if(msg) {
 
                 $("#msgField").val("")            
@@ -504,6 +555,7 @@
                 formData.append("temporaryMsgId", tempID);
                 formData.append("message", msg);
                 formData.append("to_id", toId);
+                formData.append("file", pdfFile);
                 // debugger
                 // document.getElementById('msgField').setAttribute("style","padding-left:5%;overflow:hidden;overflow-wrap:break-word;");
                 // if(msg) {
@@ -532,7 +584,8 @@
                         // cancelAttachment();
                         messageInput.focus();
                     },
-                    success: function(res) {           
+                    success: function(res) {       
+                        $(".upload-image").hide();     
                         const messagesContainer = $(".chat-history");
                         scrollToBottom(messagesContainer)         
                         // $("#chat-text").animate({ scrollTop: $('#chat-text').prop("scrollHeight")}, 1000);
