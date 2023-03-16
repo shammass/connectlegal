@@ -311,7 +311,7 @@ class HireLawyerController extends Controller
                 $mail_data = [
                     'subject' => "Connect legal - Service Purchase Notification",
                     'htmlPart' => $html,
-                    'user_email' => auth()->user()->email
+                    'user_email' => $scheduleMeeting->lawyer->email
                 ];
             }
 
