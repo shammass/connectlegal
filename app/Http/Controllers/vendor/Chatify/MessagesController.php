@@ -64,6 +64,7 @@ class MessagesController extends Controller
      */
     public function index( $id = null) //$id = user id -> With whome the logged in user is texting
     {             
+        
         if(!$this->isLawyer()) {
             $getLawyerId = Lawyer::whereUserId($id)->first();
             $isRequestSent = ChatOnline::where([
@@ -330,7 +331,7 @@ class MessagesController extends Controller
                     $error->message = "File size you are trying to upload is too large!";
                 }
             }
-    
+            
             if (!$error->status) {
                 // send to database
                 $messageID = mt_rand(9, 999999999) + time();
@@ -346,6 +347,7 @@ class MessagesController extends Controller
                         'attachment' => ($attachment) ? json_encode((object)[
                             'new_name' => $attachment,
                             'old_name' => htmlentities(trim($attachment_title), ENT_QUOTES, 'UTF-8'),
+                            'size'     => $file->getSize(),
                         ]) : null,
                     ]);
                     // $this->attachedPdf($chat, $request);
@@ -367,6 +369,8 @@ class MessagesController extends Controller
                     
                     event(new UserMsg($messageID, 'UserMsg'));
                 }
+            }else {
+                return $error;
             }
             // send the response
             if(request()->ajax()) {

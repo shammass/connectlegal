@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use Stripe\StripeClient;
 use PDF;
+use Dompdf\Dompdf;
 use DB;
 use Illuminate\Support\Facades\View;
 
@@ -343,28 +344,33 @@ class HireLawyerController extends Controller
         $scheduleMeetingData = SchduledMeeting::whereId($meetingId)->first();
         $serviceData = Services::whereId($scheduleMeetingData->service_id)->first();
         $productData = HireLawyerContactInfo::whereServiceId($scheduleMeetingData->service_id)->first();
+        // $data = [
+        //     // data for the invoice goes here
+        //     'orderId'           => $meetingId,
+        //     'lawyer'            => $serviceData->addedBy->name,
+        //     'email'             => $serviceData->addedBy->email,
+        //     'address'           => $serviceData->getAddress($serviceData->added_by),
+        //     'customer_name'     => $productData->first_name.' '.$productData->last_name,
+        //     'customer_email'    => $productData->email,
+        //     'title'             => $serviceData->title,
+        //     'mobile'            => $productData->mobile,
+        //     'message'           => $productData->comments_for_lawyer,
+        //     'amount'            => $serviceData->getLawyerFee($serviceData->id) + $serviceData->getPlatformFee($serviceData->id),
+        // ];
+
         $data = [
-            // data for the invoice goes here
-            'orderId'           => $meetingId,
-            'lawyer'            => $serviceData->addedBy->name,
-            'email'             => $serviceData->addedBy->email,
-            'address'           => $serviceData->getAddress($serviceData->added_by),
-            'customer_name'     => $productData->first_name.' '.$productData->last_name,
-            'customer_email'    => $productData->email,
-            'title'             => $serviceData->title,
-            'mobile'            => $productData->mobile,
-            'message'           => $productData->comments_for_lawyer,
-            'amount'            => $serviceData->getLawyerFee($serviceData->id) + $serviceData->getPlatformFee($serviceData->id),
+            'title' => 'My PDF Document',
+            'content' => '<h1>Hello, world!</h1>'
         ];
+
+        $dompdf = new Dompdf();
+        $dompdf->setPaper('A4', 'landscape');
 
         $html = view('common.pages.hire-lawyer.invoice', $data)->render();
 
-        $pdf = PDF::loadHtml($html);
-
-        // Render the PDF
-        $pdf->setPaper('A2', 'landscape');
-        // Output the PDF to the browser
-        return $pdf->download('invoice.pdf');
+        $dompdf->loadHtml($html);
+        $dompdf->render();
+        $dompdf->stream('document.pdf');
     }
 
     public function serviceLawyers($id) {

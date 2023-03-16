@@ -150,41 +150,111 @@
                                                 <div class="msg-body messages-content" id="chat-text">
                                                     @foreach($messages as $k => $message)
                                                         @if($message->from_id != auth()->user()->id)
-                                                            <small style="color:{{$message->fromUser->messenger_color}}"><strong>{{$message->fromUser->name}}</strong></small>
-                                                            <ul>
-                                                                <li class="sender color-border">
-                                                                    <div class="chat-left">
-                                                                        <p>{{$message->body}}
-                                                                        </p>
-                                                                        <h6 class="text-end">{{$message->created_at->diffForHumans()}} {{date('g:i A', strtotime($message->created_at))}} <i
-                                                                                class="fa-solid fa-check"></i></h6>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
+                                                            @if($message->attachment)
+                                                                @php 
+                                                                    $attachment = json_decode($message->attachment); 
+                                                                @endphp
+                                                                <ul>
+                                                                    <a href="{{ route(config('chatify.attachments.download_route_name'), ['fileName'=>$attachment->new_name, 'ogName' => $attachment->old_name]) }}">
+                                                                        <li class="sender color-border">
+                                                                            <div class="chat-left">
+
+                                                                                <div class="d-flex align-items-center" id="bg-dark">
+                                                                                    <span class="chat-icon"><i
+                                                                                            class="fa-solid fa-arrow-left"></i></span>
+                                                                                    <div class="flex-shrink-0 img-width"
+                                                                                        data-bs-toggle="modal"
+                                                                                        data-bs-target="#exampleModal">
+                                                                                        <img class="img-fluid" src="/new-design/user-dashboard/images/pdf.png"
+                                                                                            alt="user img">
+                                                                                    </div>
+                                                                                    <div class="flex-grow-1 color-p-syte ms-3"
+                                                                                        id="pdf-file">
+                                                                                        <h3>{{$attachment->old_name}}
+                                                                                        </h3>
+                                                                                        <p>{{ formatBytes($attachment->size) }} · PDF</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- <p>This is one example of text to attach the file -->
+                                                                                </p>
+                                                                                <h6 class="text-end">{{date('g:i A', strtotime($message->created_at))}} <i
+                                                                                        class="fa-solid fa-check"></i></h6>
+                                                                            </div>
+                                                                        </li>
+                                                                    </a>
+                                                                </ul>
+                                                            @else 
+                                                                <small style="color:{{$message->fromUser->messenger_color}}"><strong>{{$message->fromUser->name}}</strong></small>
+                                                                <ul>
+                                                                    <li class="sender color-border">
+                                                                        <div class="chat-left">
+                                                                            <p>{{$message->body}}
+                                                                            </p>
+                                                                            <h6 class="text-end">{{$message->created_at->diffForHumans()}} {{date('g:i A', strtotime($message->created_at))}} <i
+                                                                                    class="fa-solid fa-check"></i></h6>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            @endif
                                                         @else
-                                                            <ul>
-                                                                <li class="repaly reply-two">
-                                                                    <div class="chat-left colorchane">
-                                                                        <p>{{$message->body}}
-                                                                        </p>
-                                                                        <h6 class="text-end">{{$message->created_at->diffForHumans()}} {{date('g:i A', strtotime($message->created_at))}} <i
-                                                                                class="fa-solid fa-check"></i></h6>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
+                                                            @if($message->attachment)
+                                                                @php 
+                                                                    $attachment = json_decode($message->attachment); 
+                                                                @endphp
+                                                                <ul>
+                                                                    <a href="{{ route(config('chatify.attachments.download_route_name'), ['fileName'=>$attachment->new_name, 'ogName' => $attachment->old_name]) }}">
+                                                                        <li class="repaly reply-two">
+                                                                            <div class="chat-left colorchane">
+
+                                                                                <div class="d-flex align-items-center" id="bg-dark">
+                                                                                    <span class="chat-icon"><i
+                                                                                            class="fa-solid fa-arrow-left"></i></span>
+                                                                                    <div class="flex-shrink-0 img-width"
+                                                                                        data-bs-toggle="modal"
+                                                                                        data-bs-target="#exampleModal">
+                                                                                        <img class="img-fluid" src="/new-design/user-dashboard/images/pdf.png"
+                                                                                            alt="user img">
+                                                                                    </div>
+                                                                                    <div class="flex-grow-1 color-p-syte ms-3"
+                                                                                        id="pdf-file">
+                                                                                        <h3>{{$attachment->old_name}}
+                                                                                        </h3>
+                                                                                        <p>{{ formatBytes($attachment->size) }} · PDF</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- <p>This is one example of text to attach the file -->
+                                                                                </p>
+                                                                                <h6 class="text-end">{{date('g:i A', strtotime($message->created_at))}} <i
+                                                                                        class="fa-solid fa-check"></i></h6>
+                                                                            </div>
+                                                                        </li>
+                                                                    </a>
+                                                                </ul>
+                                                            @else 
+                                                                <ul>
+                                                                    <li class="repaly reply-two">
+                                                                        <div class="chat-left colorchane">
+                                                                            <p>{{$message->body}}
+                                                                            </p>
+                                                                            <h6 class="text-end">{{$message->created_at->diffForHumans()}} {{date('g:i A', strtotime($message->created_at))}} <i
+                                                                                    class="fa-solid fa-check"></i></h6>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            @endif
                                                         @endif
                                                     @endforeach
                                                     
-                                                    <!-- <div class="upload-image">
-                                                        <div class="text-center max-file">
-                                                            <img src="/new-design/user-dashboard/images/file.png" alt="" id="image-preview"
-                                                                style="display:none;">
-                                                            <p class="m-0 mt-3">Name of file.pdf</p>
-                                                            <p class="m-0"> 3.5 MB · PDF</p>
-                                                        </div>
-                                                    </div> -->
-
-
+                                                    
+                                                    
+                                                </div>
+                                                <div class="upload-image" style="display:none;">
+                                                    <div class="text-center max-file">
+                                                        <img src="/new-design/user-dashboard/images/file.png" alt="" id="image-preview"
+                                                            style="display:none;">
+                                                        <p class="m-0 mt-3" id="pdfName"></p>
+                                                        <p class="m-0" id="pdfSize"> </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="send-box position-relative">
@@ -319,6 +389,7 @@
 
 
         });
+        
 
 
 
@@ -362,23 +433,48 @@
 
 
     <script>
+        var pdfFile = null;
         function updateImagePreview() {
+            $("#pdfName").empty()
+            $("#pdfSize").empty()
+            $(".upload-image").show();
             var input = document.querySelector('input[type="file"]');
             var preview = document.querySelector('#image-preview');
             var file = input.files[0];
-            var reader = new FileReader();
-
-            reader.onloadend = function () {
-                preview.src = reader.result;
-                preview.style.display = 'block';
-            }
-
+            
             if (file) {
+                $("#pdfName").append(file.name)
+                var fileSizeInMB = formatBytes(file.size)
+                $("#pdfSize").append(fileSizeInMB+" · PDF")
+                var reader = new FileReader();
+
+                reader.onloadend = function () {
+                    preview.src = reader.result;
+                    preview.style.display = 'block';
+                }
+
+                const messagesContainer = $(".chat-history");
+                scrollToBottom(messagesContainer);
+                pdfFile = file;
                 reader.readAsDataURL(file);
             } else {
+                var uploadImage = document.querySelector('.upload-image');
+                uploadImage.style.display = 'none';
                 preview.src = '';
                 preview.style.display = 'none';
             }
+        }
+
+        function formatBytes(bytes, decimals = 0) {
+            if (bytes === 0) return '0 Bytes';
+
+            const k = 1024;
+            const dm = decimals < 0 ? 0 : decimals;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
         }
     </script>
     <script type="text/javascript">
@@ -395,7 +491,14 @@
 
        
         var temporaryMsgId = 0;        
-
+        
+        var input = document.getElementById("msgField");
+            input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                sendMessage()
+            }
+        });
 
         function sendMessage() {
             var access_token = $('meta[name="csrf-token"]').attr("content");
@@ -408,6 +511,9 @@
             $(".sending").css('display', 'block');
             $(".sending").css('text-align', 'center');
             var msg = $("#msgField").val();
+            if(pdfFile) {
+                msg = "file"
+            }
             if(msg) {
 
                 $("#msgField").val("")            
@@ -417,6 +523,7 @@
                 formData.append("_token", access_token);
                 formData.append("temporaryMsgId", tempID);
                 formData.append("msg", msg);
+                formData.append("file", pdfFile);
                 // debugger
                 // document.getElementById('msgField').setAttribute("style","padding-left:5%;overflow:hidden;overflow-wrap:break-word;");
                 // if(msg) {
@@ -445,9 +552,11 @@
                         // cancelAttachment();
                         messageInput.focus();
                     },
-                    success: function(res){                    
-                        $("#chat-text").animate({ scrollTop: $('#chat-text').prop("scrollHeight")}, 1000);
-                        $('#chat-text').scrollTop($('#chat-text')[0].scrollHeight);
+                    success: function(res){                
+                        $(".upload-image").hide();      
+                        scrollToBottom(messagesContainer);
+                        // $("#chat-text").animate({ scrollTop: $('#chat-text').prop("scrollHeight")}, 1000);
+                        // $('#chat-text').scrollTop($('#chat-text')[0].scrollHeight);
                     }
                 });
             }

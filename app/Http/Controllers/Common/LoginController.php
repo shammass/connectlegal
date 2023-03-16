@@ -173,16 +173,16 @@ class LoginController extends Controller
                 'password'  => 'required',
         ]);
         
-        // $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-        //     'secret' => config('services.recaptcha.secret_key'),
-        //     'response' => $request->get('g-recaptcha-response'),
-        //     'remoteip' => $request->getClientIp(),
-        // ]);
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => config('services.recaptcha.secret_key'),
+            'response' => $request->get('g-recaptcha-response'),
+            'remoteip' => $request->getClientIp(),
+        ]);
         
-        // if (! $response->json('success')) {
-        //     // throw ValidationException::withMessages(['g-recaptcha-response' => 'Error verifying reCAPTCHA, please try again.']);
-        //     return redirect()->route('home')->with('error','Error verifying reCAPTCHA, please try again.');
-        // }else {
+        if (! $response->json('success')) {
+            // throw ValidationException::withMessages(['g-recaptcha-response' => 'Error verifying reCAPTCHA, please try again.']);
+            return redirect()->route('home')->with('error','Error verifying reCAPTCHA, please try again.');
+        }else {
         //     // print_r($request->all());exit;
             $user = User::whereEmail($request->email)->first();
             if($user) {
@@ -218,7 +218,7 @@ class LoginController extends Controller
                 Alert::error('Login Failed', 'There is no existing user with given Email ID');
                 return redirect()->route('user.login');
             }
-        // }
+        }
     }
 
     public function adminLoginPage() {
