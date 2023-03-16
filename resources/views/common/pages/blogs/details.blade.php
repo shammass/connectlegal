@@ -1,5 +1,9 @@
 @extends('common.home.layouts.app')
 @section('content')
+<style>
+  
+
+</style>
     <main class="bg-color p-80" id="bg-back">
         <div class="container py-3">
             <div class="row" id="blog-catagary">
@@ -23,7 +27,7 @@
                        <li><i class="fa-brands fa-instagram"></i></li>
                     </div>
                 </div>
-                <div class="col-md-11">
+                <div class="col-md-11" id="single-blog">
                     <div class="lorm">
                         <h1 class="lrm mt-4">{!! $blog->title !!}
                         </h1>
@@ -72,7 +76,7 @@
                             </div>
                         </div>
 
-                    <div class="row">
+                    <div class="row" id="single-blog-page">
                         @foreach($randomBlogs as $k => $blog)
                             <div class="col-md-3 col-6" onclick="blogDetail('{{$blog->id}}')" style="cursor:pointer;">
                                 <img src="{{$blog->image}}" class="img-rltd">

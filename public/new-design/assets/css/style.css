@@ -92,9 +92,9 @@ h1.font-64 {
 }
 
 .btn {
-    padding: 11px 19px;
+    padding: 6px 10px;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 35px;
     color: #fff;
 }
@@ -244,8 +244,8 @@ span.counter-value {
 
 p.font-24 {
     font-weight: 400;
-    font-size: 22px;
-    line-height: 40.2px;
+    font-size: 15px;
+    line-height: 20.2px;
     color: #191919;
 }
 
@@ -317,7 +317,7 @@ p.font-15 {
     border: 1px solid #208C84;
     border-radius: 15.5px;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 22px;
     color: #191919;
     padding: 4px 14px;
@@ -457,8 +457,8 @@ a.answers {
 
 .text-slid .font-20 {
     font-weight: 400;
-    font-size: 16px;
-    line-height: 33.5px;
+    font-size: 14px;
+    line-height: 30px;
     color: #191919;
 }
 
@@ -520,13 +520,13 @@ input.form-control.left-bordr {
 
 button.btn.btn-submit {
     background: #208C84;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 35px;
     letter-spacing: 0em;
     text-align: center;
     color: #fff;
-    width: 178px;
+    width: 140px;
     border-radius: 0px;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
@@ -697,11 +697,12 @@ button.btn.btn-submit {
     padding: 20px;
     height: 569px;
     transition: 0.6s;
+    width: 90%;
 }
 
 .steps:hover {
     transform: scale(0.9);
-    -webkit-transform: scale(0.9);
+    -webkit-transform:scale(0.9);
     -moz-transform: scale(0.9);
     -ms-transform: scale(0.9);
     -o-transform: scale(0.9);
@@ -777,6 +778,7 @@ a.see-more:hover {
     height: 600px;
     background-color: #C2DDE4;
     z-index: -1;
+    left: 0;
 }
 
 .s-for h5 {
@@ -1021,8 +1023,8 @@ ul.vat-ul {
 
 .pro-1 .make p {
     font-weight: 400;
-    font-size: 20px;
-    line-height: 167.5%;
+    font-size: 16px;
+    line-height: 30px;
     color: #191919;
 }
 
@@ -1034,8 +1036,8 @@ ul.vat-ul {
 .make ul li {
     list-style: none;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 33.5px;
+    font-size: 16px;
+    line-height: 30px;
     color: #191919;
 }
 
@@ -1397,8 +1399,8 @@ p.bhl i {
 
 .why-b p {
     font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
+    font-size: 14px;
+    line-height: 30px;
     color: #191919;
 
 }
@@ -1579,16 +1581,16 @@ p.alredy a {
 }
 
 .sign-up {
-    width: 335px;
+    width: 230px;
     height: 68px;
     background: #208C84;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 12px;
     line-height: 35px;
     color: #FFFFFF;
+    margin-top: 20px;
     border: navajowhite;
 }
-
 .eye-pp {
     position: absolute;
     right: 10px;
@@ -1954,8 +1956,8 @@ ul.social li a {
     }
 
     p.font-24 {
-        font-size: 20px;
-        line-height: 30.2px;
+        font-size: 15px;
+        line-height: 20.2px;
     }
 
     .accordion-body h3 {
@@ -1974,7 +1976,7 @@ ul.social li a {
     }
 
     .text-slid .font-20 {
-        font-size: 18px;
+        font-size: 14px;
         line-height: 29.5px;
     }
 
@@ -2279,7 +2281,7 @@ ul.social li a {
     }
 
     p.font-24 {
-        font-size: 16px;
+        font-size: 15px;
         line-height: 23.76px;
     }
 
@@ -2328,8 +2330,8 @@ ul.social li a {
     }
 
     .text-slid .font-20 {
-        font-size: 16px;
-        line-height: 25.5px;
+        font-size: 14px;
+        line-height: 30px;
     }
 
     img.find-logo {
@@ -2734,7 +2736,7 @@ ul.social li a {
     }
 
     .ft-list h5 {
-        font-size: 15px;
+        font-size: 14px;
         margin-top: 40px;
     }
 
@@ -3218,7 +3220,7 @@ i.crown-p {
 
 @media(min-width:1366px) and (max-width:1600px) {
     .add-450 h1 {
-        font-size: 26px !important;
+        font-size: 20px !important;
     }
 
     div#profile p.name-uaser {
@@ -3345,7 +3347,7 @@ i.crown-p {
     }
 
     p.font-24 {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .puopclass input::placeholder,
@@ -3362,7 +3364,7 @@ i.crown-p {
     }
 
     .law-box h5 {
-        font-size: 25px;
+        font-size: 20px;
     }
 }
 
@@ -3533,8 +3535,8 @@ i.crown-p {
 }
 
 .submit-btn {
-    width: 177px;
-    height: 68px;
+    width: 140px;
+    height: 50px;
     background: #208C84;
     font-size: 12px;
     line-height: 35px;
@@ -3708,7 +3710,7 @@ i.crown-p {
 
 @media (min-width:1200px) {
     .lawyers-part ul.star-part-2 li {
-        font-size: 13px;
+        font-size: 12px;
     }
 
 
@@ -3991,7 +3993,7 @@ ul.post-1 li {
 
 ul.post-1 li a {
     font-weight: 400;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 30px;
     color: #191919;
     text-decoration: none;
@@ -4242,7 +4244,7 @@ ul.step-ul li a {
     font-weight: 400;
     font-size: 20px;
     line-height: 25px;
-    padding: 25px 20px;
+    padding: 25px 14px;
     display: block;
     text-decoration: none;
 }
@@ -4355,14 +4357,14 @@ a.next-step-btn.back {
 }
 
 #summary-law h5 {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 30px;
     color: #191919;
     margin-left: -15px;
 }
 
 #summary-law span.rev-35 {
-    font-size: 11px;
+    font-size: 10px;
     line-height: 16px;
 }
 
@@ -4427,22 +4429,24 @@ h5.any {
 
 .firm-info select {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 35px;
+    background: none;
     color: #787878;
     border: none;
     border-bottom: 1px solid #191919;
     width: 100%;
-    padding: 10px 13px;
+    padding: 0px 13px;
     margin-bottom: 30px;
     outline: none;
     border-radius: inherit;
 }
 
 .firm-info select.mr-ms {
-    padding: 13px 13px;
+    padding: 0px 13px;
     margin-bottom: 20px;
     background: none;
+    height: 86%;
 }
 
 .select-bg {
@@ -4490,15 +4494,15 @@ a.next-step-btn.rightbtn {
 .btnbynew {
     background-color: #156075;
     color: #fff;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 35px;
     letter-spacing: 0em;
     text-align: center;
-    width: 174px;
+    width: 130px;
     display: block;
     float: right;
-    padding: 10px 20px;
+    padding: 6px 0px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -4605,7 +4609,7 @@ a.next-step-btn.rightbtn {
     }
 
     .firm-info select.mr-ms {
-        padding: 15px 5px;
+        padding: 0px 5px;
         font-size: 16px;
     }
 
@@ -5929,12 +5933,12 @@ div#border-full {
 }
 
 #modal-login ul.nav.nav-pills button {
-    padding: 10px 25px;
+    padding: 6px 12px;
     border-radius: 0;
     background: #fff;
     margin-right: 10px;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 30px;
     text-align: center;
     color: #191919;
@@ -5950,13 +5954,13 @@ div#border-full {
     margin: 0;
     background: #fff;
     opacity: 1;
-    padding: 15px 15px;
+    padding: 13px 10px;
     line-height: 1;
 }
 
 #pills-tabContent {
     background: #fff;
-    padding: 25px;
+    padding: 0px;
 }
 
 .modal-xl {
@@ -5982,7 +5986,7 @@ div#staticBackdrop.bg-4d4d4d {
 
 @media(max-width:360px) {
     .firm-info select.mr-ms {
-        padding: 15px 2px;
+        padding: 0px 2px;
         font-size: 16px;
     }
 }
@@ -6027,7 +6031,7 @@ div#staticBackdrop.bg-4d4d4d {
     top: 0;
     left: 0;
     overflow-x: hidden;
-    transition: 0.5s;
+/*    transition: 0.5s;*/
     background-color: #fff;
 }
 
@@ -6300,7 +6304,8 @@ p.font-fee {
 span.aed-0 {
     border: 0.75px solid #85BACA;
     border-radius: 15px;
-    padding: 10px 15px 10px 40px;
+    font-size: 14px;
+    padding: 6px 15px 6px 30px;
 }
 
 .form-popup-des button.btn-lgn {
@@ -6425,8 +6430,8 @@ ul.your-rating li p {
 
     .btn-border {
         font-size: 16px;
-        width: 165px;
-        height: 45px;
+        width: 130px;
+        height: 38px;
     }
 
     img.popup-prem {
@@ -6817,7 +6822,7 @@ h1.aed-class.text-left-side {
 
 a.img-dott span {
     margin: 0px 10px;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 35px;
     letter-spacing: 0em;
@@ -6893,11 +6898,8 @@ main.bg-color.bg-f4fefa {
 #coverpading{
     padding: 50px 0px  0px 0px;
 }
-section#cover-padding {
-    /* padding: 0px 40px; */
-}
 section.m-sp-same {
-    padding: 0px 0px 100px 0px;
+    padding: 0px 40px 100px 40px;
 }
 section.practice-area.bg-grad-2.pb-0 {
     padding: 10px 0px;
@@ -6914,9 +6916,6 @@ div#myTabContent {
 {
     section.m-sp-same {
         padding: 0px 16px 100px 10px;
-    }
-    section#cover-padding {
-        padding: 0px 10px;
     }
     #twobtn a+a {
          margin-left:0px;
@@ -6980,9 +6979,6 @@ ul#myTab li i.color-smae {
  #offcanvasScrolling {
     width: 300px;
 }
-.practice-area {
-    padding: 20px !important;
-}
 a.seebtn.bg-change {
     position: relative;
     top: -10px;
@@ -6992,7 +6988,7 @@ a.seebtn.bg-change {
 }
 img.off-logo {
     position: relative;
-    left: 10px;
+    left: 0px;
 }
 #mySidenav img.off-logo {
     left: 12px;
@@ -7036,8 +7032,8 @@ ul.list-icon-text li a img {
 }
 .btn-border { 
     font-size: 16px; 
-    width: 150px;
-    height: 50px; 
+    width: 130px;
+    height: 38px; 
 }
 .user-online-g 
  .user-online-g.text-left {
@@ -7053,21 +7049,13 @@ ul.list-icon-text li a img {
 #summary-law p.aed { 
     margin-top: 2px;
 }
-
-
+a.next-step-btn {
+    font-size: 16px;
+    padding: 9px 10px;
+    line-height: 24px !important;
 }
 
-
-
-@media (max-width:981px) {
-.practice-area {
-    padding: 50px 0 !important;
 }
-
-
- 
-}
-
 
 @media (max-width:767px) {
 .align-items-center .aed-class {
@@ -7080,6 +7068,7 @@ a.seebtn.bg-change {
 
 
 }
+
 
 .form-part.form-e input {
     padding: 20px 13px;
@@ -7258,30 +7247,19 @@ p.close-top {
 }
 
 
-@media(min-width:1366px){
-    .steps {
-        height: 500px;
-        width: 90%;
-    }
-    .see-more.seechnage {
-        font-size: 18px;
-    }
-}
 
 /* 12-03-2023 */
 .p-80 {
     padding: 60px 60px 0px;
 }
-section.m-sp-same {
-    padding: 0px 80px 50px;
+section.m-sp-same.p-80 {
+    padding: 50px 80px;
 }
-.user-online-g img.legal-1 {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+.comman-class-padding {
+    background: #71b2c382;
 }
-.menu-sidebar img.off-logo{
-    left: unset;
+.w-tdh-commam select.department.class-width-same {
+    width: 140px !important;
 }
 /*img.off-logo.class-logo {
     left: 12px;
@@ -7290,7 +7268,7 @@ a.next-step-btn.back {
     padding: 6px;
 }
 a.next-step-btn {
-    padding: 6px 6px !important;
+    padding: 6px 6px;
 }
 
 @media(max-width:1366px){
@@ -7332,4 +7310,58 @@ a.next-step-btn {
     section.m-sp-same.p-80 {
         padding: 30px 15px;
     }
+}
+
+
+select.mr-ms {
+    margin: 0 !important;
+}
+p.text-center.mt-5 {
+ transition: all 0.9s;
+}
+p.text-center.mt-5:hover {
+    transform: scale(1.1);
+}
+
+
+
+/*start today css work*/
+
+#single-blog h1 {
+  font-size: 25px;
+}
+#single-blog h2  { 
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 45px;
+    color: #208C84;}
+
+#single-blog h3  { 
+
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 45px;
+    color: #208C84;}
+
+
+    #single-blog p {  font-weight: 400;
+    font-size: 16px;
+    line-height: 30.2px;
+    color: #191919;
+}
+#single-blog ol li { font-weight: 400;
+    font-size: 16px;
+    line-height: 30.2px;
+    color: #191919;
+list-style: auto;
+margin-left: 4%;
+
+}
+#single-blog a { color: #208c84; }
+#single-blog ul li { font-weight: 400;
+    font-size: 16px;
+    line-height: 30.2px;
+    color: #191919;
+list-style: disc;
+margin-left: 4%;
 }

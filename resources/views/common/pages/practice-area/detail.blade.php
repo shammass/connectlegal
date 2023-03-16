@@ -7,39 +7,62 @@
                 <span class="p-a-detail-heading">Family Law <span style="color: #191919;">Dubai</span></span>
             </div>
             <div class="row p-a-cat-slider">
-                <div class="p-a-categories">
+          <div class="col-2">
+                  <div class="p-a-categories">
                     <img src="/new-design/assets/image/practice-area/cat1.png" class="p-a-cat-image" alt="">
                     <span class="p-a-cat-name">Family Law</span>
                     <span class="p-a-active"></span>
                 </div>
-                <div class="p-a-categories">
-                    <img src="/new-design/assets/image/practice-area/cat2.png" class="p-a-cat-image" alt="">
-                    <span class="p-a-cat-name">Family Law</span>                    
+          </div>
+                       <div class="col-2">
+                  <div class="p-a-categories">
+                    <img src="/new-design/assets/image/practice-area/cat1.png" class="p-a-cat-image" alt="">
+                    <span class="p-a-cat-name">Family Law</span>
+                    <span class="p-a-active"></span>
                 </div>
-                <div class="p-a-categories">
-                    <img src="/new-design/assets/image/practice-area/cat3.png" class="p-a-cat-image" alt="">
-                    <span class="p-a-cat-name">Family Law</span>                    
+          </div>
+                       <div class="col-2">
+                  <div class="p-a-categories">
+                    <img src="/new-design/assets/image/practice-area/cat1.png" class="p-a-cat-image" alt="">
+                    <span class="p-a-cat-name">Family Law</span>
+                    <span class="p-a-active"></span>
                 </div>
-                <div class="p-a-categories">
-                    <img src="/new-design/assets/image/practice-area/cat4.png" class="p-a-cat-image" alt="">
-                    <span class="p-a-cat-name">Family Law</span>                    
+          </div>
+                      <div class="col-2">
+                  <div class="p-a-categories">
+                    <img src="/new-design/assets/image/practice-area/cat1.png" class="p-a-cat-image" alt="">
+                    <span class="p-a-cat-name">Family Law</span>
+                    <span class="p-a-active"></span>
                 </div>
-                <div class="p-a-categories">
-                    <img src="/new-design/assets/image/practice-area/cat5.png" class="p-a-cat-image" alt="">
-                    <span class="p-a-cat-name">Family Law</span>                    
+          </div>
+                        <div class="col-2">
+                  <div class="p-a-categories">
+                    <img src="/new-design/assets/image/practice-area/cat1.png" class="p-a-cat-image" alt="">
+                    <span class="p-a-cat-name">Family Law</span>
+                    <span class="p-a-active"></span>
                 </div>
-                <div class="p-a-categories">
-                    <img src="/new-design/assets/image/practice-area/cat6.png" class="p-a-cat-image" alt="">
-                    <span class="p-a-cat-name">Family Law</span>                    
+          </div>
+                      <div class="col-2">
+                  <div class="p-a-categories">
+                    <img src="/new-design/assets/image/practice-area/cat1.png" class="p-a-cat-image" alt="">
+                    <span class="p-a-cat-name">Family Law</span>
+                    <span class="p-a-active"></span>
                 </div>
-                <div class="p-a-categories">
-                    <img src="/new-design/assets/image/practice-area/cat7.png" class="p-a-cat-image" alt="">
-                    <span class="p-a-cat-name">Family Law</span>                    
+          </div>
+                         <div class="col-2">
+                  <div class="p-a-categories">
+                    <img src="/new-design/assets/image/practice-area/cat1.png" class="p-a-cat-image" alt="">
+                    <span class="p-a-cat-name">Family Law</span>
+                    <span class="p-a-active"></span>
                 </div>
-                <div class="p-a-categories">
-                    <img src="/new-design/assets/image/practice-area/cat8.png" class="p-a-cat-image" alt="">
-                    <span class="p-a-cat-name">Family Law</span>                    
+          </div>
+                       <div class="col-2">
+                  <div class="p-a-categories">
+                    <img src="/new-design/assets/image/practice-area/cat1.png" class="p-a-cat-image" alt="">
+                    <span class="p-a-cat-name">Family Law</span>
+                    <span class="p-a-active"></span>
                 </div>
+          </div>
             </div>
             <div class="row p-a-cat-detail">
                 <span class="p-a-detail-heading2">Family Law <span style="color: #191919;">Dubai</span></span>

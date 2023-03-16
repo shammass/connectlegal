@@ -46,9 +46,9 @@ nav.main-menu a.navbar-brand {
 .main-menu ul.navbar-nav li a {
     color: #fff !important;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 11px;
     line-height: 20px;
-    padding: 13px 10px !important;
+    padding: 0px 10px !important;
 }
 
 .banner-part {
@@ -5816,14 +5816,20 @@ i.fa-solid.fa-ellipsis-vertical.text-white {
 .main-menu ul.navbar-nav li a {
     color: #fff !important;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 20px;
-    padding: 13px 10px !important;
+    padding: 0px 10px !important;
 }
 .main-menu ul.navbar-nav li a {
-    line-height: 4px;
+    line-height: 30px;
 }
 ul.menu-left li a i {
     width: 30px;
     text-align: center;
+}
+#drop-focus a.dropdown-item {
+    font-size: 13px;
+}
+.dropdown-menu img {
+    margin-right: 12px;
 }

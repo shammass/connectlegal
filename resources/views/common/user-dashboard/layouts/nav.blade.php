@@ -54,23 +54,46 @@
                                     <div class="col-sm-7 names">
                                         <p class="font-name"> {{auth()->user()->name}}</p>
                                         <p class="font-ad">{{auth()->user()->email}}</p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-1 pl-0 ">
+                                 </div>
+                            </div>
+                            <div class="col-sm-1 pl-0 ">
                                     <ul class="moreoption">
                                         <li class="navbar nav-item dropdown">
+                                                <ul class="moreoption">
+                                                <li class="navbar nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#"
                                                 role="button" data-bs-toggle="dropdown"
                                                 aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical text-white"></i></a>
-                                            <ul class="dropdown-menu">
+                                            <ul class="dropdown-menu" id="drop-focus">
                                                 <li>
                                                     <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img
-                                                            src="/new-design/user-dashboard/images/file-2.png" alt="">
+                                                            src="/new-design/user-dashboard/images/icons-/1.png" alt="">
+                                                        My Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img
+                                                            src="/new-design/user-dashboard/images/icons-/2.png" alt="">
+                                                        Dashboard</a>
+                                                </li>
+                                                     <li>
+                                                    <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img
+                                                            src="/new-design/user-dashboard/images/icons-/3.png" alt="">
+                                                        Write Testimonials</a>
+                                                </li>
+                                                     <li>
+                                                    <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img
+                                                            src="/new-design/user-dashboard/images/icons-/4.png" alt="">
+                                                        Blogs and Articles</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img
+                                                            src="/new-design/user-dashboard/images/icons-/5.png" alt="">
                                                         Logout</a>
                                                 </li>
                                             </ul>
                                         </li>
-
+                                      </ul>
+                                   </li>
                                 </ul>
                             </div>
                         </div>

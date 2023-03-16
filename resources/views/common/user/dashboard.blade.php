@@ -1,6 +1,8 @@
 @extends('common.user-dashboard.layouts.app')
 @section('content')
 
+
+
 <div class="working-box">
         <div class="row g-4">
           <div class="col-lg-3 col-md-6 col-6">
@@ -71,7 +73,7 @@
                     </div>
                 @endforeach
 
-              <p class="text-center Reques"><a href="{{route('user.questions-asked')}}">View All Questions Asked</a></p>
+              <p class="text-center Reques"><a href="#">View All Questions Asked</a></p>
             </div>
           </div>
 
@@ -102,7 +104,7 @@
                         </div>
                     </div>
                 @endforeach
-              <p class="text-center Reques"><a href="{{route('user.services-purchased')}}">View All Service Purchased</a></p>
+              <p class="text-center Reques"><a href="#">View All Service Purchased</a></p>
             </div>
           </div>
 
@@ -140,7 +142,7 @@
 
               
 
-              <p class="text-center Reques"><a href="{{route('user.consultation-requests')}}">View All Consulted Data</a></p>
+              <p class="text-center Reques"><a href="#">View All Consulted Data</a></p>
             </div>
           </div>
 
@@ -161,7 +163,11 @@
                     <div class=" mb-3">
                     <div class="row align-items-center" id="color-smae">
                         <div class="col-md-2  col-3 icon-center text-center">
+                          @if($chatRqst->lawyer->profile_pic != '')
                             <img src="/storage/{{$chatRqst->lawyer->profile_pic}}" style="width: 40px;height: 40px;border-radius: 20px;" alt="banner-icon-1" class="online-class">
+                            @else
+                              <img src="/new-design/user-dashboard/images/question-1.png" style="width: 40px;height: 40px;border-radius: 20px;" alt="banner-icon-1" class="online-class">
+                            @endif
                         </div>
                         <div class="col-md-7 col-7">
                         <h5 class="font-22"><strong>{{$chatRqst->lawyer->user->name}}</strong></h5>
@@ -176,7 +182,7 @@
                     </div>
                 </div>
             @endforeach
-            <p class="text-center Reques mt-3"><a href="{{route('online-chat.requests')}}">View All Chat Requests</a></p>
+            <p class="text-center Reques mt-3"><a href="#">View All Chat Requests</a></p>
           </div>
         </div>
       </div>
@@ -188,10 +194,6 @@
     function chatWithLawyer(lawyerId) {
             window.location.href = "/online-chat/"+lawyerId;
             $(".chatbox").addClass('showbox');
-        }
-
-        function questionsAsked() {
-          window.location.href = "/questions-asked"
         }
   </script>
 @endpush
