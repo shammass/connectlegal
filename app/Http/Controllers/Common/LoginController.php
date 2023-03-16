@@ -158,8 +158,8 @@ class LoginController extends Controller
     public function profilePic($lawyer, $request) {
         $imageDir = 'lawyer/profile_pic/' . $lawyer->id;
 
-        $image = $request->file('profile_image');
-        if ($request->hasFile('profile_image')) {
+        $image = $request->file('profile_pic');
+        if ($request->hasFile('profile_pic')) {
             $lawyer->profile_pic = $image->store($imageDir);
             $lawyer->save();
         }
@@ -183,7 +183,7 @@ class LoginController extends Controller
             // throw ValidationException::withMessages(['g-recaptcha-response' => 'Error verifying reCAPTCHA, please try again.']);
             return redirect()->route('home')->with('error','Error verifying reCAPTCHA, please try again.');
         }else {
-        //     // print_r($request->all());exit;
+            // print_r($request->all());exit;
             $user = User::whereEmail($request->email)->first();
             if($user) {
                 if (Hash::check($request->password, $user->password)) {
