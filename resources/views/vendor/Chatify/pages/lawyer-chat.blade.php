@@ -224,7 +224,7 @@
                                                                 $attachment = json_decode($message->attachment); 
                                                             @endphp
                                                             <ul>
-                                                            <a href="/online-chat/download/{{$attachment->new_name}}/{{$attachment->old_name}}">
+                                                            <a href="{{route('download.pdf', [$attachment->new_name, $attachment->old_name])}}">
                                                                     <li class="sender color-border">
                                                                         <div class="chat-left">
 
@@ -274,7 +274,7 @@
                                                                 $attachment = json_decode($message->attachment); 
                                                             @endphp
                                                             <ul>
-                                                            <a href="/online-chat/download/{{$attachment->new_name}}/{{$attachment->old_name}}">
+                                                            <a href="{{route('download.pdf', [$attachment->new_name, $attachment->old_name])}}">
                                                                     <li class="repaly reply-two">
                                                                         <div class="chat-left colorchane">
 

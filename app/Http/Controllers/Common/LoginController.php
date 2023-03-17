@@ -168,9 +168,12 @@ class LoginController extends Controller
     
     public function userLogin(Request $request) {
         $request->validate([
-        //     'g-recaptcha-response' => 'required|string',
+                'g-recaptcha-response' => 'required|string',
                 'email'     => 'required|string|email',
                 'password'  => 'required',
+        ],[
+            'g-recaptcha-response.required' => 'Please complete the captcha challenge.',
+            'g-recaptcha-response.captcha' => 'Captcha validation failed, please try again.',
         ]);
         
         $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
@@ -181,7 +184,7 @@ class LoginController extends Controller
         
         if (! $response->json('success')) {
             // throw ValidationException::withMessages(['g-recaptcha-response' => 'Error verifying reCAPTCHA, please try again.']);
-            return redirect()->route('home')->with('error','Error verifying reCAPTCHA, please try again.');
+            return redirect()->route('login')->with('error','Error verifying reCAPTCHA, please try again.');
         }else {
             // print_r($request->all());exit;
             $user = User::whereEmail($request->email)->first();

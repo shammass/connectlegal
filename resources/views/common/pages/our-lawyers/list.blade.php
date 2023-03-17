@@ -197,6 +197,7 @@
                                                 <h3 class="text-center" data-bs-toggle="modal" data-bs-target="#lowyar1">Contact form</h3>
                                                 <form action="{{route('consult.lawyer')}}" method="post" onsubmit="return validateConsultForm(event, '{{$lawyer->id}}')">
                                                     @csrf()
+                                                    <input type="hidden" name="lawyerId" value="{{$lawyer->user_id}}">
                                                     <input type="text" name="name" id="name-{{$lawyer->id}}" placeholder="Name" class="form-control mb-2">
                                                     @error('name')
                                                         <span class="error-msg" style="color:red;">{{ $message }}</span>
@@ -215,12 +216,12 @@
                                                     @enderror   
                                                     <textarea class="form-control" name="message" id="msg-{{$lawyer->id}}" placeholder="Message" id="exampleFormControlTextarea1"
                                                     rows="3"></textarea>
-                                                    <div class="text-end mt-lg-5 mt-3">
-                                                        <button type="submit" class="btn btn-submit">Submit</button>
-                                                    </div>
                                                     @error('message')
                                                         <span class="error-msg" style="color:red;">{{ $message }}</span>
                                                     @enderror   
+                                                    <div class="text-end mt-lg-5 mt-3">
+                                                        <button type="submit" class="btn btn-submit">Submit</button>
+                                                    </div>
                                                 </form>
                                             </div>
                                         </div>
@@ -322,8 +323,10 @@
             var name = $("#name-"+id).val()
             var email = $("#email-"+id).val()
             var mobile = $("#mobile-"+id).val()
-            var msg = $("#msg-"+id).val()
-
+            var msg = $("#msg-"+id).innerHTML()
+            const myTextarea = document.getElementById("msg-"+id);
+            msg = myTextarea.value
+            debugger
             if(!name) {
                 valid = false;
                 $("#name-"+id).after('<span class="errors" style="color:red;">This field is required</span>')

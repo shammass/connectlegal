@@ -24,6 +24,7 @@ use App\Models\LawyerConsultation;
 use App\Models\Services;
 use App\Models\User;
 use App\Traits\SendMailTrait;
+use Chatify\Facades\ChatifyMessenger as Chatify;
 use Illuminate\Http\Request;
 use Mail; 
 use Illuminate\Support\Facades\View;
@@ -566,7 +567,7 @@ class CommonController extends Controller
             return redirect()->back()->withErrors($validator);
         }
         $email = $request->email;
-        LawyerConsultation::create([
+        $consulted = LawyerConsultation::create([
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,
@@ -580,26 +581,55 @@ class CommonController extends Controller
 
         $mj = new \Mailjet\Client($apikey, $apisecret,true,['version' => 'v3.1']);
         // $url = "https://127.0.0.1:8000/reset-password/".$token;
-        $body = [
-            'Messages' => [
-                [
-                    'From' => [
-                        'Email' => "s4shamma@gmail.com",
-                        'Name' => "Connect Legal"
-                    ],
-                    'To' => [
+        $bothUsers = ["user", "lawyer"];
+        foreach($bothUsers as $k => $v) {
+            if($v === "user") {
+                $html = View::make('emails.consultation-to-user', ['name' => $consulted->name])->render();
+                $body = [
+                    'Messages' => [
                         [
-                            'Email' => $request->email,
-                            'Name' => "You"
+                            'From' => [
+                                'Email' => "s4shamma@gmail.com",
+                                'Name' => "Connect Legal"
+                            ],
+                            'To' => [
+                                [
+                                    'Email' => $request->email,
+                                    'Name' => "You"
+                                ]
+                            ],
+                            'Subject' => "Confirmation of Hiring a Lawyer",
+                            // 'TextPart' => "Greetings from Mailjet!",
+                            'HTMLPart' => $html
                         ]
-                    ],
-                    'Subject' => "Connect Legal: Reset Password",
-                    // 'TextPart' => "Greetings from Mailjet!",
-                    'HTMLPart' => "Hey there."
-                ]
-            ]
-        ];
-        $mj->post(Resources::$Email, ['body' => $body]);
+                    ]
+                ];
+            }else {
+                $html = View::make('emails.consultation-to-lawyer', ['name' => $consulted->lawyer->name, 
+                                                                    'userName' => $consulted->name, 'email' => $consulted->email, 
+                                                                    'mobile' => $consulted->mobile])->render();
+                $body = [
+                    'Messages' => [
+                        [
+                            'From' => [
+                                'Email' => "s4shamma@gmail.com",
+                                'Name' => "Connect Legal"
+                            ],
+                            'To' => [
+                                [
+                                    'Email' => $consulted->lawyer->email,
+                                    'Name' => "You"
+                                ]
+                            ],
+                            'Subject' => "Confirmation of Being Hired by a Client",
+                            // 'TextPart' => "Greetings from Mailjet!",
+                            'HTMLPart' => $html
+                        ]
+                    ]
+                ];
+            }
+            $mj->post(Resources::$Email, ['body' => $body]);
+        }
 
         Alert::success('Success', 'Your request has been submitted successfully');
         return redirect()->back();
@@ -666,5 +696,14 @@ class CommonController extends Controller
         // Total Amount
         // OrderId
         // Date
+    }
+
+    public function download($fileName, $ogName)
+    {
+        if (Chatify::storage()->exists(config('chatify.attachments.folder') . '/' . $fileName)) {
+            return Chatify::storage()->download(config('chatify.attachments.folder') . '/' . $fileName, $ogName);
+        } else {
+            return abort(404, "Sorry, File does not exist in our server or may have been deleted!");
+        }
     }
 }

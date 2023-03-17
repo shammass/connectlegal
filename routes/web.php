@@ -152,6 +152,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('service-payment',                                              [HireLawyerController::class, 'servicePayment'])->name('service.payment');
     Route::get('service-step-5/{meeting_id}',                                   [HireLawyerController::class, 'servicePaymentCompleted'])->name('service.payment.completed');
     Route::get('/generate-invoice/{meeting_id}',                                [HireLawyerController::class, 'generateInvoice'])->name('generate-invoice');
+
+
+    Route::get('download-pdf/{old}/{og}', [CommonController::class, 'download'])->name("download.pdf");
     
 });
 

@@ -155,7 +155,7 @@
                                                                     $attachment = json_decode($message->attachment); 
                                                                 @endphp
                                                                 <ul>
-                                                                    <a href="/online-chat/download/{{$attachment->new_name}}/{{$attachment->old_name}}">                                                                        <li class="sender color-border">
+                                                                    <a href="{{route('download.pdf', [$attachment->new_name, $attachment->old_name])}}">                                                                        <li class="sender color-border">
                                                                             <div class="chat-left">
 
                                                                                 <div class="d-flex align-items-center" id="bg-dark">
@@ -201,7 +201,7 @@
                                                                     $attachment = json_decode($message->attachment); 
                                                                 @endphp
                                                                 <ul>
-                                                                    <a href="/online-chat/download/{{$attachment->new_name}}/{{$attachment->old_name}}">                                                                        <li class="repaly reply-two">
+                                                                    <a href="{{route('download.pdf', [$attachment->new_name, $attachment->old_name])}}">                                                                        <li class="repaly reply-two">
                                                                             <div class="chat-left colorchane">
 
                                                                                 <div class="d-flex align-items-center" id="bg-dark">
@@ -290,7 +290,7 @@
         </div>
 
         <div class="modal fade chat-popup" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog modal-lg">
+                                                        <div class="modal-dialog modal-md">
                                                             <div class="modal-content">
                                                                 <div class="modal-body">
                                                                 <div class="popupclass">

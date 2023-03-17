@@ -289,7 +289,7 @@ class HireLawyerController extends Controller
 
         foreach($users as $k => $user) {
             if($user == "user") {
-                $html = View::make('emails.after-purchase-to-user', ['name' => $lawyerContactInfo->name, 
+                $html = View::make('emails.after-purchase-to-user', ['name' => $lawyerContactInfo->first_name .' '. $lawyerContactInfo->last_name, 
                                                                             'lawyerName' => $scheduleMeeting->lawyer->name,
                                                                             'orderId' => $scheduleMeeting->id,
                                                                             'shortDescr' => $scheduleMeeting->service->short_descr,
@@ -300,7 +300,7 @@ class HireLawyerController extends Controller
                     'user_email' => $lawyerContactInfo->email
                 ];
             }else {
-                $html = View::make('emails.after-purchase-to-lawyer', ['name' => $lawyerContactInfo->name, 
+                $html = View::make('emails.after-purchase-to-lawyer', ['name' => $lawyerContactInfo->first_name .' '. $lawyerContactInfo->last_name, 
                                                                             'lawyerName' => $scheduleMeeting->lawyer->name, 
                                                                             'orderId' => $scheduleMeeting->id,
                                                                             'shortDescr' => $scheduleMeeting->service->short_descr,

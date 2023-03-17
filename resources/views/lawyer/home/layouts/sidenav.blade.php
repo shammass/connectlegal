@@ -63,14 +63,14 @@
         </a>
         <div id='submenu1' class="collapse sidebar-submenu">
         <ul class="menu-left">
-            <li><a href="/" class="active-nav"><i class="fa-solid fa-house-user"></i> Home</a></li>
-            <li><a href="{{route('lawyer.dashboard')}}"><i class="fa-solid fa-landmark"></i>Dashboard</a></li>
+            <li><a href="/"><i class="fa-solid fa-house-user"></i> Home</a></li>
+            <li><a href="{{route('lawyer.dashboard')}}" class="{{request()->is('lawyer/dashboard') ? 'active-nav' : ''}}"><i class="fa-solid fa-landmark"></i>Dashboard</a></li>
             <!-- <li><a href="#"><i class="fa-solid fa-users"></i>My Activity</a></li> -->
-            <li><a href="{{route('lawyer.consultation-requests')}}"><i class="fa-solid fa-question"></i> Consultation Requests</a></li>
-            <li><a href="{{route('lawyer.online-chat-requests')}}"><i class="fa-solid fa-star"></i> Chat Online Requests</a></li>
-            <li><a href="{{route('lawyer.services')}}"><i class="fa-solid fa-bag-shopping"></i>Services</a></li>
-            <li><a href="{{route('lawyer.community')}}"><i class="fa-solid fa-user"></i> Lawyer Community</a></li>
-            <li><a href="{{route('lawyer.qa.list')}}"><i class="fa-solid fa-scale-balanced"></i>Question & Answer</a></li>
+            <li><a href="{{route('lawyer.consultation-requests')}}" class="{{request()->is('lawyer/consultation-requests') ? 'active-nav' : ''}}"><i class="fa-solid fa-question"></i> Consultation Requests</a></li>
+            <li><a href="{{route('lawyer.online-chat-requests')}}" class="{{request()->is('lawyer/online-chat-requests') ? 'active-nav' : ''}}"><i class="fa-solid fa-star"></i> Chat Online Requests</a></li>
+            <li><a href="{{route('lawyer.services')}}" class="{{request()->is('lawyer/services') ? 'active-nav' : ''}}"><i class="fa-solid fa-bag-shopping"></i>Services</a></li>
+            <li><a href="{{route('lawyer.community')}}" class="{{request()->is('lawyer/community') ? 'active-nav' : ''}}"><i class="fa-solid fa-user"></i> Lawyer Community</a></li>
+            <li><a href="{{route('lawyer.qa.list')}}" class="{{request()->is('lawyer/question-answer/list') ? 'active-nav' : ''}}"><i class="fa-solid fa-scale-balanced"></i>Question & Answer</a></li>
             <!-- <li><a href="#"><i class="fa-solid fa-book"></i>Lawyer Articles</a></li> -->
         </ul>
         </div>

@@ -69,7 +69,7 @@
 
                 @if(auth()->user())                      
                     @if(auth()->user()->user_type == 2)
-                        <li class="navbar nav-item dropdown">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{auth()->user()->name}}</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
@@ -81,7 +81,7 @@
                             </ul>
                         </li>
                     @elseif(auth()->user()->user_type == 3)
-                        <li class="navbar nav-item dropdown">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{auth()->user()->name}}</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
