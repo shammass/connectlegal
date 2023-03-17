@@ -431,12 +431,12 @@ class CommonController extends Controller
         if($area && !$search) {
             $lawyers = Lawyer::whereIsVerified(1)
                 ->whereArbitrationAreaId($area)
-                ->paginate(2);
+                ->paginate(6);
         }elseif(!$area && $search) {
             $lawyers = Lawyer::join('users', 'users.id', '=', 'lawyers.user_id')
                 ->where('users.name', 'LIKE', '%'.$search.'%')
                 ->whereIsVerified(1)            
-                ->paginate(2);
+                ->paginate(6);
         }elseif(!$area && !$search) {            
             $lawyers = Lawyer::whereIsVerified(1)->paginate(2);
         }elseif($area && $search) {
@@ -444,7 +444,7 @@ class CommonController extends Controller
                 ->where('users.name', 'LIKE', '%'.$search.'%')
                 ->whereIsVerified(1)      
                 ->whereArbitrationAreaId($area)      
-                ->paginate(2);
+                ->paginate(6);
         }
 
         $arbitrationAreas = ArbitrationArea::pluck('area', 'id');

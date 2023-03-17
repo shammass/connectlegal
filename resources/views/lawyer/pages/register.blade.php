@@ -23,7 +23,7 @@
                     <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
                 </div>
                 <div class="col-lg-6 col-md-12">
-                    <form action="{{route('lawyer.register')}}" method="post">
+                    <form action="{{route('lawyer.register')}}" method="post" enctype="multipart/form-data">
                         @csrf()
                         <div class="firm-info">
                         <h3>Law firm info</h3>

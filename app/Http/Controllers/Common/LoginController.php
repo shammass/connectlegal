@@ -121,7 +121,6 @@ class LoginController extends Controller
             'profile_image'     =>          ['required'],
         ]);
         
-        // print_r($request->all());exit;
         $user = User::create([
             'prefix' => $request->pref,
             'name' => $request->name,
@@ -158,8 +157,8 @@ class LoginController extends Controller
     public function profilePic($lawyer, $request) {
         $imageDir = 'lawyer/profile_pic/' . $lawyer->id;
 
-        $image = $request->file('profile_pic');
-        if ($request->hasFile('profile_pic')) {
+        $image = $request->file('profile_image');
+        if ($request->hasFile('profile_image')) {
             $lawyer->profile_pic = $image->store($imageDir);
             $lawyer->save();
         }
@@ -167,25 +166,25 @@ class LoginController extends Controller
     }
     
     public function userLogin(Request $request) {
-        $request->validate([
-                'g-recaptcha-response' => 'required|string',
-                'email'     => 'required|string|email',
-                'password'  => 'required',
-        ],[
-            'g-recaptcha-response.required' => 'Please complete the captcha challenge.',
-            'g-recaptcha-response.captcha' => 'Captcha validation failed, please try again.',
-        ]);
+        // $request->validate([
+        //         'g-recaptcha-response' => 'required|string',
+        //         'email'     => 'required|string|email',
+        //         'password'  => 'required',
+        // ],[
+        //     'g-recaptcha-response.required' => 'Please complete the captcha challenge.',
+        //     'g-recaptcha-response.captcha' => 'Captcha validation failed, please try again.',
+        // ]);
         
-        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-            'secret' => config('services.recaptcha.secret_key'),
-            'response' => $request->get('g-recaptcha-response'),
-            'remoteip' => $request->getClientIp(),
-        ]);
+        // $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+        //     'secret' => config('services.recaptcha.secret_key'),
+        //     'response' => $request->get('g-recaptcha-response'),
+        //     'remoteip' => $request->getClientIp(),
+        // ]);
         
-        if (! $response->json('success')) {
-            // throw ValidationException::withMessages(['g-recaptcha-response' => 'Error verifying reCAPTCHA, please try again.']);
-            return redirect()->route('login')->with('error','Error verifying reCAPTCHA, please try again.');
-        }else {
+        // if (! $response->json('success')) {
+        //     // throw ValidationException::withMessages(['g-recaptcha-response' => 'Error verifying reCAPTCHA, please try again.']);
+        //     return redirect()->route('login')->with('error','Error verifying reCAPTCHA, please try again.');
+        // }else {
             // print_r($request->all());exit;
             $user = User::whereEmail($request->email)->first();
             if($user) {
@@ -221,7 +220,7 @@ class LoginController extends Controller
                 Alert::error('Login Failed', 'There is no existing user with given Email ID');
                 return redirect()->route('user.login');
             }
-        }
+        // }
     }
 
     public function adminLoginPage() {
