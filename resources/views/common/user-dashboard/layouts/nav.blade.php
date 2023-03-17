@@ -33,6 +33,9 @@
                                         <a class="nav-link" href="{{route('question-answer')}}">Q & A</a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{route('question-answer')}}">Q & A</a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{{route('testimonials')}}">Testimonials</a>
                                     </li>
                                     <li class="nav-item">
@@ -67,15 +70,34 @@
                                             <a class="nav-link dropdown-toggle" href="#"
                                                 role="button" data-bs-toggle="dropdown"
                                                 aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical text-white"></i></a>
-                                            <ul class="dropdown-menu">
+                                            <ul class="dropdown-menu" id="drop-focus">
                                                 <li>
                                                     <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img
-                                                            src="/new-design/user-dashboard/images/file-2.png" alt="">
+                                                            src="/new-design/user-dashboard/images/icons-/1.png" alt="">
+                                                        My Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img
+                                                            src="/new-design/user-dashboard/images/icons-/2.png" alt="">
+                                                        Dashboard</a>
+                                                </li>
+                                                     <li>
+                                                    <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img
+                                                            src="/new-design/user-dashboard/images/icons-/3.png" alt="">
+                                                        Write Testimonials</a>
+                                                </li>
+                                                     <li>
+                                                    <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img
+                                                            src="/new-design/user-dashboard/images/icons-/4.png" alt="">
+                                                        Blogs and Articles</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img
+                                                            src="/new-design/user-dashboard/images/icons-/5.png" alt="">
                                                         Logout</a>
                                                 </li>
                                             </ul>
                                         </li>
-
                                 </ul>
                             </div>
                         </div>

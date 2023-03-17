@@ -39,7 +39,7 @@
                             <li><a href="{{route('our-lawyers')}}"><i class="fa-solid fa-bag-shopping"></i> Our
                                     Lawyers</a></li>
                             <!-- <li><a href="layer.html"><i class="fa-solid fa-user"></i> Lawyers</a></li> -->
-                            <li><a href="practice-area.html"><i class="fa-solid fa-scale-balanced"></i>
+                            <li><a href="{{ route('page-practice-areas') }}"><i class="fa-solid fa-scale-balanced"></i>
                                     Practice Area</a></li>
                             <li><a href="{{route('blogs-articles', 1)}}"><i class="fa-solid fa-book"></i> Blogs & Articles</a>
                             </li>

@@ -37,7 +37,7 @@
                                         </div>
                                         <div class="col-md-6 col-6">
                                             <small>{{date('d/M/Y', strtotime($blog->created_at))}}</small>
-                                            <p class="col-txt">{!! $blog->title !!}</p>
+                                            <p class="col-txt" onclick="blogDetail('{{$blog->id}}')" style="cursor:pointer;">{!! $blog->title !!}</p>
                                         </div>
                                     @endif
                                 @endforeach

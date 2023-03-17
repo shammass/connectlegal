@@ -551,8 +551,41 @@ class CommonController extends Controller
         return view('common.pages.practice-area.list');
     }
 
+
     public function pagePracticeAreaDetails() {
-        return view('common.pages.practice-area.detail');
+        return view('common.pages.practice-area.practice-area');
+    }
+    // public function familyLawDubai()
+    // {
+    //     return view('commin.pages.practice-area.family-law-dubai');
+    // }
+    public function financiaLaw()
+    {
+        return view('common.pages.practice-area.financial-law');
+    }
+    public function genCivilLaw()
+    {
+        return view('common.pages.practice-area.general-civil-law');
+    }
+    public function civilLitigation()
+    {
+        return view('common.pages.practice-area.civil-litigation');
+    }
+    public function drugOffence()
+    {
+        return view('common.pages.practice-area.drug-offence');
+    }
+    public function islamicFinance()
+    {
+        return view('common.pages.practice-area.islamic-finance');
+    }
+    public function laborAndEmp()
+    {
+        return view('common.pages.practice-area.labour-employement-law');
+    }
+    public function constructionLaw()
+    {
+        return view('common.pages.practice-area.construction-law');
     }
 
     public function consultTheLawyer(Request $request) {

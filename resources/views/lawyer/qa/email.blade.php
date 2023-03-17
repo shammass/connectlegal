@@ -15,6 +15,8 @@
     <a href="https://dev.test.connectlegal.ae/question-answer/view/{{$slug}}">View</a>
 </p>
 
+<hr>
+
 <p>
 We encourage you to review the lawyer's response and see how it can help you resolve your legal matter. Please note: The response is for general legal information only and should not be considered legal advice.
 </p>
