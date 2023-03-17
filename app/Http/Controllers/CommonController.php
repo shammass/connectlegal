@@ -18,18 +18,24 @@ use App\Models\Rate;
 use App\Models\PasswordReset;
 use App\Models\Lawyer;
 use App\Models\Slot;
+use App\Models\SchduledMeeting;
 use App\Models\Testimonial;
 use App\Models\LawyerConsultation;
 use App\Models\Services;
 use App\Models\User;
+use App\Traits\SendMailTrait;
 use Illuminate\Http\Request;
 use Mail; 
+use Illuminate\Support\Facades\View;
 use Mailjet\Resources;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class CommonController extends Controller
 {
+
+    use SendMailTrait;
+
     public function howItWorks() {
         $testimonials = Testimonial::whereApproved(1)->latest()->take(3)->get();        
         // return view('common.how-it-works', compact('testimonials'));
@@ -216,7 +222,7 @@ class CommonController extends Controller
     }
 
     public function onlineChatRequests() {
-        $chatRequests = ChatOnline::whereUserId(auth()->user()->id)->get();
+        $chatRequests = ChatOnline::whereUserId(auth()->user()->id)->paginate(10);
         return view('common.chat-requests', compact('chatRequests'));
     }
 
@@ -544,8 +550,41 @@ class CommonController extends Controller
         return view('common.pages.practice-area.list');
     }
 
+
     public function pagePracticeAreaDetails() {
-        return view('common.pages.practice-area.detail');
+        return view('common.pages.practice-area.practice-area');
+    }
+    // public function familyLawDubai()
+    // {
+    //     return view('commin.pages.practice-area.family-law-dubai');
+    // }
+    public function financiaLaw()
+    {
+        return view('common.pages.practice-area.financial-law');
+    }
+    public function genCivilLaw()
+    {
+        return view('common.pages.practice-area.general-civil-law');
+    }
+    public function civilLitigation()
+    {
+        return view('common.pages.practice-area.civil-litigation');
+    }
+    public function drugOffence()
+    {
+        return view('common.pages.practice-area.drug-offence');
+    }
+    public function islamicFinance()
+    {
+        return view('common.pages.practice-area.islamic-finance');
+    }
+    public function laborAndEmp()
+    {
+        return view('common.pages.practice-area.labour-employement-law');
+    }
+    public function constructionLaw()
+    {
+        return view('common.pages.practice-area.construction-law');
     }
 
     public function consultTheLawyer(Request $request) {
@@ -604,12 +643,17 @@ class CommonController extends Controller
             'description'          =>  ['required'],
         ]);
         // dd($request->lawyerId);
-        ChatOnline::create([
+        $chatRequest = ChatOnline::create([
             'lawyer_id' => $request->lawyerId,
             'user_id'   => auth()->user()->id,
             'comment'   => $request->description,
             'any'       => 0,
         ]);
+
+        $html = View::make('emails.chat-request-to-lawyer', ['lawyerName' => $chatRequest->lawyer->user->name, 
+                                                                'userName' => auth()->user()->name,
+                                                                'area' => $chatRequest->lawyer->arbitration->area])->render();
+        $this->sendEmail($chatRequest->lawyer->user->email, 'New Chat Request from '.auth()->user()->name.' on Connect Legal', $html);
 
         Alert::success('Success', 'Your chat request has been submitted successfully');
         return redirect()->back();
@@ -633,5 +677,27 @@ class CommonController extends Controller
             Alert::success('Success', 'You have verified your account successfully. Please login');
             return redirect()->route('home');
         }
+    }
+
+    public function consultationRequests() {
+        $consultations = LawyerConsultation::whereUserId(auth()->user()->id)->paginate(10);
+
+        return view('common.user-dashboard.consultation.index', compact('consultations'));
+    }
+
+    public function questionsAsked() {
+        $questions = Forum::whereUserId(auth()->user()->id)->paginate(10);
+
+        return view('common.user-dashboard.qa.index', compact('questions'));
+    }
+
+    public function servicesPurchased() {
+        $servicesPurchased = SchduledMeeting::whereScheduledBy(auth()->user()->id)->paginate(10);
+        return view('common.user-dashboard.services-purchased.index', compact('servicesPurchased'));
+        // Lawyer Name
+        // Service title
+        // Total Amount
+        // OrderId
+        // Date
     }
 }
