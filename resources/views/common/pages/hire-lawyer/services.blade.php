@@ -1,7 +1,7 @@
 @extends('common.home.layouts.app')
 @section('content')
   <div class="p-80">
-    <main class="bg-color  bg-f4fefa pt-0 pb-5">
+    <main class="bg-color bg-f4fefa pt-0 pb-5">
       <div class="container" id="content-flex">
         <div class="row">
           <div class="col-md-6 postn-icn">

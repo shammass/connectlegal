@@ -244,8 +244,8 @@ span.counter-value {
 
 p.font-24 {
     font-weight: 400;
-    font-size: 22px;
-    line-height: 40.2px;
+    font-size: 15px;
+    line-height: 20.2px;
     color: #191919;
 }
 
@@ -457,8 +457,8 @@ a.answers {
 
 .text-slid .font-20 {
     font-weight: 400;
-    font-size: 16px;
-    line-height: 33.5px;
+    font-size: 14px;
+    line-height: 30px;
     color: #191919;
 }
 
@@ -520,9 +520,9 @@ input.form-control.left-bordr {
 
 button.btn.btn-submit {
     background: #208C84;
-    font-size: 20px;
+    font-size:14px;
     font-weight: 400;
-    line-height: 35px;
+    line-height: 20px;
     letter-spacing: 0em;
     text-align: center;
     color: #fff;
@@ -565,7 +565,7 @@ button.btn.btn-submit {
 
 .popuphome .modal-body {
     background: #E8F8F2;
-    padding: 60px 30px 60px 30px;
+    padding: 20px 30px 20px 30px;
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -579,7 +579,13 @@ button.btn.btn-submit {
     border-radius: 15px;
     padding: 40px;
 }
-
+.puopclass.styleclasss{
+    background-color: transparent;
+    border: none;
+}
+img.img-responsive.img-fluid.pup-img {
+    width: 100%;
+}
 .popuphome .modal-dialog {
     max-width: 900px;
     position: absolute;
@@ -652,7 +658,6 @@ button.btn.btn-submit {
     letter-spacing: 0em;
     text-align: center;
     color: #191919;
-    ;
     background: #FFFFFF;
     border: 1px solid #208C84;
     border-radius: 5px;
@@ -660,30 +665,30 @@ button.btn.btn-submit {
 }
 
 .puopclass.overflowclass {
-    height: 500px;
     overflow-y: scroll;
+    height: 460px;
+    padding: 0px;
+
 }
 
 .puopclass.overflowclass::-webkit-scrollbar {
     width: 10px;
-    /* background: #ABABAB; */
 }
 
 .btn1-hire {
     background: #208C84;
     border-radius: 5px;
     border: 0;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 700;
     line-height: 23px;
     letter-spacing: 0em;
-    text-align: center;
-    color: #fff;
-    padding: 12px 20px;
+    text-align: center;    color: #fff;
+    padding: 6px 10px;
 }
 
 #jaidev-text h5 {
-    font-size: 32px;
+    font-size: 20px;
     font-weight: 600;
     line-height: 48px;
     letter-spacing: 0em;
@@ -1021,8 +1026,8 @@ ul.vat-ul {
 
 .pro-1 .make p {
     font-weight: 400;
-    font-size: 20px;
-    line-height: 167.5%;
+    font-size: 16px;
+    line-height: 30px;
     color: #191919;
 }
 
@@ -1034,8 +1039,8 @@ ul.vat-ul {
 .make ul li {
     list-style: none;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 33.5px;
+    font-size: 16px;
+    line-height: 30px;
     color: #191919;
 }
 
@@ -1397,8 +1402,8 @@ p.bhl i {
 
 .why-b p {
     font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
+    font-size: 14px;
+    line-height: 30px;
     color: #191919;
 
 }
@@ -1579,16 +1584,16 @@ p.alredy a {
 }
 
 .sign-up {
-    width: 335px;
+    width: 230px;
     height: 68px;
     background: #208C84;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 12px;
     line-height: 35px;
     color: #FFFFFF;
+    margin-top: 20px;
     border: navajowhite;
 }
-
 .eye-pp {
     position: absolute;
     right: 10px;
@@ -1954,8 +1959,8 @@ ul.social li a {
     }
 
     p.font-24 {
-        font-size: 20px;
-        line-height: 30.2px;
+        font-size: 15px;
+        line-height: 20.2px;
     }
 
     .accordion-body h3 {
@@ -1974,7 +1979,7 @@ ul.social li a {
     }
 
     .text-slid .font-20 {
-        font-size: 18px;
+        font-size: 14px;
         line-height: 29.5px;
     }
 
@@ -2279,7 +2284,7 @@ ul.social li a {
     }
 
     p.font-24 {
-        font-size: 16px;
+        font-size: 15px;
         line-height: 23.76px;
     }
 
@@ -2328,8 +2333,8 @@ ul.social li a {
     }
 
     .text-slid .font-20 {
-        font-size: 16px;
-        line-height: 25.5px;
+        font-size: 14px;
+        line-height: 30px;
     }
 
     img.find-logo {
@@ -2734,7 +2739,7 @@ ul.social li a {
     }
 
     .ft-list h5 {
-        font-size: 15px;
+        font-size: 14px;
         margin-top: 40px;
     }
 
@@ -3021,8 +3026,8 @@ div#profile p.short-mes {
 
 .lawyers-part p {
     font-weight: 400;
-    font-size: 16px;
-    line-height: 35px;
+    font-size: 10px;
+    line-height: 20px;
     color: #191919;
 }
 
@@ -3249,7 +3254,7 @@ i.crown-p {
 
 @media(min-width:1366px) {
     img.har {
-        width: 230px;
+        width: 140px;
         margin-top: 38px;
     }
 }
@@ -3291,7 +3296,7 @@ i.crown-p {
     }
 
     img.har {
-        width: 230px;
+        width: 140px;
         margin-top: 38px;
     }
 
@@ -3329,7 +3334,7 @@ i.crown-p {
     }
 
     .popuphome .modal-body {
-        padding: 20px 30px 30px 30px;
+        padding: 20px 25px 30px 25px;
     }
 
     .puopclass {
@@ -3345,12 +3350,12 @@ i.crown-p {
     }
 
     p.font-24 {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .puopclass input::placeholder,
     .puopclass textarea::placeholder {
-        font-size: 14px;
+        font-size: 10px;
     }
 
     select.department.class-width-same {
@@ -3452,7 +3457,7 @@ i.crown-p {
 
     }
     ul.star-part-2.fa-start-des li {
-    font-size: 9px;
+    font-size: 7px;
 }
 .dropdown-toggle.btn-ope {
     margin-right: 5px;
@@ -3553,10 +3558,11 @@ i.crown-p {
         line-height: 60px;
     }
 
-    .lawyers-part p {
-        font-size: 16px;
-        line-height: 28px;
-    }
+   .lawyers-part p {
+    font-size: 10px;
+    margin: 0px !important;
+    line-height: 15px;
+}
 
     .firm-info h3 {
         font-size: 24px;
@@ -3708,7 +3714,7 @@ i.crown-p {
 
 @media (min-width:1200px) {
     .lawyers-part ul.star-part-2 li {
-        font-size: 13px;
+        font-size: 12px;
     }
 
 
@@ -3725,7 +3731,7 @@ i.crown-p {
     }
 
     .lawyers-part ul.star-part-2 li {
-        font-size: 20px;
+        font-size: 14px;
     }
 
 }
@@ -3827,7 +3833,7 @@ div#profile .legal-1 img {
 
 .faq-box h6 {
     font-weight: 600;
-    font-size: 48px;
+    font-size: 35px;
     line-height: 72px;
 }
 
@@ -4082,7 +4088,7 @@ ul.post-1.text-left {
 }
 @media (max-width:991px) {
     .faq-box h6 {
-        font-size: 40px;
+        font-size: 35px;
         line-height: 56.6px;
     }
 
@@ -4117,7 +4123,7 @@ ul.post-1.text-left {
     }
 
     .faq-box h6 {
-        font-size: 40px;
+        font-size: 35px;
         line-height: 47px;
     }
 
@@ -4277,7 +4283,7 @@ a.activ-step .fa-circle-check {
 
 .box-redi h3 {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 25px;
     color: #191919;
     padding: 25px 20px;
@@ -4310,7 +4316,7 @@ a.next-step-btn {
     border: 2px solid #208C84;
     font-weight: 600;
     font-size: 20px;
-    line-height: 35px;
+    line-height: 24px;
     text-transform: uppercase;
     color: #208C84;
     text-decoration: none;
@@ -4345,7 +4351,7 @@ a.next-step-btn.back {
 
 .card-summary p {
     font-weight: 400;
-    font-size: 22px;
+    font-size: 16px;
     line-height: 29px;
     color: #191919;
 }
@@ -4418,7 +4424,7 @@ img.Rectangle-m {
 
 h5.any {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 35px;
     color: #191919;
     margin-bottom: 20px;
@@ -4427,22 +4433,24 @@ h5.any {
 
 .firm-info select {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 35px;
+    background: none;
     color: #787878;
     border: none;
     border-bottom: 1px solid #191919;
     width: 100%;
-    padding: 10px 13px;
+    padding: 0px 13px;
     margin-bottom: 30px;
     outline: none;
     border-radius: inherit;
 }
 
 .firm-info select.mr-ms {
-    padding: 13px 13px;
+    padding: 0px 13px;
     margin-bottom: 20px;
     background: none;
+    height: 86%;
 }
 
 .select-bg {
@@ -4458,7 +4466,7 @@ h5.any {
 
 textarea.somet {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 14px;
     line-height: 35px;
     color: #787878;
     border: none;
@@ -4605,7 +4613,7 @@ a.next-step-btn.rightbtn {
     }
 
     .firm-info select.mr-ms {
-        padding: 15px 5px;
+        padding: 0px 5px;
         font-size: 16px;
     }
 
@@ -4631,7 +4639,7 @@ a.next-step-btn.rightbtn {
 
     a.next-step-btn {
         font-size: 16px;
-        line-height: 29px;
+        line-height: 24px;
         width: 100%;
         padding: 6px 0;
     }
@@ -4973,7 +4981,7 @@ i.crown-p {
     }
 
     img.har {
-        width: 150px;
+        width: 140px;
     }
 
     #dateclander h4 {
@@ -5956,7 +5964,7 @@ div#border-full {
 
 #pills-tabContent {
     background: #fff;
-    padding: 25px;
+    padding: 0px;
 }
 
 .modal-xl {
@@ -5982,7 +5990,7 @@ div#staticBackdrop.bg-4d4d4d {
 
 @media(max-width:360px) {
     .firm-info select.mr-ms {
-        padding: 15px 2px;
+        padding: 0px 2px;
         font-size: 16px;
     }
 }
@@ -6027,7 +6035,7 @@ div#staticBackdrop.bg-4d4d4d {
     top: 0;
     left: 0;
     overflow-x: hidden;
-    transition: 0.5s;
+/*    transition: 0.5s;*/
     background-color: #fff;
 }
 
@@ -6817,7 +6825,7 @@ h1.aed-class.text-left-side {
 
 a.img-dott span {
     margin: 0px 10px;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 35px;
     letter-spacing: 0em;
@@ -6869,9 +6877,9 @@ div#statec.tab-max-w {
         padding-bottom: 0px;
     }
     .btn { 
-    font-size: 15px;
-    line-height: 35px; 
-        padding: 10px 0;
+    font-size: 12px;
+    line-height: 20px; 
+        padding: 6px 0;
 }
 a.btn.btn-3cc7a0 { 
     width: 40%;
@@ -7333,3 +7341,124 @@ a.next-step-btn {
         padding: 30px 15px;
     }
 }
+
+
+select.mr-ms {
+    margin: 0 !important;
+}
+p.text-center.mt-5 {
+ transition: all 0.9s;
+}
+p.text-center.mt-5:hover {
+    transform: scale(1.1);
+}
+
+
+
+/*start today css work*/
+
+#single-blog h1 {
+  font-size: 25px;
+}
+#single-blog h2  { 
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 45px;
+    color: #208C84;}
+
+#single-blog h3  { 
+
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 45px;
+    color: #208C84;}
+
+
+    #single-blog p {  font-weight: 400;
+    font-size: 16px;
+    line-height: 30.2px;
+    color: #191919;
+}
+#single-blog ol li { font-weight: 400;
+    font-size: 16px;
+    line-height: 30.2px;
+    color: #191919;
+list-style: auto;
+margin-left: 4%;
+
+}
+#single-blog a { color: #208c84; }
+#single-blog ul li { font-weight: 400;
+    font-size: 16px;
+    line-height: 30.2px;
+    color: #191919;
+list-style: disc;
+margin-left: 4%;
+}
+
+
+
+div#practice-area-2 h2 {
+    color: #208C84;
+    font-weight: 600;
+    font-size: 26px;
+    padding-bottom: 15px;
+}
+.almo p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: justify;
+    color: #191919;
+    padding-bottom: 15px;
+}
+
+
+.nav-link img {
+    width: 30%;
+}
+
+
+
+@media(max-width:768px){
+    .text-right.search-drop.withsamesize .department {
+        width: 135px;
+    }
+    .lawyers-part p {
+    font-size: 10px;
+    margin: 10px 0px !important;
+    line-height: 15px;
+}
+}
+@media(min-width:500px) and (max-width:767px){
+    .lawyers-part.p-80 {
+        padding: 80px 0px !important;
+    }
+}
+
+@media(max-width:767px){
+ul.star-part-2 {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #3DC9A1;
+    border-radius: 26px;
+    text-align: center;
+    height: 20px !important;
+    width: 60px !important;
+}
+ul.star-part-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button.btn1-hire {
+    width: 100%;
+}
+.btn1-hire img{
+    width: 15px;
+}
+.modal.fade.popuphome .modal-dialog {
+    max-width: 260px;
+}
+}
+

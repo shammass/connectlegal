@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="col-lg-4 col-4">
                                         <div class="cntn-box-1">
-                                            <button class="bookbtn bg-btn-change" onclick="lawyerServices('{{$answer->lawyer_id}}')">Hire the Lawyer</button>
+                                            <button class="bookbtn bg-btn-change" onclick="lawyerServices('{{$answer->lawyer_id}}')">Lawyer Services</button>
                                         </div>
                                     </div>
                                 </div>

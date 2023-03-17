@@ -75,7 +75,15 @@ Route::post('/consult-lawyer',              [CommonController::class, 'consultTh
 
 #Page practice area
 Route::get('/page-practice-area',               [CommonController::class, 'pagePracticeArea'])->name('page-practice-area');
-// Route::get('/page-practice-area/details',       [CommonController::class, 'pagePracticeAreaDetails'])->name('page-practice-area');
+ Route::get('/page-practice-area/details',       [CommonController::class, 'pagePracticeAreaDetails'])->name('page-practice-areas');
+ Route::get('/page-practice-area/financial-law',       [CommonController::class, 'financiaLaw'])->name('financial-law');
+ Route::get('/page-practice-area/general-civil-law',       [CommonController::class, 'genCivilLaw'])->name('general-civil-law');
+ Route::get('/page-practice-area/civil-litigation',       [CommonController::class, 'civilLitigation'])->name('civil-litigation');
+ Route::get('/page-practice-area/drug-offence',       [CommonController::class, 'drugOffence'])->name('drug-offence');
+ Route::get('/page-practice-area/islamic-finance',       [CommonController::class, 'islamicFinance'])->name('islamic-finance');
+ Route::get('/page-practice-area/labour-employement-law',       [CommonController::class, 'laborAndEmp'])->name('labour-employement-law');
+ Route::get('/page-practice-area/construction-law',       [CommonController::class, 'constructionLaw'])->name('construction-law');
+
 // Route::get('/page-practice-area/details/1',       [CommonController::class, 'pagePracticeAreaDetails'])->name('page-practice-area');
 
 #Q&A
@@ -152,9 +160,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('service-payment',                                              [HireLawyerController::class, 'servicePayment'])->name('service.payment');
     Route::get('service-step-5/{meeting_id}',                                   [HireLawyerController::class, 'servicePaymentCompleted'])->name('service.payment.completed');
     Route::get('/generate-invoice/{meeting_id}',                                [HireLawyerController::class, 'generateInvoice'])->name('generate-invoice');
-
-
-    Route::get('download-pdf/{old}/{og}', [CommonController::class, 'download'])->name("download.pdf");
     
 });
 

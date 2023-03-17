@@ -46,9 +46,9 @@ nav.main-menu a.navbar-brand {
 .main-menu ul.navbar-nav li a {
     color: #fff !important;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 11px;
     line-height: 20px;
-    padding: 13px 10px !important;
+    padding: 0px 10px !important;
 }
 
 .banner-part {
@@ -2928,7 +2928,7 @@ i.fa-solid.fa-location-dot.color-blue {
 .chat-left p {
     font-size: 14px;
     font-weight: 500;
-    line-height: 21px;
+    line-height: 18px;
     letter-spacing: 0em;
     text-align: left;
     color: #093F38;
@@ -3704,7 +3704,7 @@ a.dropdown-item img {
     position: relative;
     border: 1px solid #3DC9A1;
     border-radius: 0px 20px 20px 20px;
-    padding: 20px;
+    padding: 10px;
     -webkit-border-radius: 0px 20px 20px 20px;
     -moz-border-radius: 0px 20px 20px 20px;
     -ms-border-radius: 0px 20px 20px 20px;
@@ -3722,9 +3722,9 @@ a.dropdown-item img {
 
 .msg-body ul li.sender.color-border .chat-left p {
     font-family: Poppins;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
-    line-height: 21px;
+    line-height: 18px;
     letter-spacing: 0em;
     text-align: left;
     color: #093F38;
@@ -3732,9 +3732,9 @@ a.dropdown-item img {
 
 .msg-body ul li.sender.color-border .chat-left span {
     font-family: Poppins;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
-    line-height: 21px;
+    line-height: 0px;
     letter-spacing: 0em;
     text-align: left;
     color: #85BACA;
@@ -3770,7 +3770,7 @@ a.dropdown-item img {
     float: right;
     background: #208C84;
     border-radius: 20px 0px 20px 20px;
-    padding: 20px;
+    padding: 10px;
 }
 
 .msg-body ul li.repaly.reply-two {
@@ -4463,7 +4463,7 @@ i.fa-solid.fa-location-dot.color-blue {
 .chat-left p {
     font-size: 14px;
     font-weight: 500;
-    line-height: 21px;
+    line-height: 18px;
     letter-spacing: 0em;
     text-align: left;
     color: #093F38;
@@ -5816,14 +5816,31 @@ i.fa-solid.fa-ellipsis-vertical.text-white {
 .main-menu ul.navbar-nav li a {
     color: #fff !important;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 20px;
-    padding: 13px 10px !important;
+    padding: 0px 10px !important;
 }
 .main-menu ul.navbar-nav li a {
-    line-height: 4px;
+    line-height: 30px;
 }
 ul.menu-left li a i {
     width: 30px;
     text-align: center;
+}
+#drop-focus a.dropdown-item {
+    font-size: 13px;
+}
+.dropdown-menu img {
+    margin-right: 12px;
+}
+
+ul#drop-focus {
+    position: absolute;
+    top: 34px !important;
+    left: 47px !important;
+    width: 250px;
+}
+
+thead.thead-th th {
+    text-align: center !important;
 }

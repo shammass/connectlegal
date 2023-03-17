@@ -29,7 +29,7 @@
                                 <tr style="text-align: center;">
                                     <td style="text-align: center;">{{$request->lawyer->user->name}}</td>
                                     <td style="text-align: center;">{{$request->lawyer->user->email}}</td>
-                                    <td style="text-align: center;">{{$request->comment}}</td>
+                                    <td style="text-align: left;">{{$request->comment}}</td>
                                     <td style="text-align: center;">
                                         {{$request->status ? 'Yes' : 'No'}}
                                     </td>

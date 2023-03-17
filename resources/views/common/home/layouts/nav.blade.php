@@ -63,7 +63,7 @@
                     <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="practice-area.html">Practice Area</a>
+                    <a class="nav-link" href=" {{ route('page-practice-areas') }} ">Practice Area</a>
                 </li>
                 
 
