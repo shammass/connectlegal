@@ -207,7 +207,6 @@
                         'data':data
                     },
                     success: function(res){
-                        debugger
                         // $("#commentList_"+data.postComment.post_id).empty();
                         $("#commentList_"+data.postComment.post_id).prepend(res.comments);
                         $("#commentCounts_"+data.postComment.post_id).empty();
@@ -249,9 +248,11 @@
                         'data':data
                     },
                     success: function(res){
+                        const messagesContainer = $(".chat-history");
+                        scrollToBottom(messagesContainer);
                         // $(".all-posts-"+data.postComment.post_id).empty();
                         $(".messages-content").append(res);
-                        $("#chat-text").animate({ scrollTop: $('#chat-text').prop("scrollHeight")}, 1000);
+                        // $("#chat-text").animate({ scrollTop: $('#chat-text').prop("scrollHeight")}, 1000);
                     }
                 });
             }

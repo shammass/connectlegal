@@ -91,7 +91,6 @@
                 $(".name-error").empty()
                 $(".email-error").empty()
                 $(".pwd-error").empty()
-                debugger
                 if(!name) {
                     valid = false
                     $(".name-error").append('Please enter your name');
@@ -182,8 +181,10 @@
 
             function validateChatRqstForm(e, id) {
                 var valid = true;
+                debugger
                 $(".cf-errors").empty()
-                var descr = $(".chat-rqst-form-"+id).val();
+                var textarea = document.getElementsByClassName(".chat-rqst-form-"+id)[0];
+                var descr = textarea.value;
                 if(!descr) {
                     valid = false;
                     $(".chat-rqst-form-"+id).after('<span class="cf-errors" style="color:red;">This field is required</span>')
@@ -229,7 +230,6 @@
             $(document).ready(function(){
 
                 $("section").click(function(){
-                    debugger
                 $(".menu-sidebar").removeClass('show');
                 $(".offcanvas offcanvas-start").css('visibilty','hidden','display','none');
                 });
@@ -253,6 +253,8 @@
                     $(".m-none-menu").show();
                 });
             });
+
+            
         </script>
         
         @stack('script')

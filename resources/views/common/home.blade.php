@@ -97,7 +97,7 @@
     });
 
     function hireALawyer() {
-        window.location.href = "/legal-services";
+        window.location.href = "/all-lawyer-services";
     }
 
     function qaPage() {

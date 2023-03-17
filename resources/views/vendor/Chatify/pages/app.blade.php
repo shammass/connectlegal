@@ -1,226 +1,6 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chat_lowyar_2 </title>
-    <meta name="description" content="A description of the page content.">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- css File link  -->
-    <link rel="stylesheet" type="text/css" href="/new-design/user-dashboard/css/style-dash.css">
-    <link rel="stylesheet" type="text/css" href="/new-design/user-dashboard/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/new-design/user-dashboard/css/respinsive.css">
-    <!-- Google Font Poppins-->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <!-- Dont-Awesome Icon-->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <!--carousel -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
-
-    <!-- fevicon icon -->
-    <link href="/new-design/user-dashboard/images/fevicon.png" rel="shortcut icon" type="image/png">
-</head>
-
-<body>
-    <div class="flex-part">
-        <div class="left-menu-bar">
-            <div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
-                <ul class="list-group">
-                    <a href="#" data-toggle="sidebar-colapse"
-                        class=" list-group-item list-group-item-action d-flex mmmm">
-                        <div class="d-flex w-100 justify-content-start align-items-center">
-                            <span id="collapse-icon" class="fa fa-2x mr-3"><img src="/new-design/user-dashboard/images/fa-white.png" alt="fa-white"
-                                    class="fav-white"></span>
-                            <span id="collapse-text" class="menu-collapsed"><img src="/new-design/user-dashboard/images/off-logo.png"
-                                    alt="off-logo" class="fav-icon"> </span>
-                        </div>
-                    </a>
-                    <div id='submenu1' class="collapse sidebar-submenu">
-                        <ul class="menu-left">
-                            <li><a href="" class="active-nav"><i class="fa-solid fa-house-user"></i> Home</a></li>
-                            <li><a href="#"><i class="fa-solid fa-landmark"></i>Dashboard</a></li>
-                            <li><a href="#"><i class="fa-solid fa-users"></i>My Activity</a></li>
-                            <li><a href="#"><i class="fa-solid fa-question"></i> Schedule Events</a></li>
-                            <li><a href="#"><i class="fa-solid fa-star"></i> Chat Online Requests</a></li>
-                            <li><a href="#"><i class="fa-solid fa-bag-shopping"></i>Services</a></li>
-                            <li><a href="#"><i class="fa-solid fa-user"></i> Lawyer Community</a></li>
-                            <li><a href="#"><i class="fa-solid fa-scale-balanced"></i>Question & Answer</a></li>
-                            <li><a href="#"><i class="fa-solid fa-book"></i>Lawyer Articles</a></li>
-                            <li><a href="#"><i class="fa-solid fa-address-card"></i>Q & A</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="icons-part-left">
-                        <ul class="menu-left white-left">
-                            <li><a href="#"><i class="fa-solid fa-user"></i></a></li>
-                            <li><a href="#"><i class="fa-solid fa-table"></i></a></li>
-                            <li><a href="#"><i class="fa-regular fa-comment"></i> </a></li>
-                            <li><a href="#"><i class="fa-solid fa-table-cells-large"></i> </a></li>
-                            <li><a href="#"><i class="fa-solid fa-question"></i> </a></li>
-                            <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> </a></li>
-                        </ul>
-                    </div>
-                    <li class="list-group-item sidebar-separator-title text-muted d-flex menu-collapsed">
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="dash-body">
-            <div class="top-header">
-                <div class="row">
-                    <div class="col-sm-9 d-none d-xl-block">
-                        <nav class="navbar navbar-expand-lg navbar-light main-menu">
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                                    <li class="nav-item">
-                                        <a class="nav-link" aria-current="page" href="#">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">How It Works</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">For Lawyers</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Testimonials</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Blogs &amp; Articles</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Lawyers</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Practice Area</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                    <div class="col-sm-3 d-none d-xl-block">
-                        <div class="user-nav">
-                            <div class="row">
-                                <div class="col-sm-2">
-                                    <p class="bell-icon">
-                                        <a href="#"><i class="fa-solid fa-bell"></i></a>
-                                        <span class="round-white"></span>
-                                    </p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <div class="row ">
-                                        <div class="col-sm-4">
-                                            <div class="round-user">
-                                                <img src="/new-design/user-dashboard/images/question-1.png" alt="question-1" class="user-li">
-                                                <span class="round"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-7 names">
-                                            <p class="font-name"> Ranjit Devi</p>
-                                            <p class="font-ad">UAE, Dubai</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-1 pl-0 ">
-                                    <ul class="moreoption">
-                                        <li class="navbar nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#"
-                                                role="button" data-bs-toggle="dropdown"
-                                                aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical text-white"></i></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#"> <img
-                                                            src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                        Action</a>
-                                                </li>
-                                                <li><a class="dropdown-item" href="#"> <img
-                                                            src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                        Action</a>
-                                                </li>
-                                                <li><a class="dropdown-item" href="#"> <img
-                                                            src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                        Action</a>
-                                                </li>
-                                                <li><a class="dropdown-item" href="#"> <img
-                                                            src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                        Action</a>
-                                                </li>
-                                                <li><a class="dropdown-item" href="#"> <img
-                                                            src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                        Action</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-xl-8  col-12 d-block d-xl-none">
-                        <div class="d-flex1 ">
-                            <div class="col-md-2">
-                                <a class="" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                                    aria-controls="offcanvasExample">
-                                    <img src="/new-design/user-dashboard/images/toogle.png" alt="">
-                                </a>
-                            </div>
-                            <div class="col-md-7">
-                                <a class="" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                                    aria-controls="offcanvasExample">
-                                    <center> <img src="/new-design/user-dashboard/images/ft-logo.png" alt="off-logo" class="off-logo m-0">
-                                    </center>
-                                </a>
-                            </div>
-                            <div class="col-md-3 text-end">
-                                <a class="" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                                    aria-controls="offcanvasExample">
-                                    <img src="/new-design/user-dashboard/images/question-1.png" alt="">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
-                            aria-labelledby="offcanvasExampleLabel">
-                            <div class="offcanvas-header">
-                                <div class="text-left-part"> <img src="/new-design/user-dashboard/images/off-logo.png" alt="off-logo" class="off-logo"></div>  <a type="button" class="btn-close bg-des" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></a>
-                            </div>
-                            <div class="offcanvas-body">
-                                <ul class="menu-left">
-                                    <li><a href="" class="active-nav"><i class="fa-solid fa-house-user"></i> Home</a>
-                                    </li>
-                                    <li><a href="#"><i class="fa-solid fa-landmark"></i> How It Works</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-users"></i> For Lawyers</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-question"></i> Testimonials</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-star"></i> Testimonials</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-bag-shopping"></i> Our Lawyers</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-user"></i> Lawyers</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-scale-balanced"></i> Practice Area</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-book"></i> Blogs & Articles</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-address-card"></i>Legal services</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-gavel"></i> Legal Articles</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Login</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <section class="message-area">
+@extends('common.user-dashboard.layouts.app')
+@section('content')
+    <section class="message-area">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -370,74 +150,92 @@
 
 
                                 <!-- chatbox -->
-                                <div class="chatbox">
-                                    <div class="modal-dialog-scrollable">
-                                        <div class="modal-content">
-                                            <div class="msg-head">
-                                                <div class="row align-items-center">
-                                                    <div class="col-8">
-                                                        <div class="d-flex align-items-center">
-                                                            <span class="chat-icon"><i
-                                                                    class="fa-solid fa-arrow-left"></i></span>
-                                                            <div class="flex-shrink-0">
-                                                                @if($lawyerDetail)
-                                                                    <img class="img-fluid"
-                                                                        style="width: 40px;height: 40px;border-radius: 20px;"
-                                                                        src="/storage/{{$lawyerDetail ? $lawyerDetail->profile_pic : null}}"
-                                                                        alt="{{$lawyerDetail ? $lawyerDetail->user->name : $userDetail->name}}">
-                                                                @endif
-                                                            </div>
-                                                            <div class="flex-grow-1 color-p-syte ms-3">
-                                                                <h3>{{$lawyerDetail ? $lawyerDetail->user->name : $userDetail->name}}
-                                                                </h3>
-                                                                <p>{{$lawyerDetail ? $lawyerDetail->emirates : '-'}}</p>
-                                                            </div>
+                            <div class="chatbox">
+                                <div class="modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="msg-head">
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="chat-icon"><i
+                                                                class="fa-solid fa-arrow-left"></i></span>
+                                                        <div class="flex-shrink-0">
+                                                            @if($lawyerDetail)
+                                                                <img class="img-fluid"
+                                                                    style="width: 40px;height: 40px;border-radius: 20px;"
+                                                                    src="/storage/{{$lawyerDetail ? $lawyerDetail->profile_pic : null}}"
+                                                                    alt="{{$lawyerDetail ? $lawyerDetail->user->name : $userDetail->name}}">
+                                                            @endif
+                                                        </div>
+                                                        <div class="flex-grow-1 color-p-syte ms-3">
+                                                            <h3>{{$lawyerDetail ? $lawyerDetail->user->name : $userDetail->name}}
+                                                            </h3>
+                                                            <p>{{$lawyerDetail ? $lawyerDetail->emirates : '-'}}</p>
+                                                            
                                                         </div>
                                                     </div>
-                                                    <div class="col-4">
-                                                        <ul class="moreoption">
-                                                            <i class="fa-solid fa-magnifying-glass"></i>
-                                                            <li class="navbar nav-item dropdown">
-                                                                <a class="nav-link dropdown-toggle" href="#"
-                                                                    role="button" data-bs-toggle="dropdown"
-                                                                    aria-expanded="false"><i
-                                                                        class="fa-solid fa-ellipsis"></i></a>
+                                                </div>
+                                                <div class="col-4">
+                                                    <ul class="moreoption">
+                                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                                        <li class="navbar nav-item dropdown">
+                                                            <a class="nav-link dropdown-toggle" href="#"
+                                                                role="button" data-bs-toggle="dropdown"
+                                                                aria-expanded="false"><i
+                                                                    class="fa-solid fa-ellipsis"></i></a>
                                                                 <ul class="dropdown-menu">
-                                                                    <li><a class="dropdown-item" href="#"> <img
+                                                                    <li data-bs-toggle="modal" data-bs-target="#consult-the-lawyer"><a class="dropdown-item" href="#"> <img
                                                                                 src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                                            Action</a>
+                                                                            Consult the Lawyer</a>
                                                                     </li>
-                                                                    <li><a class="dropdown-item" href="#"> <img
+                                                                    <li><a class="dropdown-item" href="{{route('hire-a-lawyer.user', $id)}}"> <img
                                                                                 src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                                            Action</a>
-                                                                    </li>
-                                                                    <li><a class="dropdown-item" href="#"> <img
-                                                                                src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                                            Action</a>
-                                                                    </li>
-                                                                    <li><a class="dropdown-item" href="#"> <img
-                                                                                src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                                            Action</a>
-                                                                    </li>
-                                                                    <li><a class="dropdown-item" href="#"> <img
-                                                                                src="/new-design/user-dashboard/images/file-2.png" alt="">
-                                                                            Action</a>
+                                                                            Lawyer Services</a>
                                                                     </li>
                                                                 </ul>
-                                                            </li>
+                                                        </li>
+                                                     </ul>
 
-                                                        </ul>
-
-                                                    </div>
                                                 </div>
                                             </div>
+                                        </div>
 
 
-                                            <div class="modal-body chat-history">
-                                                <div class="msg-body appendLatestMsg" id="chat-text">
-                                                    <input type="hidden" name="to_id" id="to_id" value="{{$id}}">
-                                                    @foreach($messages as $k => $message)
-                                                        @if($message->from_id != auth()->user()->id)
+                                        <div class="modal-body chat-history">
+                                            <div class="msg-body appendLatestMsg" id="chat-text">
+                                                <input type="hidden" name="to_id" id="to_id" value="{{$id}}">
+                                                @foreach($messages as $k => $message)
+                                                    @if($message->from_id != auth()->user()->id)
+                                                        @if($message->attachment)
+                                                            @php $attachment = json_decode($message->attachment); @endphp
+                                                            <ul>
+                                                            <a href="/online-chat/download/{{$attachment->new_name}}/{{$attachment->old_name}}">
+                                                                <li class="repaly reply-two">
+                                                                    <div class="chat-left">
+
+                                                                        <div class="d-flex align-items-center" id="bg-dark">
+                                                                            <span class="chat-icon"><i
+                                                                                    class="fa-solid fa-arrow-left"></i></span>
+                                                                            <div class="flex-shrink-0 img-width"
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#exampleModal">
+                                                                                <img class="img-fluid" src="/new-design/user-dashboard/images/pdf.png"
+                                                                                    alt="user img">
+                                                                            </div>
+                                                                            <div class="flex-grow-1 color-p-syte ms-3"
+                                                                                id="pdf-file">
+                                                                                <h3>{{$attachment->old_name}}
+                                                                                </h3>
+                                                                                <p>{{ formatBytes($attachment->size) }} · PDF</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <h6 class="text-end">{{date('g:i A', strtotime($message->created_at))}} <i
+                                                                                class="fa-solid fa-check"></i></h6>
+                                                                    </div>
+                                                                </li>
+                                                                </a>
+                                                            </ul>
+                                                        @else 
                                                             <ul>
                                                                 <li class="row col-md-6 sender color-border">
                                                                     <div class="chat-left">
@@ -452,7 +250,38 @@
                                                                     </div>
                                                                 </li>
                                                             </ul>
-                                                        @else
+                                                        @endif
+                                                    @else
+                                                        @if($message->attachment)
+                                                            @php $attachment = json_decode($message->attachment); @endphp
+                                                            <ul>
+                                                            <a href="/online-chat/download/{{$attachment->new_name}}/{{$attachment->old_name}}">
+                                                                <li class="repaly reply-two">
+                                                                    <div class="chat-left colorchane">
+
+                                                                        <div class="d-flex align-items-center" id="bg-dark">
+                                                                            <span class="chat-icon"><i
+                                                                                    class="fa-solid fa-arrow-left"></i></span>
+                                                                            <div class="flex-shrink-0 img-width"
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#exampleModal">
+                                                                                <img class="img-fluid" src="/new-design/user-dashboard/images/pdf.png"
+                                                                                    alt="user img">
+                                                                            </div>
+                                                                            <div class="flex-grow-1 color-p-syte ms-3"
+                                                                                id="pdf-file">
+                                                                                <h3>{{$attachment->old_name}}
+                                                                                </h3>
+                                                                                <p>{{ formatBytes($attachment->size) }} · PDF</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <h6 class="text-end">{{date('g:i A', strtotime($message->created_at))}} <i
+                                                                                class="fa-solid fa-check"></i></h6>
+                                                                    </div>
+                                                                </li>
+                                                                </a>
+                                                            </ul>
+                                                        @else 
                                                             <ul>
                                                                 <li class="row col-md-6 repaly reply-two">
                                                                     <div class="chat-left colorchane">
@@ -468,18 +297,21 @@
                                                                 </li>
                                                             </ul>
                                                         @endif
-                                                    @endforeach
-                                                    
-                                                    <div class="upload-image" style="display: none;">
-                                                        <div class="text-center max-file">
-                                                            <img src="/new-design/user-dashboard/images/file.png" alt="">
-                                                            <p class="m-0 mt-3">Name of file.pdf</p>
-                                                            <p class="m-0"> 3.5 MB · PDF</p>
-                                                        </div>
+                                                    @endif
+                                                @endforeach
+                                                
+                                                <div class="upload-image" style="display:none;">
+                                                    <div class="text-center max-file">
+                                                        <img src="/new-design/user-dashboard/images/file.png" alt="" id="image-preview"
+                                                            style="display:none;">
+                                                        <p class="m-0 mt-3" id="pdfName"></p>
+                                                        <p class="m-0" id="pdfSize"> </p>
                                                     </div>
-
                                                 </div>
+
                                             </div>
+                                        </div>
+                                        @if(!$completed)
                                             <div class="send-box position-relative">
                                                 <div class="intercom-composer-popover intercom-composer-emoji-popover">
                                                     <div class="intercom-emoji-picker">
@@ -493,41 +325,81 @@
                                                 <form id="message-form" method="POST" action="{{ route('send.message') }}" onsubmit="return false;">
                                                     @csrf()
                                                     <input type="text" class="form-control" id="msgField"
-                                                        aria-label="message…" placeholder="Write message…">
+                                                        aria-label="message…" placeholder="Write message… ">
                                                     <img style="cursor: pointer;" id="emoji-picker"
                                                         src="/new-design/user-dashboard/images/file-snd.png" alt="" class="postiotion-1">
-                                                    <img src="/new-design/user-dashboard/images/filesnd.png" class="postiotion-2">
+                                                    <label>
+                                                    <input type="file" onchange="updateImagePreview()" multiple
+                                                            class="img-file"> <img src="/new-design/user-dashboard/images/filesnd.png"
+                                                            class="postiotion-2 img--">
+                                                    </label>
                                                     <button type="button" onclick="sendMessage()"><i class="fa fa-paper-plane"
                                                             aria-hidden="true"></i></button>
                                                 </form>
                                             </div>
-                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
-                            <!-- chatbox -->
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
-        </section>
-        <!-- char-area -->
+    </section>
+
+    <div class="modal fade modal-popups" id="consult-the-lawyer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered modal-lg" id="modal-login">
+            <div class="modal-content"> 
+                <div class="modal-header text-right"> 
+                    <button type="button" class="btn-close rounded" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-popup-des rounded" id="pills-tabContent">
+                        <form action="{{route('consult.lawyer')}}" method="post" onsubmit="return validateConsultForm(event)">
+                            @csrf()
+                            <input type="hidden" name="lawyerId" value="{{$id}}">
+                            <h4 class="give-rating"> Contact Form</h4>                                                    
+                            <div class="eles group-invite area"> 
+                                <input type="text" name="name" id="name" placeholder="Name" class="mb-4" value="{{auth()->user() ? auth()->user()->name : ''}}">
+                                @error('name')
+                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                @enderror   
+                                <input type="email" name="email" id="email" placeholder="Email" class="mb-4" value="{{auth()->user() ? auth()->user()->email : ''}}">
+                                @error('email')
+                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                @enderror   
+                                <div class="input-group mb-3" id="mobile-div">
+                                    <span class="input-group-text" id="basic-addon1"> <img src="/new-design/assets/images/phone.png" alt=""> </span>
+                                    <input type="text" class="form-control left-bordr" name="mobile" id="mobile" placeholder="Phone Number" aria-label="Username"
+                                    aria-describedby="basic-addon1">
+                                </div> 
+                                @error('mobile')
+                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                @enderror   
+                                <div class="links-icons">
+                                    <textarea placeholder="Message" name="message" id="msg" class="description"></textarea> 
+                                </div>
+                                @error('message')
+                                    <span class="error-msg" style="color:red;">{{ $message }}</span>
+                                @enderror   
+                            </div> 
+                            <div class="text-right mb-3">
+                                <button class="btn-lgn" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div> 
+            </div>
+        </div>
     </div>
-    </div>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <script src="//js.pusher.com/3.1/pusher.min.js"></script>
+@endsection
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js">
-    </script>
+@push('script')
 
 
-    <script>
+<script>
         Pusher.logToConsole = true;
 
         var pusher = new Pusher('a34a416e0fe588185c8e', {
@@ -541,8 +413,10 @@
             if(data.type === "UserMsg") {
                     $.ajax({
                     method:"get",
-                    url: "/user-latest-msg/"+data.toId,
+                    url: "/user-latest-msg/"+data.messageId,
                     success: function(res) {
+                        const messagesContainer = $(".chat-history");
+                        scrollToBottom(messagesContainer)
                         $(".appendLatestMsg").append(res);
                     }
                 });
@@ -554,12 +428,91 @@
             $(".chatbox").addClass('showbox');
         }
 
+        var pdfFile = null;
+        function updateImagePreview() {
+            $("#pdfName").empty()
+            $("#pdfSize").empty()
+            $(".upload-image").show();
+            var input = document.querySelector('input[type="file"]');
+            var preview = document.querySelector('#image-preview');
+            var file = input.files[0];
+            
+            if (file) {
+                $("#pdfName").append(file.name)
+                var fileSizeInMB = formatBytes(file.size)
+                $("#pdfSize").append(fileSizeInMB+" · PDF")
+                var reader = new FileReader();
+
+                reader.onloadend = function () {
+                    preview.src = reader.result;
+                    preview.style.display = 'block';
+                }
+
+                const messagesContainer = $(".chat-history");
+                scrollToBottom(messagesContainer);
+                pdfFile = file;
+                reader.readAsDataURL(file);
+            } else {
+                var uploadImage = document.querySelector('.upload-image');
+                uploadImage.style.display = 'none';
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        }
+
+        function formatBytes(bytes, decimals = 0) {
+            if (bytes === 0) return '0 Bytes';
+
+            const k = 1024;
+            const dm = decimals < 0 ? 0 : decimals;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+        }
+
+
+        function validateConsultForm(e) {
+            var valid = true;
+            $(".errors").empty()
+            var name = $("#name").val()
+            var email = $("#email").val()
+            var mobile = $("#mobile").val()
+            var msg = $("#msg").val()
+
+            if(!name) {
+                valid = false;
+                $("#name").after('<span class="errors" style="color:red;">This field is required</span>')
+            }
+            if(!email) {
+                valid = false;
+                $("#email").after('<span class="errors" style="color:red;">This field is required</span>')
+            }
+            if(!mobile) {
+                valid = false;
+                $("#mobile-div").after('<span class="errors" style="color:red;">This field is required</span>')
+            }
+            if(!msg) {
+                valid = false;
+                $("#msg").after('<span class="errors" style="color:red;">This field is required</span>')
+            }
+
+            if(!valid) {
+                e.preventDefault()
+            }
+        }
+
     </script>
 
     <script type="text/javascript">
         var temporaryMsgId = 0;
         const access_token = $('meta[name="csrf-token"]').attr("content");
         $(document).ready(function () {         
+
+            const messagesContainer = $(".chat-history");
+            scrollToBottom(messagesContainer)
+
             $(".chatbox").addClass('showbox');   
             // Hide submenus
             $('#body-row .collapse').collapse('hide');
@@ -625,9 +578,15 @@
             }
         });
 
+        var input = document.getElementById("msgField");
+            input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                sendMessage()
+            }
+        });
 
         function sendMessage() {
-            
             temporaryMsgId += 1;
             let tempID = `temp_${temporaryMsgId}`;
             const messagesContainer = $(".chat-history");
@@ -636,7 +595,10 @@
             var toId = $("#to_id").val()
             $(".sending").css('display', 'block');
             $(".sending").css('text-align', 'center');
-            var msg = $("#msgField").val();
+            var msg = $("#msgField").val().trim();
+            if(pdfFile) {
+                msg = "file"
+            }
             if(msg) {
 
                 $("#msgField").val("")            
@@ -647,9 +609,7 @@
                 formData.append("temporaryMsgId", tempID);
                 formData.append("message", msg);
                 formData.append("to_id", toId);
-                // debugger
-                // document.getElementById('msgField').setAttribute("style","padding-left:5%;overflow:hidden;overflow-wrap:break-word;");
-                // if(msg) {
+                formData.append("file", pdfFile);
                 $.ajax({
                     method:"post",
                     url: "/online-chat/sendMessage",
@@ -675,9 +635,12 @@
                         // cancelAttachment();
                         messageInput.focus();
                     },
-                    success: function(res){                    
-                        $("#chat-text").animate({ scrollTop: $('#chat-text').prop("scrollHeight")}, 1000);
-                        $('#chat-text').scrollTop($('#chat-text')[0].scrollHeight);
+                    success: function(res){       
+                        $(".upload-image").hide();             
+                        // $("#chat-text").animate({ scrollTop: $('#chat-text').prop("scrollHeight")}, 1000);
+                        // $('#chat-text').scrollTop($('#chat-text')[0].scrollHeight);
+                        const messagesContainer = $(".chat-history");
+                        scrollToBottom(messagesContainer)
                     }
                 });
             }
@@ -692,6 +655,6 @@
                 });
         }
     </script>
-</body>
 
-</html>
+@endpush
+       

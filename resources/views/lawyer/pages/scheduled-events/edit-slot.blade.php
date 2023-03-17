@@ -696,7 +696,6 @@
     }
 
     function appendedTimepicker(pId, id, dayDyn) {
-        debugger
         $(pId).timepicker({
             'timeFormat': 'g:ia',
             "step": 15,

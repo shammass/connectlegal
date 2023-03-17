@@ -69,17 +69,17 @@
                                 <tbody class="table-group-divider">
                                     @foreach($services as $k => $service)
                                         <tr>
-                                            <th scope="row">{{$service->services->arbitration->area}}</th>
-                                            <td>{{$service->services->title}}</td>
-                                            <td>{!! \Illuminate\Support\Str::words($service->services->description, 10,'....')  !!}</td>
-                                            <td>{{$service->lawyer_fee}}</td>
-                                            <td>{{$service->platform_fee ?? '-'}}</td>
-                                            <td class="images"  data-bs-toggle="modal" data-bs-target="#edit-service-{{$service->id}}" onclick="addRichTextEditor('{{$service->id}}')"> <img src="/new-design/assets/images/data.png" alt=""> </td>
+                                            <th scope="row" style="text-align:center;">{{$service->services->arbitration->area}}</th>
+                                            <td style="text-align:center;">{{$service->services->title}}</td>
+                                            <td style="text-align:center;">{{ substr(strip_tags($service->services->description), 0, 50)  }}</td>
+                                            <td style="text-align:center;">{{$service->lawyer_fee}}</td>
+                                            <td style="text-align:center;">{{$service->platform_fee ?? '-'}}</td>
+                                            <td style="text-align:center;" class="images"  data-bs-toggle="modal" data-bs-target="#edit-service-{{$service->id}}" onclick="addRichTextEditor('{{$service->id}}')"> <img src="/new-design/assets/images/data.png" alt=""> </td>
                                         </tr>
 
 
                                         <div class="modal fade modal-popups" id="edit-service-{{$service->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg  modal-dialog-centered" id="modal-login">
+                                            <div class="modal-dialog modal-md  modal-dialog-centered" id="modal-login">
                                                 <div class="modal-content"> 
                                                     <div class="modal-header text-right"> 
                                                         <button type="button" class="btn-close rounded" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
@@ -149,7 +149,7 @@
         </div>
 
         <div class="modal fade modal-popups" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg  modal-dialog-centered" id="modal-login">
+                    <div class="modal-dialog modal-md  modal-dialog-centered" id="modal-login">
                         <div class="modal-content"> 
                             <div class="modal-header text-right"> 
                                 <button type="button" class="btn-close rounded" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>

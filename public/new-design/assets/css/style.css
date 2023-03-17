@@ -244,8 +244,8 @@ span.counter-value {
 
 p.font-24 {
     font-weight: 400;
-    font-size: 22px;
-    line-height: 40.2px;
+    font-size: 15px;
+    line-height: 20.2px;
     color: #191919;
 }
 
@@ -457,8 +457,8 @@ a.answers {
 
 .text-slid .font-20 {
     font-weight: 400;
-    font-size: 16px;
-    line-height: 33.5px;
+    font-size: 14px;
+    line-height: 30px;
     color: #191919;
 }
 
@@ -1023,8 +1023,8 @@ ul.vat-ul {
 
 .pro-1 .make p {
     font-weight: 400;
-    font-size: 20px;
-    line-height: 167.5%;
+    font-size: 16px;
+    line-height: 30px;
     color: #191919;
 }
 
@@ -1036,8 +1036,8 @@ ul.vat-ul {
 .make ul li {
     list-style: none;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 33.5px;
+    font-size: 16px;
+    line-height: 30px;
     color: #191919;
 }
 
@@ -1399,8 +1399,8 @@ p.bhl i {
 
 .why-b p {
     font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
+    font-size: 14px;
+    line-height: 30px;
     color: #191919;
 
 }
@@ -1581,16 +1581,16 @@ p.alredy a {
 }
 
 .sign-up {
-    width: 335px;
+    width: 230px;
     height: 68px;
     background: #208C84;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 12px;
     line-height: 35px;
     color: #FFFFFF;
+    margin-top: 20px;
     border: navajowhite;
 }
-
 .eye-pp {
     position: absolute;
     right: 10px;
@@ -1956,8 +1956,8 @@ ul.social li a {
     }
 
     p.font-24 {
-        font-size: 20px;
-        line-height: 30.2px;
+        font-size: 15px;
+        line-height: 20.2px;
     }
 
     .accordion-body h3 {
@@ -1976,7 +1976,7 @@ ul.social li a {
     }
 
     .text-slid .font-20 {
-        font-size: 18px;
+        font-size: 14px;
         line-height: 29.5px;
     }
 
@@ -2281,7 +2281,7 @@ ul.social li a {
     }
 
     p.font-24 {
-        font-size: 16px;
+        font-size: 15px;
         line-height: 23.76px;
     }
 
@@ -2330,8 +2330,8 @@ ul.social li a {
     }
 
     .text-slid .font-20 {
-        font-size: 16px;
-        line-height: 25.5px;
+        font-size: 14px;
+        line-height: 30px;
     }
 
     img.find-logo {
@@ -2736,7 +2736,7 @@ ul.social li a {
     }
 
     .ft-list h5 {
-        font-size: 15px;
+        font-size: 14px;
         margin-top: 40px;
     }
 
@@ -3347,7 +3347,7 @@ i.crown-p {
     }
 
     p.font-24 {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .puopclass input::placeholder,
@@ -4429,22 +4429,24 @@ h5.any {
 
 .firm-info select {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 35px;
+    background: none;
     color: #787878;
     border: none;
     border-bottom: 1px solid #191919;
     width: 100%;
-    padding: 10px 13px;
+    padding: 0px 13px;
     margin-bottom: 30px;
     outline: none;
     border-radius: inherit;
 }
 
 .firm-info select.mr-ms {
-    padding: 13px 13px;
+    padding: 0px 13px;
     margin-bottom: 20px;
     background: none;
+    height: 86%;
 }
 
 .select-bg {
@@ -4607,7 +4609,7 @@ a.next-step-btn.rightbtn {
     }
 
     .firm-info select.mr-ms {
-        padding: 15px 5px;
+        padding: 0px 5px;
         font-size: 16px;
     }
 
@@ -5958,7 +5960,7 @@ div#border-full {
 
 #pills-tabContent {
     background: #fff;
-    padding: 25px;
+    padding: 0px;
 }
 
 .modal-xl {
@@ -5984,7 +5986,7 @@ div#staticBackdrop.bg-4d4d4d {
 
 @media(max-width:360px) {
     .firm-info select.mr-ms {
-        padding: 15px 2px;
+        padding: 0px 2px;
         font-size: 16px;
     }
 }
@@ -6029,7 +6031,7 @@ div#staticBackdrop.bg-4d4d4d {
     top: 0;
     left: 0;
     overflow-x: hidden;
-    transition: 0.5s;
+/*    transition: 0.5s;*/
     background-color: #fff;
 }
 
@@ -6820,7 +6822,7 @@ h1.aed-class.text-left-side {
 
 a.img-dott span {
     margin: 0px 10px;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 35px;
     letter-spacing: 0em;
@@ -7310,3 +7312,56 @@ a.next-step-btn {
     }
 }
 
+
+select.mr-ms {
+    margin: 0 !important;
+}
+p.text-center.mt-5 {
+ transition: all 0.9s;
+}
+p.text-center.mt-5:hover {
+    transform: scale(1.1);
+}
+
+
+
+/*start today css work*/
+
+#single-blog h1 {
+  font-size: 25px;
+}
+#single-blog h2  { 
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 45px;
+    color: #208C84;}
+
+#single-blog h3  { 
+
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 45px;
+    color: #208C84;}
+
+
+    #single-blog p {  font-weight: 400;
+    font-size: 16px;
+    line-height: 30.2px;
+    color: #191919;
+}
+#single-blog ol li { font-weight: 400;
+    font-size: 16px;
+    line-height: 30.2px;
+    color: #191919;
+list-style: auto;
+margin-left: 4%;
+
+}
+#single-blog a { color: #208c84; }
+#single-blog ul li { font-weight: 400;
+    font-size: 16px;
+    line-height: 30.2px;
+    color: #191919;
+list-style: disc;
+margin-left: 4%;
+}

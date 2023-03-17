@@ -229,7 +229,6 @@
                 if (verify.isConfirmed) {
                     var lawyerId = $(data).attr('lawyer_id');
                     var status = $(data).val();
-                    debugger
                     $.ajax({
                         method:"post",
                         url: "/admin/verify/lawyer/"+lawyerId,

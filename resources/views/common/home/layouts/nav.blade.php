@@ -36,11 +36,26 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('howItWorks')}}">How It Works</a>
+
+                <li class=" nav-item dropdown">
+
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">How It Works</a>
+                    <ul class="dropdown-menu">
+                        <li class="nav-item">
+                            <a href="{{route('howItWorks')}}" class="nav-link" style="color: black!important;">For Individuals</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('lawyer.register-page')}}" class="nav-link"  style="color: black!important;">For Lawyers</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('lawyer.register-page')}}">For Lawyers</a>
+                    <a class="nav-link" href="{{route('our-lawyers')}}">Our Lawyers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('hire-a-lawyer')}}">Lawyer Services</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('question-answer')}}">Q & A</a>
@@ -52,29 +67,35 @@
                     <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('hire-a-lawyer')}}">Legal Service</a>
+                    <a class="nav-link" href="{{ route('page-practice-areas') }}">Practice Area</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('our-lawyers')}}">Our Lawyers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="practice-area.html">Practice Area</a>
-                </li>
+                
+
                 @if(auth()->user())                      
                     @if(auth()->user()->user_type == 2)
-                        <li class="nav-item">
-                            <a href="{{route('logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
+                        <li class="navbar nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{auth()->user()->name}}</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="{{route('lawyer.dashboard')}}" class="nav-link" style="color: black!important;">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: black!important;">Logout</a>
+                                </li>
+                            </ul>
                         </li>
                     @elseif(auth()->user()->user_type == 3)
-                        <!-- <li class="nav-item">
-                            <a href="{{route('online-chat.requests')}}" class="nav-link" style="color: white;">Online Chat Requests</a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('user.dashboard')}}">Dashboard</a>
+                        <li class="navbar nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{auth()->user()->name}}</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="{{route('user.dashboard')}}" class="nav-link" style="color: black!important;">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('user.logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: black!important;">Logout</a>
+                                </li>
+                            </ul>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a href="{{route('user.logout')}}" class="nav-link" onclick="return confirm('Are you sure you want to logout?')" style="color: white;">Logout</a>
-                        </li> -->
                     @endif
                 @else 
                     <li class="nav-item">

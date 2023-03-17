@@ -17,7 +17,7 @@
                 <div class="col-12 col-md-3 col-sm-6 sm-margin-40px-bottom xs-margin-25px-bottom">
                     <span class="alt-font font-weight-500 d-block text-medium-slate-blue margin-15px-bottom xs-margin-10px-bottom">Customer desk</span>
                     <ul>                           
-                        <li><a href="{{url('/legal-services')}}">Legal Services</a></li>
+                        <li><a href="{{url('/all-lawyer-services')}}">Legal Services</a></li>
                         <li><a href="#">PRO services</a></li>
                         <li><a href="#">Legal Translation services</a></li>
                         <li><a href="#">PRO Bono Services</a></li>

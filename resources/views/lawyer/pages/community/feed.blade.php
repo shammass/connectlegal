@@ -340,7 +340,6 @@
         }
 
         function showCommentList(id) {
-            debugger
             var isOpen = $("#cmntList_"+id).val()
             if(isOpen == 0) {
                 $("#cmntList_"+id).val(1)
@@ -352,7 +351,6 @@
         }
 
         function submitForm(k) {
-            debugger
             const form = document.getElementById('myForm-'+k);
             form.addEventListener('click', (event) => {
                 event.preventDefault(); // Prevent the default form submission behavior

@@ -402,7 +402,6 @@
     }
 
     function appendedTimepicker(pId, id, monDyn) {
-      debugger
       $(pId).timepicker({
         'timeFormat': 'g:ia',
         "step": 15,
@@ -523,7 +522,6 @@
       });
   
       var timeOnlyExampleEl = document.getElementById(id);
-      debugger
       var timeOnlyDatepair = new Datepair(timeOnlyExampleEl, {
         'defaultTimeDelta': 15*60*1000, // milliseconds
       });

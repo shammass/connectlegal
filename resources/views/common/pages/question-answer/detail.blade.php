@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="col-lg-4 col-4">
                                         <div class="cntn-box">
-                                            <button class="bookbtn" data-bs-toggle="modal" data-bs-target="#consult-lawyer-{{$answer->id}}">Consult the Lawyer</button>
+                                            <button class="bookbtn" data-bs-toggle="modal" data-bs-target="#consult-the-lawyer-{{$answer->id}}">Consult the Lawyer</button>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-4">
@@ -111,45 +111,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal fade modal-popups" id="staticBackdrop-{{$answer->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog  modal-dialog-centered" id="modal-login">
-                                    <div class="modal-content"> 
-                                        <div class="modal-header text-right"> 
-                                            <button type="button" class="btn-close rounded" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="form-popup-des rounded" id="pills-tabContent">
-                                                <form action="{{route('question-answer.rate', $answer->id)}}" method="post">
-                                                    @csrf()
-                                                    <h4 class="give-rating"><i class="fa-solid fa-thumbs-up"></i> Give Rating</h4>
-                                                    <p class="font-fee mt-4 mb-4">Your Rating*</p>
 
-                                                    <ul class="your-rating">
-                                                        <li><i class="fa-solid fa-star rate" id="star_{{$answer->id}}_1" onclick="star(1, '{{$answer->id}}')"></i></li>
-                                                        <li><i class="fa-solid fa-star rate" id="star_{{$answer->id}}_2" onclick="star(2, '{{$answer->id}}')"></i></li>
-                                                        <li><i class="fa-solid fa-star rate" id="star_{{$answer->id}}_3" onclick="star(3, '{{$answer->id}}')"></i></li>
-                                                        <li><i class="fa-regular fa-star rate" id="star_{{$answer->id}}_4" onclick="star(4, '{{$answer->id}}')"></i></li>
-                                                        <li><i class="fa-regular fa-star rate" id="star_{{$answer->id}}_5" onclick="star(5, '{{$answer->id}}')"></i></li>
-                                                        <li class="star_status"><p>Very Good</p></li>
-                                                        <input type="hidden" name="rating" id="starRate_{{$answer->id}}" value="3">
-                                                    </ul>
-
-                                                    <div class="eles group-invite area"> 
-                                                        <div class="links-icons">
-                                                            <textarea placeholder="Comment" name="comment" class="description"></textarea> 
-                                                        </div>
-                                                    </div> 
-                                                    <div class="text-right mb-3">
-                                                        <button class="btn-lgn" type="submit">Share review</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="modal fade modal-popups" id="consult-lawyer-{{$answer->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal fade modal-popups" id="consult-the-lawyer-{{$answer->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog  modal-dialog-centered modal-lg" id="modal-login">
                                     <div class="modal-content"> 
                                         <div class="modal-header text-right"> 
@@ -305,7 +268,11 @@
                                     <h1 class="aed-class">AED {{$service->getLawyerFee($service->id) + $service->getPlatformFee($service->id)}}</h1>
                                 </div>
                                 <div class="col-md-6 col-6 text-end">
-                                    <a href="{{route('service.step-one', $service->id)}}" class="seebtn  bg-change">see more</a>
+                                    @if(auth()->user())
+                                        <a href="{{route('service.step-one', $service->id)}}" class="seebtn  bg-change">see more</a>
+                                    @else 
+                                        <a href="{{route('user.login')}}" class="seebtn  bg-change">see more</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -340,7 +307,6 @@
         $("#starRate_"+answerId).val(rating);
         $(".star_status").empty()
         if(rating == 1) {
-            debugger
             $(".star_status").append("<p>Very Bad</p>")
         }else if(rating == 2) {            
             $(".star_status").append("<p>Bad</p>")

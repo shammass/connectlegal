@@ -15,7 +15,7 @@
                         <th style="text-align: center;">Name</th>
                         <th style="text-align: center;">Email</th>
                         <th style="text-align: center;">Comments</th>
-                        <th style="text-align: center;">Accepted</th>
+                        <th style="text-align: center;">Status</th>
                         <th style="text-align: center;">Completed</th>
                         <th style="text-align: center;"></th>
                     </tr>

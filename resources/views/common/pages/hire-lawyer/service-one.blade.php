@@ -192,7 +192,11 @@
                                                     <h1 class="aed-class">AED {{$related->getLawyerFee($related->id) + $related->getPlatformFee($related->id)}}</h1>
                                                 </div>
                                                 <div class="col-md-6 col-6 text-center">
-                                                    <a href="{{route('service.step-one', $service->id)}}" class="seebtn  bg-change">see more</a>
+                                                    @if(auth()->user())
+                                                        <a href="{{route('service.step-one', $service->id)}}" class="seebtn  bg-change">see more</a>
+                                                    @else 
+                                                        <a href="{{route('user.login')}}" class="seebtn  bg-change">see more</a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>

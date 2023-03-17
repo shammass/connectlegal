@@ -99,7 +99,6 @@ function myAccFunc(number){
 }
 
 function offlineLawyers(number){
-    debugger
     var x = document.getElementById(`offLaw${number}`);
     if (x.className.indexOf("show-item") == -1) {
         x.className += "show-item";

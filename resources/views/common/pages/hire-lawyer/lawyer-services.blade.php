@@ -4,7 +4,7 @@
       <div class="container py-5" id="content-flex">
         <div class="row">
           <div class="col-md-6 postn-icn">
-            <h1 class="moni"><span class="tst">Legal Services</span></h1>
+            <h1 class="moni"><span class="tst">Lawyer Services</span></h1>
           </div>
           <div class="col-md-6 text-end">
             <img src="/new-design/assets/images/sotket.png" class="vctr"><br>
@@ -107,7 +107,11 @@
                       <h1 class="aed-class">AED {{$service->getLawyerFee($service->id) + $service->getPlatformFee($service->id)}}</h1>
                     </div>
                     <div class="col-md-6 col-6 text-end">
-                      <a href="{{route('service.step-one', $service->id)}}" class="seebtn  bg-change">see more</a>
+                      @if(auth()->user())
+                        <a href="{{route('service.step-one', $service->id)}}" class="seebtn  bg-change">see more</a>
+                      @else 
+                        <a href="{{route('user.login')}}" class="seebtn  bg-change">see more</a>
+                      @endif
                     </div>
                   </div>
                 </div>
