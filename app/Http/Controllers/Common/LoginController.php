@@ -174,8 +174,8 @@ class LoginController extends Controller
         ],[
              'g-recaptcha-response.required' => 'Please complete the captcha challenge.',
              'g-recaptcha-response.captcha' => 'Captcha validation failed, please try again.',
-        ]);
-        
+        ]
+    );
          $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
             'secret' => config('services.recaptcha.secret_key'),
              'response' => $request->get('g-recaptcha-response'),
@@ -183,10 +183,10 @@ class LoginController extends Controller
          ]);
         
         if (! $response->json('success')) {
-        //     // throw ValidationException::withMessages(['g-recaptcha-response' => 'Error verifying reCAPTCHA, please try again.']);
+            throw ValidationException::withMessages(['g-recaptcha-response' => 'Error verifying reCAPTCHA, please try again.']);
              return redirect()->route('login')->with('error','Error verifying reCAPTCHA, please try again.');
          }else {
-            // print_r($request->all());exit;
+            print_r($request->all());exit;
             $user = User::whereEmail($request->email)->first();
             if($user) {
                 if (Hash::check($request->password, $user->password)) {

@@ -210,6 +210,7 @@ class HireLawyerController extends Controller
     }
 
     public function serviceStepThree(Request $request, $serviceId) {
+        //return $serviceId;
         $isAccepted = $request->acceptTerms;
         $service = Services::whereId($serviceId)->first();
         if($isAccepted) {
@@ -263,8 +264,8 @@ class HireLawyerController extends Controller
         ]);
 
         // \Stripe\Stripe::setApiKey(env("STRIPE_SECRET"));
-        // $domain = 'http://127.0.0.1:8000';
-        $domain = 'https://dev.test.connectlegal.ae';
+        //$domain = 'http://127.0.0.1:8000';
+       $domain = 'https://dev.test.connectlegal.ae';
 
         $scheduleMeeting = SchduledMeeting::create([
             'scheduled_by'      => auth()->user()->id,
@@ -361,16 +362,24 @@ class HireLawyerController extends Controller
         $data = [
             'title' => 'My PDF Document',
             'content' => '<h1>Hello, world!</h1>'
-        ];
+          ];
+  
+          $pdf = PDF::loadView('common.pages.hire-lawyer.invoice', $data);
+          return $pdf->download('document.pdf');
 
-        $dompdf = new Dompdf();
-        $dompdf->setPaper('A4', 'landscape');
+        // $data = [
+        //     'title' => 'My PDF Document',
+        //     'content' => '<h1>Hello, world!</h1>'
+        // ];
 
-        $html = view('common.pages.hire-lawyer.invoice', $data)->render();
+        // $dompdf = new Dompdf();
+        // $dompdf->setPaper('A4', 'landscape');
+        
+        // $html = view('common.pages.hire-lawyer.invoice', $data)->render();
 
-        $dompdf->loadHtml($html);
-        $dompdf->render();
-        $dompdf->stream('document.pdf');
+        // $dompdf->loadHtml($html);
+        // $dompdf->render();
+        // $dompdf->stream('document.pdf');
     }
 
     public function serviceLawyers($id) {
