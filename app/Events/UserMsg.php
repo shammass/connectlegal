@@ -11,9 +11,8 @@ class UserMsg implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $userMsg;
+    public $messageId;
     public $type;
-    public $toId;
     public $message;
 
     /**
@@ -21,11 +20,10 @@ class UserMsg implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($userMsg, $type, $toId)
+    public function __construct($messageId, $type)
     {
-        $this->userMsg      = $userMsg;
+        $this->messageId      = $messageId;
         $this->type         = $type;
-        $this->toId         = $toId;
         $this->message      = "Refresh the chat";
     }
 

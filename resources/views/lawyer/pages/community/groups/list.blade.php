@@ -1,6 +1,10 @@
 @extends('lawyer.home.layouts.app')
 @section('content')
-
+<style>
+    .plus-icn-servie.plue-cahne h1 {
+   cursor: pointer;
+}
+</style>
 <div class="working-box">
                 <section class="lawyers-part-2 p-0">
                     <div class="" id=" ">
@@ -22,11 +26,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal fade modal-popups" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal fade modal-popups create-groupp" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg modal-dialog-centered" id="modal-login">
                                             <div class="modal-content"> 
                                                 <div class="modal-header text-right"> 
-                                                    <button type="button" class="btn-close rounded" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                                                    <button type="button" class="btn-close rounded" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="form-popup-des rounded" id="pills-tabContent">
@@ -36,9 +40,15 @@
                                                                     <div class="col-sm-6 col-10">
                                                                         <div class="group-george">
                                                                             <div class="row">
-                                                                                <div class="col-md-3 col-3 pr-0 text-center">
+                                                                                <div class="col-md-3 col-3 pr-0 text-center img-class-name">
+                                                                                     @if(Auth::check())
+                                                                                     @if(auth()->user()->profile_pic)
                                                                                     <img src="/storage/{{auth()->user()->getProfilePic(auth()->user()->id)}}" alt="question-2" class="img-user-pop" style="width: 90%;height: 65px;border-radius: 200px;">
-                                                                                </div>
+                                                                                    @else
+                                                                                    <img src="/new-design/user-dashboard/images/av1.png" class="legal-1" >
+                                                                                    @endif
+                                                                                    @endif
+                                                                               </div>
                                                                                 <div class="col-md-9 col-9  ">
                                                                                     <p class="font-24">{{auth()->user()->name}}</p>
                                                                                     <p class="font-16"><i class="fa-solid fa-location-dot"></i> {{auth()->user()->getEmirates(auth()->user()->id)}}</p>

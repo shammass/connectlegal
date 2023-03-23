@@ -1,10 +1,10 @@
 @extends('common.home.layouts.app')
 @section('content')
-    <div class="p-80">
-        <section class="lawyers-part bg-f4fefa pt-0">
+    <div class="p-80 bg-E8F8F2-same">
+        <section class=" pt-0">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 col-md-12">
+                    <div class="col-lg-6 col-md-12" id="p-light">
                         <h1 class="banner-heading">For <span class="span-color-dark">Lawyers</span></h1>
                         <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
 
@@ -23,7 +23,7 @@
                     <p>Connect Legal is an online community for lawyers and clients to discuss various legal issues. Being the first online marketplace for lawyers in the Middle East, it leverages innovative digital technology to effectively connect lawyers from across the region with their prospective clients.</p>
                 </div>
                 <div class="col-lg-6 col-md-12">
-                    <form action="{{route('lawyer.register')}}" method="post">
+                    <form action="{{route('lawyer.register')}}" method="post" enctype="multipart/form-data">
                         @csrf()
                         <div class="firm-info">
                         <h3>Law firm info</h3>
@@ -91,7 +91,7 @@
                             @error('position')
                                 <span class="error-msg" style="color:red;">{{ $message }}</span>
                             @enderror
-                            <input type="text" placeholder="Your linkedin profile URL" value="{{ old('linkedin') }}" name="linkedin"><br><br>
+                            <input type="text" placeholder="Your linkedin profile URL" value="{{ old('linkedin') }}" name="linkedin">
                             @error('linkedin')
                                 <span class="error-msg" style="color:red;">{{ $message }}</span>
                             @enderror

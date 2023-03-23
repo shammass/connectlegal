@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use JulioMotol\AuthTimeout\Middleware\AuthTimeoutMiddleware;
+use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
   public function register()
   {
     //
+    require_once __DIR__.'/../helpers.php';
   }
 
   /**
@@ -33,6 +35,12 @@ class AppServiceProvider extends ServiceProvider
               return route('home');
       }
     });
+
+    Blade::directive('size', function ($expression) {
+      $data = formatBytes($expression);
+      return $data;
+    });
+
     Paginator::useBootstrapFive();
   }
 }

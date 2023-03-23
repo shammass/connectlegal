@@ -36,11 +36,7 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/">Home</a>
                 </li>
-
-                <li class=" nav-item dropdown">
-
                 <li class="nav-item dropdown">
-
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">How It Works</a>
                     <ul class="dropdown-menu">
                         <li class="nav-item">
@@ -67,13 +63,13 @@
                     <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('page-practice-areas') }}">Practice Area</a>
+                    <a class="nav-link" href=" {{ route('page-practice-areas') }} ">Practice Area</a>
                 </li>
                 
 
                 @if(auth()->user())                      
                     @if(auth()->user()->user_type == 2)
-                        <li class="navbar nav-item dropdown">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{auth()->user()->name}}</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
@@ -85,7 +81,7 @@
                             </ul>
                         </li>
                     @elseif(auth()->user()->user_type == 3)
-                        <li class="navbar nav-item dropdown">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{auth()->user()->name}}</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">

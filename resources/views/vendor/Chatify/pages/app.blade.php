@@ -1,5 +1,48 @@
 @extends('common.user-dashboard.layouts.app')
 @section('content')
+<style>
+    .fadeup .modal-body {
+     margin-top: 0px; 
+    }
+     
+     .moreoption ul#chat-dropdown {
+    position: absolute;
+    top: 58px;
+    right: 0;
+}
+.moreoption ul#chat-dropdown a.dropdown-item {
+    font-weight: 400;
+    font-size: 16px !important;
+    line-height: 26px;
+    color: #191919;
+    padding: 10px 20px !important;
+}
+.moreoption ul#chat-dropdown a.dropdown-item img{
+    width:30px;
+}
+.moreoption ul#chat-dropdown .dropdown-menu img {
+    margin-right: 8px;
+}
+.moreoption ul#chat-dropdown  .dropdown-menu:before {
+    content: "";
+    position: absolute;
+    top: -12px !important;
+    right: 8px;
+    width: 0;
+    height: 0;
+    box-shadow: 2px -2px 6px rgb(0 0 0 / 5%);
+    border-top: 20px solid #FFFFFF;
+    border-right: 20px solid #FFFFFF;
+    border-bottom: 10px solid transparent;
+    border-left: 6px solid transparent;
+    transform: rotate(-45deg);
+    mix-blend-mode: multiple;
+}
+#chat-list-p p{
+    display:flex;
+    justify-content: space-between;
+}
+</style>
     <section class="message-area">
                 <div class="container">
                     <div class="row">
@@ -59,15 +102,19 @@
                                                         <div class="tab-pane fade show active" id="Open" role="tabpanel"
                                                             aria-labelledby="Open-tab">
                                                             <!-- chat-list -->
-                                                            <div class="chat-list">
+                                                            <div class="chat-list" id="chat-list-p">
                                                                 @if($acceptedLawyers)
                                                                     @foreach($acceptedLawyers as $k => $lawyer)
                                                                         <a href="#" onclick="chatWithLawyer('{{$lawyer->lawyer->user_id}}')" class="d-flex">
                                                                             <div class="flex-shrink-0">
+                                                                                @if($lawyer->lawyer->profile_pic != '')
                                                                                 <img class="img-fluid"
                                                                                     src="/storage/{{$lawyer->lawyer->profile_pic}}"
                                                                                     style="width: 40px;height: 40px;border-radius: 20px;"
-                                                                                    alt="user img">
+                                                                                    alt="user img" >
+                                                                                    @else
+                                                                                    <img src="/new-design/user-dashboard/images/question-1.png" style="width: 40px;height: 40px;border-radius: 20px;"> 
+                                                                                    @endif
                                                                                 <!-- <span class="active"></span> -->
                                                                             </div>
                                                                             <div class="flex-grow-1 ms-3">
@@ -183,7 +230,7 @@
                                                                 role="button" data-bs-toggle="dropdown"
                                                                 aria-expanded="false"><i
                                                                     class="fa-solid fa-ellipsis"></i></a>
-                                                                <ul class="dropdown-menu">
+                                                                <ul class="dropdown-menu" id="chat-dropdown">
                                                                     <li data-bs-toggle="modal" data-bs-target="#consult-the-lawyer"><a class="dropdown-item" href="#"> <img
                                                                                 src="/new-design/user-dashboard/images/file-2.png" alt="">
                                                                             Consult the Lawyer</a>
@@ -209,7 +256,7 @@
                                                         @if($message->attachment)
                                                             @php $attachment = json_decode($message->attachment); @endphp
                                                             <ul>
-                                                            <a href="/online-chat/download/{{$attachment->new_name}}/{{$attachment->old_name}}">
+                                                            <a href="{{route('download.pdf', [$attachment->new_name, $attachment->old_name])}}">
                                                                 <li class="repaly reply-two">
                                                                     <div class="chat-left">
 
@@ -237,7 +284,7 @@
                                                             </ul>
                                                         @else 
                                                             <ul>
-                                                                <li class="row col-md-6 sender color-border">
+                                                                <li class="row col-md-6 sender color-border p-0">
                                                                     <div class="chat-left">
                                                                         <p>{{$message->body}}</p>
                                                                         <h6 class="text-end">{{date('g:i A', strtotime($message->created_at))}}
@@ -255,9 +302,9 @@
                                                         @if($message->attachment)
                                                             @php $attachment = json_decode($message->attachment); @endphp
                                                             <ul>
-                                                            <a href="/online-chat/download/{{$attachment->new_name}}/{{$attachment->old_name}}">
+                                                            <a href="{{route('download.pdf', [$attachment->new_name, $attachment->old_name])}}">
                                                                 <li class="repaly reply-two">
-                                                                    <div class="chat-left colorchane">
+                                                                    <div class="chat-left colorchane pl-0">
 
                                                                         <div class="d-flex align-items-center" id="bg-dark">
                                                                             <span class="chat-icon"><i
@@ -283,7 +330,7 @@
                                                             </ul>
                                                         @else 
                                                             <ul>
-                                                                <li class="row col-md-6 repaly reply-two">
+                                                                <li class="row col-md-6 repaly reply-two p-0">
                                                                     <div class="chat-left colorchane">
                                                                         <p>{{$message->body}}</p>
                                                                         <h6 class="text-end">{{date('g:i A', strtotime($message->created_at))}}

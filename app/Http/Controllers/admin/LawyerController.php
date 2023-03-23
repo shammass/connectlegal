@@ -7,6 +7,7 @@ use App\Models\ArbitrationArea;
 use App\Models\Lawyer;
 use App\Traits\VerifyMailTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class LawyerController extends Controller
 {
@@ -32,11 +33,9 @@ class LawyerController extends Controller
         $verifyLawyer = Lawyer::whereUserId($lawyerId)->first();
         $verifyLawyer->is_verified = $verifyLawyer->is_verified == 1 ? 0 : 1;
         $verifyLawyer->save();
-
+        $token = Str::random(64);
         if($verifyLawyer->is_verified) {
-            $this->verifyLawyerMail($verifyLawyer->user->email, 'Your account has been verified');
-        }else {
-            $this->verifyLawyerMail($verifyLawyer->user->email, 'Your account has been unverified');
+            $this->verifyLawyerMail($verifyLawyer->user->email, $verifyLawyer->user->name, 'Verify Your Account on Connect Legal', $token);
         }
 
         return "Success";

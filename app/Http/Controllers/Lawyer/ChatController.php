@@ -118,8 +118,8 @@ class ChatController extends Controller
         return $latestMsg;
     }
 
-    public function latestUsrMsg($toId) {
-        $message = $this->getLatestMsg($toId);
+    public function latestUsrMsg($messageId) {
+        $message = $this->getLatestMsg($messageId);
         $attachment = null;
         if($message) {
             if($message->attachment) {
@@ -130,13 +130,8 @@ class ChatController extends Controller
         return $latestMsg;
     }
 
-    public function getLatestMsg($userId) {
-        return ChMessage::where('from_id', auth()->user()->id)
-        ->where('to_id', $userId)
-        ->orWhere('from_id', $userId)
-        ->where('to_id', auth()->user()->id)
-        ->latest()
-        ->first();
+    public function getLatestMsg($messageId) {
+        return ChMessage::whereId($messageId)->first();
     }
     
 }

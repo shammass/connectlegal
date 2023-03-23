@@ -141,7 +141,11 @@
                                         <div class="law-box" id="summary-law">
                                             <div class="row align-items-center">
                                                 <div class="col-3 text-center m-p-0 over-n">
+                                                    @if($lawyer->profile_pic != '')
                                                     <img src="/storage/{{$lawyer->profile_pic}}" alt="Group">
+                                                    @else
+                                                    <img src="/new-design/user-dashboard/images/av1.png">
+                                                    @endif
                                                 </div>
                                                 <div class="col-7"`>
                                                     <h5>{{$lawyer->user->name}}</h5>

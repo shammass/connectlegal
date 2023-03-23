@@ -103,4 +103,5 @@ class User extends Authenticatable
                 ->first();
         return $latest ? date('g:i A', strtotime($latest->created_at)) : '';
     } 
+    
 }

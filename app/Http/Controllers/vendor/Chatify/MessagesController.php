@@ -81,17 +81,20 @@ class MessagesController extends Controller
                 }
             }
         }
+
+
         // $expired = $this->isBothLawyer($id);
-        // $user1 = User::whereId($id)->first();
-        // $user2 = User::whereId(auth()->user()->id)->first();
+        $user1 = User::whereId($id)->first();
+        $user2 = User::whereId(auth()->user()->id)->first();
         // $expired = false;
-        // $completed = false;
-        // $bothLawyers = false;
-        // if($user1->user_type == 2 && $user2->user_type == 2) {
-        //     $bothLawyers = true;
-        // }else {
-        //     $completed = $this->isCompleted($id, auth()->user()->id);
-        // }
+        $completed = false;
+        $bothLawyers = false;
+        if($user1->user_type == 2 && $user2->user_type == 2) {
+            $bothLawyers = true;
+        }else {
+            if(!$bothLawyers)
+                $completed = $this->isCompleted($id, auth()->user()->id);
+        }
 
         // $routeName= FacadesRequest::route()->getName();
         // if(auth()->user()->user_type != 2) {
@@ -172,15 +175,27 @@ class MessagesController extends Controller
             $ext = pathinfo($attachment, PATHINFO_EXTENSION);
             $attachment_type = in_array($ext, $this->getAllowedImages()) ? 'image' : 'file';
         }
-
-        return view('Chatify::pages.app',[
-            'id' => $id,
-            'messages' => $msg,
-            'acceptedLawyers' => $acceptedLawyers,
-            'usersAccepted' => $usersAccepted,
-            'lawyerDetail' => $lawyerDetail,
-            'userDetail' => $userDetail,
-        ]);
+        if(auth()->user()->user_type == 3) {
+            return view('Chatify::pages.app',[
+                'id' => $id,
+                'messages' => $msg,
+                'acceptedLawyers' => $acceptedLawyers,
+                'usersAccepted' => $usersAccepted,
+                'lawyerDetail' => $lawyerDetail,
+                'userDetail' => $userDetail,
+                'completed'  => $completed,
+            ]);
+        }else {
+            return view('Chatify::pages.lawyer-chat',[
+                'id' => $id,
+                'messages' => $msg,
+                'acceptedLawyers' => $acceptedLawyers,
+                'usersAccepted' => $usersAccepted,
+                'lawyerDetail' => $lawyerDetail,
+                'userDetail' => $userDetail,
+                'completed'  => $completed,
+            ]);
+        }        
     }
 
     public function getProfPic($id) {
@@ -279,6 +294,7 @@ class MessagesController extends Controller
      */
     public function send(Request $request)
     {
+        
         $request['message'] = $request['message'] ?? 'file';
         if($request['message']) {
 
@@ -315,7 +331,7 @@ class MessagesController extends Controller
                     $error->message = "File size you are trying to upload is too large!";
                 }
             }
-    
+            
             if (!$error->status) {
                 // send to database
                 $messageID = mt_rand(9, 999999999) + time();
@@ -331,6 +347,7 @@ class MessagesController extends Controller
                         'attachment' => ($attachment) ? json_encode((object)[
                             'new_name' => $attachment,
                             'old_name' => htmlentities(trim($attachment_title), ENT_QUOTES, 'UTF-8'),
+                            'size'     => $file->getSize(),
                         ]) : null,
                     ]);
                     // $this->attachedPdf($chat, $request);
@@ -349,9 +366,12 @@ class MessagesController extends Controller
                         'from_user'     => auth()->user()->id,
                         'msg'           => htmlentities(trim($request['message']), ENT_QUOTES, 'UTF-8')
                     ]);
+                    
+                    event(new UserMsg($messageID, 'UserMsg'));
                 }
+            }else {
+                return $error;
             }
-            event(new UserMsg($messageID, 'UserMsg', $request['to_id']));
             // send the response
             if(request()->ajax()) {
                 return Response::json([

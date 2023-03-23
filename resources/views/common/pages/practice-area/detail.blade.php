@@ -1,4 +1,4 @@
-@extends('common.home.layouts.app')
+ @extends('common.home.layouts.app')
 @section('content')
     <div class="fix-height"></div>
     <section class="practice-area p-a-detail">

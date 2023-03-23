@@ -1973,7 +1973,7 @@ img.tab-icon {
 .eles {
     background: #FFFFFF;
     border-radius: 15px;
-    padding: 25px;
+    /*padding: 25px;*/
 }
 
 .eles h4 {
@@ -2926,18 +2926,18 @@ i.fa-solid.fa-location-dot.color-blue {
 }*/
 
 .chat-left p {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
-    line-height: 21px;
+    line-height: 18px;
     letter-spacing: 0em;
     text-align: left;
     color: #093F38;
-    padding: 15px;
+    padding: 0px;
 
 }
 
 .chat-left span {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     line-height: 21px;
     letter-spacing: 0em;
@@ -3703,28 +3703,20 @@ a.dropdown-item img {
     width: 70%;
     position: relative;
     border: 1px solid #3DC9A1;
-    border-radius: 0px 20px 20px 20px;
-    padding: 20px;
-    -webkit-border-radius: 0px 20px 20px 20px;
-    -moz-border-radius: 0px 20px 20px 20px;
-    -ms-border-radius: 0px 20px 20px 20px;
-    -o-border-radius: 0px 20px 20px 20px;
+    border-radius: 0px 15px 15px 15px;
+    padding: 10px;
 }
 
 .msg-body ul li.sender.color-border {
     border: 1px solid #156075;
-    border-radius: 20px 0px 20px 20px;
-    -webkit-border-radius: 20px 0px 20px 20px;
-    -moz-border-radius: 20px 0px 20px 20px;
-    -ms-border-radius: 20px 0px 20px 20px;
-    -o-border-radius: 20px 0px 20px 20px;
+        border-radius: 0px 15px 15px 15px;;
 }
 
 .msg-body ul li.sender.color-border .chat-left p {
     font-family: Poppins;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
-    line-height: 21px;
+    line-height: 18px;
     letter-spacing: 0em;
     text-align: left;
     color: #093F38;
@@ -3732,9 +3724,9 @@ a.dropdown-item img {
 
 .msg-body ul li.sender.color-border .chat-left span {
     font-family: Poppins;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
-    line-height: 21px;
+    line-height: 0px;
     letter-spacing: 0em;
     text-align: left;
     color: #85BACA;
@@ -3770,16 +3762,12 @@ a.dropdown-item img {
     float: right;
     background: #208C84;
     border-radius: 20px 0px 20px 20px;
-    padding: 20px;
+    padding: 10px;
 }
 
 .msg-body ul li.repaly.reply-two {
     background: #156075;
-    border-radius: 20px 0px 20px;
-    -webkit-border-radius: 20px 0px 20px;
-    -moz-border-radius: 20px 0px 20px;
-    -ms-border-radius: 20px 0px 20px;
-    -o-border-radius: 20px 0px 20px;
+    border-radius: 15px 0px 15px;
 }
 
 .msg-body ul li.repaly p b {
@@ -3817,10 +3805,10 @@ li.repaly .time {
 .msg-body h6 {
     text-align: center;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 10px;
     line-height: 1.5;
     color: #222;
-    padding: 0 5px;
+    padding: 0 5px 5px 0px;
     margin-bottom: 0;
 }
 
@@ -4047,6 +4035,17 @@ button:focus {
         display: block;
         margin-right: 25px;
     }
+    .drop .dropdown-toggle {
+    font-size: 10px;
+    padding: 4px 6px;
+}
+    .box-1 {
+    width: 100%;
+    padding: 0px 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
     .flex-shrink-0.img-width img {
         width: 34px;
         height: 34px;
@@ -4105,7 +4104,7 @@ button:focus {
 
     .msg-body ul li.sender p {
         font-size: 13px;
-        padding: 8px;
+        padding: 3px 0px 0px 0px;
         border-bottom-left-radius: 6px;
         border-top-right-radius: 6px;
         border-bottom-right-radius: 6px;
@@ -4113,7 +4112,7 @@ button:focus {
 
     .msg-body ul li.repaly p {
         font-size: 13px;
-        padding: 8px;
+        padding: 3px 0px 0px 3px;
         border-top-left-radius: 6px;
         border-top-right-radius: 6px;
         border-bottom-left-radius: 6px;
@@ -4461,13 +4460,13 @@ i.fa-solid.fa-location-dot.color-blue {
 }
 
 .chat-left p {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
-    line-height: 21px;
+    line-height: 18px;
     letter-spacing: 0em;
     text-align: left;
     color: #093F38;
-    padding: 15px;
+    padding:4px 0px 0px 0px;
 
 }
 
@@ -4571,6 +4570,7 @@ i.fa-solid.fa-location-dot.color-blue {
 li.active {
     background: #E0EDF1;
     border-radius: 15px;
+    cursor:pointer;
 }
 
 .border-pading .booked.bg-none {
@@ -4722,7 +4722,7 @@ h4.book-text {
 #listbox span {
     font-size: 20px;
     font-weight: 600;
-    line-height: 30px;
+    line-height: 20px;
     letter-spacing: 0em;
     text-align: left;
     color: #191919;
@@ -4731,7 +4731,7 @@ h4.book-text {
 #listbox p {
     font-size: 16px;
     font-weight: 600;
-    line-height: 30px;
+    line-height: 20px;
     letter-spacing: 0em;
     text-align: left;
     color: #7B7A7A;
@@ -4790,6 +4790,12 @@ h4.book-text.font-samll {
     .same-flex li {
         font-size: 16px;
     }
+    ul.star-part-2 li {
+    font-size: 10px;
+}
+    .rev-35 {
+    font-size:8px;
+}
     .images img {
         width: 25px;
     }
@@ -4855,7 +4861,6 @@ div#border-class {
     .booked p {
         font-size: 10px;
         line-height: 15px;
-        padding-left: 15px
     }
 #booked-new .booked h6 {
     padding-top: 25px;
@@ -4863,6 +4868,7 @@ div#border-class {
     .booked h6 {
         font-size: 16px;
         line-height: 22px;
+        margin:0px;
     }
 
     .bookedd h4 {
@@ -5832,4 +5838,259 @@ ul.menu-left li a i {
 }
 .dropdown-menu img {
     margin-right: 12px;
+}
+
+ul#drop-focus {
+    position: absolute;
+    top: 34px !important;
+    left: 47px !important;
+    width: 250px;
+}
+
+thead.thead-th th {
+    text-align: left !important;
+    padding-left:20px;
+}
+
+/**/
+#drop-focus a.dropdown-item {
+    font-weight: 400;
+    font-size: 16px !important;
+    line-height: 26px;
+    color: #191919; 
+    padding: 10px 20px !important;
+}
+ul#drop-focus {
+    border-radius: 12px;
+}
+.moreoption .dropdown-menu:before { 
+    top: -4px; 
+}
+
+
+@media(min-width:1200px) {
+.main-menu ul.navbar-nav {
+    position: relative;
+    left: 20px !important;
+}
+
+
+}
+
+@media(max-width:1300px) {
+.main-menu ul.navbar-nav li a { 
+    font-size: 10px; 
+    padding: 0px 7px !important;
+}
+p.font-ad { 
+    font-size: 9px;
+    line-height: 10px; 
+}
+
+}
+#drop-focus a.dropdown-item {
+    font-size: 13px;
+    padding: 10px 10px;
+}
+.moreoption .dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+}
+div#box-img-same img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+
+.service-popup select {
+    height: 40px;
+    border: 0.75px solid #85BACA;
+    border-radius: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #191919;
+    width: 100%;
+    padding: 0 15px;
+    background-color:transparent;
+}
+.service-popup  .group-invite input {
+    height:40px;
+    border: 0.75px solid #85BACA;
+    border-radius: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #191919;
+    width: 100%;
+    padding: 0 15px;
+}
+.service-popup .eles textarea {
+    border: 0.75px solid #85BACA;
+    border-radius: 15px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 35px;
+    color: #191919;
+    height: 240px;
+    padding: 15px;
+    margin-top: 15px;
+    outline: none;
+    margin-bottom:10px;
+}
+.service-popup  textarea.description {
+    height: 70px;
+}
+.service-popup  p.font-fee {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #191919;
+}
+.service-popup  span.aed-0 {
+    border: 0.75px solid #85BACA;
+    border-radius: 15px;
+    padding: 10px 15px 10px 40px;
+}
+.service-popup.form-popup-des button.btn-lgn {
+    padding: 3px 10px;
+}
+.service-popup button.btn-lgn {
+    background: #208C84;
+    border: 0;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 35px;
+    padding: 5px 50px;
+    height: 45px;
+    width: 140px;
+    margin-left: 85px;
+}
+.service-popup .eles {
+    background: #FFFFFF;
+    border-radius: 15px;
+}
+.service-popup p.font-fee {
+    display: flex;
+    margin: 10px 0px;
+    align-items: center;
+}
+p.font-fee.class-50 input {
+    width: 20%;
+    padding: 0px;
+    margin-left: 20px;
+    text-align: right;
+}
+.service-popup h1{
+font-size: 20px;
+font-weight: 700;
+line-height: 30px;
+letter-spacing: 0em;
+text-align: left;
+color:#156075;
+}
+.service-popup .tox.tox-tinymce {
+    margin-bottom: 20px;
+}
+.service-popup img{
+    padding-right:5px;
+}
+
+
+.create-groupp .rounded {
+    border-radius: 15px !important;
+}
+.create-groupp #pills-tabContent {
+    background: #fff;
+    padding:0px 25px 25px 25px;
+}
+.create-groupp .eles.group-invite {
+    padding: 0;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.create-groupp .eles {
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 25px;
+}
+.create-groupp .eles input[type="text"] {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #85BACA;
+    padding: 6px;
+}
+.create-groupp .eles textarea {
+    border: 0.75px solid #85BACA;
+    border-radius: 15px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 35px;
+    color: #191919;
+    height: 120px;
+    padding: 15px;
+    margin-top: 15px;
+    outline: none;
+}
+.create-groupp .create-group {
+    width: 140px;
+    height: 40px;
+    background: #208C84;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 35px;
+    text-align: center;
+    color: #FFFFFF;
+    border: none;
+}
+.create-groupp .links-modal-bodyicons {
+    position: relative;
+}
+.create-groupp div#modal-login {
+    max-width: 600px;
+}
+.create-groupp .chosen-choices {
+    height: 40px!important;
+    border: 0.75px solid #85BACA!important;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #191919;
+    width: 100%;
+    padding: 0 15px;
+    padding: 7px !important;
+}
+.create-groupp .eles.group-invite input::placeholder{
+    font-family: Poppins;
+font-size: 14px;
+font-weight: 400;
+line-height: 35px;
+letter-spacing: 0em;
+text-align: left;
+color:#191919;
+}
+.create-groupp .chosen-search-input {
+    color: black!important;
+    margin-top: 0%!important;
+}
+.img-class-name img.legal-1{
+width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    object-fit: cover;
+}
+.create-groupp .eles.group-invite textarea::placeholder{
+    font-family: Poppins;
+font-size: 14px;
+font-weight: 400;
+line-height: 35px;
+letter-spacing: 0em;
+text-align: left;
+color:#191919;
 }

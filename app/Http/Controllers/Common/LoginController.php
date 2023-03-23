@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Traits\SendMailTrait;
 use App\Models\Lawyer;
 use App\Models\PasswordReset;
+use App\Models\ArbitrationArea;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Cache;
@@ -103,21 +104,23 @@ class LoginController extends Controller
 
     public function register() {     
         // return view('lawyer.register');
-        return view('lawyer.pages.register');
+        $areas = ArbitrationArea::pluck('area', 'id');
+        return view('lawyer.pages.register', compact('areas'));
     }
 
     public function registerLawyer(Request $request) {
-        // print_r($request->all());exit;
         $request->validate([
             'name'              =>          ['required', 'string', 'max:255'],
             'email'             =>          ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password'          =>          ['required', Rules\Password::defaults()],
-            'contact_number'    =>          ['required', 'numeric'],
+            'contact_number'    =>          ['required'],
             'position'          =>          ['required', 'string', 'max:255'],
-            'linkedin'          =>          ['required', 'string', 'max:255'],
-            'moj_reg_no'        =>          ['required', 'string', 'max:255'],
+            'linkedin'          =>          ['required'],
+            'moj_reg_no'        =>          ['required'],
+            'area'              =>          ['required'],
+            'profile_image'     =>          ['required'],
         ]);
-            
+        
         $user = User::create([
             'prefix' => $request->pref,
             'name' => $request->name,
@@ -126,7 +129,7 @@ class LoginController extends Controller
             'user_type' => 2,
         ]);
 
-        Lawyer::create([
+        $lawyer = Lawyer::create([
             'user_id' => $user->id,
             'law_firm_name' => $request->lawfirm_name,
             'law_firm_website' => $request->lawfirm_website,
@@ -136,37 +139,53 @@ class LoginController extends Controller
             'moj_reg_no' => $request->moj_reg_no,
             'position' => $request->position,
             'linkedin_profile' => $request->linkedin,
+            'arbitration_area_id' => $request->area,
         ]);
 
+        $this->profilePic($lawyer, $request);
+
         event(new Registered($user));
-
+        $html = View::make('emails.lawyer-registered', ['name' => $request->name])->render();
+        $response = $this->sendEmail($request->email, 'Welcome to Connect Legal - Best tailor made  legal consultant platform in Middle East', $html);
         // Auth::login($user);
-
-        $response = $this->sendEmail($request->email, 'Registration Successful');
         
         // $response->success() && var_dump($response->getData());
         Alert::success('Success', 'Your registration was successful. Please check your email');
         return redirect('/');
     }
+
+    public function profilePic($lawyer, $request) {
+        $imageDir = 'lawyer/profile_pic/' . $lawyer->id;
+
+        $image = $request->file('profile_image');
+        if ($request->hasFile('profile_image')) {
+            $lawyer->profile_pic = $image->store($imageDir);
+            $lawyer->save();
+        }
+        return true;
+    }
     
     public function userLogin(Request $request) {
         $request->validate([
-        //     'g-recaptcha-response' => 'required|string',
+                'g-recaptcha-response' => 'required|string',
                 'email'     => 'required|string|email',
                 'password'  => 'required',
+        ],[
+            'g-recaptcha-response.required' => 'Please complete the captcha challenge.',
+            'g-recaptcha-response.captcha' => 'Captcha validation failed, please try again.',
         ]);
         
-        // $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-        //     'secret' => config('services.recaptcha.secret_key'),
-        //     'response' => $request->get('g-recaptcha-response'),
-        //     'remoteip' => $request->getClientIp(),
-        // ]);
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => config('services.recaptcha.secret_key'),
+            'response' => $request->get('g-recaptcha-response'),
+            'remoteip' => $request->getClientIp(),
+        ]);
         
-        // if (! $response->json('success')) {
-        //     // throw ValidationException::withMessages(['g-recaptcha-response' => 'Error verifying reCAPTCHA, please try again.']);
-        //     return redirect()->route('home')->with('error','Error verifying reCAPTCHA, please try again.');
-        // }else {
-        //     // print_r($request->all());exit;
+        if (! $response->json('success')) {
+            // throw ValidationException::withMessages(['g-recaptcha-response' => 'Error verifying reCAPTCHA, please try again.']);
+            return redirect()->route('login')->with('error','Error verifying reCAPTCHA, please try again.');
+        }else {
+            // print_r($request->all());exit;
             $user = User::whereEmail($request->email)->first();
             if($user) {
                 if (Hash::check($request->password, $user->password)) {
@@ -201,7 +220,7 @@ class LoginController extends Controller
                 Alert::error('Login Failed', 'There is no existing user with given Email ID');
                 return redirect()->route('user.login');
             }
-        // }
+        }
     }
 
     public function adminLoginPage() {

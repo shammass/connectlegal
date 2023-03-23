@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Hash;
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use Mail; 
 use Mailjet\Resources;
@@ -63,8 +64,11 @@ class ForgotPasswordController extends Controller
         $apikey = env('MJ_APIKEY_PUBLIC');
         $apisecret = env('MJ_APIKEY_PRIVATE');
 
+        $user = User::whereEmail($email)->first();
+
         $mj = new \Mailjet\Client($apikey, $apisecret,true,['version' => 'v3.1']);
         // $url = "https://127.0.0.1:8000/reset-password/".$token;
+        $html = View::make('emails.forgot-password', ['name' => $user->name, 'token' => $token])->render();
         $body = [
             'Messages' => [
                 [
@@ -80,9 +84,7 @@ class ForgotPasswordController extends Controller
                     ],
                     'Subject' => "Connect Legal: Reset Password",
                     // 'TextPart' => "Greetings from Mailjet!",
-                    'HTMLPart' => "<h1>Forgot Password Email</h1>You can reset password from bellow link:
-                                    <br>
-                                    <a href=\"https://dev.test.connectlegal.ae/reset-password/".$token."\">Reset Password</a>"
+                    'HTMLPart' => $html
                 ]
             ]
         ];

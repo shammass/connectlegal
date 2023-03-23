@@ -19,12 +19,11 @@
                                                             <div class="row ">
                                                                 <div class="col-sm-2 col-3 p-0 text-lg-start text-center">
                                                                     <div class="round-user">
-                                                                        @if(Auth::user()->avatar != '')
-                                                                        <img src="/storage/{{auth()->user()->getProfilePic(auth()->user()->id)}}"
-                                                                            alt="question-1" class="user-li">
-                                                                            @else
-                                                                            <img src="/new-design/user-dashboard/images/question-1.png" class="user-li">
-                                                                            @endif
+                                                                       @if(auth()->user()->getProfilePic(auth()->user()->id) != '')
+                                                                        <img src="/storage/{{auth()->user()->getProfilePic(auth()->user()->id)}}" alt="question-1" class="user-li">
+                                                                          @else
+                                                                           <img src="/new-design/user-dashboard/images/av1.png" class="user-li">
+                                                                              @endif
                                                                         <!-- <span class="round"></span> -->
                                                                     </div>
                                                                 </div>

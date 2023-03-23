@@ -1,6 +1,6 @@
 @extends('common.home.layouts.app')
 @section('content')
-    <div class=" lawyers-part p-80">
+    <div class="lawyers-part p-80">
         <section class=" p-0 pb-5">
             <div class="container">
                 <div class="row">
@@ -9,12 +9,12 @@
                         <p>Our team of lawyers have experience with criminal law and crimes act, thus they can understand your unique
                             requirements.</p>
                     </div>
-                    <div class="col-sm-4 order-lg-0 order-first text-lg-0 text-end">
+                    <div class="col-sm-4 order-lg-0 order-first text-lg-0 text-end ">
                         <img src="/new-design/assets/images/har.png" alt="har" class="har">
                     </div>
                 </div>
-                <div class="row align-items-center">
-                    <div class="col-md-6 mt-lg-5">
+                <div class="row align-items-center mt-3">
+                    <div class="col-md-6">
                         <div class="searchfild">
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" id="searchTerm" placeholder="Search..." aria-label="Recipient's username"
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="text-right search-drop withsamesize department-width">
+                        <div class="text-right search-drop withsamesize department-width  m-0">
                             <select class="department" onchange="filterByArea(this)">
                                 <option>Select Area</option>
                                 @foreach($arbitrationAreas as $k => $area)
@@ -77,18 +77,22 @@
                 <div class="">
                     <div class="row">
                         @foreach($lawyers as $k => $lawyer)
-                            <div class="col-lg-6 col-md-12 mt-4">
+                            <div class="col-lg-6 col-md-12 mt-lg-4">
                                 <div class="law-box" id="lawBoxId">
                                     <div class="row align-items-center">
                                         <div class="col-3 text-center m-p-0 over-n">
                                             <div class="sma-amse">
+                                                @if($lawyer->profile_pic != '')
                                                 <img src="/storage/{{$lawyer->profile_pic}}" alt="Group">
+                                                @else
+                                                <img src="/new-design/user-dashboard/images/av1.png">
+                                                @endif
                                                 <!-- <i class="fa-solid fa-crown crown-p"></i> -->
                                             </div>
                                         </div>
                                         <div class="col-7">
                                             <h5>{{$lawyer->user->name}}</h5>
-                                            <div class="row">
+                                            <div class="row align-items-center">
                                                 <div class="col-6">
                                                     <ul class="star-part-2 fa-start-des">
                                                         <li><i class="fa-solid fa-star"></i></li>
@@ -104,7 +108,7 @@
                                             </div>
                                             <p class="mt-2"><i class="fa-solid fa-location-dot"></i> {{$lawyer->emirates}}<br>{{$lawyer->position}}</p>
                                         </div>
-                                        <div class="col-2 "  data-bs-toggle="modal" data-bs-target="#lawyer-profile-modal-{{$lawyer->id}}">
+                                        <div class="col-2 p-0 "  data-bs-toggle="modal" data-bs-target="#lawyer-profile-modal-{{$lawyer->id}}">
                                             <i class="fa-solid fa-eye eye-pri"></i>
                                         </div>
                                     </div>
@@ -116,15 +120,19 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content border-0">
                                         <div class="modal-body">
-                                            <div class="puopclass overflowclass">
+                                            <div class="puopclass overflowclass styleclasss">
                                                 <div class="law-box1 prime">
-                                                    <div class="row">
-                                                        <div class="col-md-3 col-3 text-center m-p-0 over-n">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-sm-3 col-4 text-center m-p-0 over-n">
                                                             <div class="sma-amse">
+                                                                @if($lawyer->profile_pic !='')
                                                                 <img src="/storage/{{$lawyer->profile_pic}}" alt="Group">
+                                                                @else
+                                                                <img src="/new-design/user-dashboard/images/av1.png">
+                                                                @endif
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6 col-9" id="jaidev-text">
+                                                        <div class="col-sm-6 col-8" id="jaidev-text">
                                                             <h5>{{ $lawyer->user->name }}</h5>
                                                             <div class="row">
                                                                 <div class="col-6">
@@ -142,7 +150,7 @@
                                                             </div>
                                                             <p class="mt-2"><i class="fa-solid fa-location-dot"></i> {{$lawyer->emirates}} {{$lawyer->position}}</p>
                                                         </div>
-                                                        <div class="col-md-3 col-12 mb-lg-0 mb-4">
+                                                        <div class="col-md-3 col-12 mt-md-0 mt-2">
                                                             <div class="btn-hire" onclick="closePrevModal('{{$lawyer->id}}')" data-bs-toggle="modal" data-bs-target="#consult-{{$lawyer->id}}">
                                                                 <button class="btn1-hire">  <img src="/new-design/assets/images/Group1.png" alt=""> Consult</button>
                                                             </div>
@@ -153,8 +161,8 @@
                                                     <h6 class="mt-xl-5 mt-0"><strong>Description:</strong></h6>
                                                     <p>{{$lawyer->disclaimer}}</p>
                                                 @endif
-                                                <div class="row mb-4">
-                                                    <div class="col-sm-4">
+                                                <div class="row mb-4 mt-4">
+                                                    <div class="col-sm-2 col-4">
                                                         <ul>
                                                             <!-- <li><strong>Experience:</strong></li> -->
                                                             <li><strong>Position:</strong></li>
@@ -163,7 +171,7 @@
                                                             <li><strong>Lanuages:</strong></li>
                                                         </ul>
                                                     </div>
-                                                    <div class="col-sm-8">
+                                                    <div class="col-sm-8 col-8">
                                                         <ul>
                                                             <!-- <li>25 Years of experience</li> -->
                                                             <li> {{$lawyer->position}}</li>
@@ -173,7 +181,7 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <img src="/new-design/assets/images/pupvideo.png" alt="" class="img-responsive img-fluid">
+                                                <img src="/new-design/assets/images/pupvideo.png" alt="" class="img-responsive img-fluid pup-img">
                                                 <div class="text-end">
                                                     <button type="button" class=" mt-lg-5 mt-2 btn bg1" onclick="lawyerServices('{{$lawyer->user_id}}')">Lawyer Services</button>
                                                     @if(auth()->user())
@@ -193,10 +201,11 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-body">
-                                            <div class="puopclass">
+                                            <div class="puopclass styleclasss">
                                                 <h3 class="text-center" data-bs-toggle="modal" data-bs-target="#lowyar1">Contact form</h3>
                                                 <form action="{{route('consult.lawyer')}}" method="post" onsubmit="return validateConsultForm(event, '{{$lawyer->id}}')">
                                                     @csrf()
+                                                    <input type="hidden" name="lawyerId" value="{{$lawyer->user_id}}">
                                                     <input type="text" name="name" id="name-{{$lawyer->id}}" placeholder="Name" class="form-control mb-2">
                                                     @error('name')
                                                         <span class="error-msg" style="color:red;">{{ $message }}</span>
@@ -215,12 +224,12 @@
                                                     @enderror   
                                                     <textarea class="form-control" name="message" id="msg-{{$lawyer->id}}" placeholder="Message" id="exampleFormControlTextarea1"
                                                     rows="3"></textarea>
-                                                    <div class="text-end mt-lg-5 mt-3">
-                                                        <button type="submit" class="btn btn-submit">Submit</button>
-                                                    </div>
                                                     @error('message')
                                                         <span class="error-msg" style="color:red;">{{ $message }}</span>
                                                     @enderror   
+                                                    <div class="text-end mt-lg-5 mt-3">
+                                                        <button type="submit" class="btn btn-submit">Submit</button>
+                                                    </div>
                                                 </form>
                                             </div>
                                         </div>
@@ -322,8 +331,10 @@
             var name = $("#name-"+id).val()
             var email = $("#email-"+id).val()
             var mobile = $("#mobile-"+id).val()
-            var msg = $("#msg-"+id).val()
-
+            var msg = $("#msg-"+id).innerHTML()
+            const myTextarea = document.getElementById("msg-"+id);
+            msg = myTextarea.value
+            debugger
             if(!name) {
                 valid = false;
                 $("#name-"+id).after('<span class="errors" style="color:red;">This field is required</span>')

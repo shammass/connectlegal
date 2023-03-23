@@ -16,6 +16,7 @@ integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLAS
 <link rel="stylesheet" type="text/css" href="/new-design/user-dashboard/css/style-dash.css">
 <link rel="stylesheet" type="text/css" href="/new-design/user-dashboard/css/responsive.css">
 <link rel="stylesheet" type="text/css" href="/new-design/user-dashboard/css/style.css">
+<!--<link rel="stylesheet" type="text/css" href="/new-design/assets/css/style.css">-->
 <!-- Select 2 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">

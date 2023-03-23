@@ -12,11 +12,22 @@
                                     <li class="nav-item">
                                         <a class="nav-link" aria-current="page" href="/">Home</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{route('howItWorks')}}">How It Works</a>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">How It Works</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a href="{{route('howItWorks')}}" class="nav-link" style="color: black!important;">For Individuals</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="{{route('lawyer.register-page')}}" class="nav-link"  style="color: black!important;">For Lawyers</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{route('lawyer.register-page')}}">For Lawyers</a>
+                                        <a class="nav-link" href="{{route('our-lawyers')}}">Our Lawyers</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{route('hire-a-lawyer')}}">Lawyer Services</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{route('question-answer')}}">Q & A</a>
@@ -28,13 +39,7 @@
                                         <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{route('hire-a-lawyer')}}">Lawyer Services</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{route('our-lawyers')}}">Our Lawyers</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="practice-area.html">Practice Area</a>
+                                        <a class="nav-link" href="{{ asset('page-practice-area/details') }}">Practice Area</a>
                                     </li>
                                 </ul>
                             </div>
@@ -53,7 +58,12 @@
                                     <div class="row ">
                                         <div class="col-sm-4">
                                             <div class="round-user">
-                                                <img src="/new-design/user-dashboard/images/question-1.png" alt="question-1" class="user-li">
+                                               @if(auth()->user()->getProfilePic(auth()->user()->id) != '')
+                                               <img src="/storage/{{auth()->user()->getProfilePic(auth()->user()->id)}}" alt="question-1" class="user-li">
+                                               @else
+                                              <img src="/new-design/user-dashboard/images/av1.png" class="user-li">
+                                               @endif
+
                                                 <span class="round"></span>
                                             </div>
                                         </div>
@@ -65,15 +75,31 @@
                                 </div>
                                 <div class="col-sm-1 pl-0 ">
                                     <ul class="moreoption">
-                                        <li class="navbar nav-item dropdown">
+                                        <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" role="button"
                                                 data-bs-toggle="dropdown" aria-expanded="false"><i
                                                     class="fa-solid fa-ellipsis-vertical text-white"></i></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="{{route('logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img src="/new-design/user-dashboard/images/file-2.png"
-                                                            alt="">
-                                                        Logout</a>
-                                                </li>
+                                            <ul class="dropdown-menu" id="drop-focus">
+                                            <li>
+                                        <a class="dropdown-item" href="#"> <img src="/new-design/user-dashboard/images/icons-/1.png" alt="">
+                                            My Profile</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url('lawyer/dashboard') }}"> <img src="/new-design/user-dashboard/images/icons-/2.png" alt="">
+                                            Dashboard</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#"> <img src="/new-design/user-dashboard/images/icons-/3.png" alt="">
+                                            Write Testimonials</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#"> <img src="/new-design/user-dashboard/images/icons-/4.png" alt="">
+                                            Blogs and Articles</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img src="/new-design/user-dashboard/images/icons-/5.png" alt="">
+                                            Logout</a>
+                                    </li>
                                             </ul>
                                         </li>
 

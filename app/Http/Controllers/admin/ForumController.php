@@ -37,12 +37,14 @@ class ForumController extends Controller
             $verify->deleted_at = null;
         }
         $verify->save();
-        $htmlPart = (string) view('admin.forums.mail',  compact('verify'));  
+
+        
         if($status == 1) {
             $mail_data = [
-                'subject' => $verify->title,
-                'htmlPart' => $htmlPart,
+                'subject' => "Invitation to Answer User's Question on Connect Legal Forum",
                 'lawyer' => $verify->toLawyer ? $verify->toLawyer->email : null,
+                'title' => $verify->title,
+                'slug' => $verify->slug,
             ];
 
             $job = (new \App\Jobs\SendForumEmail($mail_data))

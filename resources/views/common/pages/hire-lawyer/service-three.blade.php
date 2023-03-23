@@ -135,14 +135,14 @@
 
                             <div class="law-box" id="summary-law">
                                 <div class="row">
-                                    <div class="col-3 text-center m-p-0 over-n">
+                                    <div class="col-3 text-center m-p-0 over-n p-0">
                                         <img src="/new-design/assets/images/Group.png" alt="Group"> 
                                         <i class="fa-solid fa-crown crown-p"></i>
                                     </div>
                                     <div class="col-7">
                                         <h5>Jaidev Kumar</h5>
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-6 p-0">
                                                 <ul class="star-part-2">
                                                     <li><i class="fa-solid fa-star"></i></li>
                                                     <li><i class="fa-solid fa-star"></i></li>

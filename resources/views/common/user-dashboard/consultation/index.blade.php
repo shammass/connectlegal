@@ -17,16 +17,16 @@
                 <table class="table mt-5 ">
                     <thead class="thead-th">
                         <tr style="border-bottom: 2px solid #C2DDE4;">
-                            <th style="text-align: center;">Lawyer Name</th>
-                            <th style="text-align: center;">Message</th>
+                            <th style="text-align: left;">Lawyer Name</th>
+                            <th style="text-align: left;">Message</th>
                         </tr>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
                     @foreach($consultations as $k => $request)
                     <tr style="text-align: center;">
-                        <td style="text-align: center;">{{$request->lawyer->name}}</td>
-                        <td style="text-align: center;">{{$request->message}}</td>                        
+                        <td style="text-align: left;">{{$request->lawyer->name}}</td>
+                        <td style="text-align: left;">{{$request->message}}</td>                        
                     </tr>
                 @endforeach                         
                     </tbody>

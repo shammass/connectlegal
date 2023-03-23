@@ -1,0 +1,9 @@
+2023-03-12T07:37:02+00:00 CRITICAL Uncaught Error: Call to undefined function wp_delete_user() in /home/connectlegal/public_html/wp-content/plugins/user-verification/includes/functions-cron-hook.php:98
+Stack trace:
+#0 /home/connectlegal/public_html/wp-includes/class-wp-hook.php(307): user_verification_delete_unverified_user()
+#1 /home/connectlegal/public_html/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#2 /home/connectlegal/public_html/wp-includes/plugin.php(524): WP_Hook->do_action(Array)
+#3 /home/connectlegal/public_html/wp-cron.php(138): do_action_ref_array('user_verificati...', Array)
+#4 {main}
+  thrown in /home/connectlegal/public_html/wp-content/plugins/user-verification/includes/functions-cron-hook.php on line 98
+

@@ -27,21 +27,21 @@
                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="bg-E8F8F2 sp-r-l online-a">
                       <div class="row ">
-                        <div class="col-9"><a href="#">Lawyers online ({{$onlineLawyers}})</a></div>
+                        <div class="col-9"><a href="#">Lawyers online  ({{$onlineLawyers}})</a></div>
                         <div class="col-3 text-right"><a href="#"><i class="fa-solid fa-globe"></i> All</a></div>
                       </div>
                     </div>
 
                     <ul class="menu-left">
                         <li><a href="/" class="active-nav"><i class="fa-solid fa-house-user"></i> Home</a></li>
-                        <li><a href="{{route('howItWorks')}}"><i class="fa-solid fa-landmark"></i> How It Works</a></li>
-                        <li><a href="{{route('lawyer.register-page')}}"><i class="fa-solid fa-users"></i> For Lawyers</a></li>
-                        <li><a href="{{route('question-answer')}}"><i class="fa-solid fa-question"></i> Q&A</a></li>
-                        <li><a href="{{route('testimonials')}}"><i class="fa-solid fa-star"></i> Testimonials</a></li>
-                        <li><a href="{{route('blogs-articles', 1)}}"><i class="fa-solid fa-book"></i> Blogs & Articles</a></li>
-                        <li><a href="{{route('hire-a-lawyer')}}"><i class="fa-solid fa-address-card"></i> Lawyer Services</a></li>
-                        <li><a href="{{route('our-lawyers')}}"><i class="fa-solid fa-bag-shopping"></i> Our Lawyers</a></li>
-                        <li><a href="practice-area.html"><i class="fa-solid fa-scale-balanced"></i> Practice Area</a></li>
+                        <li><a href="{{route('howItWorks')}}" class="{{request()->is('how-it-works') ? 'active-nav' : ''}}"><i class="fa-solid fa-landmark"></i> How It Works </a></li>
+                        <li><a href="{{route('lawyer.register-page')}}" class="{{request()->is('lawyer/register') ? 'active-nav' : ''}}"><i class="fa-solid fa-users"></i> For Lawyers</a></li>
+                        <li><a href="{{route('question-answer')}}" class="{{request()->is('question-answers') ? 'active-nav' : ''}}"><i class="fa-solid fa-question"></i> Q&A</a></li>
+                        <li><a href="{{route('testimonials')}}" class="{{request()->is('testimonials') ? 'active-nav' : ''}}"><i class="fa-solid fa-star"></i> Testimonials</a></li>
+                        <li><a href="{{route('blogs-articles', 1)}}" class="{{request()->is('blogs-articles/1') ? 'active-nav' : ''}}"><i class="fa-solid fa-book"></i> Blogs & Articles</a></li>
+                        <li><a href="{{route('hire-a-lawyer')}}" class="{{request()->is('all-lawyer-services') ? 'active-nav' : ''}}"><i class="fa-solid fa-address-card"></i> Lawyer Services</a></li>
+                        <li><a href="{{route('our-lawyers')}}" class="{{request()->is('our-lawyers') ? 'active-nav' : ''}}"><i class="fa-solid fa-bag-shopping"></i> Our Lawyers</a></li>
+                        <li><a href="{{ url('page-practice-area/details') }}" class="{{request()->is('page-practice-area/details') ? 'active-nav' : ''}}"><i class="fa-solid fa-scale-balanced"></i> Practice Area</a></li>
                         <!-- <li><a href="#"><i class="fa-solid fa-gavel"></i> Legal Articles</a></li> -->
                         @if(auth()->user())                      
                             @if(auth()->user()->user_type == 2)
@@ -83,7 +83,11 @@
                                             <a href="#"  data-bs-toggle="modal" data-bs-target="#lawyers_profile_{{$lawyer->id}}">
                                                 <div class="row  align-items-center">
                                                     <div class="col-3 img-class-same">
+                                                        @if($lawyer->profile_pic != '')
                                                         <img src="/storage/{{$lawyer->profile_pic}}" alt="legal-1" class="legal-1">
+                                                        @else
+                                                        <img src="/new-design/user-dashboard/images/av1.png" class="legal-1">
+                                                        @endif
                                                     </div>
                                                     <div class="col-7">
                                                         <p class="name-uaser">{{$lawyer->user->name}}</p>
@@ -111,7 +115,11 @@
                                                                 <a href="#">
                                                                     <div class="row">
                                                                         <div class="col-sm-2 col-3 pr-0">
-                                                                        <img src="/new-design/assets/images/legal-1.png" alt="legal-1" class="legal-1">
+                                                                            @if($lawyer->profile_pic != '')
+                                                                            <img src="/storage/{{$lawyer->profile_pic}}" alt="legal-1" class="legal-1">
+                                                                            @else
+                                                                        <img src="/new-design/user-dashboard/images/av1.png" alt="legal-1" class="legal-1">
+                                                                        @endif
                                                                         </div>
                                                                         <div class="col-sm-7 col-6 pl-0">
                                                                         <p class="name-uaser">{{$lawyer->user->name}}</p>
@@ -206,7 +214,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="modal fade modal-popups" id="consult-lawyer-{{$lawyer->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal fade modal-popups contact-popop" id="consult-lawyer-{{$lawyer->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                             <div class="modal-dialog  modal-dialog-centered modal-lg" id="modal-login">
                                                 <div class="modal-content"> 
                                                     <div class="modal-header text-right"> 
@@ -253,17 +261,21 @@
                                         </div>
 
 
-                                        <div class="modal fade popuphome videopopup" id="lawyer-profile-{{$lawyer->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                        <div class="modal fade popuphome videopopup videoimage_popup" id="lawyer-profile-{{$lawyer->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content border-0">
                                                     <div class="modal-body">
                                                         <div class="puopclass overflowclass">
                                                             <div class="law-box1 prime">
-                                                                <div class="row">
+                                                                <div class="row align-items-center">
                                                                     <div class="col-md-3 col-3 text-center m-p-0 over-n">
                                                                         <div class="sma-amse">
+                                                                            @if($lawyer->profile_Pic != '')
                                                                             <img src="/storage/{{$lawyer->profile_pic}}" alt="Group">
+                                                                            @else
+                                                                            <img src="/new-design/user-dashboard/images/av1.png" alt="Group">
+                                                                            @endif
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6 col-9" id="jaidev-text">
@@ -282,7 +294,7 @@
                                                                                 <span class="rev-35">(35 Reviews)</span>
                                                                             </div>
                                                                         </div>
-                                                                        <p class="mt-2"><i class="fa-solid fa-location-dot"></i> {{$lawyer->emirates}} {{$lawyer->position}}</p>
+                                                                        <p class="mt-2" id="p-text-change"><i class="fa-solid fa-location-dot"></i> {{$lawyer->emirates}} {{$lawyer->position}}</p>
                                                                     </div>
                                                                     <div class="col-md-3 col-12 mb-lg-0 mb-4">
                                                                         <div class="btn-hire" onclick="closePrevModal('{{$lawyer->id}}')" data-bs-toggle="modal" data-bs-target="#consult-{{$lawyer->id}}">
@@ -295,8 +307,8 @@
                                                                 <h6 class="mt-xl-5 mt-0"><strong>Description:</strong></h6>
                                                                 <p>{{$lawyer->disclaimer}}</p>
                                                             @endif
-                                                            <div class="row mb-4">
-                                                                <div class="col-sm-4">
+                                                            <div class="row mb-4 mt-md-2">
+                                                                <div class="col-sm-2">
                                                                     <ul>
                                                                         <!-- <li><strong>Experience:</strong></li> -->
                                                                         <li><strong>Position:</strong></li>
@@ -305,7 +317,7 @@
                                                                         <li><strong>Lanuages:</strong></li>
                                                                     </ul>
                                                                 </div>
-                                                                <div class="col-sm-8">
+                                                                <div class="col-sm-10">
                                                                     <ul>
                                                                         <!-- <li>25 Years of experience</li> -->
                                                                         <li> {{$lawyer->position}}</li>
@@ -316,7 +328,7 @@
                                                                 </div>
                                                             </div>
                                                             <img src="/new-design/assets/images/pupvideo.png" alt="" class="img-responsive img-fluid">
-                                                            <div class="text-end">
+                                                            <div class="text-end" id="btnclass-there">
                                                                 <button type="button" class=" mt-lg-5 mt-2 btn bg1" onclick="lawyerServices('{{$lawyer->user_id}}')">Lawyer Services</button>
                                                                 @if(auth()->user())
                                                                     <button type="button" class=" mt-lg-5 mt-2 btn bg2" onclick="openChatModalTwo('{{$lawyer->id}}')" data-bs-toggle="modal" data-bs-target="#chat-request-{{$lawyer->id}}">Chat Request</button>
@@ -356,7 +368,11 @@
                                             <a href="#"  data-bs-toggle="modal" data-bs-target="#lawyers_profile_{{$lawyer->id}}">
                                                 <div class="row  align-items-center">
                                                     <div class="col-3 img-class-same">
+                                                        @if($lawyer->profile_pic != '')
                                                         <img src="/storage/{{$lawyer->profile_pic}}" alt="legal-1" class="legal-1">
+                                                        @else
+                                                        <img src="/new-design/user-dashboard/images/av1.png" alt="legal-1" class="legal-1">
+                                                        @endif
                                                     </div>
                                                     <div class="col-7">
                                                         <p class="name-uaser">{{$lawyer->user->name}}</p>
@@ -384,7 +400,11 @@
                                                                 <a href="#">
                                                                     <div class="row">
                                                                         <div class="col-sm-2 col-3 pr-0">
-                                                                        <img src="/new-design/assets/images/legal-1.png" alt="legal-1" class="legal-1">
+                                                                         @if($lawyer->profile_pic != '')
+                                                                            <img src="/storage/{{$lawyer->profile_pic}}" alt="legal-1" class="legal-1">
+                                                                            @else
+                                                                        <img src="/new-design/user-dashboard/images/av1.png" alt="legal-1" class="legal-1">
+                                                                        @endif
                                                                         </div>
                                                                         <div class="col-sm-7 col-6 pl-0">
                                                                         <p class="name-uaser">{{$lawyer->user->name}}</p>
@@ -479,7 +499,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="modal fade modal-popups" id="consult-lawyer-{{$lawyer->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal fade modal-popups contact-popop" id="consult-lawyer-{{$lawyer->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                             <div class="modal-dialog  modal-dialog-centered modal-lg" id="modal-login">
                                                 <div class="modal-content"> 
                                                     <div class="modal-header text-right"> 
@@ -526,7 +546,7 @@
                                         </div>
 
 
-                                        <div class="modal fade popuphome videopopup" id="lawyer-profile-{{$lawyer->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                        <div class="modal fade popuphome videopopup videoimage_popup" id="lawyer-profile-{{$lawyer->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content border-0">
@@ -536,7 +556,11 @@
                                                                 <div class="row">
                                                                     <div class="col-md-3 col-3 text-center m-p-0 over-n">
                                                                         <div class="sma-amse">
+                                                                            @if($lawyer->profile_pic != '')
                                                                             <img src="/storage/{{$lawyer->profile_pic}}" alt="Group">
+                                                                            @else
+                                                                            <img src="/new-design/user-dashboard/images/av1.png">
+                                                                            @endif
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6 col-9" id="jaidev-text">
@@ -568,17 +592,17 @@
                                                                 <h6 class="mt-xl-5 mt-0"><strong>Description:</strong></h6>
                                                                 <p>{{$lawyer->disclaimer}}</p>
                                                             @endif
-                                                            <div class="row mb-4">
-                                                                <div class="col-sm-4">
+                                                            <div class="row mb-3 mt-2">
+                                                                <div class="col-sm-2">
                                                                     <ul>
                                                                         <!-- <li><strong>Experience:</strong></li> -->
-                                                                        <li><strong>Position:</strong></li>
+                                                                        <li><strong>Position: </strong></li>
                                                                         <li><strong> Expertise:</strong></li>
                                                                         <li><strong> Address:</strong></li>
                                                                         <li><strong>Lanuages:</strong></li>
                                                                     </ul>
                                                                 </div>
-                                                                <div class="col-sm-8">
+                                                                <div class="col-sm-10">
                                                                     <ul>
                                                                         <!-- <li>25 Years of experience</li> -->
                                                                         <li> {{$lawyer->position}}</li>
@@ -589,7 +613,7 @@
                                                                 </div>
                                                             </div>
                                                             <img src="/new-design/assets/images/pupvideo.png" alt="" class="img-responsive img-fluid">
-                                                            <div class="text-end">
+                                                            <div class="text-end" id="btnclass-there">
                                                                 <button type="button" class=" mt-lg-5 mt-2 btn bg1" onclick="lawyerServices('{{$lawyer->user_id}}')">Lawyer Services</button>
                                                                 @if(auth()->user())
                                                                     <button type="button" class=" mt-lg-5 mt-2 btn bg2" onclick="openChatModalTwo('{{$lawyer->id}}')" data-bs-toggle="modal" data-bs-target="#chat-request-{{$lawyer->id}}">Chat Request</button>
@@ -637,37 +661,34 @@
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">How It Works</a>
                     <ul class="dropdown-menu">
                         <li class="nav-item">
-                            <a href="{{route('howItWorks')}}" class="nav-link" style="color: black!important;">For Individuals</a>
+                            <a href="{{route('howItWorks')}}" class="nav-link {{request()->is('how-it-works') ? 'active-nav' : ''}}" style="color: black!important;">For Individuals</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('lawyer.register-page')}}" class="nav-link"  style="color: black!important;">For Lawyers</a>
+                            <a href="{{route('lawyer.register-page')}}"  style="color: black!important;">For Lawyers</a>
                         </li>
                     </ul>
                 </li>
-              <li class="nav-item">
-              <a class="nav-link" href="{{route('lawyer.register-page')}}">For Lawyers</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link" href="{{route('question-answer')}}">Q&A</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link" href="{{route('testimonials')}}">Testimonials</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{route('our-lawyers')}}">Our Lawyers</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{route('hire-a-lawyer')}}">Lawyer Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="practice-area.html">Practice Area</a>
-              </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('our-lawyers')}}">Our Lawyers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('hire-a-lawyer')}}">Lawyer Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('question-answer')}}">Q&A</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{route('testimonials')}}">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('page-practice-area/details') }}">Practice Area</a>
+                </li>
               @if(auth()->user())                      
                         @if(auth()->user()->user_type == 2)
-                            <li class="navbar nav-item dropdown">
+                            <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{auth()->user()->name}}</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
@@ -679,7 +700,7 @@
                                 </ul>
                             </li>
                         @elseif(auth()->user()->user_type == 3)
-                            <li class="navbar nav-item dropdown">
+                            <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{auth()->user()->name}}</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">

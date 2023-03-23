@@ -17,25 +17,25 @@
                 <table class="table mt-5 ">
                     <thead class="thead-th">
                         <tr style="border-bottom: 2px solid #C2DDE4;">
-                            <th style="text-align: center;">Lawyer Name</th>
-                            <th style="text-align: center;">Title</th>
-                            <th style="text-align: center;">Question</th>
-                            <th style="text-align: center;">Status</th>
-                            <th style="text-align: center;">View Answers</th>
+                            <th style="text-align: left;">Lawyer Name</th>
+                            <th style="text-align: left;">Title</th>
+                            <th style="text-align: left;">Question</th>
+                            <th style="text-align: left;">Status</th>
+                            <th style="text-align: let;">View Answers</th>
                         </tr>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
                     @foreach($questions as $k => $question)
-                    <tr style="text-align: center;">
-                        <td style="text-align: center;">{{$question->toLawyer ? $question->toLawyer->name : 'Any Lawyer'}}</td>
-                        <td style="text-align: center;">{{$question->forum_title ?? '-'}}</td>                        
-                        <td style="text-align: center;">{{substr($question->message, 0, 10) ?? '-'}}...</td>                        
-                        <td style="text-align: center;">{{$question->is_verified ? 'Verified' : 'Pending'}}</td>    
+                    <tr style="text-align: left;">
+                        <td style="text-align: left;">{{$question->toLawyer ? $question->toLawyer->name : 'Any Lawyer'}}</td>
+                        <td style="text-align: left;">{{$question->forum_title ?? '-'}}</td>                        
+                        <td style="text-align: left;">{{substr($question->message, 0, 10) ?? '-'}}...</td>                        
+                        <td style="text-align: left;">{{$question->is_verified ? 'Verified' : 'Pending'}}</td>    
                         @if($question->is_verified)
-                            <td style="text-align: center;"><a href="{{route('question-answer.view', $question->slug)}}" target="_blank">View Answers</a></td>   
+                            <td style="text-align: left;"><a href="{{route('question-answer.view', $question->slug)}}" target="_blank">View Answers</a></td>   
                         @else 
-                            <td style="text-align: center;">-</td>
+                            <td style="text-align: left;">-</td>
                         @endif
                     </tr>
                 @endforeach                         

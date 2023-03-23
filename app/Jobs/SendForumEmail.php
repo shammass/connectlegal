@@ -36,11 +36,15 @@ class SendForumEmail implements ShouldQueue
     {
         $lawyers = Lawyer::whereIsVerified(1)->get();
         $subject = $this->mail_data['subject'];
-        $message = $this->mail_data['htmlPart'];
         $lawyerId = $this->mail_data['lawyer'];
+        $title = $this->mail_data['title'];
+        $slug = $this->mail_data['slug'];
 
         if(!$lawyerId) {
             foreach ($lawyers as $k => $value) {
+                $lawyerName = $value->user->name;
+                $htmlPart = (string) view('admin.forums.mail',  compact('lawyerName', 'title', 'slug'));  
+
                 $input['email'] = $value->user->email;
                 $input['name'] = $value->user->name;
     
@@ -64,7 +68,7 @@ class SendForumEmail implements ShouldQueue
                             ],
                             'Subject' => $subject,
                             // 'TextPart' => "Greetings from Mailjet!",
-                            'HTMLPart' => $message
+                            'HTMLPart' => $htmlPart
                         ]
                     ]
                 ];
@@ -73,7 +77,8 @@ class SendForumEmail implements ShouldQueue
             }
         }else {
             $user = User::whereId($lawyerId)->first();
-
+            $lawyerName = $user->name;
+            $htmlPart = (string) view('admin.forums.mail',  compact('lawyerName', 'title', 'slug'));  
             $apikey = env('MJ_APIKEY_PUBLIC');
             $apisecret = env('MJ_APIKEY_PRIVATE');
 
@@ -89,12 +94,12 @@ class SendForumEmail implements ShouldQueue
                         'To' => [
                             [
                                 'Email' => $user->email,
-                                'Name' => $user->name
+                                'Name' => $lawyerName
                             ]
                         ],
                         'Subject' => $subject,
                         // 'TextPart' => "Greetings from Mailjet!",
-                        'HTMLPart' => $message
+                        'HTMLPart' => $htmlPart
                     ]
                 ]
             ];

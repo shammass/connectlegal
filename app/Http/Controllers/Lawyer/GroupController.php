@@ -176,6 +176,7 @@ class GroupController extends Controller
             'attachment'    => ($attachment) ? json_encode((object)[
                 'new_name' => $attachment,
                 'old_name' => htmlentities(trim($attachment_title), ENT_QUOTES, 'UTF-8'),
+                'size'     => $file->getSize(),
             ]) : null,
         ]);
         event(new PostComment($message->id, 'groupMessage'));     

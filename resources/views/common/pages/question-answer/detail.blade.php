@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="col-lg-4 col-4">
                                         <div class="cntn-box-1">
-                                            <button class="bookbtn bg-btn-change" onclick="lawyerServices('{{$answer->lawyer_id}}')">Hire the Lawyer</button>
+                                            <button class="bookbtn bg-btn-change" onclick="lawyerServices('{{$answer->lawyer_id}}')">Lawyer Services</button>
                                         </div>
                                     </div>
                                 </div>
@@ -214,8 +214,11 @@
                                 <div class="row align-items-center">
                                     <div class="col-3 text-center m-p-0 over-n">
                                         <div class="img-class-same">
-                                            
+                                            @if($lawyer->profile_pic != '')
                                             <img src="/storage/{{$lawyer->profile_pic}}" alt="Group">
+                                            @else
+                                            <img src="/new-design/user-dashboard/images/av1.png">
+                                            @endif
                                         </div>
                                         
                                     </div>

@@ -10,7 +10,7 @@
 
 <p>
 To answer the question, please log in to your account on Connect Legal and go to the Q&A section. You can find the question under the Questions tab or click on the link below:
-<a href="https://dev.test.connectlegal.ae/lawyer/question-answer/view/{$slug}}">Click Here</a>
+<a href="https://dev.test.connectlegal.ae/lawyer/question-answer/view/{{$slug}}">Click Here</a>
 </p>
 
 <hr>

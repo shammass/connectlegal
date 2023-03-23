@@ -111,7 +111,7 @@
                 <img src="/new-design/assets/images/ft-logo.png" alt="ft-logo" class="ft-logo-2">
             </div>
             <div class="col-sm-8 text-center">
-                <p class="copy-right">© {{date('Y')}} Litho is Proudly Powered by ThemeZaa</p>
+                <p class="copy-right">© {{date('Y')}} Proudly Powered by Connect Legal</p>
             </div>
             <div class="col-sm-2">
                 <ul class="social">

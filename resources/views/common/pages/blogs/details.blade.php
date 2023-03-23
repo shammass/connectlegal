@@ -1,7 +1,16 @@
 @extends('common.home.layouts.app')
 @section('content')
 <style>
-  
+  #blog-catagary h4{
+      font-size:16px;
+  }
+  .col-1.d-none.d-lg-block li {
+    text-align: center;
+}
+h1.lrm {
+    padding-top: 8PX;
+    line-height: 40px;
+}
 
 </style>
     <main class="bg-color p-80" id="bg-back">
@@ -11,14 +20,13 @@
                     <h4><a href="{{route('blogs-articles', 1)}}" style="color:#156075">/ BLOG /</a> CATEGORY</h4>
                 </div>
                 <div class="col-md-6 col-6 text-end">
-                    <h4>{{date('d/M/Y', strtotime($blog->created_at));}}</h4>
                 </div>
             </div>
             <div class="banner">
                 <img src="{{$blog->image}}" class="b-bnr">
             </div>
             <div class="row">
-                <div class="col-1 d-none d-lg-block">
+                <div class="col-1 d-none d-lg-block mt-4 text-center">
                     <div class="line-con">
                         <p class="sh">Share</p>
                        <li><i class="fa-brands fa-twitter"></i></li>
@@ -92,7 +100,15 @@
     </main>
 
 @endsection
-
+<!--@push('script')
+    <script>
+        function blogDetail(blogName) {
+            //window.location.href = "/blogs-articles-details/"+blogId;
+            var new_blogName = blogName.replaceAll(' ', '-');
+            window.location.href = "/"+new_blogName;
+        }
+    </script>
+@endpush-->
 @push('script')
     <script>
         function blogDetail(blogId) {

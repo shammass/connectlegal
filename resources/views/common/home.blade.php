@@ -95,6 +95,10 @@
             $(".top-header").removeClass("head-fixed");
         }
     });
+    
+    function ourLawyers(){
+        window.location.href = "/our-lawyers";
+    }
 
     function hireALawyer() {
         window.location.href = "/all-lawyer-services";

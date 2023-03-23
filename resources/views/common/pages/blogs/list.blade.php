@@ -4,14 +4,14 @@
             <div class="open-width">
                 <section class="bg-1 bg-71b2c382 m-sp-same py-3 p-80" id="cover-padding">
                 <div class="container">
-                    <div class="row potion">
+                    <div class="row potion align-items-center mt-4">
                         <div class="col-md-6">
                             <h1 class="txt-bl">THE BLOG</h1>
                             <p class="txt-bl-2">Make an appointment with Advocates and Legal consultancy, Today!
                                 or chat
                                 with a lawyer online for free in Dubai and across UAE now.</p>
                         </div>
-                        <div class="col-md-6 text-end">
+                        <div class="col-md-6 text-end mt-3">
                             <img src="/new-design/assets/images/boxthere.png" class="icn">
                         </div>
                     </div>
@@ -99,6 +99,8 @@
     <script>
         function blogDetail(blogId) {
             window.location.href = "/blogs-articles-details/"+blogId;
+            //var new_blogName = blogName.replaceAll(' ', '-');
+            //window.location.href = "/"+new_blogName;
         }
     </script>
 @endpush

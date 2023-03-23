@@ -12,14 +12,14 @@
             </a>
             <div id='submenu1' class="collapse sidebar-submenu">
                 <ul class="menu-left">
-                    <li><a href="/" class="active-nav"><i class="fa-solid fa-house-user"></i> Home</a></li>
-                    <li><a href="{{route('user.dashboard')}}"><i class="fa-solid fa-landmark"></i>Dashboard</a></li>
-                    <li><a href="{{route('user.consultation-requests')}}"><i class="fa-solid fa-users"></i>Consultations</a></li>
-                    <li><a href="{{route('user.questions-asked')}}"><i class="fa-solid fa-question"></i> Questions Asked</a></li>
-                    <li><a href="{{route('online-chat.requests')}}"><i class="fa-solid fa-star"></i> Chat Online Requests</a></li>
-                    <li><a href="{{route('user.services-purchased')}}"><i class="fa-solid fa-suitcase"></i> Services Purchased</a></li>
-                    <li><a href="{{route('hire-a-lawyer')}}"><i class="fa-solid fa-scale-balanced"></i>Lawyer Services</a></li>
-                    <li><a href="{{route('question-answer')}}"><i class="fa-solid fa-question"></i>Question & Answer</a></li>
+                    <li><a href="/" class="{{request()->is('/') ? 'active-nav' : ''}}"><i class="fa-solid fa-house-user"></i> Home</a></li>
+                    <li><a href="{{route('user.dashboard')}}" class="{{request()->is('dashboard') ? 'active-nav' : ''}}"><i class="fa-solid fa-landmark"></i>Dashboard</a></li>
+                    <li><a href="{{route('user.consultation-requests')}}" class="{{request()->is('my-consultaion-requests') ? 'active-nav' : ''}}"><i class="fa-solid fa-users"></i>Consultations</a></li>
+                    <li><a href="{{route('user.questions-asked')}}" class="{{request()->is('questions-asked') ? 'active-nav' : ''}}"><i class="fa-solid fa-question"></i> Questions Asked</a></li>
+                    <li><a href="{{route('online-chat.requests')}}" class="{{request()->is('chat/requests') ? 'active-nav' : ''}}"><i class="fa-solid fa-star"></i> Chat Online Requests</a></li>
+                    <li><a href="{{route('user.services-purchased')}}" class="{{request()->is('services-purchased') ? 'active-nav' : ''}}"><i class="fa-solid fa-suitcase"></i> Services Purchased</a></li>
+                    <li><a href="{{route('hire-a-lawyer')}}" class="{{request()->is('all-lawyer-services') ? 'active-nav' : ''}}"><i class="fa-solid fa-scale-balanced"></i>Lawyer Services</a></li>
+                    <li><a href="{{route('question-answer')}}" class="{{request()->is('question-answers') ? 'active-nav' : ''}}"><i class="fa-solid fa-question"></i>Question & Answer</a></li>
                     <!-- <li><a href="#"><i class="fa-solid fa-book"></i>Lawyer Articles</a></li> -->
                     <!-- <li><a href="#"><i class="fa-solid fa-address-card"></i>Q & A</a></li> -->
                 </ul>
