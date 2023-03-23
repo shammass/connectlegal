@@ -180,7 +180,7 @@ Federal Law No. 6 of 2009 Concerning the Establishment of the UAE National Build
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n" data-bs-toggle="modal" data-bs-target="#lowyar2">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/1.png" alt="Group">
                  <i class="fa-solid fa-crown crown-p"></i>
 
                </div>
@@ -214,7 +214,7 @@ Federal Law No. 6 of 2009 Concerning the Establishment of the UAE National Build
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/3.png" alt="Group">
 
                </div>
               </div>
@@ -247,7 +247,7 @@ Federal Law No. 6 of 2009 Concerning the Establishment of the UAE National Build
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/7.png" alt="Group">
 
                </div>
               </div>
@@ -280,7 +280,7 @@ Federal Law No. 6 of 2009 Concerning the Establishment of the UAE National Build
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/5.png" alt="Group">
 
                </div>
               </div>
@@ -316,7 +316,7 @@ Federal Law No. 6 of 2009 Concerning the Establishment of the UAE National Build
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/2.png" alt="Group">
                  <i class="fa-solid fa-crown crown-p"></i>
 
                </div>
@@ -350,7 +350,7 @@ Federal Law No. 6 of 2009 Concerning the Establishment of the UAE National Build
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/4.png" alt="Group">
 
                </div>
               </div>
@@ -383,7 +383,7 @@ Federal Law No. 6 of 2009 Concerning the Establishment of the UAE National Build
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/7.png" alt="Group">
 
                </div>
               </div>
@@ -416,7 +416,7 @@ Federal Law No. 6 of 2009 Concerning the Establishment of the UAE National Build
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/6.png" alt="Group">
 
                </div>
               </div>
@@ -508,7 +508,7 @@ Federal Law No. 6 of 2009 Concerning the Establishment of the UAE National Build
               <div class="col-sm-3 col-4 m-p-0">
                 <div class="d-flex-right dn">
                   <div class="cards needs">
-                    <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                    <img src="/new-design/assets/images/5.png" alt="Group">
                      <p class="name-uaser">Arundhati</p>
                       <p class="short-mes">UAE, Abu Dhabi</p>
                   </div>  
@@ -517,7 +517,7 @@ Federal Law No. 6 of 2009 Concerning the Establishment of the UAE National Build
               <div class="col-sm-3 col-4 m-p-0">
                 <div class="d-flex-right">
                   <div class="cards needs">
-                    <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                    <img src="/new-design/assets/images/3.png" alt="Group">
                      <p class="name-uaser">Arundhati</p>
                       <p class="short-mes">UAE, Abu Dhabi</p>
                   </div>  
@@ -532,7 +532,7 @@ Federal Law No. 6 of 2009 Concerning the Establishment of the UAE National Build
                   </div> 
 
                   <div class="cards needs alg">
-                    <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                    <img src="/new-design/assets/images/8.png" alt="Group">
                      <p class="name-uaser">Arundhati</p>
                       <p class="short-mes">UAE, Abu Dhabi</p>
                   </div>

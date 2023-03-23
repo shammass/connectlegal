@@ -1,9 +1,36 @@
 @extends('common.home.layouts.app')
 @section('content')
 
-<section class="practice-area bg-grad-2 pb-0">
+
+<style>
+    .tab-practice ul#pills-tab button {
+    background: #FFFFFF !important;
+    border: 1px solid #C2DDE4 !important;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 18px;
+    text-align: center;
+    color: #156075 !important;
+    padding: 13px 15px;
+    border-radius: 0 !important;
+    width: 110px;
+    height: 110px;
+}
+@media(min-width:1024px){
+    ul#pills-tab {
+    overflow-x: unset;
+    display: flex;
+    flex-wrap: unset;
+    padding-bottom: 0px !important;
+}
+}
+
+    
+</style>
+<div class="p-80 bg-E8F8F2-same">
+    <section class="practice-area p-0">
   <div class="container">
-     <h1 class="font-64 same-font mb-3"><span class="span-co">Family Law</span> Dubai</h1>
+     <h1 class="font-64 same-font mb-3 mt-0"><span class="span-co">Family Law</span> Dubai</h1>
 
      <div class="tab-practice">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -182,12 +209,11 @@ In the UAE, family law is regulated by Islamic law (Sharia) as well as governmen
       <div class="row mt-4">
         <div class="col-lg-6 col-md-12">
           <div class="law-box prime">
-            <div class="row">
+            <div class="row align-items-center">
               <div class="col-3 text-center m-p-0 over-n" data-bs-toggle="modal" data-bs-target="#lowyar2">
-               <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
-                 <i class="fa-solid fa-crown crown-p"></i>
-
+               <div class="sma-amse" id="iconcrow">
+                 <img src="/new-design/assets/images/1.png" alt="Group">
+                 <!--<i class="fa-solid fa-crown crown-p"></i>-->
                </div>
               </div>
               <div class="col-7"  data-bs-toggle="modal" data-bs-target="#lowyar1">
@@ -216,11 +242,10 @@ In the UAE, family law is regulated by Islamic law (Sharia) as well as governmen
           </div>
 
           <div class="law-box">
-            <div class="row">
+            <div class="row  align-items-center">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
-
+                 <img src="/new-design/assets/images/3.png" alt="Group">
                </div>
               </div>
               <div class="col-7">
@@ -249,10 +274,10 @@ In the UAE, family law is regulated by Islamic law (Sharia) as well as governmen
           </div>
 
           <div class="law-box">
-            <div class="row">
+            <div class="row  align-items-center">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/7.png" alt="Group">
 
                </div>
               </div>
@@ -282,10 +307,10 @@ In the UAE, family law is regulated by Islamic law (Sharia) as well as governmen
           </div>
 
           <div class="law-box">
-            <div class="row">
+            <div class="row  align-items-center">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/5.png" alt="Group">
 
                </div>
               </div>
@@ -318,12 +343,10 @@ In the UAE, family law is regulated by Islamic law (Sharia) as well as governmen
 
         <div class="col-lg-6 col-md-12">
           <div class="law-box prime">
-            <div class="row">
-              <div class="col-3 text-center m-p-0 over-n">
-               <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
-                 <i class="fa-solid fa-crown crown-p"></i>
-
+            <div class="row  align-items-center">
+              <div class="col-3 text-center m-p-0 over-n ">
+               <div class="sma-amse"  id="iconcrow">
+                 <img src="/new-design/assets/images/2.png" alt="Group">
                </div>
               </div>
               <div class="col-7">
@@ -352,10 +375,10 @@ In the UAE, family law is regulated by Islamic law (Sharia) as well as governmen
           </div>
 
           <div class="law-box">
-            <div class="row">
+            <div class="row  align-items-center">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/4.png" alt="Group">
 
                </div>
               </div>
@@ -385,10 +408,10 @@ In the UAE, family law is regulated by Islamic law (Sharia) as well as governmen
           </div>
 
           <div class="law-box">
-            <div class="row">
+            <div class="row  align-items-center">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/7.png" alt="Group">
 
                </div>
               </div>
@@ -418,10 +441,10 @@ In the UAE, family law is regulated by Islamic law (Sharia) as well as governmen
           </div>
 
           <div class="law-box">
-            <div class="row">
+            <div class="row  align-items-center">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/6.png" alt="Group">
 
                </div>
               </div>
@@ -513,7 +536,7 @@ In the UAE, family law is regulated by Islamic law (Sharia) as well as governmen
               <div class="col-sm-3 col-4 m-p-0">
                 <div class="d-flex-right dn">
                   <div class="cards needs">
-                    <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                    <img src="/new-design/assets/images/5.png" alt="Group">
                      <p class="name-uaser">Arundhati</p>
                       <p class="short-mes">UAE, Abu Dhabi</p>
                   </div>  
@@ -522,7 +545,7 @@ In the UAE, family law is regulated by Islamic law (Sharia) as well as governmen
               <div class="col-sm-3 col-4 m-p-0">
                 <div class="d-flex-right">
                   <div class="cards needs">
-                    <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                    <img src="/new-design/assets/images/3.png" alt="Group">
                      <p class="name-uaser">Arundhati</p>
                       <p class="short-mes">UAE, Abu Dhabi</p>
                   </div>  
@@ -537,7 +560,7 @@ In the UAE, family law is regulated by Islamic law (Sharia) as well as governmen
                   </div> 
 
                   <div class="cards needs alg">
-                    <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                    <img src="/new-design/assets/images/8.png" alt="Group">
                      <p class="name-uaser">Arundhati</p>
                       <p class="short-mes">UAE, Abu Dhabi</p>
                   </div>
@@ -563,5 +586,7 @@ In the UAE, family law is regulated by Islamic law (Sharia) as well as governmen
     </div>
   </div>
 </section>
+    
+</div>
 
 @endsection

@@ -1,7 +1,7 @@
 @extends('common.home.layouts.app')
 @section('content')
-    <div class="p-80">
-        <main class="bg-color  bg-f4fefa pt-0 pb-5">
+    <div class="p-80 bg-E8F8F2-same">
+        <main class="bg-color pt-0 pb-5">
             <div class="container" id="content-flex">
                 <div class="row">
                     <div class="col-md-6 postn-icn">
@@ -115,7 +115,7 @@
                     </div>
                 </div>
             </section>
-            <div class="tab-content" id="pills-tabContent">
+            <div class="tab-content class-bg" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
                     <div class="row g-4 mt-4">
                         @forelse($forums as $k => $forum)

@@ -99,6 +99,8 @@ Route::post('chat-online',                      [CommonController::class, 'chatO
 Route::get('blogs-articles/{page}',             [CommonController::class, 'index2'])->name('blogs-articles');
 // Route::get('blogs-articles-details/{id}',       [CommonController::class, 'blogsArticleDetails'])->name('blogs-article-details');
 Route::get('blogs-articles-details/{id}',       [CommonController::class, 'blogDetails2'])->name('blogs-article-details');
+//Route::get('blogs-articles-details/{name}',       [CommonController::class, 'blogDetails2'])->name('blogs-article-details');
+//Route::get('/{name}',       [CommonController::class, 'blogDetails2'])->name('blogs-article-details');
 
 Route::post('callback',                         [CommonController::class, 'callback'])->name('callback');
 

@@ -92,7 +92,11 @@
               <div class="law-box" id="summary-law">
               <div class="row">
                 <div class="col-3 text-center m-p-0 over-n">
+                    @if($service->addedBy->getProfilePic($service->added_by))
                   <img src="/storage/{{$service->addedBy->getProfilePic($service->added_by)}}" alt="Group"> 
+                  @else
+                   <img src="/new-design/user-dashboard/images/av1.png">
+                  @endif
                   <!-- <i class="fa-solid fa-crown crown-p"></i> -->
                 </div>
                 <div class="col-7">

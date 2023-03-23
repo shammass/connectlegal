@@ -1,3 +1,8 @@
+<style>
+  ul.d-flex1.class-add h2{
+        cursor:pointer;
+    }
+</style>
 <div class="row">
     <div class="col-lg-6 col-md-4 col-4">
         <ul class="d-flex1 d-flex top-sp-">
@@ -18,13 +23,13 @@
                 <h2>Create Group</h2>
             </li>
 
-            <div class="modal fade modal-popups" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade modal-popups create-groupp" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" id="modal-login">
                     <div class="modal-content"> 
-                        <div class="modal-header text-right"> 
-                            <button type="button" class="btn-close rounded" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                        <div class="modal-header text-right border-0"> 
+                            <button type="button" class="btn-close rounded" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body p-0">
                             <div class="form-popup-des rounded" id="pills-tabContent">
                                 <div class="row">
                                     <div class="group-user">
@@ -32,8 +37,14 @@
                                             <div class="col-sm-6 col-10">
                                                 <div class="group-george">
                                                     <div class="row">
-                                                        <div class="col-md-3 col-3 pr-0 text-center">
+                                                        <div class="col-md-3 col-3 pr-0 text-center img-class-name">
+                                                           @if(Auth::check())
+                                                           @if(auth()->user()->profile_pic)
                                                             <img src="/storage/{{auth()->user()->getProfilePic(auth()->user()->id)}}" alt="question-2" class="img-user-pop" style="width: 85%;height: 70px;border-radius: 200px;">
+                                                            @else
+                                                            <img src="/new-design/user-dashboard/images/av1.png" class="legal-1">
+                                                            @endif
+                                                            @endif
                                                         </div>
                                                         <div class="col-md-9 col-9  ">
                                                             <p class="font-24">{{auth()->user()->name}}</p>
@@ -62,16 +73,16 @@
                                         @error('about')
                                             <span class="error-msg" style="color:red;margin-top:2%;">{{ $message }}</span>
                                         @enderror  
-                                        <select class=" col-md-12 chosen-select mt-3" multiple name="lawyers[]">
+                                        <select class=" col-md-12 chosen-select" multiple name="lawyers[]">
                                             @foreach($lawyers as $k => $lawyer)
                                                 <option value="{{$lawyer->user_id}}" {{isset(old('lawyers')[$k]) ? (old('lawyers')[$k] == $lawyer->user_id ? 'selected' : '') : ''}}>{{$lawyer->user->name}}</option>
                                             @endforeach
                                         </select>    
                                         @error('lawyers')
-                                            <span class="error-msg" style="color:red;margin-top:2%;">{{ $message }}</span>
+                                            <span class="error-msg" style="color:red;margin-top:0%;">{{ $message }}</span>
                                         @enderror                                                      
                                     </div>
-                                    <div class="text-right mt-5 mb-3">
+                                    <div class="text-right mt-2 mb-2">
                                         <button type="submit" class="create-group">Create Group</button>
                                     </div> 
                                 </form>

@@ -10,7 +10,7 @@
           </div>
           <div class="col-lg-6 col-md-12">
             <div class="why-b Keep">
-              <div class="row">
+              <div class="row align-items-center">
                 <div class="col-2 m-p-0">
                   <img src="/new-design/assets/images/why-b-1.png" alt="why-b-1">
                 </div>
@@ -18,7 +18,7 @@
                   <p>Keep the history of all your chats, questions and callback requests</p>
                 </div>
               </div>
-              <div class="row mt-3">
+              <div class="row mt-3 align-items-center">
                 <div class="col-2 m-p-0">
                   <img src="/new-design/assets/images/why-b-2.png" alt="why-b-2">
                 </div>
@@ -26,7 +26,7 @@
                   <p>Track your interactions with lawyers and receive notifications</p>
                 </div>
               </div>
-              <div class="row mt-3">
+              <div class="row mt-3 align-items-center">
                 <div class="col-2 m-p-0">
                   <img src="/new-design/assets/images/why-b-3.png" alt="why-b-3">
                 </div>

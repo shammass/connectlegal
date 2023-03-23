@@ -166,7 +166,7 @@
                           @if($chatRqst->lawyer->profile_pic != '')
                             <img src="/storage/{{$chatRqst->lawyer->profile_pic}}" style="width: 40px;height: 40px;border-radius: 20px;" alt="banner-icon-1" class="online-class">
                             @else
-                              <img src="/new-design/user-dashboard/images/question-1.png" style="width: 40px;height: 40px;border-radius: 20px;" alt="banner-icon-1" class="online-class">
+                              <img src="/new-design/user-dashboard/images/av1.png" style="width: 40px;height: 40px;border-radius: 20px;" alt="banner-icon-1" class="online-class">
                             @endif
                         </div>
                         <div class="col-md-7 col-7">

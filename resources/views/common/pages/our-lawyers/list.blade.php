@@ -1,6 +1,6 @@
 @extends('common.home.layouts.app')
 @section('content')
-    <div class=" lawyers-part p-80">
+    <div class="lawyers-part p-80">
         <section class=" p-0 pb-5">
             <div class="container">
                 <div class="row">
@@ -77,18 +77,22 @@
                 <div class="">
                     <div class="row">
                         @foreach($lawyers as $k => $lawyer)
-                            <div class="col-lg-6 col-md-12 mt-4">
+                            <div class="col-lg-6 col-md-12 mt-lg-4">
                                 <div class="law-box" id="lawBoxId">
                                     <div class="row align-items-center">
                                         <div class="col-3 text-center m-p-0 over-n">
                                             <div class="sma-amse">
+                                                @if($lawyer->profile_pic != '')
                                                 <img src="/storage/{{$lawyer->profile_pic}}" alt="Group">
+                                                @else
+                                                <img src="/new-design/user-dashboard/images/av1.png">
+                                                @endif
                                                 <!-- <i class="fa-solid fa-crown crown-p"></i> -->
                                             </div>
                                         </div>
                                         <div class="col-7">
                                             <h5>{{$lawyer->user->name}}</h5>
-                                            <div class="row">
+                                            <div class="row align-items-center">
                                                 <div class="col-6">
                                                     <ul class="star-part-2 fa-start-des">
                                                         <li><i class="fa-solid fa-star"></i></li>
@@ -104,7 +108,7 @@
                                             </div>
                                             <p class="mt-2"><i class="fa-solid fa-location-dot"></i> {{$lawyer->emirates}}<br>{{$lawyer->position}}</p>
                                         </div>
-                                        <div class="col-2 "  data-bs-toggle="modal" data-bs-target="#lawyer-profile-modal-{{$lawyer->id}}">
+                                        <div class="col-2 p-0 "  data-bs-toggle="modal" data-bs-target="#lawyer-profile-modal-{{$lawyer->id}}">
                                             <i class="fa-solid fa-eye eye-pri"></i>
                                         </div>
                                     </div>
@@ -121,7 +125,11 @@
                                                     <div class="row align-items-center">
                                                         <div class="col-sm-3 col-4 text-center m-p-0 over-n">
                                                             <div class="sma-amse">
+                                                                @if($lawyer->profile_pic !='')
                                                                 <img src="/storage/{{$lawyer->profile_pic}}" alt="Group">
+                                                                @else
+                                                                <img src="/new-design/user-dashboard/images/av1.png">
+                                                                @endif
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6 col-8" id="jaidev-text">
@@ -154,7 +162,7 @@
                                                     <p>{{$lawyer->disclaimer}}</p>
                                                 @endif
                                                 <div class="row mb-4 mt-4">
-                                                    <div class="col-sm-4 col-4">
+                                                    <div class="col-sm-2 col-4">
                                                         <ul>
                                                             <!-- <li><strong>Experience:</strong></li> -->
                                                             <li><strong>Position:</strong></li>
