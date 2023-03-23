@@ -791,6 +791,15 @@ ul.d-flex1.clor-h h4 {
     }
     
 }
+@media(min-width:1370px){
+    div#border-class {
+    height: 300px !important;
+}
+.booked.bg-EDEEC6.height-same {
+    height: 300px  !important;
+}
+}
+
 @media(max-width:1200px){
     .img-swiper img {
         width: 100%;
@@ -854,6 +863,7 @@ thead#widthcover th {
 }
 tbody.table-group-divider tr td {
     padding-left: 20px;
+    text-align: left !important;
 }
 .table-group-divider tr td {  
     text-align: left; 
@@ -1098,8 +1108,8 @@ div#testimonial-slider .owl-prev:after, .owl-next:after {
     font-size: 15px !important;
 }
 
-
 }
+
 
 @media(max-width:399px) {
 .chat-slots-left div {
@@ -1134,3 +1144,21 @@ div#testimonial-slider .owl-prev:after, .owl-next:after {
 }
 }
 
+
+tbody.table-group-divider tr th, td {
+    text-align: left !important;
+    padding-left: !important;
+    padding-left: 20px !important;
+}
+
+@media(min-width:1920px){
+    div#listbox h4 {
+    padding-bottom: 25px;
+}
+}
+
+@media(min-width:1540px) and (max-width:1900px){
+    .bookedd h4 {
+    padding-bottom: 25px;
+}
+}

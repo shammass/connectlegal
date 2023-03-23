@@ -57,15 +57,15 @@
                                             <div class="mb-3">
                                                 <div class="row" id="color-smae">
                                                     @if($chatNotifications && isset($chatNotifications[0]))
-                                                        <div class="col-md-2 icon-center text-center col-3">
-                                                            <img src="/new-design/user-dashboard/images/onlie.png" alt="banner-icon-1" class="online-class1">
+                                                        <div class="col-md-2 icon-center text-center col-2">
+                                                            <img src="/new-design/user-dashboard/images/question-1.png" alt="banner-icon-1" class="online-class1">
                                                         </div>
-                                                        <div class="col-md-7 col-7" onclick="chatWithUser('{{$chatNotifications[0]->from_user}}')">
+                                                        <div class="col-md-7 col-5" onclick="chatWithUser('{{$chatNotifications[0]->from_user}}')">
                                                             <h5 class="font-22"><strong>{{$chatNotifications[0]->fromUser->name}}
                                                             </strong></h5>
                                                             <p class="font-20">{{$chatNotifications[0]->msg}}</p>
                                                         </div>
-                                                        <div class="col-md-3 text-right  right-icons col-2">
+                                                        <div class="col-md-3 text-right  right-icons col-5">
                                                             <p class="date-r">{{$chatNotifications[0]->getDateDescription($chatNotifications[0]->created_at)}}</p>
                                                             <p class="time-r">{{date('g:i A', strtotime($chatNotifications[0]->created_at))}}</p>
                                                             <div class="d-flex2">
@@ -86,7 +86,7 @@
                                         <div class="hover-ef mt-3">
                                             <div class="row" id="color-smae">
                                                 <div class="col-md-2 icon-center text-center col-3">
-                                                    <img src="/new-design/user-dashboard/images/onlie.png" alt="banner-icon-1" class="online-class1">
+                                                    <img src="/new-design/user-dashboard/images/question-1.png" alt="banner-icon-1" class="online-class1">
                                                 </div>
                                                 <div class="col-md-7 col-7" onclick="chatWithUser('{{$notification->from_user}}')">
                                                     <h5 class="font-22"><strong>{{$notification->fromUser->name}}
@@ -250,7 +250,8 @@
                 </div>
                 <div class="row g-4">
                 <div class="col-xl-8 col-lg-12 mb-lg-0 mb-3" id="swiperdemoclass">
-                    <div class="swiper mySwiper d-none d-md-block">
+      <div class="height-50">
+                        <div class="swiper mySwiper d-none d-md-block">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                         <div class="row" id="border-class">
@@ -260,7 +261,7 @@
                             </div>
                             </div>
                             <div class="col-md-8">
-                            <div class="padding-cover">
+                              <div class="padding-cover">
                                 <span>RECENT ARTICLES</span>
                                 <h5>VISA Inmigration to Dubai, UAE</h5>
                                 <p>It is a long established fact that a reader will be
@@ -276,7 +277,7 @@
                                     <p> <strong></strong> 12 Dic 2022 - 12:56 pm</p>
                                 </div>
                                 </div>
-                            </div>
+                            </div>                        
                             </div>
                         </div>
                         </div>
@@ -367,6 +368,7 @@
                     </div>
                     <div class="swiper-pagination"></div>
                     </div>
+      </div>
 
                     <div class="demo d-block d-md-none">
                     <div class="container">
@@ -494,13 +496,15 @@
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-6 d-none d-xl-block">
-                    <div class="booked bg-EDEEC6 height-same border-0">
-                    <div class="text-start" id="booked-white">
+        <div class="height-50">
+               <div class="booked bg-EDEEC6 height-same border-0">
+                        <div class="text-start" id="booked-white">
                         <img src="/new-design/user-dashboard/images/cheak1.png" alt="" class="img-responsive mb-3">
                     <p>Write your own article</p>
                     <span>Write one article</span>
                     </div>
                 </div>
+        </div>
 
                 </div>
             </div>

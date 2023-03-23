@@ -183,7 +183,7 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n" data-bs-toggle="modal" data-bs-target="#lowyar2">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/1.png" alt="Group">
                  <i class="fa-solid fa-crown crown-p"></i>
 
                </div>
@@ -217,7 +217,7 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/3.png" alt="Group">
 
                </div>
               </div>
@@ -250,7 +250,7 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/7.png" alt="Group">
 
                </div>
               </div>
@@ -283,7 +283,7 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/5.png" alt="Group">
 
                </div>
               </div>
@@ -319,7 +319,7 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/2.png" alt="Group">
                  <i class="fa-solid fa-crown crown-p"></i>
 
                </div>
@@ -353,7 +353,7 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/4.png" alt="Group">
 
                </div>
               </div>
@@ -386,7 +386,7 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/7.png" alt="Group">
 
                </div>
               </div>
@@ -419,13 +419,15 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/6.png" alt="Group">
 
                </div>
               </div>
               <div class="col-7">
                 <h5>William Wright</h5>
-                <div class="row">
+                <dl$ git checkout  latest-1
+Branch 'latest-1' set up to track remote branch 'latest-1' from 'origin'.
+iv class="row">
                   <div class="col-6">
                     <ul class="star-part-2">
                       <li><i class="fa-solid fa-star"></i></li>
@@ -438,7 +440,7 @@
                   <div class="col-6 p-0">
                     <span class="rev-35">(35 Reviews)</span>
                   </div>
-                </div>
+                </dl$>
                 <p class="mt-2"><i class="fa-solid fa-location-dot"></i> Dubai, UAE <br>KingLawyers Firm</p>
 
               </div>
@@ -511,7 +513,7 @@
               <div class="col-sm-3 col-4 m-p-0">
                 <div class="d-flex-right dn">
                   <div class="cards needs">
-                    <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                    <img src="/new-design/assets/images/5.png" alt="Group">
                      <p class="name-uaser">Arundhati</p>
                       <p class="short-mes">UAE, Abu Dhabi</p>
                   </div>  
@@ -520,7 +522,7 @@
               <div class="col-sm-3 col-4 m-p-0">
                 <div class="d-flex-right">
                   <div class="cards needs">
-                    <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                    <img src="/new-design/assets/images/3.png" alt="Group">
                      <p class="name-uaser">Arundhati</p>
                       <p class="short-mes">UAE, Abu Dhabi</p>
                   </div>  
@@ -535,7 +537,7 @@
                   </div> 
 
                   <div class="cards needs alg">
-                    <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                    <img src="/new-design/assets/images/8.png" alt="Group">
                      <p class="name-uaser">Arundhati</p>
                       <p class="short-mes">UAE, Abu Dhabi</p>
                   </div>

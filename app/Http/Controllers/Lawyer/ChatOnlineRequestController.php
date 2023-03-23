@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 class ChatOnlineRequestController extends Controller
 {
     public function requests() {
+        
         $lawyer = Lawyer::whereUserId(auth()->user()->id)->first();
         $onlineRequests = ChatOnline::whereLawyerId($lawyer->id)->get();
         $ids = [];

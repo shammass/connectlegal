@@ -26,24 +26,24 @@
                         </div>
     
                         <ul class="menu-left">
-                            <li><a href="/" class="active-nav"><i class="fa-solid fa-house-user"></i>
+                            <li><a href="/" class="{{request()->is('/') ? 'active-nav' : ''}}"><i class="fa-solid fa-house-user"></i>
                                     Home</a>
                             </li>
-                            <li><a href="{{route('howItWorks')}}"><i class="fa-solid fa-landmark"></i> How It
+                            <li><a href="{{route('howItWorks')}}" class="{{request()->is('how-it-works') ? 'active-nav' : ''}}"><i class="fa-solid fa-landmark"></i> How It
                                     Works</a></li>
-                            <li><a href="{{route('lawyer.register-page')}}"><i class="fa-solid fa-users"></i> For Lawyers</a></li>
-                            <li><a href="{{route('question-answer')}}"><i class="fa-solid fa-question"></i>
+                            <li><a href="{{route('lawyer.register-page')}}" class="{{request()->is('lawyer/register') ? 'active-nav' : ''}}"><i class="fa-solid fa-users"></i> For Lawyers </a></li>
+                            <li><a href="{{route('question-answer')}}" class="{{request()->is('question-answers') ? 'active-nav' : ''}}"><i class="fa-solid fa-question"></i>
                                     Q&A</a></li>
-                            <li><a href="{{route('testimonials')}}"><i class="fa-solid fa-star"></i>
+                            <li><a href="{{route('testimonials')}}" class="{{request()->is('testimonials') ? 'active-nav' : ''}}"><i class="fa-solid fa-star"></i>
                                     Testimonials</a></li>
-                            <li><a href="{{route('our-lawyers')}}"><i class="fa-solid fa-bag-shopping"></i> Our
+                            <li><a href="{{route('our-lawyers')}}" class="{{request()->is('our-lawyers') ? 'active-nav' : ''}}"><i class="fa-solid fa-bag-shopping"></i> Our
                                     Lawyers</a></li>
                             <!-- <li><a href="layer.html"><i class="fa-solid fa-user"></i> Lawyers</a></li> -->
-                            <li><a href="{{ route('page-practice-areas') }}"><i class="fa-solid fa-scale-balanced"></i>
+                            <li><a href="{{ route('page-practice-areas') }}" class="{{request()->is('page-practice-area/details') ? 'active-nav' : ''}}"><i class="fa-solid fa-scale-balanced"></i>
                                     Practice Area</a></li>
-                            <li><a href="{{route('blogs-articles', 1)}}"><i class="fa-solid fa-book"></i> Blogs & Articles</a>
+                            <li><a href="{{route('blogs-articles', 1)}}" class="{{request()->is('blogs-articles/1') ? 'active-nav' : ''}}"><i class="fa-solid fa-book"></i> Blogs & Articles</a>
                             </li>
-                            <li><a href="{{route('hire-a-lawyer')}}"><i class="fa-solid fa-address-card"></i>
+                            <li><a href="{{route('hire-a-lawyer')}}" class="{{request()->is('all-lawyer-services') ? 'active-nav' : ''}}"><i class="fa-solid fa-address-card"></i>
                                 Lawyer Services</a></li>
                             <!-- <li><a href="#"><i class="fa-solid fa-gavel"></i> Legal Articles</a></li> -->
                             @if(auth()->user())                      
@@ -64,7 +64,7 @@
                                 @endif
                             @else
                                 <li>
-                                    <a href="{{route('user.login')}}"><i class="fa-solid fa-right-from-bracket"></i> Login</a>
+                                    <a href="{{route('user.login')}}" class="{{request()->is('login') ? 'active-nav' : ''}}"><i class="fa-solid fa-right-from-bracket"></i> Login</a>
                                 </li>
                             @endif
                         </ul>
@@ -84,7 +84,11 @@
                                     <a href="#">
                                         <div class="row  align-items-center">
                                             <div class="col-3 img-class-same">
+                                                @if($lawyer->profile_pic != '')
                                                 <img src="/storage/{{$lawyer->profile_pic}}" alt="legal-1" class="legal-1">
+                                                @else
+                                                <img src="/new-design/user-dashboard/images/av1.png" class="legal-1">
+                                                @endif
                                             </div>
                                             <div class="col-7">
                                                 <p class="name-uaser">{{$lawyer->user->name}}</p>
@@ -107,7 +111,11 @@
                                                                 <a href="#">
                                                                     <div class="row">
                                                                         <div class="col-sm-2 col-3 pr-0">
-                                                                        <img src="/new-design/assets/images/legal-1.png" alt="legal-1" class="legal-1">
+                                                                        @if($lawyer->profile_pic != '')
+                                                                        <img src="/storage/{{$lawyer->profile_pic}}" alt="legal-1" class="legal-1">
+                                                                        @else
+                                                                        <img src="new-design/user-dashboard/images/av1.png" alt="legal-1" class="legal-1">
+                                                                        @endif
                                                                         </div>
                                                                         <div class="col-sm-7 col-6 pl-0">
                                                                         <p class="name-uaser">{{$lawyer->user->name}}</p>
@@ -202,7 +210,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="modal fade modal-popups" id="consult-lawyer-{{$lawyer->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal fade modal-popups contact-popop" id="consult-lawyer-{{$lawyer->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                             <div class="modal-dialog  modal-dialog-centered modal-lg" id="modal-login">
                                                 <div class="modal-content"> 
                                                     <div class="modal-header text-right"> 
@@ -249,7 +257,7 @@
                                         </div>
 
 
-                                        <div class="modal fade popuphome videopopup" id="lawyer-profile-{{$lawyer->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                        <div class="modal fade popuphome videopopup videoimage_popup" id="lawyer-profile-{{$lawyer->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content border-0">
@@ -259,7 +267,11 @@
                                                                 <div class="row">
                                                                     <div class="col-md-3 col-3 text-center m-p-0 over-n">
                                                                         <div class="sma-amse">
+                                                                            @if($lawyer->profile_pic)
                                                                             <img src="/storage/{{$lawyer->profile_pic}}" alt="Group">
+                                                                            @else
+                                                                            <img src="/new-design/user-dashboard/images/av1.png" alt="Group">
+                                                                            @endif
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6 col-9" id="jaidev-text">
@@ -291,8 +303,8 @@
                                                                 <h6 class="mt-xl-5 mt-0"><strong>Description:</strong></h6>
                                                                 <p>{{$lawyer->disclaimer}}</p>
                                                             @endif
-                                                            <div class="row mb-4">
-                                                                <div class="col-sm-4">
+                                                            <div class="row mb-4 mt-md-2">
+                                                                <div class="col-sm-2">
                                                                     <ul>
                                                                         <!-- <li><strong>Experience:</strong></li> -->
                                                                         <li><strong>Position:</strong></li>
@@ -301,7 +313,7 @@
                                                                         <li><strong>Lanuages:</strong></li>
                                                                     </ul>
                                                                 </div>
-                                                                <div class="col-sm-8">
+                                                                <div class="col-sm-10">
                                                                     <ul>
                                                                         <!-- <li>25 Years of experience</li> -->
                                                                         <li> {{$lawyer->position}}</li>
@@ -350,7 +362,11 @@
                                     <a href="#">
                                         <div class="row">
                                             <div class="col-3 img-class-same">
+                                                @if($lawyer->profile_pic != '')
                                                 <img src="/storage/{{$lawyer->profile_pic}}" alt="question-1" class="legal-1">
+                                                @else
+                                                <img src="/new-design/user-dashboard/images/av1.png" class="legal-1">
+                                                @endif
                                             </div>
                                             <div class="col-9">
                                                 <p class="name-uaser">{{$lawyer->user->name}}</p>

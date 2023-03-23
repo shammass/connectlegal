@@ -38,25 +38,28 @@
                             <form action="{{route('login')}}" method="post">
                                 @csrf()
                                 <div class="form-1 mt-md-5 mt-2 position-relative" id="login-id">
-                                    <label class="hed mt-3 mb-3" >Email Address</label>
+                                    <label class="hed mt-lg-3" >Email Address</label>
                                     <input type="text" name="email" class="f-input form-control" placeholder="email@domain.com">
                                     @error('email')
                                         <div class="text-red-500" style="color:red;">{{ $message }}</div>
                                     @enderror
-                                    <label class="hed mt-3 mb-3">Password</label>
+                                    <label class="hed mt-3">Password</label>
                                     <div class="d-flex">
                                         <input type="password" name="password"  class="f-input form-control" id="password-field" placeholder=".........">
-                                        <i class="fa-solid fa-eye view-icon" id="toggle-password" style="top: 44%!important;"></i>
+                                        <i class="fa-solid fa-eye view-icon" id="toggle-password"></i>
                                     </div>
                                     @error('password')
                                         <div class="text-red-500" style="color:red;">{{ $message }}</div>
                                     @enderror
+                                    <p class="f-p mt-4 mb-4"  data-bs-toggle="modal" data-bs-target="#staticBackdrop6" style="cursor:pointer;">Forgot Password?</p> 
                                     <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}" ></div>
                                     @error('g-recaptcha-response')
                                         <div class="text-red-500" style="color:red;">{{ $message }}</div>
                                     @enderror                                
-                                    <p class="f-p mt-4 mb-4"  data-bs-toggle="modal" data-bs-target="#staticBackdrop6" style="cursor:pointer;">Forgot Password?</p>                                
-                                    <button type="submit" class="btn-lgn">Login</button>
+                                                     
+                                 <div class="text-center mt-4">
+                                        <button type="submit" class="btn-lgn">Login</button>
+                                 </div>
                                 </div>
                             </form>
                         </div>

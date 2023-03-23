@@ -264,8 +264,8 @@ class HireLawyerController extends Controller
         ]);
 
         // \Stripe\Stripe::setApiKey(env("STRIPE_SECRET"));
-        //$domain = 'http://127.0.0.1:8000';
-       $domain = 'https://dev.test.connectlegal.ae';
+        // $domain = 'http://127.0.0.1:8000';
+        $domain = 'https://connectlegal.ae';
 
         $scheduleMeeting = SchduledMeeting::create([
             'scheduled_by'      => auth()->user()->id,

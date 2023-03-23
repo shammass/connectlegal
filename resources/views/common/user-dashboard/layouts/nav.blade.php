@@ -1,5 +1,5 @@
 <div class="top-header">
-    <div class="row">
+    <div class="row align-items-center">
         <div class="col-sm-9 d-none d-xl-block">
             <nav class="navbar navbar-expand-lg navbar-light main-menu">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,16 +31,13 @@
                             <a class="nav-link" href="{{route('question-answer')}}">Q & A</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('question-answer')}}">Q & A</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="{{route('testimonials')}}">Testimonials</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('blogs-articles', 1)}}">Blogs & Articles</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="practice-area.html">Practice Area</a>
+                            <a class="nav-link" href="{{ url('page-practice-area/details') }}">Practice Area</a>
                         </li>
                     </ul>
                 </div>
@@ -67,21 +64,21 @@
                         <ul class="moreoption">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical text-white"></i></a>
-                                <ul class="dropdown-menu" id="drop-focus">
+                                <ul class="dropdown-menu mt-3" id="drop-focus">
                                     <li>
-                                        <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img src="/new-design/user-dashboard/images/icons-/1.png" alt="">
+                                        <a class="dropdown-item" href="#"> <img src="/new-design/user-dashboard/images/icons-/1.png" alt="">
                                             My Profile</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img src="/new-design/user-dashboard/images/icons-/2.png" alt="">
+                                        <a class="dropdown-item" href="{{ asset('dashboard') }}"> <img src="/new-design/user-dashboard/images/icons-/2.png" alt="">
                                             Dashboard</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img src="/new-design/user-dashboard/images/icons-/3.png" alt="">
+                                        <a class="dropdown-item" href="{{ asset('testimonials') }}"> <img src="/new-design/user-dashboard/images/icons-/3.png" alt="">
                                             Write Testimonials</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{route('user.logout')}}" onclick="return confirm('Are you sure you want to logout?')"> <img src="/new-design/user-dashboard/images/icons-/4.png" alt="">
+                                        <a class="dropdown-item" href="{{route('blogs-articles', 1)}}"> <img src="/new-design/user-dashboard/images/icons-/4.png" alt="">
                                             Blogs and Articles</a>
                                     </li>
                                     <li>
@@ -94,6 +91,7 @@
                     </div>
                 </div>
             </div>
+             </div>
             <div class="col-xl-8  col-12 d-block d-xl-none">
                 <div class="d-flex1 ">
                     <div class="col-md-2">
@@ -122,7 +120,7 @@
                         <ul class="menu-left">
                             <li><a href="/" class="active-nav"><i class="fa-solid fa-house-user"></i> Home</a>
                             </li>
-                            <li><a href="{{route('howItWorks')}}"><i class="fa-solid fa-landmark"></i> How It Works</a></li>
+                            <li><a href="{{route('howItWorks')}}" class="{{request()->is('how-it-works') ? 'active-nav' : ''}}"><i class="fa-solid fa-landmark"></i> How It Works</a></li>
                             <li><a href="{{route('lawyer.register-page')}}"><i class="fa-solid fa-users"></i> For Lawyers</a></li>
                             <li><a href="{{route('question-answer')}}"><i class="fa-solid fa-question"></i> Q&A</a></li>
                             <li><a href="{{route('testimonials')}}"><i class="fa-solid fa-star"></i> Testimonials</a></li>
@@ -140,13 +138,12 @@
                             <li><a href="{{route('user.logout')}}"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
                             @endif
                             @if(!auth()->user())
-                            <li><a href="{{route('user.login')}}"><i class="fa-solid fa-right-from-bracket"></i> Login</a></li>
+                            <li><a href="{{route('user.login')}}" class="{{request()->is('login') ? 'active-nav' : ''}}"><i class="fa-solid fa-right-from-bracket"></i> Login</a></li>
                             @endif
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 
 </div>

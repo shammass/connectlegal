@@ -7,9 +7,9 @@
           <div class="container-">
           @include('lawyer.pages.community.groups.group-header')
 
-            <div class="commn_section">
-              <div class="row">
-                <div class="col-lg-6 col-md-4 col-12 mb-lg-0 mb-4">
+            <div class="commn_section mt-4">
+              <div class="row align-items-center">
+                <div class="col-lg-6 col-md-4 col-12 mb-lg-0 mb-5">
                   <h1 class="font-64"><span class="span-color-dark">All Lawyers</span></h1>
                   <p>Displaying <span class="span-color">1 - 10 of 10 layers</span></p>
                 </div>
@@ -61,8 +61,12 @@
                     <div class="box-1" style="cursor:pointer;" onclick="chatWithLawyer('{{$lawyer->user_id}}')">
                         <div class="home-box-fifth add-class">
                             <div class="text-center">
-                            <div class="box">
-                                <img src="/storage/{{$lawyer->profile_pic}}" alt="" style="width:50%!important;height:75px!important">
+                            <div class="box" id="box-img-same">
+                                 @if($lawyer->profile_pic  != '')
+                                <img src="/storage/{{$lawyer->profile_pic}}" alt="" >
+                                @else
+                                <img src="/new-design/user-dashboard/images/av1.png" >
+                                @endif
                                 <!-- <i class="fa-solid fa-crown crown-p"></i> -->
                                 <div class="box-content">
                                 <ul class="icon">

@@ -90,7 +90,9 @@
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
               </div>
           </div>
-          <div class="tab-pane fade" id="pills-contact3" role="tabpanel" aria-labelledby="pills-contact-tab3">
+          <div class="tab-pane fade" id="pills-contact3" role="tabpanl$ git checkout  latest-1
+Branch 'latest-1' set up to track remote branch 'latest-1' from 'origin'.
+l" aria-labelledby="pills-contact-tab3">
               <div class="almo">
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
               </div>
@@ -188,7 +190,7 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n" data-bs-toggle="modal" data-bs-target="#lowyar2">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/1.png" alt="Group">
                  <i class="fa-solid fa-crown crown-p"></i>
 
                </div>
@@ -222,7 +224,7 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/3.png" alt="Group">
 
                </div>
               </div>
@@ -255,7 +257,7 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/7.png" alt="Group">
 
                </div>
               </div>
@@ -288,7 +290,7 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/5.png" alt="Group">
 
                </div>
               </div>
@@ -324,7 +326,7 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/2.png" alt="Group">
                  <i class="fa-solid fa-crown crown-p"></i>
 
                </div>
@@ -358,7 +360,7 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/4.png" alt="Group">
 
                </div>
               </div>
@@ -391,7 +393,7 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/7.png" alt="Group">
 
                </div>
               </div>
@@ -424,7 +426,7 @@
             <div class="row">
               <div class="col-3 text-center m-p-0 over-n">
                <div class="sma-amse">
-                 <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                 <img src="/new-design/assets/images/6.png" alt="Group">
 
                </div>
               </div>
@@ -516,7 +518,7 @@
               <div class="col-sm-3 col-4 m-p-0">
                 <div class="d-flex-right dn">
                   <div class="cards needs">
-                    <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                    <img src="/new-design/assets/images/5.png" alt="Group">
                      <p class="name-uaser">Arundhati</p>
                       <p class="short-mes">UAE, Abu Dhabi</p>
                   </div>  
@@ -525,7 +527,7 @@
               <div class="col-sm-3 col-4 m-p-0">
                 <div class="d-flex-right">
                   <div class="cards needs">
-                    <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                    <img src="/new-design/assets/images/3.png" alt="Group">
                      <p class="name-uaser">Arundhati</p>
                       <p class="short-mes">UAE, Abu Dhabi</p>
                   </div>  
@@ -540,7 +542,7 @@
                   </div> 
 
                   <div class="cards needs alg">
-                    <img src="/new-design/assets/image/practice-area/Group.png" alt="Group">
+                    <img src="/new-design/assets/images/8.png" alt="Group">
                      <p class="name-uaser">Arundhati</p>
                       <p class="short-mes">UAE, Abu Dhabi</p>
                   </div>

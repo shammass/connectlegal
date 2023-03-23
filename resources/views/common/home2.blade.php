@@ -4,6 +4,7 @@
     @include('common.home.layouts.header')
 </head>
 <body>
+    
     @include('common.home.layouts.sidenav')
 <!-- login popup -->
     @include('common.home.layouts.login-modals')
@@ -228,6 +229,7 @@
                     <li><span class="material-symbols-rounded">check_circle</span> Make an appointment with Advocates.</li>
                     <li><span class="material-symbols-rounded">check_circle</span> Make an appointment with Advocates.</li>
                     <li><span class="material-symbols-rounded">check_circle</span> Make an appointment with Advocates.</li>
+                   
                 </ul>
                 <button class="contactnow1">Contact now <i class="fas fa-arrow-right bg-green" id="h-100"></i></button>
             </div>
@@ -532,7 +534,7 @@
             </div>
             <div class="footer-copyright-item2">
                 <p class="footer-copyright-text">
-                <i class="far fa-copyright"></i> 2021 Litho is Proudly Powered by ThemeZaa</p>
+                <i class="far fa-copyright"></i> 2021 Litho is Proudly Powered by Connectlegal</p>
             </div>
             <div class="footer-copyright-item3">
                 <div><a href="#" class="socialIcons white"><i class="fab fa-instagram"></i></a></div>

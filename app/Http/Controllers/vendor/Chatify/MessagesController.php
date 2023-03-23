@@ -295,6 +295,7 @@ class MessagesController extends Controller
      */
     public function send(Request $request)
     {
+        
         $request['message'] = $request['message'] ?? 'file';
         if($request['message']) {
 

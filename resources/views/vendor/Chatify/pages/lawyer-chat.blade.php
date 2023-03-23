@@ -12,9 +12,9 @@
                                             <div class="chat-header">
                                                 <div class="msg-search">
                                                     @if($lawyerDetail)
-                                                        <img src="/new-design/user-dashboard/images/legal-2.png" alt="">
+                                                     <img src="/storage/{{auth()->user()->getProfilePic(auth()->user()->id)}}"  style="width: 40px;height: 40px;border-radius: 20px;" alt="">
                                                     @else 
-                                                        <img src="/storage/{{auth()->user()->getProfilePic(auth()->user()->id)}}"  style="width: 40px;height: 40px;border-radius: 20px;" alt="">
+                                                        <img src="/new-design/user-dashboard/images/legal-2.png" alt="">
                                                     @endif
                                                     <a class="add" href="#" style="text-decoration:none;">
                                                         <ul class="moreoption">
@@ -59,15 +59,21 @@
                                                         <div class="tab-pane fade show active" id="Open" role="tabpanel"
                                                             aria-labelledby="Open-tab">
                                                             <!-- chat-list -->
+                                                            
                                                             <div class="chat-list">
                                                                 @if($acceptedLawyers)
                                                                     @foreach($acceptedLawyers as $k => $lawyer)
                                                                         <a href="#" onclick="chatWithLawyer('{{$lawyer->lawyer->user_id}}')" class="d-flex">
                                                                             <div class="flex-shrink-0">
+                                                                                
+                                                                                @if($lawyer->profile_pic != '' )
                                                                                 <img class="img-fluid"
-                                                                                    src="/storage/{{$lawyer->lawyer->profile_pic}}"
+                                                                                    src="/storage/{{$lawyer->profile_pic}}"
                                                                                     style="width: 40px;height: 40px;border-radius: 20px;"
                                                                                     alt="user img">
+                                                                                    @else
+                                                                                    <img src="/new-design/user-dashboard/images/av1.png">
+                                                                                    @endif
                                                                                 <!-- <span class="active"></span> -->
                                                                             </div>
                                                                             <div class="flex-grow-1 ms-3">
@@ -108,10 +114,14 @@
                                                                     @foreach($acceptedLawyers as $k => $lawyer)
                                                                         <a href="#" onclick="chatWithLawyer('{{$lawyer->lawyer->user_id}}')" class="d-flex">
                                                                             <div class="flex-shrink-0">
+                                                                                @if($lawyer->profiel_pic != '')
                                                                                 <img class="img-fluid"
                                                                                     style="width: 40px;height: 40px;border-radius: 20px;"
                                                                                     src="/storage/{{$lawyer->lawyer->profile_pic}}"
                                                                                     alt="user img">
+                                                                                    @else
+                                                                                    <img src="/new-design/user-dashboard/images/av1.png" style="width: 40px;height: 40px;border-radius: 20px;">
+                                                                                    @endif
                                                                                 <span class="active"></span>
                                                                             </div>
                                                                             <div class="flex-grow-1 ms-3">

@@ -214,8 +214,11 @@
                                 <div class="row align-items-center">
                                     <div class="col-3 text-center m-p-0 over-n">
                                         <div class="img-class-same">
-                                            
+                                            @if($lawyer->profile_pic != '')
                                             <img src="/storage/{{$lawyer->profile_pic}}" alt="Group">
+                                            @else
+                                            <img src="/new-design/user-dashboard/images/av1.png">
+                                            @endif
                                         </div>
                                         
                                     </div>

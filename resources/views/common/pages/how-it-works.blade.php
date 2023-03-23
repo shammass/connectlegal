@@ -1,6 +1,6 @@
 @extends('common.home.layouts.app')
 @section('content')
-    <div class="p-80">
+    <div class="p-80 bg-E8F8F2-same">
         <section class="p-0">
             <div class="container" id="accodian-class">
                 <div class="row">

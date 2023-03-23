@@ -10,9 +10,9 @@ body {
     font-weight: 500;
 }
 
-#accodian-class {
-    background-color: #F4FEFA;
-}
+/*#accodian-class {*/
+/*    background-color: #F4FEFA;*/
+/*}*/
 
 .accordion-button:not(.collapsed) {
     color: #20908d;
@@ -170,11 +170,6 @@ div#login-id input::placeholder {
 
 }
 
-i.fa-solid.fa-eye.view-icon {
-    position: absolute;
-    top: 50%;
-    right: 0;
-}
 
 
 @media(max-width:1024px) {
@@ -246,7 +241,7 @@ i.fa-solid.fa-eye.view-icon {
     max-width: 747px;
     padding: 30px 30px;
     color: #191919;
-    background: #f4fefa;
+    background: #E8F8F2;
 }
 .Generatebtn.addclassstyle {
     font-size: 12px;
@@ -736,12 +731,9 @@ select#positon {
         padding: 6px;
     }
 
-    .col-md-6.text-end.col-6 {
-        padding: 0px;
-    }
 
     h5.mon-txt-cvr {
-        font-size: 14px;
+        font-size: 10px;
         line-height: 20px;
     }
 
@@ -761,6 +753,7 @@ select#positon {
         margin-bottom: 30px;
         font-weight: 500;
     }
+  
 }
 
 
@@ -787,7 +780,7 @@ p.txt-bl-2 {
 }
 
 img.icn {
-    width: 216px;
+    width: 170PX;
 }
 
 small {
@@ -2730,7 +2723,7 @@ p.plt {
 
 @media(max-width:991px) {
     h5.mon-txt-cvr {
-        font-size: 15px;
+        font-size: 10px;
     }
 }
 
@@ -3759,8 +3752,6 @@ color: #fff;
 }
 
 /* / practice area slider end /  */
-
-
 
 
 
@@ -5236,11 +5227,11 @@ img.off-logo {
 
 
 /* 12-03-2023 */
-.user-online-g img.legal-1 {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
+/*.user-online-g img.legal-1 {*/
+/*    width: 60px;*/
+/*    height: 60px;*/
+/*    border-radius: 50%;*/
+/*}*/
 .main-tabs {
     position: absolute;
     right: 82px;
@@ -5260,3 +5251,199 @@ img.off-logo {
     }
 }
 
+@media(max-width:1024px){
+    
+    div#form {
+    padding: 0px;
+}
+.practice-area {
+    padding: 20px 0 !important;
+}
+.practice-area {
+    padding: 30px 0 !important;
+}
+h1.rg {
+    padding-top: 0px;
+}
+.bk {
+    padding: 0px 0px 20px;
+}
+.Login{
+    padding-top:20px;
+}
+}
+
+/**/
+div#pills-tabContent.tab-content {
+    background: #fff;
+}
+div#pills-tabContent.tab-content.class-bg{
+    background: #fff0;
+}
+
+
+
+
+@media(max-width:1714px) {
+.cards p.short-mes {
+    font-size: 10px; 
+}    
+ .eles { 
+    padding: 20px;
+}   
+ul.post-1 li a img {
+    width: 16px; 
+}
+.cards p.name-uaser { 
+    font-size: 12px;
+    line-height: 20px; 
+}
+.cards p.short-mes {
+    font-size: 7px;
+}
+
+
+}
+
+
+@media(max-width:1500px) {
+div#form p.l-a { 
+    font-size: 16px;
+    line-height: 22px;
+}
+.font-tal { 
+    line-height: 42px !important;
+}
+.icon .txt-icn h4.l-txt.font-tal {
+    margin-top: 110px;
+}
+p.gr { 
+    line-height: 21px;
+}    
+ h1.rg { 
+    font-size: 26px; 
+}
+h1.rgb {
+    width: 220px;
+    font-size: 26px;
+}
+p.grr {
+    width: 220px;
+}
+
+ul.post-1 li a { 
+    font-size: 10px; 
+}
+
+
+
+
+}
+
+@media(max-width:1350px) {
+ ul.post-1 li a {
+    font-size: 9px;
+}   
+  .Hire p { 
+    font-size: 15px;
+    line-height: 25px; 
+}
+.main-menu ul.navbar-nav li a { 
+    font-size: 12px; 
+
+}
+.lawyers-part ul.star-part-2 li {
+    font-size: 9px;
+}
+
+
+}
+
+@media(max-width:1200px) {
+p.font-ad {
+    font-size: 10px !important;
+}
+
+
+
+
+
+}
+ 
+
+@media(max-width:991px) {
+.booked p {
+    line-height: 1.5;
+    padding-left: 0;
+}
+.icon .txt-icn h4.l-txt.font-tal {
+    margin-top: 0;
+}
+h1.rgb {
+    width:unset; 
+}
+p.grr {
+    width: unset;
+}
+
+
+
+
+
+}
+
+@media(max-width:767px) {
+    
+ul.ft-list-a li {
+    padding-bottom: 0;
+}
+p.p-tag {
+    width: 260px !important;
+}
+.Login{
+    padding: 20px;
+}
+}
+
+@media(min-width:768px) {
+    p.p-tag {
+    width: 260px !important;
+}
+.Login{
+    padding: 20px;
+}
+h1.h-tg {
+    width: 319px;
+}
+}
+
+@media (min-width:1200px) and (max-width:1366px) {
+    
+    h1.rg {
+    font-size: 22px;
+}
+p.gr {
+    color: #156075;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 22px !important;
+    padding-top: 10px;
+}
+h1.rgb {
+    font-size: 26px;
+}
+h1.rg {
+    padding-top: 60px !important;
+}
+p.grr {
+    font-size: 12px;
+}
+}
+i.fa-solid.fa-crown.crown-p {
+    bottom: 0px !important;
+    position: absolute;
+    right: 0px !important;
+}
+p.p-tag {
+    width: 356px;
+}
