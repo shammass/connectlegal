@@ -238,7 +238,9 @@
                     </ul>
                   </div>
                   <div class="col-6 p-0">
-                    <span class="rev-35">(35 Reviews)</span>
+                  l$ git checkout  latest-1
+Branch 'latest-1' set up to track remote branch 'latest-1' from 'origin'.
+       <span class="rev-35">(35 Reviews)</span>
                   </div>
                 </div>
                 <p class="mt-2"><i class="fa-solid fa-location-dot"></i> Dubai, UAE <br>Connect Resources Firm</p>
@@ -346,7 +348,9 @@
                 </div>
                 <p class="mt-2"><i class="fa-solid fa-location-dot"></i> Dubai, UAE <br>Freelancer</p>
 
-              </div>
+                l$ git checkout  latest-1
+Branch 'latest-1' set up to track remote branch 'latest-1' from 'origin'.
+  </div>
               <div class="col-2 text-end ">
                 <i class="fa-solid fa-eye eye-pri"></i>
               </div>
@@ -365,7 +369,9 @@
                 <h5>Arundhati Chawla</h5>
                 <div class="row">
                   <div class="col-6">
-                    <ul class="star-part-2">
+                    <ul git checkout  latest-1
+Branch 'latest-1' set up to track remote branch 'latest-1' from 'origin'.
+ class="star-part-2">
                       <li><i class="fa-solid fa-star"></i></li>
                       <li><i class="fa-solid fa-star"></i></li>
                       <li><i class="fa-solid fa-star"></i></li>

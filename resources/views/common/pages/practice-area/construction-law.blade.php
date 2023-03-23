@@ -506,13 +506,15 @@ Federal Law No. 6 of 2009 Concerning the Establishment of the UAE National Build
             <div class="row">
               <div class="col-sm-3"></div>
               <div class="col-sm-3 col-4 m-p-0">
-                <div class="d-flex-right dn">
+                <dl$ class="d-flex-right dn">
                   <div class="cards needs">
                     <img src="/new-design/assets/images/5.png" alt="Group">
                      <p class="name-uaser">Arundhati</p>
                       <p class="short-mes">UAE, Abu Dhabi</p>
                   </div>  
-                </div>
+                </dl$ git checkout  latest-1
+Branch 'latest-1' set up to track remote branch 'latest-1' from 'origin'.
+iv>
               </div>
               <div class="col-sm-3 col-4 m-p-0">
                 <div class="d-flex-right">

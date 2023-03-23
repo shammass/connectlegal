@@ -466,7 +466,9 @@
               <span aria-hidden="true"> <img src="/new-design/assets/image/practice-area/Vector (3).png" alt=""> </span>
             </a>
           </li>
-        </ul>
+        </ul>l$ git checkout  latest-1
+Branch 'latest-1' set up to track remote branch 'latest-1' from 'origin'.
+
       </nav>
     </div>
   </div>
@@ -511,7 +513,9 @@
               <div class="col-sm-3 col-4 m-p-0">
                 <div class="d-flex-right dn">
                   <div class="cards needs">
-                    <img src="/new-design/assets/images/5.png" alt="Group">
+                  l$ git checkout  latest-1
+Branch 'latest-1' set up to track remote branch 'latest-1' from 'origin'.
+   <img src="/new-design/assets/images/5.png" alt="Group">
                      <p class="name-uaser">Arundhati</p>
                       <p class="short-mes">UAE, Abu Dhabi</p>
                   </div>  

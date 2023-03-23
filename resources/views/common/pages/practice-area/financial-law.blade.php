@@ -425,7 +425,9 @@
               </div>
               <div class="col-7">
                 <h5>William Wright</h5>
-                <div class="row">
+                <dl$ git checkout  latest-1
+Branch 'latest-1' set up to track remote branch 'latest-1' from 'origin'.
+iv class="row">
                   <div class="col-6">
                     <ul class="star-part-2">
                       <li><i class="fa-solid fa-star"></i></li>
@@ -438,7 +440,7 @@
                   <div class="col-6 p-0">
                     <span class="rev-35">(35 Reviews)</span>
                   </div>
-                </div>
+                </dl$>
                 <p class="mt-2"><i class="fa-solid fa-location-dot"></i> Dubai, UAE <br>KingLawyers Firm</p>
 
               </div>

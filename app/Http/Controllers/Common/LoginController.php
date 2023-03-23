@@ -158,8 +158,8 @@ class LoginController extends Controller
     public function profilePic($lawyer, $request) {
         $imageDir = 'lawyer/profile_pic/' . $lawyer->id;
 
-        $image = $request->file('profile_pic');
-        if ($request->hasFile('profile_pic')) {
+        $image = $request->file('profile_image');
+        if ($request->hasFile('profile_image')) {
             $lawyer->profile_pic = $image->store($imageDir);
             $lawyer->save();
         }

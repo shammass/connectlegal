@@ -90,7 +90,9 @@ In the UAE, family law is regulated by Islamic law (Sharia) as well as governmen
 <p>Inheritance is governed by Sharia law and generally follows the principle of distributing the deceased's assets among their family members, with males receiving a larger share than females. However, the deceased can make a will that specifies how their assets should be distributed. If there is no will, the court will determine how the assets should be distributed according to Sharia law.</p>
 
 <h2>Domestic Violence:</h2>
-<p>The UAE has several laws and regulations that protect victims of domestic violence. The Domestic Violence Law provides legal protection to victims of domestic violence and outlines penalties for perpetrators. The Child Protection Law also provides legal protection to children who are victims of abuse or neglect.</p>
+<p>The UAE has several laws andl$ git checkout  latest-1
+Branch 'latest-1' set up to track remote branch 'latest-1' from 'origin'.
+ regulations that protect victims of domestic violence. The Domestic Violence Law provides legal protection to victims of domestic violence and outlines penalties for perpetrators. The Child Protection Law also provides legal protection to children who are victims of abuse or neglect.</p>
 
 <p>Overall, family law in the UAE is complex and can vary depending on the specific circumstances of each case. It is recommended that individuals seek the advice of a qualified lawyer who is familiar with UAE family law when dealing with family law matters in the UAE.</p>
 
@@ -345,9 +347,9 @@ In the UAE, family law is regulated by Islamic law (Sharia) as well as governmen
           <div class="law-box prime">
             <div class="row  align-items-center">
               <div class="col-3 text-center m-p-0 over-n ">
-               <div class="sma-amse"  id="iconcrow">
-                 <img src="/new-design/assets/images/2.png" alt="Group">
-               </div>
+               <dl$ git checkout  latest-1
+Branch 'latest-1' set up to track remote branch 'latest-1' from 'origin'.
+/div>
               </div>
               <div class="col-7">
                 <h5>Jaidev Kumar</h5>
@@ -366,6 +368,8 @@ In the UAE, family law is regulated by Islamic law (Sharia) as well as governmen
                   </div>
                 </div>
                 <p class="mt-2"><i class="fa-solid fa-location-dot"></i> Dubai, UAE <br>Freelancer</p>
+                l$ git checkout  latest-1
+Branch 'latest-1' set up to track remote branch 'latest-1' from 'origin'.
 
               </div>
               <div class="col-2 text-end ">
